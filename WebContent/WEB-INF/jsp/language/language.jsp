@@ -6,24 +6,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-<link id=""
-	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
-	rel="stylesheet">
-
-
+<link href="<c:url value="/resources/css/dataTables/datatables.min.css"/>" rel="stylesheet">
+<script src="<c:url value="/resources/js/datatablecustom.js" />" type="text/javascript"/></script>
+<script type="text/javascript" src="<c:url value="/resources/js/modal_language.js" />"></script>  
 <title>SHMS-Language</title>
-
 </head>
 <body>
-
-	<!-- Include Page Header-->
-
 	<jsp:include page="../header/header.jsp"></jsp:include>
-
-	<!-- Page Contents -->
-	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
 			<h2>Languages</h2>
@@ -48,7 +37,6 @@
 						</div>
 					</div>
 					<div class="ibox-content">
-
 						<div class="table-responsive">
 							<table
 								class="table table-striped table-bordered table-hover dataTables-example">
@@ -62,17 +50,14 @@
 									</tr>
 								</thead>
 								<tbody>
-
-									<!-- Fetching Language Table-->
 									<c:forEach items="${languages}" var="language">
 										<tr class="gradeX">
 											<td><c:out value="${language.id}" /></td>
 											<td><c:out value="${language.languageName}" /></td>
 											<td>INDIA</td>
-
-											<td class="center">	<label class=" label label-primary">${language.active == '0' ? 'Active' : 'Inactive'}
-								 </label>
-												 	    </td>
+											<td class="center">
+												<label class=" label label-primary">${language.active == '0' ? 'Active' : 'Inactive'}</label>
+									 	    </td>
 											<td class="center">
 												<form
 													action="${pageContext.request.contextPath}/language/editLanguage"
@@ -86,24 +71,15 @@
 														id="submitBtn" data-toggle="modal"
 														data-target="#confirm-submit" class="btn btn-default" />
 												</form>
-
 											</td>
 										</tr>
 									</c:forEach>
-
-									<!-- Demo -->
-									<!--End Action -->
 							</table>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-		<!-- Modal Popup Box -->
-  
 		<div class="modal fade" id="confirm-submit" tabindex="-1"
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -111,7 +87,6 @@
 					<div class="modal-header">Confirm Submit</div>
 					<div class="modal-body">
 						Are you sure you want to submit <label id="#langName"></label>?
-
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -120,20 +95,5 @@
 				</div>
 			</div>
 		</div>
-
- 
- 
- 
-		<!-- Page-Level Scripts -->
-		<script src="<c:url value="/resources/js/datatablecustom.js" />"
-			type="text/javascript">
-			
-		</script>
-	 <script type='text/javascript'
-		src="<c:url value="/resources/js/modal_language.js" />">
-		
-	</script>  
-
- 
 </body>
 </html>

@@ -2,26 +2,13 @@
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<!-- Bootstrap -->
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-
-<!-- Font awesome -->
-<link href="<c:url value="/resources/css/font-awesome.css" />" 	rel="stylesheet">
-
-<!-- Main Inspinia CSS files -->
-<link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
-
-<link id="loadBefore" href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-
-<title>SHMS-Header</title>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>SHMS-Header</title>
+	</head>
 <body>
-
 	<div id="wrapper">
 		<!-- Header left side -->
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -119,44 +106,19 @@
 			</nav>
 		</div>
 	 
-			<!-- Custom and plugin javascript -->
- 
-	
-	
-
-			<!-- Mainly scripts -->
 			<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
-			<script
-				src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
-				
+			<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
 			<script src="<c:url value="/resources/js/bootstrap.min.js" />" ></script>
-			<script
-				src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
-			<script
-				src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
-
-			<!-- Custom and plugin javascript -->
+			<script src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
+			<script src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
 			<script src="<c:url value="/resources/js/inspinia.js" />"></script>
-			<script
-				src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
-
-			<!-- iCheck -->
-			<script
-				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
-	 
-			<!-- Jvectormap -->
-			<script
-				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"/>"></script>
-			<script
-				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"/>"></script>
-
-			<!-- Flot -->
-			<script
-				src="<c:url value="/resources/js/plugins/flot/jquery.flot.js"/>"></script>
-			<script
-				src="<c:url value="/resources/js/plugins/flot/jquery.flot.tooltip.min.js"/>"></script>
-			<script
-				src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
+			<script	src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
+			<script src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
+			<script src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"/>"></script>
+			<script src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"/>"></script>
+			<script src="<c:url value="/resources/js/plugins/flot/jquery.flot.js"/>"></script>
+			<script src="<c:url value="/resources/js/plugins/flot/jquery.flot.tooltip.min.js"/>"></script>
+			<script src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
 			<script>
 				$(document).ready(
 						function() {
@@ -346,9 +308,5 @@
 							});
 						});
 			</script>
-			  
-	  
-			 
-			
 </body>
 </html>
