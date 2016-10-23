@@ -9,9 +9,11 @@ import javax.persistence.Table;
 @Table(name="UNIT_LANGUAGE")
 public class UnitLanguage extends Language{
 	
-	@Column(name="UNIT_LANGUAGE_NAME") private String unitLanguageName;
+	@Column(name="UNIT_LANGUAGE_NAME") 
+	private String unitLanguageName;
 	
-	@ManyToOne UnitLanguageGroup unitLanguageGroup;
+	@ManyToOne 
+	private UnitLanguageGroup unitLanguageGroup;
 
 	public String getUnitLanguageName() {
 		return unitLanguageName;

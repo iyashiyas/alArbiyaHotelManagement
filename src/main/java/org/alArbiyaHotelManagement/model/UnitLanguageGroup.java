@@ -2,6 +2,7 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 @Table(name="UNIT_LANGUAGE_GROUP")
 public class UnitLanguageGroup {
 	
-	@Id @GeneratedValue 
+	@Id @GeneratedValue
+	@Column(name="UNIT_LANGUAGE_GROUP_ID")
 	private long id;
 	
 	@OneToMany(mappedBy="unitLanguageGroup") 

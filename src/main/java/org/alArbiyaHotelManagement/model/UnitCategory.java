@@ -12,10 +12,11 @@ import javax.persistence.Table;
 import org.alArbiyaHotelManagement.enums.Status;
 
 @Entity
-@Table(name = "UNIT_MAJOR_CATEGORY")
-public class UnitMajorCategory {
+@Table(name = "UNIT_CATEGORY")
+public class UnitCategory {
 	
 	@Id @GeneratedValue 
+	@Column(name="UNIT_CATEGORY_ID")
 	private long id;
 	
 	@Column(name="CATEGORY_NAME") 
@@ -24,7 +25,7 @@ public class UnitMajorCategory {
 	@Column(name="CATEGORY_STATUS") 
 	private Status categoryStatus;
 	
-	@OneToMany(mappedBy="unitMajorCategory") 
+	@OneToMany(mappedBy="unitCategory") 
 	private Set<Unit> units;
 
 	public long getId() {

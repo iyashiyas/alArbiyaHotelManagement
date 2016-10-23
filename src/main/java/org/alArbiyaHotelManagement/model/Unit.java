@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.alArbiyaHotelManagement.enums.Status;
@@ -16,6 +15,7 @@ import org.alArbiyaHotelManagement.enums.Status;
 public class Unit {
 	
 	@Id @GeneratedValue 
+	@Column(name="UNIT_ID")
 	private long id;
 	
 	@Column(name="UNIT_NAME") 
@@ -30,11 +30,11 @@ public class Unit {
 	@Column(name="UNIT_DESCRIPTION") 
 	private String unitDescription;
 	
-	@OneToOne @PrimaryKeyJoinColumn 
+	@OneToOne 
 	private UnitLanguageGroup unitLanguageGroup;
 	
 	@ManyToOne 
-	private UnitMajorCategory unitMajorCategory;
+	private UnitCategory unitCategory;
 
 	public long getId() {
 		return id;
@@ -76,12 +76,12 @@ public class Unit {
 		this.unitDescription = unitDescription;
 	}
 
-	public UnitMajorCategory getUnitMajorCategory() {
-		return unitMajorCategory;
+	public UnitCategory getUnitMajorCategory() {
+		return unitCategory;
 	}
 
-	public void setUnitMajorCategory(UnitMajorCategory unitMajorCategory) {
-		this.unitMajorCategory = unitMajorCategory;
+	public void setUnitMajorCategory(UnitCategory unitCategory) {
+		this.unitCategory = unitCategory;
 	}
 
 	public UnitLanguageGroup getUnitLanguageGroup() {
