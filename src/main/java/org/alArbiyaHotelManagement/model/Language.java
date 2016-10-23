@@ -9,6 +9,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.alArbiyaHotelManagement.enums.Status;
+
 @Entity
 @Table(name="LANGUAGE")
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -22,8 +24,8 @@ public class Language {
 	private String languageName;
 	
 	@Column(name="LANGUAGE_STATUS") 
-	private boolean active;
-	
+	private Status active;
+
 	@OneToOne 
 	private Country country;
 
@@ -43,11 +45,11 @@ public class Language {
 		this.languageName = languageName;
 	}
 
-	public boolean isActive() {
+	public Status getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Status active) {
 		this.active = active;
 	}
 	
