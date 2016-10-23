@@ -10,9 +10,15 @@ import javax.persistence.Table;
 @Table(name="COUNTRY")
 public class Country {
 	
-	@Id @GeneratedValue	private long id;
-	@Column	private String countryName;
-	@Column	private String countryImageUrl;
+	@Id @GeneratedValue	
+	@Column(name="COUNTRY_ID")
+	private long id;
+	
+	@Column(name="COUNTRY_NAME")	
+	private String countryName;
+	
+	@Column(name="COUNTRY_IMAGE_URL")
+	private String countryImageUrl;
 
 	public long getId() {
 		return id;
