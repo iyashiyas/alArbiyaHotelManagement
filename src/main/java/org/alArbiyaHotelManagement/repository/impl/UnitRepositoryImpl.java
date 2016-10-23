@@ -1,7 +1,6 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +23,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UnitRepositoryImpl implements UnitRepository{
 	@PersistenceContext
-	EntityManager entityManger;
+	EntityManager entityManager;
 	
 	public Unit addUnit() {
 		return null;
@@ -33,10 +32,9 @@ public class UnitRepositoryImpl implements UnitRepository{
 		return null;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public Set<UnitCategory> getAllUnitWithCategory() {
-		CriteriaBuilder criteriaBuilder = entityManger.getCriteriaBuilder();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<UnitCategory> query = criteriaBuilder.createQuery(UnitCategory.class);
 		Root<UnitCategory> unitCategoryRoot = query.from(UnitCategory.class);
 		Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
@@ -45,7 +43,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		conditions.add(criteriaBuilder.equal(unitCategoryRoot.get("categoryStatus"), Status.ACTIVE));
 		conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE));
 		
-		TypedQuery<UnitCategory> typedQuery = entityManger.createQuery(query
+		TypedQuery<UnitCategory> typedQuery = entityManager.createQuery(query
 		        .select(unitCategoryRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
