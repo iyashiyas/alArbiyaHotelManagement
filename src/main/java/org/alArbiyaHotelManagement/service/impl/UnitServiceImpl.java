@@ -1,13 +1,27 @@
 package org.alArbiyaHotelManagement.service.impl;
 
-import org.alArbiyaHotelManagement.model.Unit;
-import org.alArbiyaHotelManagement.service.UnitService;
+import java.util.Set;
 
+import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.repository.UnitRepository;
+import org.alArbiyaHotelManagement.service.UnitService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class UnitServiceImpl implements UnitService {
+	
+	@Autowired 
+	private UnitRepository unitRepository;
+	
 	public Unit addUnit() {
 		return null;
 	}
 	public Unit editUnit() {
 		return null;
+	}
+	@Override
+	public Set<Unit> getAllUnitWithCategory() {
+		return unitRepository.getAllUnitWithCategory();
 	}
 }
