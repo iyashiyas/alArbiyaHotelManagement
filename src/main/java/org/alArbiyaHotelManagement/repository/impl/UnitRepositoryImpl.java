@@ -40,8 +40,8 @@ public class UnitRepositoryImpl implements UnitRepository{
 		Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
 		
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		conditions.add(criteriaBuilder.equal(unitCategoryRoot.get("categoryStatus"), Status.ACTIVE));
-		conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE));
+		conditions.add(criteriaBuilder.equal(unitCategoryRoot.get("categoryStatus"), Status.ACTIVE.name()));
+		conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
 		TypedQuery<UnitCategory> typedQuery = entityManager.createQuery(query
 		        .select(unitCategoryRoot)

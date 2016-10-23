@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.alArbiyaHotelManagement.enums.Status;
-
 @Entity
 @Table(name = "INGREDIENT_CATEGORY")
 public class IngredientCategory {
@@ -23,7 +21,7 @@ public class IngredientCategory {
 	private String categoryName;
 	
 	@Column(name="INGREDIENT_STATUS") 
-	private Status categoryStatus;
+	private String categoryStatus;
 	
 	@OneToMany(mappedBy="ingredientCategory") 
 	private Set<Ingredient> ingredients;
@@ -44,11 +42,11 @@ public class IngredientCategory {
 		this.categoryName = categoryName;
 	}
 
-	public Status getCategoryStatus() {
+	public String getCategoryStatus() {
 		return categoryStatus;
 	}
 
-	public void setCategoryStatus(Status categoryStatus) {
+	public void setCategoryStatus(String categoryStatus) {
 		this.categoryStatus = categoryStatus;
 	}
 

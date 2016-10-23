@@ -54,21 +54,22 @@
 										<tr class="gradeX">
 											<td><c:out value="${language.id}" /></td>
 											<td><c:out value="${language.languageName}" /></td>
-											<td>INDIA</td>
-											<td class="center">
-												<label class=" label label-primary">${language.active == '0' ? 'Active' : 'Inactive'}</label>
+											<td><c:out value="${language.country.countryName}" /></td>
+
+											<td class="center">	
+												<label class=" label label-primary">
+													<c:out value="${language.status}" />
+								 				</label>
 									 	    </td>
 											<td class="center">
-												<form
+												<form class="editLanguageForm"
 													action="${pageContext.request.contextPath}/language/editLanguage"
 													method="POST" id="language_edit">
-													<input type="hidden" name="id" id="id"
-														value="${language.id}"> <input type="hidden"
-														id="languagename" name="languageName"
-														value="${language.languageName}"> <input
-														type="hidden" name="active" value="value="${language.active == '0' ? true : false}">
-													<input type="button" name="btn" value="Submit"
-														id="submitBtn" data-toggle="modal"
+													<input type="hidden" name="id" id="id" value="${language.id}"/> 
+													<input type="hidden" name="languageName" id="languagename" value="${language.languageName}"/>
+													<input type="hidden" name="country" id="country" value="${language.country}"/> 
+													<input type="hidden" name="status" id="status" value="${language.status == 'ACTIVE' ? 'INACTIVE' : 'ACTIVE'}">
+													<input type="button" name="btn" value="${language.status == 'ACTIVE' ? 'DISABLE' : 'ENABLE'}" id="submitBtn" data-toggle="modal"
 														data-target="#confirm-submit" class="btn btn-default" />
 												</form>
 											</td>
@@ -86,7 +87,7 @@
 				<div class="modal-content">
 					<div class="modal-header">Confirm Submit</div>
 					<div class="modal-body">
-						Are you sure you want to submit <label id="#langName"></label>?
+						Are you sure you want to submit?
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

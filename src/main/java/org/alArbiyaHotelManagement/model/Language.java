@@ -9,6 +9,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="LANGUAGE")
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -22,8 +23,8 @@ public class Language {
 	private String languageName;
 	
 	@Column(name="LANGUAGE_STATUS") 
-	private boolean active;
-	
+	private String status;
+
 	@OneToOne 
 	private Country country;
 
@@ -43,12 +44,12 @@ public class Language {
 		this.languageName = languageName;
 	}
 
-	public boolean isActive() {
-		return active;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	public Country getCountry() {
@@ -61,8 +62,8 @@ public class Language {
 
 	@Override
 	public String toString() {
-		return "Language [id=" + id + ", languageName=" + languageName + ", active=" + active + ", country=" + country
-				+ "]";
+		return "Language [id=" + id + ", languageName=" + languageName
+				+ ", status=" + status + ", country=" + country + "]";
 	}
 
 	

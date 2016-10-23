@@ -8,8 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.alArbiyaHotelManagement.enums.Status;
-
 @Entity
 @Table(name="INGREDIENT")
 public class Ingredient {
@@ -25,7 +23,7 @@ public class Ingredient {
 	private String measurementUnit;
 	
 	@Column(name="INGREDIENT_STATUS") 
-	private Status ingredientStatus;
+	private String ingredientStatus;
 	
 	@Column(name="INGREDIENT_DESCRIPTION") 
 	private String ingredientDescription;
@@ -60,11 +58,11 @@ public class Ingredient {
 		this.measurementUnit = measurementUnit;
 	}
 
-	public Status getIngredientStatus() {
+	public String getIngredientStatus() {
 		return ingredientStatus;
 	}
 
-	public void setIngredientStatus(Status ingredientStatus) {
+	public void setIngredientStatus(String ingredientStatus) {
 		this.ingredientStatus = ingredientStatus;
 	}
 

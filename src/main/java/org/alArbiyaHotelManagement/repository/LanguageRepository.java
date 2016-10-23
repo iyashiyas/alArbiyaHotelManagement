@@ -6,5 +6,5 @@ import org.alArbiyaHotelManagement.model.Language;
 
 public interface LanguageRepository {
 	public Set<Language> getAllLanguages();
-	public Language editLanguage(Language language);
+	public void editLanguage(Language language);
 }

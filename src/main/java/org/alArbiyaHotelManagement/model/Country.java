@@ -14,11 +14,14 @@ public class Country {
 	@Column(name="COUNTRY_ID")
 	private long id;
 	
-	@Column(name="COUNTRY_NAME")	
-	private String countryName;
+	@Column(name="COUNTRY_CODE")
+	private String countryCode;
 	
 	@Column(name="COUNTRY_IMAGE_URL")
 	private String countryImageUrl;
+	
+	@Column(name="COUNTRY_NAME")	
+	private String countryName;
 
 	public long getId() {
 		return id;
@@ -48,6 +51,14 @@ public class Country {
 	public String toString() {
 		return "Country [id=" + id + ", countryName=" + countryName
 				+ ", countryImageUrl=" + countryImageUrl + "]";
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
 	}
 
 }

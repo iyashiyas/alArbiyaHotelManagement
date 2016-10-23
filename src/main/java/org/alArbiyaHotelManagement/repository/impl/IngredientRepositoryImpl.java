@@ -42,8 +42,8 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		Join<IngredientCategory, Ingredient> joinIngredient = ingredientCategoryRoot.join("ingredients");
 		
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		conditions.add(criteriaBuilder.equal(ingredientCategoryRoot.get("categoryStatus"), Status.ACTIVE));
-		conditions.add(criteriaBuilder.equal(joinIngredient.get("ingredientStatus"), Status.ACTIVE));
+		conditions.add(criteriaBuilder.equal(ingredientCategoryRoot.get("categoryStatus"), Status.ACTIVE.name()));
+		conditions.add(criteriaBuilder.equal(joinIngredient.get("ingredientStatus"), Status.ACTIVE.name()));
 		
 		TypedQuery<IngredientCategory> typedQuery = entityManager.createQuery(query
 		        .select(ingredientCategoryRoot)

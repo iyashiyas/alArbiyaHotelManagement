@@ -20,8 +20,8 @@ public class LanguageServiceImpl implements LanguageService {
 	}
 	
 	@Override
-	public Language editLanguage(Language language) {
-		return languageRepository.editLanguage(language);
+	public void editLanguage(Language language) {
+		languageRepository.editLanguage(language);
 	}
 
 	
