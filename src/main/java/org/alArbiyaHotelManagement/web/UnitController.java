@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class UnitController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUnit(Model model) {
-		Set<Unit> unitWithCategory = unitService.getAllUnitWithCategory();
+		Set<UnitCategory> unitWithCategory = unitService.getAllUnitWithCategory();
 		model.addAttribute("unitWithCategory", unitWithCategory);
 		return "unit/unit";
 	}

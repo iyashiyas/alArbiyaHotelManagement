@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.repository.UnitRepository;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UnitServiceImpl implements UnitService {
 		return null;
 	}
 	@Override
-	public Set<Unit> getAllUnitWithCategory() {
+	public Set<UnitCategory> getAllUnitWithCategory() {
 		return unitRepository.getAllUnitWithCategory();
 	}
 }
