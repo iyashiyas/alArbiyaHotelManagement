@@ -25,8 +25,9 @@ public class LanguageController {
 		return "language/language";
 	}
 	
-	@RequestMapping(value = "editLanguage", method = RequestMethod.PUT)
+	@RequestMapping(value = "editLanguage", method = RequestMethod.POST)
 	public Language editLanguage(@ModelAttribute Language language) {
+		System.out.print("Incoming language "+language);
 		Language updatedLanguage = languageService.editLanguage(language);
 		return updatedLanguage;
 	}
