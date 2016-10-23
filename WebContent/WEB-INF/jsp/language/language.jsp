@@ -33,6 +33,9 @@
 				<li class="active"><strong>Language</strong></li>
 			</ol>
 		</div>
+		<div class="successMessage" style="display:none">
+			Language updated successfully
+		</div>
 	</div>
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">

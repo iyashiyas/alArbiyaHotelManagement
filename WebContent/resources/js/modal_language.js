@@ -11,8 +11,18 @@ $('#submit').click(function() {
 	$.ajax({
 	    type : 'POST',
 	    url : '/alArbiyaHotelManagement/language/editLanguage',
-	    data : {id:id, status:status }
+	    data : {id:id, status:status },
+		success: handleSuccess
 	});
 	
 }); 
+
+function handleSuccess() {
+	$('#confirm-submit').modal('toggle');
+	
+	$(".successMessage").show();
+    setTimeout(function() {
+    	$(".successMessage").hide();
+    }, 5000);
+}
 
