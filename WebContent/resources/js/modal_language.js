@@ -1,8 +1,8 @@
 $('#submitBtn').click(function() {
+	console.log("coming");
 	var $form = $(this).parent('form');
 	$('.editLanguageForm').removeClass('submitEditLanguage');
 	$form.addClass('submitEditLanguage');
-	$('#confirm-submit').modal('toggle');
 });
 
 $('#submit').click(function() {
