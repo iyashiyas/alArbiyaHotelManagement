@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>S
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -8,9 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-<link id=""
-	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
-	rel="stylesheet">
+<link id="" href="<c:url value="/resources/css/dataTables/datatables.min.css"/>" rel="stylesheet">
 
 
 <title>SHMS-Language</title>
@@ -29,7 +27,7 @@
 			<h2>Languages</h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/jsp/home/home.jsp">Home</a></li>
+					href="${pageContext.request.contextPath}/">Home</a></li>
 				<li class="active"><strong>Language</strong></li>
 			</ol>
 		</div>

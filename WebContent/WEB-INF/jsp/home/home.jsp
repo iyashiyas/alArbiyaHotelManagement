@@ -8,16 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Bootstrap -->
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-
-<!-- Font awesome -->
-<link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
-
-<!-- Main Inspinia CSS files -->
-<link href="<c:url value="/resources/css/animate.css"/>" rel="stylesheet">
-
-<link id="loadBefore" href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
-
+ 
 	<title>SHMS-Home</title>
 </head>
 <body>
@@ -42,6 +33,75 @@
 				</ol>
 			</div>
 		</div>
-	
+	        <div class="raw  animated fadeInRight">
+	    <div class="col-lg-7">
+                <div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-danger m-r-sm">12</button>
+                                Total Rooms
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary m-r-sm">28</button>
+                               Total Services
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-info m-r-sm">15</button>
+                             Available Rooms
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-info m-r-sm">20</button>
+                                Total Screens
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success m-r-sm">40</button>
+                                Total Active Screens
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger m-r-sm">30</button>
+                                Reservations
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-success m-r-sm">20</button>
+                                 Check-in Rooms
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default m-r-sm">40</button>
+                                Total Users
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning m-r-sm">30</button>
+                                Total Active Order
+                            </td>
+                        </tr>
+                              <tr>
+                              <td>
+                                <button type="button" class="btn btn-warning m-r-sm">30</button>
+                                Total Branch
+                            </td>
+                           
+                            <td>
+                                <button type="button" class="btn btn-danger m-r-sm">40</button>
+                                   Total Building
+                            </td>
+                             <td>
+                                <button type="button" class="btn btn-info m-r-sm">20</button>
+                                   Total Floor
+                            </td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                </div>
+	     
+	    
  </body>
  </html>

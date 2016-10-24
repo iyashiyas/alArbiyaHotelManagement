@@ -44,7 +44,7 @@ h5 {
   padding: 14px 20px 14px 25px;
 }
 .nav.navbar-right > li > a {
-  color: #999c9e;
+  color: #fff;
 }
 .nav > li.active > a {
   color: #ffffff;
@@ -170,7 +170,7 @@ h5 {
 .nav-header {
   padding: 33px 25px;
   background-color: #2f4050;
-  background-image: url("patterns/header-profile.png");
+  background-image: url("patterns/3.png");
 }
 .pace-done .nav-header {
   transition: all 0.4s;
@@ -329,7 +329,7 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 }
 .navbar-fixed-top,
 .navbar-static-top {
-  background: #f3f3f4;
+  background: #1ab394 !important;
 }
 .fixed-nav #wrapper {
   margin-top: 0;
@@ -7950,7 +7950,7 @@ body.md-skin {
   background-color: #ffffff;
 }
 .md-skin .nav-header {
-  background: url("patterns/4.png") no-repeat;
+  background: url("patterns/3.png") no-repeat;
 }
 .md-skin .label,
 .md-skin .badge {
@@ -8201,7 +8201,7 @@ body.md-skin {
   color: #1ab394;
 }
 .md-skin.landing-page.body-small .nav.navbar-right > li > a {
-  color: #676a6c;
+  color: #fff;
 }
 .md-skin .landing_link a,
 .md-skin .special_link a {

@@ -15,11 +15,11 @@
 														},
 														{
 															extend : 'excel',
-															title : 'ExampleFile'
+															title : 'Report'
 														},
 														{
 															extend : 'pdf',
-															title : 'ExampleFile'
+															title : 'Report'
 														},
 
 														{

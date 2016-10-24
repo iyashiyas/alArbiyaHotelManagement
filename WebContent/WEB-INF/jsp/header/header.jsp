@@ -31,18 +31,18 @@
 					<li class="nav-header">
 						<div class="dropdown profile-element">
 							<span> <img alt="image" class="img-circle"
-								src="img/profile_small.jpg" />
+								src="<c:url value="/resources/css/patterns/logonly.png"/>" />
 							</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<span class="clear"> <span class="block m-t-xs"> <strong
 										class="font-bold">Hotel Name</strong>
-								</span> <span class="text-muted text-xs block">Branch <b
+								</span> <span class=" text-xs block">Info <b
 										class="caret"></b></span>
 							</span>
 							</a>
 							<ul class="dropdown-menu animated fadeInRight m-t-xs">
 								<li><a href="#">Profile</a></li>
 								<li class="divider"></li>
-								<li><a href="login.html">Logout</a></li>
+								<li><a href="#">Logout</a></li>
 							</ul>
 						</div>
 						<div class="logo-element">SHMS</div>
@@ -64,28 +64,48 @@
 							<li><a href="#">Rooms</a></li>
 
 						</ul></li>
-
-					<li><a href="#"><i class="fa fa-pie-chart"></i> <span
+						
+						
+						
+						<li><a href="#"><i class="fa fa-credit-card"></i> <span
+							class="nav-label">Reservation</span><span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse">
+							<li><a href="#">Check-IN</a> </li>
+							<li><a href="#">Reservation</a> </li>
+							<li><a href="#">Check-Out</a> </li>
+					       </ul></li>
+						
+						
+ 
+					<li><a href="${pageContext.request.contextPath}/unit"><i class="fa fa-pie-chart"></i> <span
 							class="nav-label">Unit</span> </a></li>
-					<li><a href="#"><i class="fa fa-shopping-cart"></i> <span
+					<li><a href="${pageContext.request.contextPath}/ingredient"><i class="fa fa-shopping-cart"></i> <span
 							class="nav-label">Ingredients</span></a></li>
 					<li><a href="#"><i class="fa fa-picture-o"></i> <span
 							class="nav-label">Services</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
-							<li><a href="#">###</a></li>
-							<li><a href="#"> ####</a></li>
+							<li><a href="#">All Services</a></li>
+					        <li><a href="#">Check-Out</a></li>
+				            <li><a href="#">Parking</a></li>
+				             <li><a href="#">House Keeping</a></li>
+							<li><a href="#">Laundry</a></li>
+						    <li><a href="#">Coffee Shop</a></li>
+						    <li><a href="#">Restaurant</a></li>
+							 <li><a href="#">Car-Rental</a></li>
+					         <li><a href="#">Reception</a></li>
+						     <li><a href="#">Entertainment</a></li>
 						</ul></li>
-					<li><a href="#"><i class="fa fa-desktop"></i> <span
-							class="nav-label">User Management</span> </a>
+					<li><a href="#"><i class="fa fa-user"></i> <span
+							class="nav-label">User Management</span><span class="fa arrow"></span> </a>
 						<ul class="nav nav-second-level collapse">
-							<li><a href="contacts.html">Roles</a></li>
-							<li><a href="profile.html">Users</a></li>
+							<li><a href="#">Roles</a></li>
+							<li><a href="${pageContext.request.contextPath}/user">Users</a></li>
 						</ul></li>
 
-					<li><a href="#"><i class="fa fa-desktop"></i> <span
+					<li><a href="${pageContext.request.contextPath}/player"><i class="fa fa-desktop"></i> <span
 							class="nav-label">Player</span> </a></li>
 
-					<li><a href="#"><i class="fa fa-table"></i> <span
+					<li><a href="${pageContext.request.contextPath}/order"><i class="fa fa-table"></i> <span
 							class="nav-label">Order</span> </a></li>
 
 
@@ -109,7 +129,7 @@
 					 
 				</div>
 				<ul class="nav navbar-top-links navbar-right">
-					<li><span class="m-r-sm text-muted welcome-message">Welcome
+					<li><span class="m-r-sm   welcome-message">Welcome
 							Admin</span></li>
 					 	<li><a href="#"> <i class="fa fa-sign-out"></i>
 							Log out
@@ -121,10 +141,7 @@
 	 
 			<!-- Custom and plugin javascript -->
  
-	
-	
-
-			<!-- Mainly scripts -->
+	 	<!-- Mainly scripts -->
 			<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 			<script
 				src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
@@ -145,158 +162,21 @@
 				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
 	 
 			<!-- Jvectormap -->
-			<script
+			<%-- <script
 				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"/>"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"/>"></script>
-
+ --%>
 			<!-- Flot -->
-			<script
+			<%-- <script
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.js"/>"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.tooltip.min.js"/>"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
-			<script>
-				$(document).ready(
-						function() {
-							var d1 = [ [ 1262304000000, 6 ],
-									[ 1264982400000, 3057 ],
-									[ 1267401600000, 20434 ],
-									[ 1270080000000, 31982 ],
-									[ 1272672000000, 26602 ],
-									[ 1275350400000, 27826 ],
-									[ 1277942400000, 24302 ],
-									[ 1280620800000, 24237 ],
-									[ 1283299200000, 21004 ],
-									[ 1285891200000, 12144 ],
-									[ 1288569600000, 10577 ],
-									[ 1291161600000, 10295 ] ];
-							var d2 = [ [ 1262304000000, 5 ],
-									[ 1264982400000, 200 ],
-									[ 1267401600000, 1605 ],
-									[ 1270080000000, 6129 ],
-									[ 1272672000000, 11643 ],
-									[ 1275350400000, 19055 ],
-									[ 1277942400000, 30062 ],
-									[ 1280620800000, 39197 ],
-									[ 1283299200000, 37000 ],
-									[ 1285891200000, 27000 ],
-									[ 1288569600000, 21000 ],
-									[ 1291161600000, 17000 ] ];
-
-							var data1 = [ {
-								label : "Data 1",
-								data : d1,
-								color : '#17a084'
-							}, {
-								label : "Data 2",
-								data : d2,
-								color : '#127e68'
-							} ];
-							$.plot($("#flot-chart1"), data1, {
-								xaxis : {
-									tickDecimals : 0
-								},
-								series : {
-									lines : {
-										show : true,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 1
-											}, {
-												opacity : 1
-											} ]
-										}
-									},
-									points : {
-										width : 0.1,
-										show : false
-									}
-								},
-								grid : {
-									show : false,
-									borderWidth : 0
-								},
-								legend : {
-									show : false
-								}
-							});
-
-							var data2 = [ {
-								label : "Data 1",
-								data : d1,
-								color : '#19a0a1'
-							} ];
-							$.plot($("#flot-chart2"), data2, {
-								xaxis : {
-									tickDecimals : 0
-								},
-								series : {
-									lines : {
-										show : true,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 1
-											}, {
-												opacity : 1
-											} ]
-										}
-									},
-									points : {
-										width : 0.1,
-										show : false
-									}
-								},
-								grid : {
-									show : false,
-									borderWidth : 0
-								},
-								legend : {
-									show : false
-								}
-							});
-
-							var data3 = [ {
-								label : "Data 1",
-								data : d1,
-								color : '#fbbe7b'
-							}, {
-								label : "Data 2",
-								data : d2,
-								color : '#f8ac59'
-							} ];
-							$.plot($("#flot-chart3"), data3, {
-								xaxis : {
-									tickDecimals : 0
-								},
-								series : {
-									lines : {
-										show : true,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 1
-											}, {
-												opacity : 1
-											} ]
-										}
-									},
-									points : {
-										width : 0.1,
-										show : false
-									}
-								},
-								grid : {
-									show : false,
-									borderWidth : 0
-								},
-								legend : {
-									show : false
-								}
-							});
+			--%>
+			 <script> 
+			 
 
 							$('.i-checks').iCheck({
 								checkboxClass : 'icheckbox_square-green',
@@ -309,46 +189,9 @@
 								forcePlaceholderSize : true,
 								zIndex : 999999
 							}).disableSelection();
-
-							var mapData = {
-								"US" : 498,
-								"SA" : 200,
-								"CA" : 1300,
-								"DE" : 220,
-								"FR" : 540,
-								"CN" : 120,
-								"AU" : 760,
-								"BR" : 550,
-								"IN" : 200,
-								"GB" : 120,
-								"RU" : 2000
-							};
-
-							$('#world-map').vectorMap({
-								map : 'world_mill_en',
-								backgroundColor : "transparent",
-								regionStyle : {
-									initial : {
-										fill : '#e4e4e4',
-										"fill-opacity" : 1,
-										stroke : 'none',
-										"stroke-width" : 0,
-										"stroke-opacity" : 0
-									}
-								},
-								series : {
-									regions : [ {
-										values : mapData,
-										scale : [ "#1ab394", "#22d6b1" ],
-										normalizeFunction : 'polynomial'
-									} ]
-								}
-							});
-						});
+                                     
 			</script>
-			  
-	  
-			 
-			
+			   
+		 
 </body>
 </html>

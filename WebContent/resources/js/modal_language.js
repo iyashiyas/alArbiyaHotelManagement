@@ -27,4 +27,3 @@ function handleSuccess() {
     	$(".successMessage").hide();
     }, 5000);
 }
-
