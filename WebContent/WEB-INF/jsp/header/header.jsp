@@ -155,10 +155,10 @@
 				src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
 
 			<!-- Custom and plugin javascript -->
-			<%-- <script src="<c:url value="/resources/js/inspinia.js" />"></script>
+			  <script src="<c:url value="/resources/js/inspinia.js" />"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
- --%>
+
 			<!-- iCheck -->
 			<script
 				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
