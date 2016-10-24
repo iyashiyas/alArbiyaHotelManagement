@@ -33,14 +33,15 @@ public class UnitRepositoryImpl implements UnitRepository{
 	}
 	
 	@Override
-	public Set<UnitCategory> getAllUnitWithCategory() {
+	public Set<UnitCategory> getAllUnitWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<UnitCategory> query = criteriaBuilder.createQuery(UnitCategory.class);
 		Root<UnitCategory> unitCategoryRoot = query.from(UnitCategory.class);
 		Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
 		
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		conditions.add(criteriaBuilder.equal(unitCategoryRoot.get("categoryStatus"), Status.ACTIVE.name()));
+		categoryCode = (categoryCode != null || categoryCode == "" ) ? "GN" : categoryCode;
+		conditions.add(criteriaBuilder.equal(unitCategoryRoot.get("categoryCode"), categoryCode ));
 		conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
 		TypedQuery<UnitCategory> typedQuery = entityManager.createQuery(query

@@ -17,10 +17,12 @@
 			</div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
-                                <li ><a href="#"> <span class="label label-success">1</span> General </a></li>
-                                <li><a href="#"><span class="label label-success">2</span> Mass</a></li>
-                                <li><a href="#"><span class="label label-success">3</span>  volume and capacity</a></li>
-                                <li><a href="#"> <span class="label label-success">4</span>  Length</a></li>
+                                <li ><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">General</a></li>
+                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">Length</a></li>
+                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=VC">Volume and Capacity</a></li>
+                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=WT">Weight</a></li>
+                                
+                                
                                  </ul>
                              <div class="clearfix"></div>
                         </div>

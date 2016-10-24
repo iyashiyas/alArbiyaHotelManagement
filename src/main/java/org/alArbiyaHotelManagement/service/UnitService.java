@@ -9,5 +9,5 @@ public interface UnitService {
 	public Unit addUnit();
 	public Unit editUnit();
 	
-	public Set<UnitCategory> getAllUnitWithCategory();
+	public Set<UnitCategory> getAllUnitWithCategory(String categoryCode);
 }

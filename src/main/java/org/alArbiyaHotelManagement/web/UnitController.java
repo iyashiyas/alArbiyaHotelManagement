@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/unit")
@@ -18,8 +19,8 @@ public class UnitController {
 	@Autowired UnitService unitService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showUnit(Model model) {
-		Set<UnitCategory> unitWithCategory = unitService.getAllUnitWithCategory();
+	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
+		Set<UnitCategory> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
 		model.addAttribute("unitWithCategory", unitWithCategory);
 		return "unit/unit";
 	}

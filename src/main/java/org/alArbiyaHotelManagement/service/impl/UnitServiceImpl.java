@@ -22,7 +22,7 @@ public class UnitServiceImpl implements UnitService {
 		return null;
 	}
 	@Override
-	public Set<UnitCategory> getAllUnitWithCategory() {
-		return unitRepository.getAllUnitWithCategory();
+	public Set<UnitCategory> getAllUnitWithCategory(String categoryCode) {
+		return unitRepository.getAllUnitWithCategory(categoryCode);
 	}
 }

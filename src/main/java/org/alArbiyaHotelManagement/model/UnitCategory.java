@@ -20,8 +20,8 @@ public class UnitCategory {
 	@Column(name="CATEGORY_NAME") 
 	private String categoryName;
 	
-	@Column(name="CATEGORY_STATUS") 
-	private String categoryStatus;
+	@Column(name="CATEGORY_CODE") 
+	private String categoryCode;
 	
 	@OneToMany(mappedBy="unitCategory") 
 	private Set<Unit> units;
@@ -42,12 +42,12 @@ public class UnitCategory {
 		this.categoryName = categoryName;
 	}
 
-	public String getCategoryStatus() {
-		return categoryStatus;
+	public String getCategoryCode() {
+		return categoryCode;
 	}
 
-	public void setCategoryStatus(String categoryStatus) {
-		this.categoryStatus = categoryStatus;
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 
 	public Set<Unit> getUnits() {
@@ -61,7 +61,7 @@ public class UnitCategory {
 	@Override
 	public String toString() {
 		return "UnitMajorCategory [id=" + id + ", categoryName=" + categoryName
-				+ ", categoryStatus=" + categoryStatus + ", units=" + units
+				+ ", categoryCode=" + categoryCode + ", units=" + units
 				+ "]";
 	}
 	
