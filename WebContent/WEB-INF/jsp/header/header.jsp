@@ -84,16 +84,16 @@
 					<li><a href="#"><i class="fa fa-picture-o"></i> <span
 							class="nav-label">Services</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
-							<li><a href="#">All Services</a></li>
-					        <li><a href="#">Check-Out</a></li>
-				            <li><a href="#">Parking</a></li>
-				             <li><a href="#">House Keeping</a></li>
-							<li><a href="#">Laundry</a></li>
-						    <li><a href="#">Coffee Shop</a></li>
-						    <li><a href="#">Restaurant</a></li>
-							 <li><a href="#">Car-Rental</a></li>
-					         <li><a href="#">Reception</a></li>
-						     <li><a href="#">Entertainment</a></li>
+							<li><a href="${pageContext.request.contextPath}/action">All Services</a></li>
+					        <li><a href="${pageContext.request.contextPath}/action?actionCode=CHECKOUT">Check-Out</a></li>
+				            <li><a href="${pageContext.request.contextPath}/action?actionCode=PARKING">Parking</a></li>
+				             <li><a href="${pageContext.request.contextPath}/action?actionCode=HOUSEKEEPING">House Keeping</a></li>
+							<li><a href="${pageContext.request.contextPath}/action?actionCode=LAUNDRY">Laundry</a></li>
+						    <li><a href="${pageContext.request.contextPath}/action?actionCode=COFFEE">Coffee Shop</a></li>
+						    <li><a href="${pageContext.request.contextPath}/action?actionCode=RESTAURANT">Restaurant</a></li>
+							 <li><a href="${pageContext.request.contextPath}/action?actionCode=CARRENTAL">Car Rental</a></li>
+					         <li><a href="${pageContext.request.contextPath}/action?actionCode=RECEPTION">Reception</a></li>
+						     <li><a href="${pageContext.request.contextPath}/action?actionCode=ENTERTAINMENT">Entertainment</a></li>
 						</ul></li>
 					<li><a href="#"><i class="fa fa-user"></i> <span
 							class="nav-label">User Management</span><span class="fa arrow"></span> </a>
