@@ -24,7 +24,7 @@ public class UnitController {
 		return "unit/unit";
 	}
 
-	public Unit addUnit() {
+	public String addUnit() {
 		return null;
 	}
 	
