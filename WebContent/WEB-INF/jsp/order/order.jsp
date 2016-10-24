@@ -19,9 +19,9 @@
 <body>
 
 	<!-- Include Page Header-->
-
+ <div id="wrapper">
 	<jsp:include page="../header/header.jsp"></jsp:include>
-
+<div id="page-wrapper" class="gray-bg">
 	<!-- Page Contents -->
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
@@ -164,8 +164,9 @@
 		</div>
 	</div>
 
-
-
+</div>
+</div>
+</div>
 
  
           <script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>

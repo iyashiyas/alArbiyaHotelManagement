@@ -14,6 +14,31 @@
 
 	<!-- Include Page Header-->
    
+   
+    <div id="wrapper">
+   <jsp:include page="../header/header.jsp"></jsp:include>
+	
+	<div id="page-wrapper" class="gray-bg">
+   
+ 
+<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-9">
+			<h2>User Management</h2>
+			<ol class="breadcrumb">
+				<li><a
+					href="${pageContext.request.contextPath}/user">User Management</a></li>
+				<li class="active"><strong>Users</strong></li>
+			</ol>
+		</div> 
+	</div>
+	
+	
+ 
+	   <div class="wrapper wrapper-content">
+        <div class="row">
+   
+   
+   
 	<jsp:include page="../user/usermanagement_Tab.jsp"></jsp:include>
 	<!-- Page Contents -->
 	<!-- Page Heading -->
@@ -267,7 +292,11 @@
 <div>
 
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </body>

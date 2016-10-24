@@ -12,10 +12,36 @@
 </head>
 <body>
   <!-- Include Page Header-->
-   
+   <div id="wrapper">
+   <jsp:include page="../header/header.jsp"></jsp:include>
+	
+	<div id="page-wrapper" class="gray-bg">
+	
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-9">
+			<h2>Ingredient</h2>
+			<ol class="breadcrumb">
+				<li><a
+					href="${pageContext.request.contextPath}/">Home</a></li>
+				<li class="active"><strong>Ingredient</strong></li>
+			</ol>
+		</div>
+		<ul class="nav  navbar-right">
+					 
+					 	<li><a href="#"> <i class="fa fa-plus"></i>
+							Add New Categories
+					</a></li>
+				</ul>
+	</div>
+	
+	 
+	 <div class="wrapper wrapper-content">
+        <div class="row">
 	<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include>
+		  
 	<!-- Page Contents -->
 	<!-- Page Heading -->
+	
 	<div class="col-lg-8 animated fadeInRight">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
@@ -246,9 +272,12 @@
 			</div>
 		</div>
 	</div>
-
+</div>
+</div>
 	 
-
+</div>
+</div>
+</div>
 
 
 

@@ -17,9 +17,9 @@
 <body>
 
 	<!-- Include Page Header-->
-
+<div id="wrapper">
 	<jsp:include page="../header/header.jsp"></jsp:include>
-
+<div id="page-wrapper" class="gray-bg">
 	<!-- Page Contents -->
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
@@ -85,8 +85,8 @@
 													<input type="hidden" name="languageName" id="languagename" value="${language.languageName}"/>
 													<input type="hidden" name="country" id="country" value="${language.country}"/> 
 													<input type="hidden" name="status" id="status" value="${language.status == 'ACTIVE' ? 'INACTIVE' : 'ACTIVE'}">
-													<input type="button" name="btn" value="${language.status == 'ACTIVE' ? 'DISABLE' : 'ENABLE'}" id="submitBtn" data-toggle="modal"
-														data-target="#confirm-submit" class="btn btn-default" />
+													<input type="button" name="btn" value="${language.status == 'ACTIVE' ? 'DISABLE' : 'ENABLE'}" id="submitBtn1" data-toggle="modal"
+														data-target="#confirm-submit" class="btn btn-default submitBtn" />
 												</form>
 
 											</td>
@@ -101,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 
 
@@ -122,18 +123,13 @@
 			</div>
 		</div>
 
- 
+ </div>
+ </div>
  
  
 		<!-- Page-Level Scripts -->
-		<script src="<c:url value="/resources/js/datatablecustom.js" />"
-			type="text/javascript">
-			
-		</script>
-	 <script type='text/javascript'
-		src="<c:url value="/resources/js/modal_language.js" />">
 		
-	</script>  
+	 <script type='text/javascript'  src="<c:url value="/resources/js/modal_language.js" />"></script>  
 
  
 </body>

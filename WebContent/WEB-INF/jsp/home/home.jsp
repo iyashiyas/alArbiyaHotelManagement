@@ -14,8 +14,9 @@
 <body>
 	
 	<!-- Include Page Header-->
-		
+		   <div id="wrapper">
 		<jsp:include page="../header/header.jsp"></jsp:include>
+		<div id="page-wrapper" class="gray-bg">
 		
 		<!-- End -->
 	
@@ -101,7 +102,8 @@
                 </div>
                 </div>
                 </div>
-	     
+                </div>
+	     </div>
 	    
  </body>
  </html>

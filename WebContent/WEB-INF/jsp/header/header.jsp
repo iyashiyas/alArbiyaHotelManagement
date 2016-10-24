@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<div id="wrapper">
+	
 		<!-- Header left side -->
 		<nav class="navbar-default navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
@@ -119,7 +119,7 @@
  
  <!-- Page Header UP Including logout  -->
 
-	<div id="page-wrapper" class="gray-bg">
+	 
 		<div class="row border-bottom">
 			<nav class="navbar navbar-static-top" role="navigation"
 				style="margin-bottom: 0">
@@ -138,6 +138,8 @@
 
 			</nav>
 		</div>
+	
+		
 	 
 			<!-- Custom and plugin javascript -->
  
@@ -153,10 +155,10 @@
 				src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
 
 			<!-- Custom and plugin javascript -->
-			<script src="<c:url value="/resources/js/inspinia.js" />"></script>
+			<%-- <script src="<c:url value="/resources/js/inspinia.js" />"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
-
+ --%>
 			<!-- iCheck -->
 			<script
 				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>

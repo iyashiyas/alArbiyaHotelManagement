@@ -8,29 +8,7 @@
 <title>SHMS-unitTab</title>
 </head>
 <body>
- 
-<jsp:include page="../header/header.jsp"></jsp:include>
-
-<div class="row wrapper border-bottom white-bg page-heading">
-		<div class="col-lg-9">
-			<h2>Ingredient</h2>
-			<ol class="breadcrumb">
-				<li><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
-				<li class="active"><strong>Unit</strong></li>
-			</ol>
-		</div>
-		<ul class="nav  navbar-right">
-					 
-					 	<li><a href="#"> <i class="fa fa-plus"></i>
-							Add New Categories
-					</a></li>
-				</ul>
-	</div>
-	
-	 
-	 <div class="wrapper wrapper-content">
-        <div class="row">
+  
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
