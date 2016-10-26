@@ -9,14 +9,14 @@
 
 
 <link id="" href="<c:url value="/resources/css/dataTables/datatables.min.css"/>" rel="stylesheet">
+<link id="" href="<c:url value="/resources/css/bootstrap-notify.css"/>" rel="stylesheet">
 
 
 <title>SHMS-Language</title>
 
 </head>
 <body>
-
-	<!-- Include Page Header-->
+ <!-- Include Page Header-->
 <div id="wrapper">
 	<jsp:include page="../header/header.jsp"></jsp:include>
 <div id="page-wrapper" class="gray-bg">
@@ -31,9 +31,7 @@
 				<li class="active"><strong>Language</strong></li>
 			</ol>
 		</div>
-		<div class="successMessage" style="display:none">
-			Language updated successfully
-		</div>
+		 
 	</div>
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
@@ -88,8 +86,7 @@
 													<input type="button" name="btn" value="${language.status == 'ACTIVE' ? 'DISABLE' : 'ENABLE'}" id="submitBtn1" data-toggle="modal"
 														data-target="#confirm-submit" class="btn btn-default submitBtn" />
 												</form>
-
-											</td>
+                                               </td>
 										</tr>
 									</c:forEach>
 
@@ -117,7 +114,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-						<a href="#" id="submit" class="btn btn-success success">Submit</a>
+						<a id="submit" class="btn btn-success success">Submit</a>
 					</div>
 				</div>
 			</div>
@@ -127,9 +124,13 @@
  </div>
  
  
+  <div class='notifications top-right'>
+    </div>
+ 
 		<!-- Page-Level Scripts -->
 		
 	 <script type='text/javascript'  src="<c:url value="/resources/js/modal_language.js" />"></script>  
+ <script type='text/javascript'  src="<c:url value="/resources/js/bootstrap-notify.js" />"></script>  
 
  
 </body>

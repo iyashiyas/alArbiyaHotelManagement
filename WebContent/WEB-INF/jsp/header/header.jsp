@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Bootstrap -->
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+ <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <!-- Font awesome -->
 <link href="<c:url value="/resources/css/font-awesome.css" />" 	rel="stylesheet">
@@ -17,13 +17,11 @@
 <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
 
 <link id="loadBefore" href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-
+ 
 <title>SHMS-Header</title>
 </head>
 <body>
-
-	
-		<!-- Header left side -->
+  <!-- Header left side -->
 		<nav class="navbar-default navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
@@ -129,6 +127,7 @@
 					 
 				</div>
 				<ul class="nav navbar-top-links navbar-right">
+				 
 					<li><span class="m-r-sm   welcome-message">Welcome
 							Admin</span></li>
 					 	<li><a href="#"> <i class="fa fa-sign-out"></i>
@@ -138,8 +137,6 @@
 
 			</nav>
 		</div>
-	
-		
 	 
 			<!-- Custom and plugin javascript -->
  
@@ -149,21 +146,23 @@
 				src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
 				
 			<script src="<c:url value="/resources/js/bootstrap.min.js" />" ></script>
+				<script src="<c:url value="/resources/js/navbar.js" />" ></script>
 			<script
 				src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
 			<script
 				src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
-
-			<!-- Custom and plugin javascript -->
-			  <script src="<c:url value="/resources/js/inspinia.js" />"></script>
-			<script
+      <!-- Custom and plugin javascript -->
+		     <script src="<c:url value="/resources/js/inspinia.js" />"></script>
+		   <script
 				src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
-
-			<!-- iCheck -->
-			<script
+   <!-- iCheck -->
+		 	<script
 				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
 	 
-			<!-- Jvectormap -->
+	 
+	 <!-- Full Screen Mode js -->
+ 
+	 		<!-- Jvectormap -->
 			<%-- <script
 				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"/>"></script>
 			<script
@@ -177,23 +176,6 @@
 			<script
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
 			--%>
-			 <script> 
-			 
-
-							$('.i-checks').iCheck({
-								checkboxClass : 'icheckbox_square-green',
-								radioClass : 'iradio_square-green'
-							});
-
-							$(".todo-list").sortable({
-								placeholder : "sort-highlight",
-								handle : ".handle",
-								forcePlaceholderSize : true,
-								zIndex : 999999
-							}).disableSelection();
-                                     
-			</script>
-			   
-		 
+			    
 </body>
 </html>

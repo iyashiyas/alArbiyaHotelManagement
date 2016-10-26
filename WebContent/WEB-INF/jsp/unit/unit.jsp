@@ -8,7 +8,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>SHMS-Unit</title>
-
+<style type="text/css">
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+ 
+</style>
 </head>
 <body>
 
@@ -20,7 +26,7 @@
 	
 		 <div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Ingredient</h2>
+			<h2>Unit</h2>
 			<ol class="breadcrumb">
 				<li><a
 					href="${pageContext.request.contextPath}/">Home</a></li>
@@ -29,9 +35,9 @@
 		</div>
 		<ul class="nav  navbar-right">
 					 
-					 	<li><a href="#"> <i class="fa fa-plus"></i>
+					 	<li><button  class="btn btn-primary"> <i class="fa fa-plus"></i>
 							Add New Categories
-					</a></li>
+					</button></li>
 				</ul>
 	</div>
 	<!-- Page Contents -->
@@ -67,25 +73,38 @@
 							</select>
 						</div>
 					</div>
- 
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Unit Id</label>
-
-						<div class="col-sm-10">
-							<input type="text" disabled="disabled" placeholder="unit id"
-								name="unit_id" class="form-control">
-						</div>
-					</div>
+  
 
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Unit Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="unit Name" name="unit_Name"
+							<input type="text" placeholder="unit Name By English" name="unit_Name"
 								class="form-control">
 						</div>
 					</div>
+					
+					
+						<div class="form-group">
+					<label class="col-sm-2 control-label">Other Languages</label>
+				     	  <div class="col-sm-10">
+					  <div class="controls"> 
+                
+                    <div class="entry input-group ">	
+                      <select class="form-control m-b " id="drp"><option>Arabic</option><option>English</option></select> 
+                        <input class="form-control"  type="text" name="other_language_unit" placeholder="Enter Name" />
+                        <span class="input-group-btn">
+                         <button class="btn btn-primary btn-add" type="button">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                          </span> 
+                             </div>
+                    </div>
+                    </div>
+                    </div>
+				 
+					
 						<div class="form-group">
 						<label class="col-sm-2 control-label"> Measurement </label>
 
@@ -169,7 +188,7 @@
 									Name </td>
 							<td class="mail-subject"> Unit
 									Description </td>
-						   <td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+						   <td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove Unit" id="submitBtn" data-toggle="modal"
@@ -185,7 +204,7 @@
 							<td class="mail-subject"> Unit
 									Description </td>
 							 
-							<td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+							<td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove Unit" id="submitBtn" data-toggle="modal"
@@ -200,7 +219,7 @@
 							<td class="mail-subject"> Unit
 									Description </td>
 							 
-							<td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+							<td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove Unit" id="submitBtn" data-toggle="modal"
@@ -224,7 +243,7 @@
 					item</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Delete</a>
+					<a  id="submit" class="btn btn-success success">Delete</a>
 				</div>
 			</div>
 		</div>
@@ -302,21 +321,19 @@
                 </div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Update</a>
+					<a  id="submit" class="btn btn-success success">Update</a>
 				</div>
 				</form>
 			</div>
 			</div>
 		</div>
-	</div>
-
-	 
+	</div> 
 
 </div>
 </div>
 </div>
 </div>
-
-
+ 
+<script type="text/javascript" src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
 </body>
 </html>

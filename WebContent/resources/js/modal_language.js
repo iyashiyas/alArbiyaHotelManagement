@@ -12,7 +12,8 @@ $('#submit').click(function() {
 	    type : 'POST',
 	    url : '/alArbiyaHotelManagement/language/editLanguage',
 	    data : {id:id, status:status },
-		success: handleSuccess
+		success: handleSuccess,
+		error:handleError
 	});
 	
 }); 
@@ -20,8 +21,17 @@ $('#submit').click(function() {
 function handleSuccess() {
 	$('#confirm-submit').modal('toggle');
 	
-	$(".successMessage").show();
-    setTimeout(function() {
-    	$(".successMessage").hide();
-    }, 5000);
-}
+	$('.top-right').notify({
+	    message: { text: 'Language Status Updated Successfully' }
+	  }).show();
+	
+}  
+function handleError() {
+	$('#confirm-submit').modal('toggle');
+	
+	$('.top-right').notify({
+	    message: { text: 'Language Status Updation Failed' }
+	  }).show();
+	
+}  
+ 

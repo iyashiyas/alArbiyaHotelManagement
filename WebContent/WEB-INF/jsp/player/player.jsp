@@ -158,6 +158,17 @@
 							</select>
 						</div>
 					</div>
+						<div class="form-group">
+						<label class="col-sm-2 control-label">Select Screen Type</label>
+
+						<div class="col-sm-10">
+							<select class="form-control m-b" name="floor">
+								<option>Room Service Screens</option>
+								<option>Service Screens</option>
+							 
+							</select>
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Room Type</label>
 

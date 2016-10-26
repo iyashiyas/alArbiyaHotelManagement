@@ -28,9 +28,9 @@
 		</div>
 		<ul class="nav  navbar-right">
 					 
-					 	<li><a href="#"> <i class="fa fa-plus"></i>
+					 	<li><button  class="btn btn-primary"> <i class="fa fa-plus"></i>
 							Add New Categories
-					</a></li>
+					</button></li>
 				</ul>
 	</div>
 	
@@ -66,18 +66,7 @@
 							</select>
 						</div>
 					</div>
- 
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Ingredient Id</label>
-
-						<div class="col-sm-10">
-							<input type="text" disabled="disabled" placeholder="Ingredient id"
-								name="ingredient_id" class="form-control">
-						</div>
-					</div>
-
-
-					<div class="form-group">
+                <div class="form-group">
 						<label class="col-sm-2 control-label">Ingredient Name</label>
 
 						<div class="col-sm-10">
@@ -85,6 +74,25 @@
 								class="form-control">
 						</div>
 					</div>
+					
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Other Languages</label>
+				     	  <div class="col-sm-10">
+					  <div class="controls"> 
+                
+                    <div class="entry input-group ">	
+                      <select class="form-control m-b" id="language_dropdown"><option>Arabic</option><option>English</option></select> 
+                        <input class="form-control"  type="text" name="other_language_ingredient" placeholder="Enter Name" />
+                        <span class="input-group-btn">
+                         <button class="btn btn-primary btn-add" type="button">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                          </span> 
+                             </div>
+                    </div>
+                    </div>
+                    </div>
+					
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Description</label>
 
@@ -150,7 +158,7 @@
 									Name </td>
 							<td class="mail-subject"> Ingredient
 									Description </td>
-						   <td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+						   <td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove" id="submitBtn" data-toggle="modal"
@@ -166,7 +174,7 @@
 							<td class="mail-subject"> Ingredient
 									Description </td>
 							 
-							<td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+							<td class=""><i class="fa fa-pencil"><a data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove" id="submitBtn" data-toggle="modal"
@@ -181,7 +189,7 @@
 							<td class="mail-subject"> Ingredient
 									Description </td>
 							 
-							<td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+							<td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove" id="submitBtn" data-toggle="modal"
@@ -205,7 +213,7 @@
 					item</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Delete</a>
+					<a   id="submit" class="btn btn-success success">Delete</a>
 				</div>
 			</div>
 		</div>
@@ -266,7 +274,7 @@
                 </div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Update</a>
+					<a  id="submit" class="btn btn-success success">Update</a>
 				</div>
 				</form>
 			</div>
@@ -278,8 +286,8 @@
 </div>
 </div>
 </div>
-
-
+ 
+<script type="text/javascript" src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
 
 </body>
 </html>
