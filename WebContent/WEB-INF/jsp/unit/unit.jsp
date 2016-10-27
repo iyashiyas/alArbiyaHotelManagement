@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -15,6 +16,8 @@
 }
  
 </style>
+<script src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
+<%-- <script src="<c:url value="/resources/js/unit/unit.js"/>"></script> --%>
 </head>
 <body>
 
@@ -36,7 +39,7 @@
 		<ul class="nav  navbar-right">
 					 
 					 	<li><button  class="btn btn-primary"> <i class="fa fa-plus"></i>
-							Add New Categories
+							Add New Categories 
 					</button></li>
 				</ul>
 	</div>
@@ -51,26 +54,26 @@
 	<div class="col-lg-8 animated fadeInRight">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Add New Unit Items</h5>
+				<h5>Add New Unit Items </h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
                </div>
 			</div>
 			<div class="ibox-content">
-				<form class="form-horizontal" action="" method="post">
+				<form:form id="addUnitForm" class="form-horizontal" action="${pageContext.request.contextPath}/unit/addUnit" method="POST" modelAttribute="newUnit">
 					<p>Add Unit items Here</p>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Unit Category</label>
 
 						<div class="col-sm-10">
-							<select class="form-control m-b" name="unit_category">
-								<option>Unit 1</option>
-								<option>Unit 2</option>
-								<option>Unit 3</option>
-								<option>Unit 4</option>
-							</select>
+							<form:select class="form-control m-b" name="unitCategory" path="">
+								<form:option value="GRL">General</form:option>
+								<form:option value="LNT">Length</form:option>
+								<form:option value="VAC">Volume and Capacity</form:option>
+								<form:option value="WGT">Weight</form:option>
+							</form:select>
 						</div>
 					</div>
   
@@ -80,20 +83,20 @@
 						<label class="col-sm-2 control-label">Unit Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="unit Name By English" name="unit_Name"
-								class="form-control">
+							<form:input type="text" placeholder="unit Name By English" name="unitName" path="unitName"
+								class="form-control" value=""/>
 						</div>
 					</div>
 					
 					
-						<div class="form-group">
+						<%-- <div class="form-group">
 					<label class="col-sm-2 control-label">Other Languages</label>
 				     	  <div class="col-sm-10">
 					  <div class="controls"> 
                 
                     <div class="entry input-group ">	
                       <select class="form-control m-b " id="drp"><option>Arabic</option><option>English</option></select> 
-                        <input class="form-control"  type="text" name="other_language_unit" placeholder="Enter Name" />
+                        <form:input class="form-control"  type="text" name="other_language_unit" placeholder="Enter Name" />
                         <span class="input-group-btn">
                          <button class="btn btn-primary btn-add" type="button">
                                 <span class="glyphicon glyphicon-plus"></span>
@@ -102,44 +105,42 @@
                              </div>
                     </div>
                     </div>
-                    </div>
+                    </div> --%>
 				 
 					
 						<div class="form-group">
 						<label class="col-sm-2 control-label"> Measurement </label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Measurement" name="measurement "
-								class="form-control">
+							<form:input type="text" placeholder="Measurement" name="measurementUnit" path="measurementUnit"
+								class="form-control"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
+							<form:input type="text" placeholder="Description" name="unitDescription" path="unitDescription"
+								class="form-control"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Status </label>
 
 						<div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
-                                    <label for="checkbox1">
-                                        Disable
-                                    </label>
-                                    </div>
+							 <form:checkbox id="unitStatus" name="unitStatus" path="unitStatus" value="ENABLE"/>
+                                  Enable
+                         </div>
 					</div>
 
 					  	<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Create new
-								unit</button>
+							<form:button class="btn btn-primary" type="submit">Create new
+								unit</form:button>
 						</div>
 					</div>
 					
-				</form>
+				</form:form>
 			</div>
 		</div>
 	   

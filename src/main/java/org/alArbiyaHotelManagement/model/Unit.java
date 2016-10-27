@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -31,8 +30,8 @@ public class Unit {
 	@OneToOne 
 	private UnitLanguageGroup unitLanguageGroup;
 	
-	@ManyToOne 
-	private UnitCategory unitCategory;
+	@Column(name="UNIT_CATEGORY")
+	private String unitCategory;
 
 	public long getId() {
 		return id;
@@ -74,11 +73,11 @@ public class Unit {
 		this.unitDescription = unitDescription;
 	}
 
-	public UnitCategory getUnitMajorCategory() {
+	public String getUnitCategory() {
 		return unitCategory;
 	}
 
-	public void setUnitMajorCategory(UnitCategory unitCategory) {
+	public void setUnitCategory(String unitCategory) {
 		this.unitCategory = unitCategory;
 	}
 

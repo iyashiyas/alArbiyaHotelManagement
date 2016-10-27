@@ -7,15 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- Bootstrap -->
- <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-
-<!-- Font awesome -->
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.css" />" 	rel="stylesheet">
-
-<!-- Main Inspinia CSS files -->
 <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
-
 <link id="loadBefore" href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
  
 <title>SHMS-Header</title>

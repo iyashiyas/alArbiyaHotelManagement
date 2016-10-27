@@ -13,7 +13,10 @@
     http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
    
-   <context:component-scan base-package="org.alArbiyaHotelManagement"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.web"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.model"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.service"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.repository"/>
 	   
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/WEB-INF/jsp/" />
