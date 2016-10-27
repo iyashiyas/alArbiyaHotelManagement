@@ -36,11 +36,15 @@ public class UnitController {
 		return "redirect:/unit";
 	}
 	
-	public Unit editUnit() {
-		return null;
+	@RequestMapping(value="/editUnit", method=RequestMethod.POST)
+	public String editUnit(@ModelAttribute Unit unit) {
+		unitService.editUnit(unit);
+		return "redirect:/unit";
 	}
 	
-	public void deleteUnit(long id) {
-		
+	@RequestMapping(value="/disableUnit", method=RequestMethod.POST)
+	public String disableUnit(long id, String status) {
+		unitService.disableUnit(id, status);
+		return "redirect:/unit";
 	}
 }

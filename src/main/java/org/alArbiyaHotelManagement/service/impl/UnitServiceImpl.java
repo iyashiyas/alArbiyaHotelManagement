@@ -14,16 +14,20 @@ public class UnitServiceImpl implements UnitService {
 	@Autowired 
 	private UnitRepository unitRepository;
 	
-	public Unit editUnit() {
-		return null;
+	public Unit editUnit(Unit unit) {
+		return unitRepository.editUnit(unit);
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
 		return unitRepository.getAllUnitWithCategory(categoryCode);
 	}
 	@Override
 	public Unit addUnit(Unit unit) {
-		// TODO Auto-generated method stub
 		return unitRepository.addUnit(unit);
 	}
+	@Override
+	public void disableUnit(long id, String status) {
+		unitRepository.disableUnit(id, status);
+	}
+	
 	
 }

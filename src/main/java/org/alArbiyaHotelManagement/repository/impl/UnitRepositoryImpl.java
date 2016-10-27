@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -28,8 +29,9 @@ public class UnitRepositoryImpl implements UnitRepository{
 		entityManager.persist(unit);
 		return unit;
 	}
-	public Unit editUnit() {
-		return null;
+	public Unit editUnit(Unit unit) {
+		entityManager.persist(unit);
+		return unit;
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -38,7 +40,8 @@ public class UnitRepositoryImpl implements UnitRepository{
 		//Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
 		
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		categoryCode = (categoryCode != null || categoryCode == "" ) ? "GRL" : categoryCode;
+		categoryCode = (categoryCode == null || categoryCode == "" ) ? "GRL" : categoryCode;
+		
 		conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategory"), categoryCode ));
 		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
@@ -47,6 +50,14 @@ public class UnitRepositoryImpl implements UnitRepository{
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
 		return new HashSet<Unit>(typedQuery.getResultList());
+	}
+	@Override
+	public void disableUnit(long id, String status) {
+		Query updateQuery = entityManager.createQuery("UPDATE Unit SET status = :status where id = :id ");
+		updateQuery.setParameter("status", status);
+		updateQuery.setParameter("id", id);
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
 	}
 	
 	

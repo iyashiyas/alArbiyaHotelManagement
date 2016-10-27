@@ -60,7 +60,7 @@
 					</a>
                </div>
 			</div>
-			<div class="ibox-content">
+			<div class="ibox-content"> 
 				<form:form id="addUnitForm" class="form-horizontal" action="${pageContext.request.contextPath}/unit/addUnit" method="POST" modelAttribute="newUnit">
 					<p>Add Unit items Here</p>
 
@@ -167,8 +167,8 @@
 					  
 				</div>
 			</div>
-			<div class="mail-box">
-
+			<div class="mail-box">size ${unitCategory.size()}
+				<c:if test="${unitCategory.size()==0}">nope expected</c:if>
 				<table class="table table-hover table-mail">
                     
                     <thead>
@@ -183,51 +183,21 @@
                     
 					<tbody>
 
+						<c:forEach items="${unitWithCategory}" var="unit">
 						<tr class="read">
-                            <td class="check-mail">1 </td>
-							<td class="mail-ontact "> Unit
-									Name </td>
-							<td class="mail-subject"> Unit
-									Description </td>
+							<td class="unitName">${unit.unitName}  </td>
+							<td class="unitDescription">${unit.unitDescription}</td>
+							<td class="unitCategory">${unit.unitCategory}</td>
+							<td class="unitStatus">${unit.unitStatus}</td>
 						   <td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
 							<td class="text-right mail-date"><input type="button"
 								class="btn btn-block btn-primary " name="btn"
 								value="Remove Unit" id="submitBtn" data-toggle="modal"
 								data-target="#confirm-submit"></td>
-
-
 						</tr>
+						</c:forEach>
 
-							<tr class="read">
-                            <td class="check-mail">2</td>
-							<td class="mail-ontact "> Unit
-									Name </td>
-							<td class="mail-subject"> Unit
-									Description </td>
-							 
-							<td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Unit" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
-
-
-						</tr>
-							<tr class="read">
-                            <td class="check-mail">3 </td>
-							<td class="mail-ontact "> Unit
-									Name </td>
-							<td class="mail-subject"> Unit
-									Description </td>
-							 
-							<td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Unit" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
-
-
-						</tr>
+						
 
 
 					</tbody>
