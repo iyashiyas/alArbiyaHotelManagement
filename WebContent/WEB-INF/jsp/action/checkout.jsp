@@ -32,7 +32,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content text-center p-md">
 
-                    <h2><span class="text-navy">Parking - Service</span>
+                    <h2><span class="text-navy">Checkout - Service</span>
                     is  Helps The Customer  <br/>For Check-out  Rooms From Service Screens</h2>
                      <p>
                         Here have options you can turn on/off Check-out Service From Service Screens   

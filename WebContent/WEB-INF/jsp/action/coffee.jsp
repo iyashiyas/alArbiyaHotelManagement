@@ -13,18 +13,18 @@
 <body>
 
 	<!-- Include Page Header-->
-   <div id="wrapper">
+   <div id="wrapper">S
    <jsp:include page="../header/header.jsp"></jsp:include>
 	
 	<div id="page-wrapper" class="gray-bg">
 	
 		 <div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Coffee</h2>
+			<h2>Coffee Shop</h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/Coffee">Coffee</a></li>
-				<li class="active"><strong>Coffee</strong></li>
+					href="${pageContext.request.contextPath}/action">Services</a></li>
+				<li class="active"><strong>CoffeeShop</strong></li>
 			</ol>
 		</div>
 		<ul class="nav  navbar-right">

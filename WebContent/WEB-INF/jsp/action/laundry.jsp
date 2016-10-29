@@ -60,8 +60,8 @@
 
 						<div class="col-sm-10">
 							<select class="form-control m-b" name="laun_Item_Category">
-								<option>Indian</option>
-								<option>Chinese</option>
+								<option>Iron</option>
+								<option>Laundry</option>
 							  </select>
 						</div>
 					</div>
