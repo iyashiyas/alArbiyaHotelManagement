@@ -30,7 +30,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		return unit;
 	}
 	public Unit editUnit(Unit unit) {
-		entityManager.persist(unit);
+		entityManager.merge(unit);
 		return unit;
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
@@ -53,7 +53,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 	}
 	@Override
 	public void disableUnit(long id, String status) {
-		Query updateQuery = entityManager.createQuery("UPDATE Unit SET status = :status where id = :id ");
+		Query updateQuery = entityManager.createQuery("UPDATE Unit SET unitStatus = :status where id = :id ");
 		updateQuery.setParameter("status", status);
 		updateQuery.setParameter("id", id);
 		entityManager.joinTransaction();

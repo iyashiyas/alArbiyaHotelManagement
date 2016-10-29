@@ -11,6 +11,7 @@
 <link href="<c:url value="/resources/css/font-awesome.css" />" 	rel="stylesheet">
 <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link id="loadBefore" href="<c:url value="/resources/css/common.css" />" rel="stylesheet">
  
 <title>SHMS-Header</title>
 </head>

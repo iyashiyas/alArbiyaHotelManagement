@@ -110,7 +110,7 @@
 				<div class="modal-content">
 					<div class="modal-header">Confirm Submit</div>
 					<div class="modal-body">
-						Are you sure you want to submit?
+						Are you sure you want to disable?
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

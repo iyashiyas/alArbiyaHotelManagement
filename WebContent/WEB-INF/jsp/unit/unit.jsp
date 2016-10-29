@@ -17,7 +17,7 @@
  
 </style>
 <script src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
-<%-- <script src="<c:url value="/resources/js/unit/unit.js"/>"></script> --%>
+<script src="<c:url value="/resources/js/unit/unit.js"/>"></script>
 </head>
 <body>
 
@@ -185,15 +185,17 @@
 
 						<c:forEach items="${unitWithCategory}" var="unit">
 						<tr class="read">
-							<td class="unitName">${unit.unitName}  </td>
+							<td class="id">${unit.id}</td>
+							<td class="unitName">${unit.unitName}</td>
 							<td class="unitDescription">${unit.unitDescription}</td>
 							<td class="unitCategory">${unit.unitCategory}</td>
+							<td class="measurementUnit">${unit.measurementUnit}</td>
 							<td class="unitStatus">${unit.unitStatus}</td>
-						   <td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Unit" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
+						   	<td class="unitEdit"><i class="fa fa-pencil"><a>Edit</a></i></td>
+							<td class="text-right mail-date">
+							
+							<input type="button" unitId="${unit.id}" name="btn" value="${unit.unitStatus == 'ENABLE' ? 'DISABLE' : 'ENABLE'}" class="disableUnitButton" />
+														</td>
 						</tr>
 						</c:forEach>
 
@@ -205,16 +207,24 @@
  </div>
 			</div>
 		</div>
-			<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog"
+		<div class="modal fade" id="disableUnitFormWrapper" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
+		
+			<form class="disableUnit hide"
+				action="${pageContext.request.contextPath}/unit/disableUnit"
+				method="POST" id="disableUnit">
+				<input type="hidden" name="id" id="id" value=""/> 
+				<input type="hidden" name="status" id="status" value=""/>
+			</form>
+		
 			<div class="modal-content">
-				<div class="modal-header">Confirm Delete</div>
-				<div class="modal-body">Are you sure you want to delete this
-					item</div>
+				<div class="modal-header">Confirm Disable</div>
+				<div class="modal-body">Are you sure you want to disable this
+					unit?</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a  id="submit" class="btn btn-success success">Delete</a>
+					<button  id="submit" class="btn btn-success success disableUnitFormButton">Diable</button>
 				</div>
 			</div>
 		</div>
@@ -225,7 +235,7 @@
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-			   <form class="form-horizontal" action="" method="post">
+			   <form class="form-horizontal" id="confirm-EditForm" method="POST" action="unit/editUnit">
 				<div class="modal-header">Edit Unit</div>
 				<div class="modal-body">
 
@@ -234,9 +244,9 @@
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Unit Category</label>
-
+						<input type="hidden" name="id" id="id" value="">
 						<div class="col-sm-10">
-							<select class="form-control m-b" name="unit_category">
+							<select class="form-control m-b" name="unitCategory">
 								<option>Unit 1</option>
 								<option>Unit 2</option>
 								<option>Unit 3</option>
@@ -244,38 +254,26 @@
 							</select>
 						</div>
 					</div>
- 
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Unit Id</label>
 
-						<div class="col-sm-10">
-							<input type="text" disabled="disabled" placeholder="unit id"
-								name="unit_id" class="form-control">
-						</div>
-					</div>
-
-                    	<div class="form-group">
+                   	<div class="form-group">
 						<label class="col-sm-2 control-label">Unit Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="unit Name" name="unit_Name"
-								class="form-control">
+							<input type="text" name="unitName" id="unitName" class="form-control">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Measurement </label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Measurement" name="measurement "
-								class="form-control">
+							<input type="text" name="measurementUnit" id="measurementUnit" class="form-control">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
+							<input type="text" name="Description" id="unitDescription" class="form-control">
 						</div>
 					</div>
   
@@ -283,16 +281,16 @@
 						<label class="col-sm-2 control-label">Status </label>
 
 						<div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
+							 <input type="checkbox" id="unitStatus" >
                                     <label for="checkbox1">
-                                        Disable
+                                        Enable
                                     </label>
                                     </div>
 					</div>
                 </div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a  id="submit" class="btn btn-success success">Update</a>
+					<button type="button" class="btn btn-default">Cancel</button>
+					<button type="submit" class="btn btn-success success">Update</button>
 				</div>
 				</form>
 			</div>
