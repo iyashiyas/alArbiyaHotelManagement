@@ -2,6 +2,7 @@ package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +15,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.UnitRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,11 +29,30 @@ public class UnitRepositoryImpl implements UnitRepository{
 	EntityManager entityManager;
 	
 	public Unit addUnit(Unit unit) {
-		entityManager.persist(unit);
+		this.entityManager.persist(unit);
+		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
+			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+			Language language = query.setParameter("languageId", unitLanguage.getId()).getSingleResult();
+			unitLanguage.setLanguage(language);
+			unitLanguage.setUnit(unit);
+			this.entityManager.merge(unitLanguage);
+		}
+		unit.setUnitLanguages(unit.getUnitLanguages());
+		
 		return unit;
 	}
 	public Unit editUnit(Unit unit) {
+		
+		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
+			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+			Language language = query.setParameter("languageId", unitLanguage.getId()).getSingleResult();
+			unitLanguage.setLanguage(language);
+			unitLanguage.setUnit(unit);
+			this.entityManager.merge(unitLanguage);
+		}
+		unit.setUnitLanguages(unit.getUnitLanguages());
 		entityManager.merge(unit);
+		
 		return unit;
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {

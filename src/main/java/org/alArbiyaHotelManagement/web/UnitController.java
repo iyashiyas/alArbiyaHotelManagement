@@ -1,10 +1,14 @@
 package org.alArbiyaHotelManagement.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitLanguage;
+import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +23,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UnitController {
 	
 	@Autowired UnitService unitService;
+	@Autowired LanguageService languageService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		Set<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
+		Set<Language> languages = languageService.getAllLanguages();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("unitWithCategory", unitWithCategory);
+		attributes.put("languages", languages);
 		attributes.put("newUnit", new Unit());
 		model.addAllAttributes(attributes);
 		return "unit/unit";

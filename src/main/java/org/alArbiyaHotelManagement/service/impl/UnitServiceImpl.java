@@ -15,6 +15,9 @@ public class UnitServiceImpl implements UnitService {
 	private UnitRepository unitRepository;
 	
 	public Unit editUnit(Unit unit) {
+		if(unit.getUnitStatus()==null) {
+			unit.setUnitStatus("DISABLED");
+		}
 		return unitRepository.editUnit(unit);
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
@@ -22,6 +25,9 @@ public class UnitServiceImpl implements UnitService {
 	}
 	@Override
 	public Unit addUnit(Unit unit) {
+		if(unit.getUnitStatus()==null) {
+			unit.setUnitStatus("DISABLED");
+		}
 		return unitRepository.addUnit(unit);
 	}
 	@Override

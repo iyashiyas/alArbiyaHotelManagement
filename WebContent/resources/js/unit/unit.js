@@ -1,5 +1,13 @@
 $( document ).ready(function() {
 	
+	$("#unitStatus").change(function() {
+		$("#unitStatus").val("ENABLE");
+		if(!this.checked){
+		   $("#unitStatus").val("DISABLE");
+		} 
+	})
+	
+	
 	$('#confirm-Edit').modal('hide');
 	
 //	$( "#addUnitForm" ).submit(function( event ) {
@@ -17,11 +25,35 @@ $( document ).ready(function() {
 //	});
 	
 	$('.unitEdit').click(function() {
+		
+		var $unitLanguageSize = $("#unitLanguageSize").val()
+		
+		
+		
+		for (i = 0; i < $unitLanguageSize-1; i++) { 
+			var controlForm = $('.editControls:first');
+		    var $currentEntry = $('.editEntry:first').clone();
+		    $currentEntry.find("select").attr('name', 'unitLanguages['+ parseInt(i+1) +'].id')
+		    $currentEntry.find("input").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
+		    var newEntry = $($currentEntry).appendTo(controlForm);
+		}
+		
+		for (i = 0; i < $unitLanguageSize; i++) {
+			$("select[name='unitLanguages\\["+i+"\\].id']").val($('td.unitLanguageId'+i+'').attr('value'))
+			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($('td.unitLanguageName'+i+'').attr('value'))
+		}
+		
 		var $row = $(this).parent('tr')
+		$('#confirm-Edit').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
 		$('#confirm-Edit').find("#id").val($row.find(".id").text())
 		$('#confirm-Edit').find("#unitName").val($row.find(".unitName").text())
 		$('#confirm-Edit').find("#measurementUnit").val($row.find(".measurementUnit").text())
 		$('#confirm-Edit').find("#unitStatus").val($row.find(".unitStatus").text())
+		if($row.find(".unitStatus").text()=="ENABLE" || $row.find(".unitStatus").text()=="ENABLED") {
+			$('#confirm-Edit').find("#unitStatus").prop('checked',true)
+		} else {
+			$('#confirm-Edit').find("#unitStatus").prop('checked',false)
+		}
 		$('#confirm-Edit').find("#unitDescription").val($row.find(".unitDescription").text())
 		
 		$('#confirm-Edit').modal('show');
