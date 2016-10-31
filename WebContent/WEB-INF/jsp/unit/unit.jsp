@@ -97,7 +97,7 @@
 												<div class="entry input-group ">
 													<form:select class="form-control m-b " id="drp"
 														path="unitLanguages[0].id" style="width:30%;">
-														<form:options items="${languages }" itemValue="id"
+														<form:options items="${languages}" itemValue="id"
 															itemLabel="languageName"></form:options>
 													</form:select>
 													<form:input class="form-control" type="text"
@@ -165,8 +165,8 @@
 							</div>
 							<div class="ibox-content">
 								<div class="mail-box-header">
-									<h2>Category Name</h2>
-									<div class="mail-tools tooltip-demo m-t-md">
+									<!-- <h2>Category Name</h2> -->
+									<!-- <div class="mail-tools tooltip-demo m-t-md">
 										<div class="btn-group pull-right">
 											<button class="btn btn-white btn-sm">
 												<i class="fa fa-arrow-left"></i>
@@ -176,7 +176,7 @@
 											</button>
 										</div>
 
-									</div>
+									</div> -->
 								</div>
 								<div class="mail-box">
 									<table class="table table-hover table-mail">
@@ -185,8 +185,9 @@
 											<tr>
 												<th class="check-mail">Unit Id</th>
 												<th>Unit Name</th>
-												<th>Unit Description</th>
-												<th>Edit</th>
+												<th>Description</th>
+												<th>Category</th>
+												<th>Status</th>
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -198,26 +199,27 @@
 													<td class="id">${unit.id}</td>
 													<td class="unitName">${unit.unitName}</td>
 													<td class="unitDescription">${unit.unitDescription}</td>
-													<td class="unitCategory hide">${unit.unitCategory}</td>
+													<td class="unitCategory">${unit.unitCategory}</td>
+													<td class="unitStatus">${unit.unitStatus}</td>
 													<td class="measurementUnit hide">${unit.measurementUnit}</td>
-													<td class="unitStatus hide">${unit.unitStatus}</td>
+													
 													<input type="hidden" id="unitLanguageSize" value="${ unit.unitLanguages.size()}"/>
 													<c:forEach items="${unit.unitLanguages }" var="language" varStatus="loop">
-														<td class="unitLanguageId${loop.index} hide" value="${language.id }"></td>
+														<td class="unitLanguageId${loop.index} hide" value="${language.language.id }"></td>
 														<td class="unitLanguageName${loop.index} hide" value="${language.unitLanguageName }"></td>
 													</c:forEach>
-													<td class="unitEdit"><i class="fa fa-pencil"><a>Edit</a></i></td>
-													<td class="text-right mail-date"><input type="button"
+													<td class="unitEdit"><i class="fa fa-pencil"><a  data-backdrop="static" data-keyboard="false" >Edit</a></i></td>
+													<%-- <td class="text-right mail-date"><input type="button"
 														unitId="${unit.id}" name="btn"
 														value="${unit.unitStatus == 'ENABLE' ? 'DISABLE' : 'ENABLE'}"
-														class="disableUnitButton" /></td>
+														class="disableUnitButton" /></td> --%>
 												</tr>
 											</c:forEach>
 
 
 
 
-										</tbody>
+										</tbody> 
 									</table>
 								</div>
 							</div>
@@ -248,7 +250,7 @@
 						</div>
 
 
-						<div class="modal fade" id="confirm-Edit" tabindex="-1"
+						<div class="modal fade" data-backdrop="static" data-keyboard="false"  id="confirm-Edit" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -299,7 +301,7 @@
 																placeholder="Enter Name"
 																style="width:40%;margin-left: 10px;" />
 															<span class="input-group-btn">
-																<button class="btn btn-primary btn-add" type="button">
+																<button class="btn btn-primary  btn-add" type="button">
 																	<span class="glyphicon glyphicon-plus"></span>
 																</button>
 															</span>
@@ -334,7 +336,7 @@
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-default">Cancel</button>
+											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
 											<button type="submit" class="btn btn-success success">Update</button>
 										</div>
 									</form:form>
@@ -349,6 +351,6 @@
 	</div>
 
 	<script type="text/javascript"
-		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
+		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>  
 </body>
 </html>

@@ -19,6 +19,13 @@ public class LanguageServiceImpl implements LanguageService {
 		return languageRepository.getAllLanguages();
 	}
 	
+
+	@Override
+	public Set<Language> getEnableLanguages() {
+		return languageRepository.getEnableLanguages();
+	}
+	
+	
 	@Override
 	public void editLanguage(Language language) {
 		languageRepository.editLanguage(language);

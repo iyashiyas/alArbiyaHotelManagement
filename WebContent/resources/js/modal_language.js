@@ -21,10 +21,11 @@ $('#submit').click(function() {
 function handleSuccess() {
 	$('#confirm-submit').modal('toggle');
 	
-	$('.top-right').notify({
+	/*$('.top-right').notify({
 	    message: { text: 'Language Status Updated Successfully' }
-	  }).show();
-	
+	  }).show();*/
+
+	location.reload();
 }  
 function handleError() {
 	$('#confirm-submit').modal('toggle');

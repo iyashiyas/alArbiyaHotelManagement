@@ -28,7 +28,7 @@ public class UnitController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		Set<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
-		Set<Language> languages = languageService.getAllLanguages();
+		Set<Language> languages = languageService.getEnableLanguages();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("unitWithCategory", unitWithCategory);
 		attributes.put("languages", languages);

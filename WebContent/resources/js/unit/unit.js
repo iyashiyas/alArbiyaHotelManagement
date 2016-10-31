@@ -1,3 +1,7 @@
+ $(function () {
+    $(document).on('click', 'button[data-dismiss]', function (e) {
+  location.reload();
+})}); 
 $( document ).ready(function() {
 	
 	$("#unitStatus").change(function() {
@@ -6,8 +10,7 @@ $( document ).ready(function() {
 		   $("#unitStatus").val("DISABLE");
 		} 
 	})
-	
-	
+	 
 	$('#confirm-Edit').modal('hide');
 	
 //	$( "#addUnitForm" ).submit(function( event ) {
@@ -28,22 +31,24 @@ $( document ).ready(function() {
 		
 		var $unitLanguageSize = $("#unitLanguageSize").val()
 		
-		
-		
-		for (i = 0; i < $unitLanguageSize-1; i++) { 
-			var controlForm = $('.editControls:first');
+		 //dynamically creating dropdown	
+		 for (i = 0; i < $unitLanguageSize-1; i++) { 
+			var controlForm = $('.editControls:first'),
+		     currentEntry = $(this).parents('.editEntry:first'),
+		     newEntry = $(currentEntry.clone()).appendTo(controlForm);
+			
 		    var $currentEntry = $('.editEntry:first').clone();
 		    $currentEntry.find("select").attr('name', 'unitLanguages['+ parseInt(i+1) +'].id')
 		    $currentEntry.find("input").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
 		    var newEntry = $($currentEntry).appendTo(controlForm);
-		}
+		     
+		} 
 		
 		for (i = 0; i < $unitLanguageSize; i++) {
 			$("select[name='unitLanguages\\["+i+"\\].id']").val($('td.unitLanguageId'+i+'').attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($('td.unitLanguageName'+i+'').attr('value'))
 		}
-		
-		var $row = $(this).parent('tr')
+		 var $row = $(this).parent('tr')
 		$('#confirm-Edit').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
 		$('#confirm-Edit').find("#id").val($row.find(".id").text())
 		$('#confirm-Edit').find("#unitName").val($row.find(".unitName").text())
@@ -56,7 +61,10 @@ $( document ).ready(function() {
 		}
 		$('#confirm-Edit').find("#unitDescription").val($row.find(".unitDescription").text())
 		
-		$('#confirm-Edit').modal('show');
+		$('#confirm-Edit').modal({
+		    backdrop: 'static',
+		    keyboard: true,
+		    show: true});
 	});
 	
 	$( "#confirm-EditForm" ).on('submit', function(e){
@@ -93,4 +101,5 @@ $( document ).ready(function() {
 
 function handleSuccess() {
 	$('#confirm-Edit').modal('hide');
+	location.reload();
 }  

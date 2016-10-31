@@ -1,8 +1,6 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.ArrayList;import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -38,8 +36,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 			this.entityManager.merge(unitLanguage);
 		}
 		unit.setUnitLanguages(unit.getUnitLanguages());
-		
-		return unit;
+        return unit;
 	}
 	public Unit editUnit(Unit unit) {
 		
@@ -81,6 +78,5 @@ public class UnitRepositoryImpl implements UnitRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 	}
-	
-	
+	 
 }

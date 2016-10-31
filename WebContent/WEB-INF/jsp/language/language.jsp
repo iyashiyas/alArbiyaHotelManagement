@@ -71,7 +71,7 @@
 											<td><c:out value="${language.country.countryName}" /></td>
 
 											<td class="center">	
-												<label class=" label label-primary">
+												<label class=" label ${language.status == 'ACTIVE' ? 'label-primary' : 'label-danger'}">
 													<c:out value="${language.status}" />
 								 				</label>
 									 	    </td>

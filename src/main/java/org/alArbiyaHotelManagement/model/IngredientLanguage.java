@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +20,17 @@ public class IngredientLanguage {
 	@Column(name="INGREDIENT_LANGUAGE_NAME") 
 	private String ingredientLanguageName;
 	
-	@ManyToOne 
+	@OneToOne
+	@JoinColumn(name="LANGUAGE_ID", nullable=false)
+	private Language language;
+ 
+	@ManyToOne
+	@JoinColumn(name="INGREDIENT_ID")
+	private Ingredient ingredient;
+ 	
+	/*@ManyToOne 
 	private IngredientLanguageGroup ingredientLanguageGroup;
-
+*/
 	public long getId() {
 		return id;
 	}
@@ -36,8 +46,24 @@ public class IngredientLanguage {
 	public void setIngredientLanguageName(String ingredientLanguageName) {
 		this.ingredientLanguageName = ingredientLanguageName;
 	}
+	
+	public Language getLanguage() {
+		return language;
+	}
 
-	public IngredientLanguageGroup getIngredientLanguageGroup() {
+	public void setLanguage(Language language) {
+		this.language = language;
+	}
+ 
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setUnit(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
+	/*public IngredientLanguageGroup getIngredientLanguageGroup() {
 		return ingredientLanguageGroup;
 	}
 
@@ -45,6 +71,6 @@ public class IngredientLanguage {
 			IngredientLanguageGroup ingredientLanguageGroup) {
 		this.ingredientLanguageGroup = ingredientLanguageGroup;
 	}
-
+*/
 	
 }

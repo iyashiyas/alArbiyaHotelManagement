@@ -1,12 +1,12 @@
 package org.alArbiyaHotelManagement.model;
 
-import java.util.Set;
+ 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+ 
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +23,8 @@ public class IngredientCategory {
 	@Column(name="INGREDIENT_STATUS") 
 	private String categoryStatus;
 	
-	@OneToMany(mappedBy="ingredientCategory") 
-	private Set<Ingredient> ingredients;
+	/*@OneToMany(mappedBy="ingredientCategory") 
+	private Set<Ingredient> ingredients;*/
 
 	public long getId() {
 		return id;
@@ -50,12 +50,12 @@ public class IngredientCategory {
 		this.categoryStatus = categoryStatus;
 	}
 
-	public Set<Ingredient> getIngredients() {
+	/*public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
 	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
-	}
+	}*/
 	
 }

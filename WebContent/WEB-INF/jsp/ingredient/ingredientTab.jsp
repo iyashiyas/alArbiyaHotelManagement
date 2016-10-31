@@ -17,8 +17,8 @@
 			</div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
-                                <li ><a href="#"> <span class="label label-success">1</span> Ingredient 1 </a></li>
-                                <li><a href="#"><span class="label label-success">2</span> Ingredient 2</a></li>
+                                <li ><a href="${pageContext.request.contextPath}/ingredient?categoryCode=SAUCE"> <span class="label label-success">1</span> sauce </a></li>
+                                <li><a href="${pageContext.request.contextPath}/ingredient?categoryCode=FLOUR"><span class="label label-success">2</span> Flourý </a></li>
                             
                                  </ul>
                              <div class="clearfix"></div>

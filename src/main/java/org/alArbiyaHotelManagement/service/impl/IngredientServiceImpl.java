@@ -3,7 +3,6 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
-import org.alArbiyaHotelManagement.model.IngredientCategory;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.alArbiyaHotelManagement.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +13,18 @@ public class IngredientServiceImpl implements IngredientService {
 	
 	@Autowired
 	private IngredientRepository ingredientRepository;
-	public Ingredient addIngredient() {
-		return null;
+	
+	public Ingredient addIngredient(Ingredient ingredient) {
+		
+		return ingredientRepository.addIngredient(ingredient);
 	}
 	
-	public Ingredient editIngredient() {
-		return null;
+	public Ingredient editIngredient(Ingredient ingredient) {
+		return ingredientRepository.editIngredient(ingredient);
 	}
 
 	@Override
-	public Set<IngredientCategory> getAllUnitWithCategory() {
-		return ingredientRepository.getAllUnitWithCategory();
+	public Set<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
+		return ingredientRepository.getAllIngredienttWithCategory(categoryCode);
 	}
 }

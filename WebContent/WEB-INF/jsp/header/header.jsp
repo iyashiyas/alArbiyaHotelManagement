@@ -51,10 +51,18 @@
 					<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
 							class="nav-label">Profile</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
-							<li><a href="#">Branch</a></li>
-							<li><a href="#">Building</a></li>
-							<li><a href="#">Floor</a></li>
-							<li><a href="#">Rooms</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=BRANCH">Branch</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=BUILDING">Building</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=FLOOR">Floor</a></li>
+							<li><a ><i class="fa fa-bar-chart-o"></i>Rooms <span class="fa arrow">
+							</span></a>
+							
+							<ul class="nav nav-third-level collapse">
+							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=ROOM">Rooms</a></li>
+					        <li><a href="${pageContext.request.contextPath}/hotel?profileCode=ROOMTYPE">Room Types</a></li>
+					     
+							</ul>
+							</li>
 
 						</ul></li>
 						

@@ -1,11 +1,15 @@
 package org.alArbiyaHotelManagement.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+ 
 import javax.persistence.Table;
 
 @Entity
@@ -28,12 +32,21 @@ public class Ingredient {
 	@Column(name="INGREDIENT_DESCRIPTION") 
 	private String ingredientDescription;
 	
-	@OneToOne 
-	private IngredientLanguageGroup ingredientLanguageGroup;
+	 
+	@OneToMany(mappedBy="ingredient", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
+	private List<IngredientLanguage> ingredientLanguages;
 	
-	@ManyToOne 
-	private IngredientCategory ingredientCategory;
+	@Column(name="INGREDIENT_CATEGORY")
+	private String ingredientCategory;
+	
+	
+	 
+	
+	/*@ManyToOne 
+	private IngredientCategory ingredientCategory;*/
 
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -74,22 +87,21 @@ public class Ingredient {
 		this.ingredientDescription = ingredientDescription;
 	}
 
-	public IngredientLanguageGroup getIngredientLanguageGroup() {
-		return ingredientLanguageGroup;
+	public List<IngredientLanguage> getIngredientLanguages() {
+		return ingredientLanguages;
 	}
 
-	public void setIngredientLanguageGroup(
-			IngredientLanguageGroup ingredientLanguageGroup) {
-		this.ingredientLanguageGroup = ingredientLanguageGroup;
-	}
+	public void setUnitLanguages(List<IngredientLanguage> ingredientLanguages) {
+		this.ingredientLanguages = ingredientLanguages;
+	} 
 
-	public IngredientCategory getIngredientCategory() {
+	/*public IngredientCategory getIngredientCategory() {
 		return ingredientCategory;
 	}
 
 	public void setIngredientCategory(IngredientCategory ingredientCategory) {
 		this.ingredientCategory = ingredientCategory;
-	}
+	}*/
 	
 	
 	

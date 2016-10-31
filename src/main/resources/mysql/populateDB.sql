@@ -255,7 +255,7 @@ INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `coun
 INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `country_COUNTRY_ID`) VALUES('7',"ACTIVE","Spanish",'213');
 
 --Unit Category
-INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('1','General','GN');
-INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('2','Length','LN');
-INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('3','Volume and Capacity','VC');
-INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('4','Weight','WT');
+--INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('1','General','GN');
+--INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('2','Length','LN');
+--INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('3','Volume and Capacity','VC');
+--INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('4','Weight','WT');
