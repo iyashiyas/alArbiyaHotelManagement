@@ -58,6 +58,9 @@ public class UnitLanguage {
 
 	public void setUnit(Unit unit) {
 		this.unit = unit;
+        if (!unit.getUnitLanguages().contains(this)) {
+        	unit.getUnitLanguages().add(this);
+        }
 	}
 
 }

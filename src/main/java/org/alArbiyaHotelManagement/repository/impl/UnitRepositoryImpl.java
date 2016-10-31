@@ -1,6 +1,8 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.ArrayList;import java.util.HashSet;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -47,7 +49,6 @@ public class UnitRepositoryImpl implements UnitRepository{
 			this.entityManager.merge(unitLanguage);
 		}
 		entityManager.merge(unit);
-		
 		return unit;
 	}
 	public Set<Unit> getAllUnitWithCategory(String categoryCode) {

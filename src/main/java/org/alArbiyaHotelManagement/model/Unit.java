@@ -1,8 +1,6 @@
 package org.alArbiyaHotelManagement.model;
 
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -91,10 +88,15 @@ public class Unit {
 		return unitLanguages;
 	}
 
+	public void addUnitLanguages(UnitLanguage unitLanguage) {
+        this.unitLanguages.add(unitLanguage);
+        if (unitLanguage.getUnit() != this) {
+        	unitLanguage.setUnit(this);
+        }
+    }
+	
 	public void setUnitLanguages(List<UnitLanguage> unitLanguages) {
 		this.unitLanguages = unitLanguages;
 	} 
-	
-	
 	
 }
