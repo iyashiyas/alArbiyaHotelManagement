@@ -39,7 +39,6 @@ public class UnitRepositoryImpl implements UnitRepository{
         return unit;
 	}
 	public Unit editUnit(Unit unit) {
-		
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
 			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
 			Language language = query.setParameter("languageId", unitLanguage.getId()).getSingleResult();
@@ -47,7 +46,6 @@ public class UnitRepositoryImpl implements UnitRepository{
 			unitLanguage.setUnit(unit);
 			this.entityManager.merge(unitLanguage);
 		}
-		unit.setUnitLanguages(unit.getUnitLanguages());
 		entityManager.merge(unit);
 		
 		return unit;

@@ -44,8 +44,9 @@ public class UnitController {
 	}
 	
 	@RequestMapping(value="/editUnit", method=RequestMethod.POST)
-	public void editUnit(@ModelAttribute Unit unit) {
+	public String editUnit(@ModelAttribute Unit unit) {
 		unitService.editUnit(unit);
+		return "redirect:/unit";
 	}
 	
 	@RequestMapping(value="/disableUnit", method=RequestMethod.POST)
