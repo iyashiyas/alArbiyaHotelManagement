@@ -205,7 +205,8 @@
 													
 													<input type="hidden" id="unitLanguageSize" value="${ unit.unitLanguages.size()}"/>
 													<c:forEach items="${unit.unitLanguages }" var="language" varStatus="loop">
-														<td class="unitLanguageId${loop.index} hide" value="${language.language.id }"></td>
+														<td class="unitLanguageLanguageId${loop.index} hide" value="${language.language.id }"></td>
+														<td class="unitLanguageId${loop.index} hide" value="${language.id }"></td>
 														<td class="unitLanguageName${loop.index} hide" value="${language.unitLanguageName }"></td>
 													</c:forEach>
 													<td class="unitEdit"><i class="fa fa-pencil"><a  data-backdrop="static" data-keyboard="false" >Edit</a></i></td>
@@ -290,8 +291,9 @@
 												<div class="col-sm-10">
 													<div class="editControls">
 														<div class="editEntry input-group ">
+															<form:input type="hidden" path="unitLanguages[0].id" name="unitLanguages[0].id"/>
 															<form:select class="form-control m-b " id="drp"
-																path="unitLanguages[0].id" name="unitLanguages[0].id" style="width:30%;">
+																path="unitLanguages[0].language.id" name="unitLanguages[0].language.id" style="width:30%;">
 																<form:options items="${languages }" itemValue="id"
 																	itemLabel="languageName"></form:options>
 															</form:select>

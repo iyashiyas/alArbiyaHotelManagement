@@ -44,7 +44,8 @@ $( document ).ready(function() {
 		var $row = $(this).parent('tr')
 		
 		for (i = 0; i < $unitLanguageSize; i++) {
-			$("select[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
+			$("select[name='unitLanguages\\["+i+"\\].language.id']").val($row.find($('td.unitLanguageLanguageId'+i+'')).attr('value'))
+			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($row.find($('td.unitLanguageName'+i+'')).attr('value'))
 		}
 		$('#confirm-Edit').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
