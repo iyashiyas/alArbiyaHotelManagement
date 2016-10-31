@@ -17,8 +17,8 @@ public class IngredientLanguageGroup {
 	@Column(name="INGREDIENT_LANGUAGE_GROUP_ID")
 	private long id;
 	
-	@OneToMany(mappedBy="ingredientLanguageGroup") 
-	private Set<IngredientLanguage> ingredientLanguages;
+	/*@OneToMany(mappedBy="ingredientLanguageGroup") 
+	private Set<IngredientLanguage> ingredientLanguages;*/
 
 	public long getId() {
 		return id;
@@ -28,12 +28,12 @@ public class IngredientLanguageGroup {
 		this.id = id;
 	}
 
-	public Set<IngredientLanguage> getIngredientLanguages() {
+	/*public Set<IngredientLanguage> getIngredientLanguages() {
 		return ingredientLanguages;
 	}
 
 	public void setIngredientLanguages(Set<IngredientLanguage> ingredientLanguages) {
 		this.ingredientLanguages = ingredientLanguages;
-	}
+	}*/
 	
 }
