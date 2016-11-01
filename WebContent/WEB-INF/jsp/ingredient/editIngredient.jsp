@@ -12,10 +12,13 @@
 
 </head>
 <body>
+  	 
+			<form:form class="form-horizontal"
+				action="${pageContext.request.contextPath}/ingredient/addIngredient"
+				 modelAttribute="newIngredient" method="post">
+				<p>Edit Ingredient items Here</p>
 
- <p>Update Ingredient items Here</p>
-<form class="form-horizontal" action="ingredient/editingredient" method="post">
-										<div class="form-group">
+				<div class="form-group">
 					<label class="col-sm-2 control-label">Ingredient Category</label>
 
 					<div class="col-sm-10">
@@ -33,24 +36,30 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Other Languages</label>
-					<div class="col-sm-10">
-						<div class="controls">
-
-							<div class="entry input-group ">
-								<select class="form-control m-b" name="ingredientOtherlanguage" id="language_dropdown"><option>Arabic</option>
-									<option>English</option></select> <input class="form-control"
-									type="text" name="other_language_ingredient"
-									placeholder="Enter Name" /> <span class="input-group-btn">
-									<button class="btn btn-primary btn-add" type="button">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="form-group">
+										<label class="col-sm-2 control-label">Other Languages</label>
+										<div class="col-sm-10">
+											<div class="editControls">
+												<div class="editEntry input-group ">
+													<form:select class="form-control m-b " id="drp"
+														path="ingredientLanguages[0].id" style="width:30%;">
+														<form:options items="${languages}" itemValue="id"
+															itemLabel="languageName"></form:options>
+													</form:select>
+													<form:input class="form-control" type="text"
+														name="ingredientLanguages[0].ingredientLanguageName"
+														path="ingredientLanguages[0].ingredientLanguageName"
+														placeholder="Enter Name"
+														style="width:40%;margin-left: 10px;" />
+													<span class="input-group-btn">
+														<button class="btn btn-primary edit-btn-add" type="button">
+															<span class="glyphicon glyphicon-plus"></span>
+														</button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"> Description</label>
@@ -64,19 +73,19 @@
 										<label class="col-sm-2 control-label">Status </label>
 
 										<div class="col-sm-10">
-											<form:checkbox id="unitStatus" name="ingredientStatus"
+											<form:checkbox id="ingredientStatus" name="ingredientStatus"
 												path="ingredientStatus" value="ENABLE" />
 											Enable
 										</div>
 									</div>
- 
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default"
-												data-dismiss="modal">Cancel</button>
-											<button id="submit" type="submit" class="btn btn-success success">Update</button>
-										</div>
-									</form>
-							 
-								
+	 
+			<div class="modal-footer">
+											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
+											<button type="submit" class="btn btn-success success">Update</button>
+										</div> 
+
+			</form:form>
+		 
+  
 </body>
 </html>

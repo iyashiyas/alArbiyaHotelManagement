@@ -38,13 +38,14 @@ public class IngredientController {
    
 	@RequestMapping(value="/addIngredient", method=RequestMethod.POST)
 	public String addIngredient(@ModelAttribute Ingredient ingredient) {
-		System.out.println("ingredient"+ingredient);
+	 
 		ingredientService.addIngredient(ingredient);
 		return "redirect:/ingredient";
 	}
 	
 	@RequestMapping(value="/editingredient", method=RequestMethod.POST)
-	 public void editIngredient(@ModelAttribute Ingredient ingredient) {
+	 public String editIngredient(@ModelAttribute Ingredient ingredient) {
 		ingredientService.editIngredient(ingredient);
+		return "redirect:/ingredient";
 	  }
 }

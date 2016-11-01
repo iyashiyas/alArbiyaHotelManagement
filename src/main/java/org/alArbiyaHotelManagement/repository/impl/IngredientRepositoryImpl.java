@@ -14,9 +14,14 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
  
+
+
 import org.alArbiyaHotelManagement.model.Ingredient;
  
-  import org.alArbiyaHotelManagement.repository.IngredientRepository;
+import org.alArbiyaHotelManagement.model.IngredientLanguage;
+import org.alArbiyaHotelManagement.model.Language;
+ 
+import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,35 +32,38 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 	EntityManager entityManager;
 	
 	public Ingredient addIngredient(Ingredient ingredient) {
-		entityManager.persist(ingredient);
-		return ingredient;
+		this.entityManager.persist(ingredient);
+		
+		for(IngredientLanguage ingredientLanguage: ingredient.getIngredientLanguages()) {
+			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+			Language language = query.setParameter("languageId", ingredientLanguage.getId()).getSingleResult();
+			ingredientLanguage.setLanguage(language);
+			ingredientLanguage.setIngredient(ingredient);
+			this.entityManager.merge(ingredientLanguage);
+		}
+		 return ingredient;
 	}
 	
 	public Ingredient editIngredient(Ingredient ingredient) {
 		entityManager.merge(ingredient);
 		return ingredient;
-		 
-	}
+	 }
  
 	@Override
 	public Set<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Ingredient> query = criteriaBuilder.createQuery(Ingredient.class);
 		Root<Ingredient> ingredientRoot = query.from(Ingredient.class);
-		//Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
-		
+		 
 		List<Predicate> conditions = new ArrayList<Predicate>();
 		categoryCode = (categoryCode == null || categoryCode == "" ) ? "SAUCE" : categoryCode;
 		
 		conditions.add(criteriaBuilder.equal(ingredientRoot.get("ingredientCategory"), categoryCode ));
-		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
-		
-		TypedQuery<Ingredient> typedQuery = entityManager.createQuery(query
+	 	 TypedQuery<Ingredient> typedQuery = entityManager.createQuery(query
 		        .select(ingredientRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
 		return new HashSet<Ingredient>(typedQuery.getResultList());
 	}
-
-	 
+ 
 }

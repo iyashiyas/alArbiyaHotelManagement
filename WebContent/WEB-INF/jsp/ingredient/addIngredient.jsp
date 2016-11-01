@@ -32,9 +32,9 @@
 					<label class="col-sm-2 control-label">Ingredient Category</label>
 
 					<div class="col-sm-10">
-						<form:select class="form-control m-b" name="ingredientCategory" path="" >
-							<form:option value="SAUCE">sauce </form:option>
-							<form:option value="FLOUR">Flour</form:option>
+						<form:select class="form-control m-b" path="ingredientCategory" >
+							<form:option value="SAUCE">SAUCE </form:option>
+							<form:option value="FLOUR">FLOUR</form:option>
                        </form:select>
 					</div>
 				</div>
@@ -51,8 +51,9 @@
 										<div class="col-sm-10">
 											<div class="controls">
 												<div class="entry input-group ">
-													<form:select class="form-control m-b " id="drp"
-														path="ingredientLanguages[0].id" style="width:30%;">
+													<form:select class="form-control m-b select" id="drp"
+														path="ingredientLanguages[0].id" name="ingredientLanguages[0].id" style="width:30%;">
+													 
 														<form:options items="${languages}" itemValue="id"
 															itemLabel="languageName"></form:options>
 													</form:select>
@@ -83,8 +84,8 @@
 										<label class="col-sm-2 control-label">Status </label>
 
 										<div class="col-sm-10">
-											<form:checkbox id="unitStatus" name="ingredientStatus"
-												path="ingredientStatus" value="ENABLE" />
+											<form:checkbox id="ingredientStatus" name="ingredientStatus"
+												path="ingredientStatus" checked="checked"  value="ENABLE" />
 											Enable
 										</div>
 									</div>
@@ -99,8 +100,6 @@
 			</form:form>
 		</div>
 	</div>
-  <script type="text/javascript"
-		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
-
+    
 </body>
 </html>

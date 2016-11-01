@@ -26,13 +26,13 @@
 											<div class="controls">
 												<div class="entry input-group ">
 													<form:select class="form-control m-b " id="drp"
-														path="ingredientLanguages[0].id" style="width:30%;">
+														path="unitCategoryLanguages[0].id" style="width:30%;">
 														<form:options items="${languages}" itemValue="id"
 															itemLabel="languageName"></form:options>
 													</form:select>
 													<form:input class="form-control" type="text"
-														name="ingredientLanguages[0].ingredientLanguageName"
-														path="ingredientLanguages[0].ingredientLanguageName"
+														name="unitCategoryLanguages[0].unitCategoryLanguageName"
+														path="unitCategoryLanguages[0].unitCategoryLanguageName"
 														placeholder="Enter Name"
 														style="width:40%;margin-left: 10px;" />
 													<span class="input-group-btn">
@@ -47,7 +47,7 @@
 				  <div class="form-group">
 					<label class="col-sm-2 control-label">Category Code</label>
    <div class="col-sm-10">
-	 <form:input type="text" placeholder="Category Code" name="ingredientCategoryCode" class="form-control" path="ingredientCategoryCode"/>
+	 <form:input type="text" placeholder="Category Code" name="unitCategoryCode" class="form-control" path="unitCategoryCode"/>
 					</div>
 				</div>
 				

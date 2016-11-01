@@ -32,15 +32,15 @@ public class Ingredient {
 	@Column(name="INGREDIENT_DESCRIPTION") 
 	private String ingredientDescription;
 	
+	@Column(name="INGREDIENT_CATEGORY")
+	private String ingredientCategory;
+	
 	 
 	@OneToMany(mappedBy="ingredient", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
 	private List<IngredientLanguage> ingredientLanguages;
 	
-	@Column(name="INGREDIENT_CATEGORY")
-	private String ingredientCategory;
 	
-	
-	 
+	  
 	
 	/*@ManyToOne 
 	private IngredientCategory ingredientCategory;*/
@@ -87,22 +87,25 @@ public class Ingredient {
 		this.ingredientDescription = ingredientDescription;
 	}
 
-	public List<IngredientLanguage> getIngredientLanguages() {
-		return ingredientLanguages;
-	}
-
-	public void setUnitLanguages(List<IngredientLanguage> ingredientLanguages) {
-		this.ingredientLanguages = ingredientLanguages;
-	} 
-
-	/*public IngredientCategory getIngredientCategory() {
+	  public String getIngredientCategory() {
 		return ingredientCategory;
 	}
 
-	public void setIngredientCategory(IngredientCategory ingredientCategory) {
+	public void setIngredientCategory(String ingredientCategory) {
 		this.ingredientCategory = ingredientCategory;
-	}*/
+	} 
 	
-	
+	public List<IngredientLanguage> getIngredientLanguages() {
+		return ingredientLanguages;
+	}
+	public void addIngredientLanguages(IngredientLanguage ingredientLanguage) {
+        this.ingredientLanguages.add(ingredientLanguage);
+        if (ingredientLanguage.getIngredient() != this) {
+        	ingredientLanguage.setIngredient(this);
+        }
+    }
+	public void setIngredientLanguages(List<IngredientLanguage> ingredientLanguages) {
+		this.ingredientLanguages = ingredientLanguages;
+	} 
 	
 }

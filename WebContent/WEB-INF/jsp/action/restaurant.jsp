@@ -27,12 +27,7 @@
 				<li class="active"><strong>Restaurant</strong></li>
 			</ol>
 		</div>
-		<ul class="nav  navbar-right">
-					 
-					 	<li><button  class="btn btn-primary"> <i class="fa fa-plus"></i>
-							Add New Categories
-					</button></li>
-				</ul>
+		 
 	</div>
 	<!-- Page Contents -->
 	<!-- Page Heading -->

@@ -15,11 +15,16 @@ public class IngredientServiceImpl implements IngredientService {
 	private IngredientRepository ingredientRepository;
 	
 	public Ingredient addIngredient(Ingredient ingredient) {
-		
-		return ingredientRepository.addIngredient(ingredient);
+		 if(ingredient.getIngredientStatus()==null) {
+			ingredient.setIngredientStatus("DISABLED");
+		}
+		 return ingredientRepository.addIngredient(ingredient);
 	}
 	
 	public Ingredient editIngredient(Ingredient ingredient) {
+		 if(ingredient.getIngredientStatus()==null) {
+				ingredient.setIngredientStatus("DISABLED");
+			}
 		return ingredientRepository.editIngredient(ingredient);
 	}
 

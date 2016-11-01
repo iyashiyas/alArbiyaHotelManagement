@@ -12,7 +12,7 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Categories</h5>
+				<h5>Categories - <a href="#addnewcategory" data-toggle="modal"> New Category</a></h5>
 		    </div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">

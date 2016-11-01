@@ -12,15 +12,15 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Categories</h5>
+				<h5>Categories - <a href="#addnewrestaurentcategory" data-toggle="modal" >New Category</a></h5>
 				 
 			</div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
-                                <li ><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">Indian</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">Chinese</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=VC">MidleEast</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=WT">Western</a></li>
+                                <li ><a href="#">Indian</a></li>
+                                <li><a href="#">Chinese</a></li>
+                                <li><a href="#">MidleEast</a></li>
+                                <li><a href="#">Western</a></li>
                                 
                                   </ul>
                              <div class="clearfix"></div>

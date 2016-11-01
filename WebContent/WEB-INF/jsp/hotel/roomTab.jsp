@@ -14,7 +14,7 @@
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
 				<h5>
-					Categories - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
+					Room Types   
 				</h5>
 
 			</div>
@@ -22,11 +22,11 @@
 				<ul class="folder-list m-b-md nav metismenu" style="padding: 0">
 					<li><a
 						href="${pageContext.request.contextPath}/ingredient?categoryCode=SAUCE">
-							<span class="label label-success">1</span> sauce
+							<span class="label label-success">1</span> Single Room
 					</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/ingredient?categoryCode=FLOUR"><span
-							class="label label-success">2</span> Flourý </a></li>
+							class="label label-success">2</span> Suite Room </a></li>
 
 				</ul>
 				<div class="clearfix"></div>
@@ -34,22 +34,6 @@
 		</div>
 	</div>
 
-
-	<div class="modal fade" id="addNewCategory-modal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<div class="modal-header">Add New Category</div>
-				<div class="modal-body">
-
-					 <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include>
-
-
-				</div>
-			</div>
-		</div>
-	</div>
-
+  
 </body>
 </html>

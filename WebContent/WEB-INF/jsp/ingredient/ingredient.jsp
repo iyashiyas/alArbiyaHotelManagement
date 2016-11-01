@@ -15,7 +15,6 @@
 		<jsp:include page="../header/header.jsp"></jsp:include>
 
 		<div id="page-wrapper" class="gray-bg">
-
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
 					<h2>Ingredient</h2>
@@ -24,15 +23,8 @@
 						<li class="active"><strong>Ingredient</strong></li>
 					</ol>
 				</div>
-				<ul class="nav  navbar-right">
-
-					<li><button class="btn btn-primary">
-							<i class="fa fa-plus"></i> Add New Categories
-						</button></li>
-				</ul>
+				 
 			</div>
-
-
 			<div class="wrapper wrapper-content">
 				<div class="row">
 					<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include>
@@ -54,49 +46,50 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-								<div class="mail-box-header">
-									<h2>Category Name</h2>
-									<div class="mail-tools tooltip-demo m-t-md">
-										<div class="btn-group pull-right">
-											<button class="btn btn-white btn-sm">
-												<i class="fa fa-arrow-left"></i>
-											</button>
-											<button class="btn btn-white btn-sm">
-												<i class="fa fa-arrow-right"></i>
-											</button>
-										</div>
-
-									</div>
-								</div>
-								<div class="mail-box">
-
-									<table class="table table-hover table-mail">
+								<div class="table-responsive">
+									<table
+										class="table table-striped table-bordered table-hover dataTables-example">
 
 										<thead>
 											<tr>
 												<th class="check-mail">Ingredient Id</th>
 												<th>Ingredient Name</th>
 												<th>Ingredient Description</th>
+												 <th>Status</th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
 										</thead>
 
 										<tbody>
-                          <c:forEach items="${ingredientWithCategory}" var="ingredient">
-											<tr class="read">
-												<td class="check-mail">${ingredient.id}</td>
-												<td class="mail-ontact ">${ingredient.ingredientName}</td>
-												<td class="mail-subject">${ingredient.ingredientDescription}</td>
-												<td class=""><i class="fa fa-pencil"><a
-														data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-												<td class="text-right mail-date"><input type="button"
-													class="btn btn-block btn-primary " name="btn"
-													value="Remove" id="submitBtn" data-toggle="modal"
-													data-target="#confirm-submit"></td>
- 	</tr>
+											<c:forEach items="${ingredientWithCategory}" var="ingredient">
+												<tr class="read">
+													<td>${ingredient.id}</td>
+													<td>${ingredient.ingredientName}</td>
+													<td>${ingredient.ingredientDescription}</td>
+                                                      <td class="ingredientStatus">${ingredient.ingredientStatus}</td>
+													<td class="hide"><input type="hidden" id="ingredientLanguageSize" class="ingredientLanguageSize" value="${ ingredient.ingredientLanguages.size()}" />
+													</td><c:forEach items="${ingredient.ingredientLanguages }"
+														var="language" varStatus="loop">
+														<td class="ingredientLanguageLanguageId${loop.index} hide"
+															value="${language.language.id }"></td>
+														<td class="ingredientLanguageId${loop.index} hide"
+															value="${language.ingredient}"></td>
+														<td class="ingredientDescription${loop.index} hide"
+															value="${ingredient.ingredientDescription}"></td>
+														<td class="ingredientLanguageName${loop.index} hide"
+															value="${language.ingredientLanguageName }"></td>
+													</c:forEach>
+  
+													<td class="ingredientEdit"><i class="fa fa-pencil"><a class=""
+															data-toggle="modal"  >Edit</a></i></td>
+													<td class="text-right mail-date"><input type="button"
+														class="btn btn-block btn-primary " name="btn"
+														value="Remove" id="submitBtn" data-toggle="modal"
+														data-target="#confirm-submit"></td>
+												</tr>
 											</c:forEach>
-                                    </tbody>
+										</tbody>
 									</table>
 								</div>
 							</div>
@@ -117,27 +110,32 @@
 							</div>
 						</div>
 
-
 						<div class="modal fade" id="confirm-Edit" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
-									
-										<div class="modal-header">Edit Ingredient</div>
-										<div class="modal-body">
-  
-  <jsp:include page="../ingredient/editIngredient.jsp"></jsp:include>
-  
-  		
+
+									<div class="modal-header">Edit Ingredient</div>
+									<div class="modal-body">
+
+										<jsp:include page="../ingredient/editIngredient.jsp"></jsp:include>
+
+
+									</div>
+								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+	
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>  
+	
+	<script src="<c:url value="/resources/js/ingredient/ingredient.js"/>"></script>
+ 
 </body>
 </html>

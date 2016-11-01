@@ -12,7 +12,7 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Categories</h5>
+				<h5>Categories - <a href="#addUnitCategory-Modal" data-toggle="modal" >New Category</a></h5>
 				 
 			</div> 
 			<div class="ibox-content ">
@@ -30,6 +30,20 @@
                 </div>
         
              
+             <div class="modal fade" id="addUnitCategory-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">Add New Category</div>
+				<div class="modal-body">
+
+					<%-- <jsp:include page="../ingredient/addUnitCategory.jsp"></jsp:include>
+ --%>
+
+				</div>
+			</div>
+		</div>
+	</div>
        
              
 </body>

@@ -1,17 +1,20 @@
- $(function () {
+/* $('#confirm-Edit').on('hidden.bs.modal', function () {
+  location.reload();
+})*/
+
+$(function () {
     $(document).on('click', 'button[data-dismiss]', function (e) {
   location.reload();
 })}); 
 $( document ).ready(function() {
 	
-	$("#unitStatus").change(function() {
-		$("#unitStatus").val("ENABLE");
+	$("#ingredientStatus").change(function() {
+		$("#ingredientStatus").val("ENABLE");
 		if(!this.checked){
-		   $("#unitStatus").val("DISABLE");
+		   $("#ingredientStatus").val("DISABLE");
 		} 
 	})
-	 
-	$('#confirm-Edit').modal('hide');
+	 $('#EditUnit-Modal').modal('hide');
 	
 //	$( "#addUnitForm" ).submit(function( event ) {
 //		event.preventDefault();
@@ -29,7 +32,7 @@ $( document ).ready(function() {
 	
 	$('.unitEdit').click(function() {
 		
-		var $unitLanguageSize = $("#unitLanguageSize").val()	
+		var $unitLanguageSize = $(".unitLanguageSize").val()	
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
 		    var $currentEntry = $('.editEntry:first').clone();
@@ -38,8 +41,7 @@ $( document ).ready(function() {
 		    var newEntry = $($currentEntry).appendTo(controlForm);
 		     
 		} 
-		
-		
+		 
 		
 		var $row = $(this).parent('tr')
 		
@@ -48,19 +50,19 @@ $( document ).ready(function() {
 			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($row.find($('td.unitLanguageName'+i+'')).attr('value'))
 		}
-		$('#confirm-Edit').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
-		$('#confirm-Edit').find("#id").val($row.find(".id").text())
-		$('#confirm-Edit').find("#unitName").val($row.find(".unitName").text())
-		$('#confirm-Edit').find("#measurementUnit").val($row.find(".measurementUnit").text())
-		$('#confirm-Edit').find("#unitStatus").val($row.find(".unitStatus").text())
+		$('#EditUnit-Modal').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
+		$('#EditUnit-Modal').find("#id").val($row.find(".id").text())
+		$('#EditUnit-Modal').find("#unitName").val($row.find(".unitName").text())
+		$('#EditUnit-Modal').find("#measurementUnit").val($row.find(".measurementUnit").text())
+		$('#EditUnit-Modal').find("#unitStatus").val($row.find(".unitStatus").text())
 		if($row.find(".unitStatus").text()=="ENABLE" || $row.find(".unitStatus").text()=="ENABLED") {
-			$('#confirm-Edit').find("#unitStatus").prop('checked',true)
+			$('#EditUnit-Modal').find("#unitStatus").prop('checked',true)
 		} else {
-			$('#confirm-Edit').find("#unitStatus").prop('checked',false)
+			$('#EditUnit-Modal').find("#unitStatus").prop('checked',false)
 		}
-		$('#confirm-Edit').find("#unitDescription").val($row.find(".unitDescription").text())
+		$('#EditUnit-Modal').find("#unitDescription").val($row.find(".unitDescription").text())
 		
-		$('#confirm-Edit').modal({
+		$('#EditUnit-Modal').modal({
 		    backdrop: 'static',
 		    keyboard: true,
 		    show: true});
@@ -85,8 +87,7 @@ $( document ).ready(function() {
 		$('#disableUnitFormWrapper .disableUnit').find("#status").val($(this).val())
 		$('#disableUnitFormWrapper').modal('show');
 	})
-	
-	$(".disableUnitFormButton").click(function() {
+  	$(".disableUnitFormButton").click(function() {
 		var $form = $('#disableUnitFormWrapper .disableUnit')
 	    var $url = $form.attr( "action" );
 		
@@ -99,6 +100,8 @@ $( document ).ready(function() {
 });
 
 function handleSuccess() {
-	$('#confirm-Edit').modal('hide');
+	$('#EditUnit-Modal').modal('hide');
 	location.reload();
 }  
+
+ 

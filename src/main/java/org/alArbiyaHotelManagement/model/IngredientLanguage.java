@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="INGREDIENT_CATEGORY")
+@Table(name="INGREDIENT_LANGUAGE")
 public class IngredientLanguage {
 
 	@Id @GeneratedValue
@@ -59,8 +59,11 @@ public class IngredientLanguage {
 		return ingredient;
 	}
 
-	public void setUnit(Ingredient ingredient) {
+	public void setIngredient(Ingredient ingredient) {
 		this.ingredient = ingredient;
+		 if (!ingredient.getIngredientLanguages().contains(this)) {
+	        	ingredient.getIngredientLanguages().add(this);
+	        }
 	}
 
 	/*public IngredientLanguageGroup getIngredientLanguageGroup() {
