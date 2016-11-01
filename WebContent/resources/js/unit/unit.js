@@ -68,7 +68,7 @@ $( document ).ready(function() {
 		    show: true});
 	});
 	
-	/*$( "#confirm-EditForm" ).on('submit', function(e){
+	$( "#confirm-EditForm" ).on('submit', function(e){
 		event.preventDefault();
 		var $form = $( this ),
 		url = $form.attr( "action" );
@@ -80,7 +80,7 @@ $( document ).ready(function() {
 			success: handleSuccess
 		})
 	  
-	});*/
+	});
 	
 	$(".disableUnitButton").click(function() {
 		$('#disableUnitFormWrapper .disableUnit').find("#id").val($(this).attr("unitId"))
