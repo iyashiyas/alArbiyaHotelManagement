@@ -28,7 +28,7 @@ public class LanguageRepositoryImpl implements LanguageRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public Set<Language> getEnableLanguages() {
-		Query query = entityManager.createQuery("SELECT langs from Language langs where LANGUAGE_STATUS='ACTIVE'", Language.class);
+		Query query = entityManager.createQuery("SELECT langs from Language langs where status='ACTIVE' order by id", Language.class);
 		return new HashSet<Language>(query.getResultList());
 	}
 
