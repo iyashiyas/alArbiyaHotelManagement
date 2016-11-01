@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
-import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class UnitController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		Set<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
-		Set<Language> languages = languageService.getEnableLanguages();
+		List<Language> languages = languageService.getEnableLanguages();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("unitWithCategory", unitWithCategory);
 		attributes.put("languages", languages);

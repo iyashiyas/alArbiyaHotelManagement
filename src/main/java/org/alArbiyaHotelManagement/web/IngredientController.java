@@ -1,8 +1,8 @@
 package org.alArbiyaHotelManagement.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
  
@@ -26,8 +26,8 @@ public class IngredientController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showIngredient(Model model, @RequestParam(required=false) String categoryCode) {
-		Set<Ingredient> ingredientsWithCategory = ingredientService.getAllIngredienttWithCategory(categoryCode);
-		Set<Language> languages = languageService.getEnableLanguages();
+		List<Ingredient> ingredientsWithCategory = ingredientService.getAllIngredienttWithCategory(categoryCode);
+		List<Language> languages = languageService.getEnableLanguages();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("ingredientWithCategory", ingredientsWithCategory);
 		attributes.put("languages", languages);

@@ -1,6 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
-import java.util.Set;
+import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
@@ -29,7 +29,7 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public Set<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
+	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
 		return ingredientRepository.getAllIngredienttWithCategory(categoryCode);
 	}
 }

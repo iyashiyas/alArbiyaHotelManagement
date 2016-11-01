@@ -1,12 +1,12 @@
 package org.alArbiyaHotelManagement.service;
 
-import java.util.Set;
+import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Language;
 
 public interface LanguageService {
-	public Set<Language> getAllLanguages();
-	public Set<Language> getEnableLanguages();
+	public List<Language> getAllLanguages();
+	public List<Language> getEnableLanguages();
 	
 	public void editLanguage(Language language);
 }

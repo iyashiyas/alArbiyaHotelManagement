@@ -1,6 +1,6 @@
 package org.alArbiyaHotelManagement.web;
 
-import java.util.Set;
+import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.service.LanguageService;
@@ -20,7 +20,7 @@ public class LanguageController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showLanguage(Model model) {
-		Set<Language> languages = languageService.getAllLanguages();
+		List<Language> languages = languageService.getAllLanguages();
 		model.addAttribute("languages", languages);
 		return "language/language";
 	}

@@ -1,8 +1,6 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,16 +18,16 @@ public class LanguageRepositoryImpl implements LanguageRepository{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Set<Language> getAllLanguages() {
-		Query query = entityManager.createQuery("SELECT langs from Language langs", Language.class);
-		return new HashSet<Language>(query.getResultList());
+	public List<Language> getAllLanguages() {
+		Query query = entityManager.createQuery("SELECT langs from Language langs order by id", Language.class);
+		return query.getResultList();
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Set<Language> getEnableLanguages() {
+	public List<Language> getEnableLanguages() {
 		Query query = entityManager.createQuery("SELECT langs from Language langs where status='ACTIVE' order by id", Language.class);
-		return new HashSet<Language>(query.getResultList());
+		return query.getResultList();
 	}
 
 	@Override

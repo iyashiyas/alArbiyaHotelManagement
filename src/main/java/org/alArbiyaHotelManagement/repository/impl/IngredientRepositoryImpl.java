@@ -1,9 +1,7 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -50,7 +48,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 	 }
  
 	@Override
-	public Set<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
+	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Ingredient> query = criteriaBuilder.createQuery(Ingredient.class);
 		Root<Ingredient> ingredientRoot = query.from(Ingredient.class);
@@ -63,7 +61,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		        .select(ingredientRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
-		return new HashSet<Ingredient>(typedQuery.getResultList());
+		return typedQuery.getResultList();
 	}
  
 }

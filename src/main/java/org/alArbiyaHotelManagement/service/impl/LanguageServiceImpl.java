@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Language;
@@ -15,13 +16,13 @@ public class LanguageServiceImpl implements LanguageService {
 	private LanguageRepository languageRepository;
 	
 	@Override
-	public Set<Language> getAllLanguages() {
+	public List<Language> getAllLanguages() {
 		return languageRepository.getAllLanguages();
 	}
 	
 
 	@Override
-	public Set<Language> getEnableLanguages() {
+	public List<Language> getEnableLanguages() {
 		return languageRepository.getEnableLanguages();
 	}
 	

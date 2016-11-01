@@ -1,11 +1,11 @@
 package org.alArbiyaHotelManagement.repository;
 
-import java.util.Set;
+import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
   
 public interface IngredientRepository {
 	public Ingredient addIngredient(Ingredient ingredient);
 	public Ingredient editIngredient(Ingredient ingredient);
-	public Set<Ingredient> getAllIngredienttWithCategory(String categoryCode);
+	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode);
 }
