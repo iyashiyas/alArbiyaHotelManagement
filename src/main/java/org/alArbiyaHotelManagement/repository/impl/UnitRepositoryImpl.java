@@ -42,11 +42,6 @@ public class UnitRepositoryImpl implements UnitRepository{
 	public Unit editUnit(Unit unit) {
 		List<UnitLanguage> unitLanguages = new ArrayList<UnitLanguage>();
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
-			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-			Language language = query.setParameter("languageId", unitLanguage.getId()).getSingleResult();
-			System.out.println("unitLanguage.getId()-->"+unitLanguage.getId());
-			unitLanguage.setId(unitLanguage.getId());
-			unitLanguage.setLanguage(language);
 			unitLanguage.setUnit(unit);
 			unitLanguages.add(unitLanguage);
 		}

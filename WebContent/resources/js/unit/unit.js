@@ -36,18 +36,18 @@ $( document ).ready(function() {
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
 		    var $currentEntry = $('.editEntry:first').clone();
-		    $currentEntry.find("select").attr('name', 'unitLanguages['+ parseInt(i+1) +'].id')
-		    $currentEntry.find("input").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
+		    $currentEntry.find("#editFormLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].id')
+		    $currentEntry.find("#editFormLanguageLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].language.id')
+		    $currentEntry.find("#editFormLanguageName").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
 		    var newEntry = $($currentEntry).appendTo(controlForm);
-		     
 		} 
 		 
 		
 		var $row = $(this).parent('tr')
 		
 		for (i = 0; i < $unitLanguageSize; i++) {
-			$("select[name='unitLanguages\\["+i+"\\].language.id']").val($row.find($('td.unitLanguageLanguageId'+i+'')).attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
+			$("select[name='unitLanguages\\["+i+"\\].language.id']").val($row.find($('td.unitLanguageLanguageId'+i+'')).attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($row.find($('td.unitLanguageName'+i+'')).attr('value'))
 		}
 		$('#EditUnit-Modal').find("select[name='unitCategory']").val($row.find(".unitCategory").text())

@@ -47,13 +47,13 @@
 												<div class="col-sm-10">
 													<div class="editControls">
 														<div class="editEntry input-group ">
-															<form:input type="hidden" path="unitLanguages[0].id" name="unitLanguages[0].id"/>
-															<form:select class="form-control m-b " id="drp"
+															<form:input id="editFormLanguageId" type="hidden" path="unitLanguages[0].id" name="unitLanguages[0].id"/>
+															<form:select class="form-control m-b " id="editFormLanguageLanguageId"
 																path="unitLanguages[0].language.id" name="unitLanguages[0].language.id" style="width:30%;">
 																<form:options items="${languages }" itemValue="id"
 																	itemLabel="languageName"></form:options>
 															</form:select>
-															<form:input class="form-control" type="text"
+															<form:input class="form-control" type="text" id="editFormLanguageName"
 																name="unitLanguages[0].unitLanguageName"
 																path="unitLanguages[0].unitLanguageName"
 																placeholder="Enter Name"
