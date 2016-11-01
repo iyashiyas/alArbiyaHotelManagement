@@ -35,8 +35,8 @@ $(function() {
 			currentEntry.clone()).appendTo(controlForm);
 
 			newEntry.find('input').val('');
-			newEntry.find('#editFormLanguageLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].id")
-			newEntry.find('#editFormLanguageId').remove()
+			newEntry.find('#editFormLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].id")
+			newEntry.find('#editFormLanguageLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].language.id")
 			newEntry.find('#editFormLanguageName').attr('name',"unitLanguages[" + editUnitLangugaeCount+ "].unitLanguageName")
 			controlForm.find('.editEntry:not(:first) .edit-btn-add')
 				.removeClass('edit-btn-add')
