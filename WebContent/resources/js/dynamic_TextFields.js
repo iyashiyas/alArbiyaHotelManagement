@@ -44,9 +44,8 @@ $(function() {
 				.removeClass('btn-success')
 				.addClass('btn-danger')
 				.html('<span class="glyphicon glyphicon-minus"></span>');
-			}).on('click', '.btn-remove', function(e) {
+			}).on('click', '.edit-btn-remove', function(e) {
 			$(this).parents('.editEntry:first').remove();
-
 			e.preventDefault();
 			return false;
 		});

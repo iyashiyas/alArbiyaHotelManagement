@@ -1,11 +1,3 @@
-/* $('#confirm-Edit').on('hidden.bs.modal', function () {
-  location.reload();
-})*/
-
-$(function () {
-    $(document).on('click', 'button[data-dismiss]', function (e) {
-  location.reload();
-})}); 
 $( document ).ready(function() {
 	
 	$("#ingredientStatus").change(function() {
@@ -19,6 +11,8 @@ $( document ).ready(function() {
 	$('.unitEdit').click(function() {
 		var $row = $(this).parent('tr')
 		var $unitLanguageSize = $row.find($(".unitLanguageSize")).val()
+		
+		//remove if there are more dropdowns, we need only one, that is the first
 		$("div.editEntry:not(:first)").remove();
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
@@ -28,6 +22,17 @@ $( document ).ready(function() {
 		    $currentEntry.find("#editFormLanguageLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].language.id')
 		    $currentEntry.find("#editFormLanguageName").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
 		    var newEntry = $($currentEntry).appendTo(controlForm);
+		    
+		    var $firstEntry = $('.editEntry:first')
+		    
+		    $firstEntry.find("span.glyphicon")
+		    	.removeClass("glyphicon-plus")
+		    	.addClass("glyphicon-minus")
+		    	
+		    $firstEntry.find(".edit-btn-add")
+		    	.removeClass("edit-btn-add")
+		    	.addClass("edit-btn-remove")
+		    	.addClass("btn-danger")
 		} 
 		for (i = 0; i < $unitLanguageSize; i++) {
 			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
@@ -74,4 +79,6 @@ function handleSuccess() {
 	location.reload();
 }  
 
- 
+$("#EditUnit-Modal").on('hidden', function () {
+    alert("comgin")
+});

@@ -92,13 +92,6 @@
 													
 													<td class="unitEdit"><i class="fa fa-pencil"><a  >Edit</a></i></td>
 												
-												
-												<%-- 	<td class="text-right mail-date"><input type="button"
-														unitId="${unit.id}" name="btn"
-														value="${unit.unitStatus == 'ENABLE' ? 'DISABLE' : 'ENABLE'}"
-														class="disableUnitButton" /></td> --%>
-											
-											
 												</tr>  
 												
 												 
@@ -110,30 +103,6 @@
 								</div>
 							</div>
 						</div>
-					<%-- 	<div class="modal fade" id="disableUnitFormWrapper" tabindex="-1"
-							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-
-								<form class="disableUnit hide"
-									action="${pageContext.request.contextPath}/unit/disableUnit"
-									method="POST" id="disableUnit">
-									<input type="hidden" name="id" id="id" value="" /> <input
-										type="hidden" name="status" id="status" value="" />
-								</form>
-
-								<div class="modal-content">
-									<div class="modal-header">Confirm Disable</div>
-									<div class="modal-body">Are you sure you want to disable
-										this unit?</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default"
-											data-dismiss="modal">Cancel</button>
-										<button id="submit"
-											class="btn btn-success success disableUnitFormButton">Diable</button>
-									</div>
-								</div>
-							</div>
-						</div> --%>
  
 						<div class="modal fade"  id="EditUnit-Modal" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -152,14 +121,6 @@
 	</div>
 	 	
 <script src="<c:url value="/resources/js/unit/unit.js"/>"></script>
- <%-- 
-          <script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
-	 	<!-- Page-Level Scripts -->
-		<script src="<c:url value="/resources/js/datatablecustom.js" />"
-			type="text/javascript">
-			
-		</script>
- --%>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>  
 		  </body>
