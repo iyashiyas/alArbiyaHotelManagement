@@ -10,7 +10,7 @@ $(function() {
 
 				newEntry.find('input').val('');
 				newEntry.find('input').attr('name',"unitLanguages[" + unitLangugaeCount+ "].unitLanguageName")
-				newEntry.find('select').attr('name',"unitLanguages[" + unitLangugaeCount + "].id")
+				newEntry.find('select').attr('name',"unitLanguages[" + unitLangugaeCount + "].language.id")
 				controlForm.find('.entry:not(:last) .btn-add')
 					.removeClass('btn-add')
 					.addClass('btn-remove')

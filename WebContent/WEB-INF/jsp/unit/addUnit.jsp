@@ -59,7 +59,7 @@
 											<div class="controls">
 												<div class="entry input-group ">
 													<form:select class="form-control m-b select" id="drp"
-														path="unitLanguages[0].id" name="rank[]" style="width:30%;">
+														path="unitLanguages[0].language.id" name="unitLanguages[0].language.id" style="width:30%;">
 													 
 														<form:options items="${languages}" itemValue="id"
 															itemLabel="languageName"></form:options>
