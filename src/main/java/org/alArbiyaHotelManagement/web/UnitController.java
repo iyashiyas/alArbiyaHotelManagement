@@ -3,7 +3,6 @@ package org.alArbiyaHotelManagement.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
@@ -26,7 +25,7 @@ public class UnitController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
-		Set<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
+		List<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
 		List<Language> languages = languageService.getEnableLanguages();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("unitWithCategory", unitWithCategory);

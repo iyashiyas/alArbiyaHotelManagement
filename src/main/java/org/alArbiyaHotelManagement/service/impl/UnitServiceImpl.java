@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Unit;
@@ -20,7 +21,7 @@ public class UnitServiceImpl implements UnitService {
 		}
 		return unitRepository.editUnit(unit);
 	}
-	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
+	public List<Unit> getAllUnitWithCategory(String categoryCode) {
 		return unitRepository.getAllUnitWithCategory(categoryCode);
 	}
 	@Override

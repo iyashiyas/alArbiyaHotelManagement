@@ -52,7 +52,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		entityManager.merge(unit);
 		return unit;
 	}
-	public Set<Unit> getAllUnitWithCategory(String categoryCode) {
+	public List<Unit> getAllUnitWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Unit> query = criteriaBuilder.createQuery(Unit.class);
 		Root<Unit> unitRoot = query.from(Unit.class);
@@ -68,7 +68,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		        .select(unitRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
-		return new HashSet<Unit>(typedQuery.getResultList());
+		return typedQuery.getResultList();
 	}
 	@Override
 	public void disableUnit(long id, String status) {
