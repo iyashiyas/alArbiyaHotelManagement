@@ -1,7 +1,9 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -27,23 +29,26 @@ public class UnitRepositoryImpl implements UnitRepository{
 	public Unit addUnit(Unit unit) {
 		this.entityManager.persist(unit);
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
-			System.out.println("Unit langu"+unitLanguage);
-			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-			Language language = query.setParameter("languageId", unitLanguage.getLanguage().getId()).getSingleResult();
-			unitLanguage.setLanguage(language);
-			unitLanguage.setUnit(unit);
-			this.entityManager.merge(unitLanguage);
+			if(!unitLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", unitLanguage.getLanguage().getId()).getSingleResult();
+				unitLanguage.setLanguage(language);
+				unitLanguage.setUnit(unit);
+				this.entityManager.merge(unitLanguage);
+			}
 		}
 		return unit;
 	}
 	public Unit editUnit(Unit unit) {
 		List<UnitLanguage> unitLanguages = new ArrayList<UnitLanguage>();
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
-			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-			Language language = query.setParameter("languageId", unitLanguage.getLanguage().getId()).getSingleResult();
-			unitLanguage.setLanguage(language);
-			unitLanguage.setUnit(unit);
-			unitLanguages.add(unitLanguage);
+			if(!unitLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", unitLanguage.getLanguage().getId()).getSingleResult();
+				unitLanguage.setLanguage(language);
+				unitLanguage.setUnit(unit);
+				unitLanguages.add(unitLanguage);
+			}
 		}
 		entityManager.merge(unit);
 		return unit;

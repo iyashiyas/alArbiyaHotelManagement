@@ -62,5 +62,9 @@ public class UnitLanguage {
         	unit.getUnitLanguages().add(this);
         }
 	}
+	
+	public boolean isEmpty() {
+		return (this.getUnitLanguageName() == null || this.getUnitLanguageName().isEmpty());
+	}
 
 }
