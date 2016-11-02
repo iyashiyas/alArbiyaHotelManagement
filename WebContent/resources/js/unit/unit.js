@@ -17,9 +17,8 @@ $( document ).ready(function() {
 	 $('#EditUnit-Modal').modal('hide');
 	
 	$('.unitEdit').click(function() {
-		
-		var $unitLanguageSize = $(".unitLanguageSize").val()
-		
+		var $row = $(this).parent('tr')
+		var $unitLanguageSize = $row.find($(".unitLanguageSize")).val()
 		$("div.editEntry:not(:first)").remove();
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
@@ -30,10 +29,6 @@ $( document ).ready(function() {
 		    $currentEntry.find("#editFormLanguageName").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
 		    var newEntry = $($currentEntry).appendTo(controlForm);
 		} 
-		 
-		
-		var $row = $(this).parent('tr')
-		
 		for (i = 0; i < $unitLanguageSize; i++) {
 			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
 			$("select[name='unitLanguages\\["+i+"\\].language.id']").val($row.find($('td.unitLanguageLanguageId'+i+'')).attr('value'))
