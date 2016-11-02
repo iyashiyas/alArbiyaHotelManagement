@@ -16,26 +16,15 @@ $( document ).ready(function() {
 	})
 	 $('#EditUnit-Modal').modal('hide');
 	
-//	$( "#addUnitForm" ).submit(function( event ) {
-//		event.preventDefault();
-//		var $form = $( this ),
-//		url = $form.attr( "action" );
-//		
-//		$.ajax({
-//		    type : 'POST',
-//		    url : url,
-//		    form : $form.serialize(),
-//			success: handleSuccess
-//		})
-//		  
-//	});
-	
 	$('.unitEdit').click(function() {
 		
-		var $unitLanguageSize = $(".unitLanguageSize").val()	
+		var $unitLanguageSize = $(".unitLanguageSize").val()
+		
+		$("div.editEntry:not(:first)").remove();
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
 		    var $currentEntry = $('.editEntry:first').clone();
+		    
 		    $currentEntry.find("#editFormLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].id')
 		    $currentEntry.find("#editFormLanguageLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].language.id')
 		    $currentEntry.find("#editFormLanguageName").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
@@ -66,20 +55,6 @@ $( document ).ready(function() {
 		    backdrop: 'static',
 		    keyboard: true,
 		    show: true});
-	});
-	
-	$( "#confirm-EditForm" ).on('submit', function(e){
-		event.preventDefault();
-		var $form = $( this ),
-		url = $form.attr( "action" );
-		
-		$.ajax({
-		    type : 'POST',
-		    url : url,
-		    data : $form.serialize(),
-			success: handleSuccess
-		})
-	  
 	});
 	
 	$(".disableUnitButton").click(function() {

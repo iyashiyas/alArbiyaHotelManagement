@@ -1,11 +1,7 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -64,6 +60,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategory"), categoryCode ));
 		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
+		query.orderBy(criteriaBuilder.asc(unitRoot.get("id")));
 		TypedQuery<Unit> typedQuery = entityManager.createQuery(query
 		        .select(unitRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
