@@ -46,7 +46,7 @@
 													Languages</label>
 												<div class="col-sm-10">
 													<div class="editControls">
-														<div class="editEntry input-group ">
+														<div class="editEntry input-group " style="margin-bottom: 15px;">
 															<form:input id="editFormLanguageId" type="hidden" path="unitLanguages[0].id" name="unitLanguages[0].id"/>
 															<form:select class="form-control m-b " id="editFormLanguageLanguageId"
 																path="unitLanguages[0].language.id" name="unitLanguages[0].language.id" style="width:30%;">

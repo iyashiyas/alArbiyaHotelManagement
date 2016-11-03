@@ -38,9 +38,9 @@ $(function() {
 			//newEntry.find('#editFormLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].id")
 			newEntry.find('#editFormLanguageLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].language.id")
 			newEntry.find('#editFormLanguageName').attr('name',"unitLanguages[" + editUnitLangugaeCount+ "].unitLanguageName")
-			controlForm.find('.editEntry:not(:first) .edit-btn-add')
+			controlForm.find('.editEntry:not(:last) .edit-btn-add')
 				.removeClass('edit-btn-add')
-				.addClass('btn-remove')
+				.addClass('edit-btn-remove')
 				.removeClass('btn-success')
 				.addClass('btn-danger')
 				.html('<span class="glyphicon glyphicon-minus"></span>');

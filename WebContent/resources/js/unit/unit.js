@@ -14,6 +14,15 @@ $( document ).ready(function() {
 		
 		//remove if there are more dropdowns, we need only one, that is the first
 		$("div.editEntry:not(:first)").remove();
+		$("div.editEntry:first").find(".edit-btn-remove")
+			    	.removeClass("edit-btn-remove")
+			    	.removeClass("btn-danger")
+			    	.addClass("edit-btn-add")
+			    	
+		$("div.editEntry:first").find("span.glyphicon")
+			    	.removeClass("glyphicon-minus")
+			    	.addClass("glyphicon-plus")
+		
 		for (i = 0; i < $unitLanguageSize-1; i++) { 
 			var controlForm = $('.editControls:first');
 		    var $currentEntry = $('.editEntry:first').clone();
@@ -22,23 +31,13 @@ $( document ).ready(function() {
 		    $currentEntry.find("#editFormLanguageLanguageId").attr('name', 'unitLanguages['+ parseInt(i+1) +'].language.id')
 		    $currentEntry.find("#editFormLanguageName").attr('name', 'unitLanguages['+ parseInt(i+1) +'].unitLanguageName')
 		    var newEntry = $($currentEntry).appendTo(controlForm);
-		    
-		    var $firstEntry = $('.editEntry:first')
-		    
-		    $firstEntry.find("span.glyphicon")
-		    	.removeClass("glyphicon-plus")
-		    	.addClass("glyphicon-minus")
-		    	
-		    $firstEntry.find(".edit-btn-add")
-		    	.removeClass("edit-btn-add")
-		    	.addClass("edit-btn-remove")
-		    	.addClass("btn-danger")
 		} 
 		for (i = 0; i < $unitLanguageSize; i++) {
 			$("input[name='unitLanguages\\["+i+"\\].id']").val($row.find($('td.unitLanguageId'+i+'')).attr('value'))
 			$("select[name='unitLanguages\\["+i+"\\].language.id']").val($row.find($('td.unitLanguageLanguageId'+i+'')).attr('value'))
 			$("input[name='unitLanguages\\["+i+"\\].unitLanguageName']").val($row.find($('td.unitLanguageName'+i+'')).attr('value'))
 		}
+    	
 		$('#EditUnit-Modal').find("select[name='unitCategory']").val($row.find(".unitCategory").text())
 		$('#EditUnit-Modal').find("#id").val($row.find(".id").text())
 		$('#EditUnit-Modal').find("#unitName").val($row.find(".unitName").text())
