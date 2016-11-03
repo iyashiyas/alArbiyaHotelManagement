@@ -40,6 +40,8 @@ public class UnitRepositoryImpl implements UnitRepository{
 		return unit;
 	}
 	public Unit editUnit(Unit unit) {
+		deleteChild(unit);
+		
 		List<UnitLanguage> unitLanguages = new ArrayList<UnitLanguage>();
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {
 			if(!unitLanguage.isEmpty()) {
@@ -50,9 +52,20 @@ public class UnitRepositoryImpl implements UnitRepository{
 				unitLanguages.add(unitLanguage);
 			}
 		}
+		unit.setUnitLanguages(unitLanguages);
 		entityManager.merge(unit);
 		return unit;
 	}
+	
+	private void deleteChild(Unit unit) {
+		Query query = entityManager.createQuery("SELECT unit from Unit unit where id =:id", Unit.class);
+		query.setParameter("id", unit.getId());
+		unit = (Unit) query.getResultList().get(0);
+		for(UnitLanguage language: unit.getUnitLanguages()) {
+			entityManager.remove(language);
+		}
+	}
+	
 	public List<Unit> getAllUnitWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Unit> query = criteriaBuilder.createQuery(Unit.class);

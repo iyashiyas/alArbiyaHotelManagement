@@ -33,7 +33,7 @@ public class Unit {
 	@Column(name="UNIT_CATEGORY")
 	private String unitCategory;
 	
-	@OneToMany(mappedBy="unit", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
+	@OneToMany(mappedBy="unit", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<UnitLanguage> unitLanguages;
 
 	public long getId() {

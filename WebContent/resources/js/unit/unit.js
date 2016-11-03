@@ -54,6 +54,13 @@ $( document ).ready(function() {
 		    backdrop: 'static',
 		    keyboard: true,
 		    show: true});
+		
+		$("div.editEntry:not(:last) .edit-btn-add")
+		.removeClass('edit-btn-add')
+		.addClass('edit-btn-remove')
+		.removeClass('btn-success')
+		.addClass('btn-danger')
+		.html('<span class="glyphicon glyphicon-minus"></span>');
 	});
 	
 	$(".disableUnitButton").click(function() {
