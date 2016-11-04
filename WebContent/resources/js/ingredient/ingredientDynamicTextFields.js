@@ -25,9 +25,9 @@ $(function() {
 });
 
 $(function() {
-	
+	var editIngredientLangugaeCount = 0;
 	$(document).on('click','.edit-btn-add',function(e) {
-		var editIngredientLangugaeCount = $('.editEntry.input-group ').length;
+		editIngredientLangugaeCount++
 		e.preventDefault();
 
 		var controlForm = $('.editControls:last'), currentEntry = $(this)
