@@ -42,7 +42,7 @@ public class IngredientController {
 		return "redirect:/ingredient";
 	}
 	
-	@RequestMapping(value="/editingredient", method=RequestMethod.POST)
+	@RequestMapping(value="/editIngredient", method=RequestMethod.POST)
 	 public String editIngredient(@ModelAttribute Ingredient ingredient) {
 		ingredientService.editIngredient(ingredient);
 		return "redirect:/ingredient";

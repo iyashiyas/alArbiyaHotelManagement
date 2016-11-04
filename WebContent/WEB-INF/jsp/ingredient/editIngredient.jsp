@@ -14,13 +14,13 @@
 <body>
   	 
 			<form:form class="form-horizontal"
-				action="${pageContext.request.contextPath}/ingredient/addIngredient"
+				action="${pageContext.request.contextPath}/ingredient/editIngredient"
 				 modelAttribute="newIngredient" method="post">
 				<p>Edit Ingredient items Here</p>
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Ingredient Category</label>
-
+					<input type="hidden" name="id" id="id" value="">
 					<div class="col-sm-10">
 						<form:select class="form-control m-b" name="ingredientCategory" path="" >
 							<form:option value="SAUCE">SAUCE </form:option>
@@ -40,7 +40,7 @@
 										<label class="col-sm-2 control-label">Other Languages</label>
 										<div class="col-sm-10">
 											<div class="editControls">
-												<div class="editEntry input-group ">
+												<div class="editEntry input-group " style="margin-bottom: 10px;">
 												<form:input id="editFormLanguageId" type="hidden" path="ingredientLanguages[0].id" name="ingredientLanguages[0].id"/>
 												<form:select class="form-control m-b " id="editFormLanguageLanguageId"
 																path="ingredientLanguages[0].language.id" name="ingredientLanguages[0].language.id" style="width:30%;">
