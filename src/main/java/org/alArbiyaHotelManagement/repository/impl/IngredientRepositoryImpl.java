@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -15,7 +16,8 @@ import org.alArbiyaHotelManagement.model.Ingredient;
  
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
-
+import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,10 +44,31 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 	}
 	
 	public Ingredient editIngredient(Ingredient ingredient) {
+		deleteChild(ingredient);
+		List<IngredientLanguage> ingredientLanguages = new ArrayList<IngredientLanguage>();
+		for(IngredientLanguage ingredientLanguage: ingredient.getIngredientLanguages()) {
+			if(!ingredientLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", ingredientLanguage.getLanguage().getId()).getSingleResult();
+				ingredientLanguage.setLanguage(language);
+				ingredientLanguage.setIngredient(ingredient);
+				ingredientLanguages.add(ingredientLanguage);
+			}
+		}
+		ingredient.setIngredientLanguages(ingredientLanguages);
 		entityManager.merge(ingredient);
 		return ingredient;
 	 }
  
+	private void deleteChild(Ingredient ingredient) {
+		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where id =:id", Ingredient.class);
+		query.setParameter("id", ingredient.getId());
+		ingredient = (Ingredient) query.getResultList().get(0);
+		for(IngredientLanguage language: ingredient.getIngredientLanguages()) {
+			entityManager.remove(language);
+		}
+	}
+
 	@Override
 	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
