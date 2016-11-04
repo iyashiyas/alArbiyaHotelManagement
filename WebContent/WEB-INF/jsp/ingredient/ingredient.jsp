@@ -51,38 +51,29 @@
 												<th class="check-mail">Ingredient Id</th>
 												<th>Ingredient Name</th>
 												<th>Ingredient Description</th>
-												 <th>Status</th>
-												<th>Edit</th>
-												<th>Delete</th>
+												 <th>Category</th>
+												<th>Status</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${ingredientWithCategory}" var="ingredient">
 												<tr class="read">
-													<td>${ingredient.id}</td>
-													<td>${ingredient.ingredientName}</td>
-													<td>${ingredient.ingredientDescription}</td>
-                                                      <td class="ingredientStatus">${ingredient.ingredientStatus}</td>
-													<td class="hide"><input type="hidden" id="ingredientLanguageSize" class="ingredientLanguageSize" value="${ ingredient.ingredientLanguages.size()}" />
-													</td><c:forEach items="${ingredient.ingredientLanguages }"
-														var="language" varStatus="loop">
-														<td class="ingredientLanguageLanguageId${loop.index} hide"
-															value="${language.language.id }"></td>
-														<td class="ingredientLanguageId${loop.index} hide"
-															value="${language.ingredient}"></td>
-														<td class="ingredientDescription${loop.index} hide"
-															value="${ingredient.ingredientDescription}"></td>
-														<td class="ingredientLanguageName${loop.index} hide"
-															value="${language.ingredientLanguageName }"></td>
+													<td class="id">${ingredient.id}</td>
+													<td class="ingredientName">${ingredient.ingredientName}</td>
+													<td class="ingredientDescription">${ingredient.ingredientDescription}</td>
+													<td class="ingredientCategory">${ingredient.ingredientCategory}</td>
+                                                    <td class="ingredientStatus">${ingredient.ingredientStatus}</td>
+													<td class="hide"><input type="hidden" id="ingredientLanguageSize" class="ingredientLanguageSize" value="${ingredient.ingredientLanguages.size()}"/>
+													</td>
+													<c:forEach items="${ingredient.ingredientLanguages }" var="language" varStatus="loop">
+														<td class="ingredientLanguageLanguageId${loop.index} hide" value="${language.language.id }"></td>
+														<td class="ingredientLanguageId${loop.index} hide" value="${language.id }"></td>
+														<td class="ingredientLanguageName${loop.index} hide" value="${language.ingredientLanguageName }"></td>
 													</c:forEach>
-  
 													<td class="ingredientEdit"><i class="fa fa-pencil"><a class=""
 															data-toggle="modal"  >Edit</a></i></td>
-													<td class="text-right mail-date"><input type="button"
-														class="btn btn-block btn-primary " name="btn"
-														value="Remove" id="submitBtn" data-toggle="modal"
-														data-target="#confirm-submit"></td>
 												</tr>
 											</c:forEach>
 										</tbody>

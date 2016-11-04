@@ -41,16 +41,18 @@
 										<div class="col-sm-10">
 											<div class="editControls">
 												<div class="editEntry input-group ">
-													<form:select class="form-control m-b " id="drp"
-														path="ingredientLanguages[0].id" style="width:30%;">
-														<form:options items="${languages}" itemValue="id"
-															itemLabel="languageName"></form:options>
-													</form:select>
-													<form:input class="form-control" type="text"
-														name="ingredientLanguages[0].ingredientLanguageName"
-														path="ingredientLanguages[0].ingredientLanguageName"
-														placeholder="Enter Name"
-														style="width:40%;margin-left: 10px;" />
+												<form:input id="editFormLanguageId" type="hidden" path="ingredientLanguages[0].id" name="ingredientLanguages[0].id"/>
+												<form:select class="form-control m-b " id="editFormLanguageLanguageId"
+																path="ingredientLanguages[0].language.id" name="ingredientLanguages[0].language.id" style="width:30%;">
+																<form:options items="${languages }" itemValue="id"
+																	itemLabel="languageName"></form:options>
+												</form:select>
+												
+												<form:input class="form-control" type="text" id="editFormLanguageName"
+													name="ingredientLanguages[0].ingredientLanguageName"
+													path="ingredientLanguages[0].ingredientLanguageName"
+													placeholder="Enter Name"
+													style="width:40%;margin-left: 10px;" />
 													<span class="input-group-btn">
 														<button class="btn btn-primary edit-btn-add" type="button">
 															<span class="glyphicon glyphicon-plus"></span>
