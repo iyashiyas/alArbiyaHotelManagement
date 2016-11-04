@@ -66,14 +66,8 @@ public class IngredientLanguage {
 	        }
 	}
 
-	/*public IngredientLanguageGroup getIngredientLanguageGroup() {
-		return ingredientLanguageGroup;
+	public boolean isEmpty() {
+		return (this.getIngredientLanguageName() == null || this.getIngredientLanguageName().isEmpty());
 	}
-
-	public void setIngredientLanguageGroup(
-			IngredientLanguageGroup ingredientLanguageGroup) {
-		this.ingredientLanguageGroup = ingredientLanguageGroup;
-	}
-*/
 	
 }

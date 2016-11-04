@@ -27,11 +27,7 @@
 			</div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
-					<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include>
-
-					<!-- Page Contents -->
-					<!-- Page Heading -->
-
+					<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include> 
 					<div class="col-lg-8 animated fadeInRight">
 
 						<jsp:include page="../ingredient/addIngredient.jsp"></jsp:include>
@@ -133,7 +129,7 @@
 	</div>
 	
 	<script type="text/javascript"
-		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>  
+		src="<c:url value="/resources/js/ingredient/ingredientDynamicTextFields.js"/>"></script>  
 	
 	<script src="<c:url value="/resources/js/ingredient/ingredient.js"/>"></script>
  

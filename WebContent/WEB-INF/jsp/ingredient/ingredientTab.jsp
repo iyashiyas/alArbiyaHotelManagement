@@ -13,9 +13,9 @@
 	<div class="col-lg-3">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>
+				<!-- <h5>
 					Categories - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
-				</h5>
+				</h5> -->
 
 			</div>
 			<div class="ibox-content ">
@@ -43,7 +43,7 @@
 				<div class="modal-header">Add New Category</div>
 				<div class="modal-body">
 
-					 <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include>
+					<%--  <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include> --%>
 
 
 				</div>

@@ -32,13 +32,12 @@ public class IngredientController {
 		attributes.put("ingredientWithCategory", ingredientsWithCategory);
 		attributes.put("languages", languages);
 		attributes.put("newIngredient", new Ingredient());
-		 model.addAllAttributes(attributes);	
+		model.addAllAttributes(attributes);	
 		return "ingredient/ingredient";
 	}
    
 	@RequestMapping(value="/addIngredient", method=RequestMethod.POST)
 	public String addIngredient(@ModelAttribute Ingredient ingredient) {
-	 
 		ingredientService.addIngredient(ingredient);
 		return "redirect:/ingredient";
 	}

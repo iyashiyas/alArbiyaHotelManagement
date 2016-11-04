@@ -1,12 +1,12 @@
 $( document ).ready(function() {
 	
-	$("#ingredientStatus").change(function() {
+	/*$("#ingredientStatus").change(function() {
 		$("#ingredientStatus").val("ENABLE");
 		if(!this.checked){
 		   $("#ingredientStatus").val("DISABLE");
 		} 
-	})
-	 $('#EditUnit-Modal').modal('hide');
+	})*/
+	$('#EditUnit-Modal').modal('hide');
 	
 	$('.unitEdit').click(function() {
 		var $row = $(this).parent('tr')

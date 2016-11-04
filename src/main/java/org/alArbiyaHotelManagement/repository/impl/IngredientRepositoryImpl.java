@@ -11,14 +11,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
- 
-
-
 import org.alArbiyaHotelManagement.model.Ingredient;
  
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
- 
+
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,20 +23,22 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class IngredientRepositoryImpl implements IngredientRepository{
-	 @PersistenceContext
+	
+	@PersistenceContext
 	EntityManager entityManager;
 	
 	public Ingredient addIngredient(Ingredient ingredient) {
 		this.entityManager.persist(ingredient);
-		
 		for(IngredientLanguage ingredientLanguage: ingredient.getIngredientLanguages()) {
-			TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-			Language language = query.setParameter("languageId", ingredientLanguage.getId()).getSingleResult();
-			ingredientLanguage.setLanguage(language);
-			ingredientLanguage.setIngredient(ingredient);
-			this.entityManager.merge(ingredientLanguage);
+			if(!ingredientLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", ingredientLanguage.getLanguage().getId()).getSingleResult();
+				ingredientLanguage.setLanguage(language);
+				ingredientLanguage.setIngredient(ingredient);
+				this.entityManager.merge(ingredientLanguage);
+			}
 		}
-		 return ingredient;
+		return ingredient;
 	}
 	
 	public Ingredient editIngredient(Ingredient ingredient) {

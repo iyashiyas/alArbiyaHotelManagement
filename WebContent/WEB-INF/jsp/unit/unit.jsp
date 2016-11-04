@@ -122,6 +122,6 @@
 	 	
 <script src="<c:url value="/resources/js/unit/unit.js"/>"></script>
 	<script type="text/javascript"
-		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>  
+		src="<c:url value="/resources/js/unit/unitDynamicTextFields.js"/>"></script>  
 		  </body>
 </html>

@@ -34,18 +34,12 @@ public class Ingredient {
 	
 	@Column(name="INGREDIENT_CATEGORY")
 	private String ingredientCategory;
-	
 	 
-	@OneToMany(mappedBy="ingredient", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
+	@OneToMany(mappedBy="ingredient", cascade=CascadeType.MERGE, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<IngredientLanguage> ingredientLanguages;
-	
-	
-	  
 	
 	/*@ManyToOne 
 	private IngredientCategory ingredientCategory;*/
-
-	
 	
 	public long getId() {
 		return id;

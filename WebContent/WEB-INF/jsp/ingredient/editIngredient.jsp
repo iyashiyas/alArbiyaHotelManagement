@@ -23,8 +23,8 @@
 
 					<div class="col-sm-10">
 						<form:select class="form-control m-b" name="ingredientCategory" path="" >
-							<form:option value="SAUCE">sauce </form:option>
-							<form:option value="FLOUR">Flour</form:option>
+							<form:option value="SAUCE">SAUCE </form:option>
+							<form:option value="FLOUR">SAUCE</form:option>
                        </form:select>
 					</div>
 				</div>
