@@ -16,8 +16,6 @@ import org.alArbiyaHotelManagement.model.Ingredient;
  
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
-import org.alArbiyaHotelManagement.model.Unit;
-import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
