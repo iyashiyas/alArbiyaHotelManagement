@@ -1,10 +1,3 @@
-/* $('#confirm-Edit').on('hidden.bs.modal', function () {
-  location.reload();
-})*/
-$(function () {
-    $(document).on('click', 'button[data-dismiss]', function (e) {
-  location.reload();
-})}); 
 $( document ).ready(function() {
  
 	 $('.branchEdit').click(function() {

@@ -90,6 +90,8 @@
 															value="${branch.branchAddress}" /></td>
 													<td class="center branchDescription"><c:out
 															value="${branch.branchDescription}" /></td>
+													<td class="center branchStatus hide"><c:out
+															value="${branch.branchStatus}" /></td>		
 													<td class="branchEdit"><i class="fa fa-pencil"><a>Edit</a></i></td>
 												</tr>
 

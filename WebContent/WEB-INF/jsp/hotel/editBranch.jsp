@@ -70,7 +70,7 @@
 				<label class="col-sm-2 control-label">Status </label>
 
 				<div class="col-sm-10">
-					 <form:checkbox id="checkbox1" path="branchStatus" value="ENABLE"
+					 <form:checkbox id="branchStatus" path="branchStatus" value="ENABLE"
 						checked="checked" />
 					<label for="checkbox1"> Enable </label>
 				</div>
