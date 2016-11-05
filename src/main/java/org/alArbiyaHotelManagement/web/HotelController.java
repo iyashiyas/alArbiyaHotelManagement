@@ -141,13 +141,18 @@ public class HotelController {
 	public String addRoomType(@ModelAttribute RoomType roomType)
 	{
 		roomTypeService.addRoomType(roomType);
-		 return "redirect:/";
+	    return "redirect:/hotel/showRoomTypes";
 	}
-	
-	@RequestMapping(value="/editBranch", method=RequestMethod.POST)
+	 @RequestMapping(value="/editBranch", method=RequestMethod.POST)
 	public String editBranch(@ModelAttribute Branch branch) {
-		branchService.editBranch(branch);
-		return "redirect:/";
+	 branchService.editBranch(branch);
+	 return "redirect:/";
+	}
+	 
+	@RequestMapping(value="/editRoomType", method=RequestMethod.POST)
+	public String editRoomType(@ModelAttribute RoomType roomType) {
+	 roomTypeService.editRoomType(roomType);
+      return "redirect:/hotel/showRoomTypes";
 	}
 	 
 	

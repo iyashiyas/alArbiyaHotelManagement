@@ -42,5 +42,16 @@ public class RoomTypeServiceImpl implements RoomTypeService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public RoomType editRoomType(RoomType roomType) {
+		if(roomType.getRoomTypeStatus()==null) {
+			roomType.setRoomTypeStatus("DISABLED");
+		}
+	 
+		return roomTypeRepository.editBranch(roomType);
+	}
+	 
  
 }

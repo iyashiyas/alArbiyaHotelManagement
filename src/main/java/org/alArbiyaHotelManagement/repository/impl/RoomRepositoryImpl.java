@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.alArbiyaHotelManagement.model.Floor;
+ 
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.RoomRepository;
 import org.springframework.stereotype.Repository;

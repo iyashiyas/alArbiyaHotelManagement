@@ -34,17 +34,33 @@
 								class="form-control" path="roomTypeCode" />
 						</div>
 					</div>
+					 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Bed Type  </label>
-                          <div class="col-sm-10">
-							<form:select path="roomTypeBedType" class="form-control m-b" name="branchCode">
-								<form:option value="Single">Single</form:option>
-								<form:option value="Double">Double</form:option>
-								<form:option value="Family">Family</form:option>
-								<form:option value="Kids">Kids</form:option>
-							 </form:select>
-						</div>
-					</div>
+						<label class="col-sm-2 control-label">Bed Types </label>
+
+						  <div class="col-sm-10">
+							 
+							 <form:checkbox value="Single" path="roomTypeBedType" checked="checked" id="checkbox1" />
+                                    <label for="checkbox1">
+                             Single
+                                    </label>
+                         
+                         
+							 <form:checkbox value="Double" path="roomTypeBedType" checked="checked" id="checkbox1" />
+                                    <label for="checkbox1">
+                             Double
+                                    </label>
+                          
+							 <form:checkbox value="Kids" path="roomTypeBedType" checked="checked" id="checkbox1" />
+                                    <label for="checkbox1">
+                             Kids
+                                    </label>
+                          </div>
+                          
+					      </div>
+					
+					
+					
 					   		 
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Description</label>

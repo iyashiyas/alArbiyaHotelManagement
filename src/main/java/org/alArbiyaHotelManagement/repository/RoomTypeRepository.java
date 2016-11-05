@@ -12,5 +12,7 @@ public interface RoomTypeRepository {
 	public Set<RoomType> getAllRoomType();
 	public RoomType editRoomType();
 	public RoomType deleteRoomType();
+
+	public RoomType editBranch(RoomType roomType);
 	
 }

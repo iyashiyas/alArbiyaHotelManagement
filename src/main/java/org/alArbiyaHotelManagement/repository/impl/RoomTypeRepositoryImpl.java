@@ -46,5 +46,12 @@ public class RoomTypeRepositoryImpl implements RoomTypeRepository{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public RoomType editBranch(RoomType roomType) {
+		// TODO Auto-generated method stub
+		entityManager.merge(roomType);
+		return roomType;
+	}
 	 
 }

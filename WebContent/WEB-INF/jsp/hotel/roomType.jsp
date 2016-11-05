@@ -24,8 +24,7 @@
 						<li class="active"><strong>Room</strong></li>
 					</ol>
 				</div>
-				 
-			</div>
+			  </div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
 				 
@@ -33,8 +32,7 @@
 
 						<jsp:include page="../hotel/addRoomType.jsp"></jsp:include>
 
-
-						<div class="ibox float-e-margins">
+       <div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>RoomType Over View</h5>
 								<div class="ibox-tools">
@@ -61,17 +59,16 @@
 										</thead>
 
 										<tbody>
-											<c:forEach items="${roomType}" var="roomType">
+											<c:forEach items="${roomTypes}" var="roomType">
 											<tr class="read">
-											 <td><c:out value="${roomType.id}" /></td>
-										     <td><c:out value="${roomType.roomTypeName}" /></td>
-										     <td><c:out value="${roomType.roomTypeCode}" /></td>
-											  <td><c:out value="${roomType.roomTypeBedType}" /></td>
-										     <td><c:out value="${roomType.roomTypeDescription}" /></td>
-											   <td><c:out value="${roomType.roomTypeStatus}" /></td>
+											 <td class="roomTypeId"><c:out value="${roomType.id}" /></td>
+										     <td class="roomTypeName"><c:out value="${roomType.roomTypeName}" /></td>
+										     <td class="roomTypeCode"><c:out value="${roomType.roomTypeCode}" /></td>
+											  <td class="roomBedType"><c:out value="${roomType.roomTypeBedType}" /></td>
+										     <td class="roomTypeDescription"><c:out value="${roomType.roomTypeDescription}" /></td>
+											   <td class="roomTypeStatus"><c:out value="${roomType.roomTypeStatus}"/></td>
 											 
-											<td class=""><i class="fa fa-pencil"><a href="#edit-Room" class=""
-															data-toggle="modal"  >Edit</a></i></td>
+											<td class="edit-roomType"><i class="fa fa-pencil"><a >Edit</a></i></td>
 											 <td class="text-right mail-date"><input type="button"
 														class="btn btn-block btn-primary " name="btn"
 														value="Remove" id="submitBtn" data-toggle="modal"
@@ -99,18 +96,13 @@
 							</div>
 						</div>
 
-						<div class="modal fade" id="edit-Room" tabindex="-1"
+						<div class="modal fade" id="editRoomType" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 
-									<div class="modal-header">Edit Room</div>
-									<div class="modal-body">
-
-										<jsp:include page="../hotel/editRoom.jsp"></jsp:include>
-
-
-									</div>
+									 <jsp:include page="../hotel/editRoomType.jsp"></jsp:include>
+  
 								</div>
 							</div>
 						</div>
@@ -121,6 +113,7 @@
 		</div>
 	</div>
 	
+	 <script src="<c:url value="/resources/js/hotel/roomType.js"/>"></script>
 	 
 </body>
 </html>
