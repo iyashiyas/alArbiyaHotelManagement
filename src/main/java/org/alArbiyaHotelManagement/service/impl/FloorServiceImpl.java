@@ -16,7 +16,6 @@ public class FloorServiceImpl implements FloorService{
 
 	@Autowired 
 	private FloorRepository floorRepository;
-	
 
 	@Override
 	public Floor addFloor(Floor floor) {
@@ -27,7 +26,7 @@ public class FloorServiceImpl implements FloorService{
 	}
 	
 	@Override
-	public Set<Floor> getAllFloor() {
+	public List<Floor> getAllFloor() {
 		return floorRepository.getAllFloor();
 	}
 

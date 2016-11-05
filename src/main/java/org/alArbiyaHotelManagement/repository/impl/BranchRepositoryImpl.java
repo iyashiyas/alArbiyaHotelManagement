@@ -1,8 +1,6 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -24,27 +22,23 @@ public class BranchRepositoryImpl implements BranchRepository{
 		entityManager.persist(branch);
 		return branch;
 	}
-	
-	
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Set<Branch> getAllBranch() {
+	public List<Branch> getAllBranch() {
 		Query query = entityManager.createQuery("SELECT bran from Branch bran", Branch.class);
-		return new HashSet<Branch>(query.getResultList());
+		return query.getResultList();
 	}
-	
-	
 
 	@Override
 	public Branch editBranch(Branch branch) {
-		 entityManager.merge(branch);
+		System.out.println("branch id"+branch.getId());
+		entityManager.merge(branch);
 		return branch;
 	}
 
 	@Override
 	public Branch deleteBranch(Branch branch) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -10,13 +10,12 @@
 </head>
 <body>
  
-		<form:form class="form-horizontal editBranch"
-			action="${pageContext.request.contextPath}/hotel/editBranch"
-			method="POST" modelAttribute="newBranch">
+		
 			<div class="modal-header">Edit Branch Details</div>
 			   <div class="modal-body">
 
-			<div class="form-group">
+			<input type="hidden" id="id" name="id" value=""/>
+			<div class="form-group"> 
 				<label class="col-sm-2 control-label">Branch Name</label>
 
 				<div class="col-sm-10">
@@ -79,11 +78,10 @@
 			</div>
 
 			<div class="modal-footer">
-											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
-											<button type="submit" class="btn btn-success success">Update</button>
-										</div> 
+				<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
+				<button type="submit" class="btn btn-success success">Update</button>
+			</div> 
 
-		</form:form>
 	 
 </body>
 </html>

@@ -17,7 +17,6 @@ public class BuildingServiceImpl implements BuildingService{
 	private BuildingRepository buildingRepository;
 	 
 	public Building addBuilding(Building building) {
-		
 		if(building.getBuildingStatus()==null) {
 			building.setBuildingStatus("DISABLED");
 		}
@@ -25,21 +24,19 @@ public class BuildingServiceImpl implements BuildingService{
 	}
 	
 	@Override
-	public Set<Building> getAllBuildings() {
+	public List<Building> getAllBuildings() {
 		return buildingRepository.getAllBuildings();
 	}
 
 
 	@Override
 	public Building deleteBuilding() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public Building editBuilding() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

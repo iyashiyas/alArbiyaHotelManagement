@@ -69,7 +69,6 @@
 												<th>Address</th>
 												<th>Description</th>
 												<th>Edit</th>
-												<th>Delete</th>
 
 											</tr>
 										</thead>
@@ -92,12 +91,6 @@
 													<td class="center branchDescription"><c:out
 															value="${branch.branchDescription}" /></td>
 													<td class="branchEdit"><i class="fa fa-pencil"><a>Edit</a></i></td>
-													<td class="center"><input type="button"
-														class="btn btn-block btn-primary " name="btn"
-														value="Remove" id="submitBtn" data-toggle="modal"
-														data-target="#confirm-submit"></td>
-
-
 												</tr>
 
 											</c:forEach>
@@ -127,10 +120,11 @@
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
-									<form class="form-horizontal" action="" method="post">
-										
+									<form:form class="form-horizontal" id="editBranch"
+										action="${pageContext.request.contextPath}/hotel/editBranch"
+										method="POST" modelAttribute="newBranch">
 										<jsp:include page="../hotel/editBranch.jsp"></jsp:include>
-									</form>
+									</form:form>
 								</div>
 							</div>
 						</div>

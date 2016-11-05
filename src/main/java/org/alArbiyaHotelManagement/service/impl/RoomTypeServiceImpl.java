@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Floor;
@@ -21,25 +22,20 @@ public class RoomTypeServiceImpl implements RoomTypeService{
 		}
 		return roomTypeRepository.addRoomType(roomType);
 	}
-	
 
 	@Override
-	public Set<RoomType> getAllRoomType() {
+	public List<RoomType> getAllRoomType() {
 		return roomTypeRepository.getAllRoomType();
 	}
 
- 
-
 	@Override
 	public RoomType deleteRoomType() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public RoomType editRoomType() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

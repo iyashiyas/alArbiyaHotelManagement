@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Floor;
@@ -20,10 +21,9 @@ public class RoomServiceImpl implements RoomService {
 		}
 		return roomRepository.addRoom(room);
 	}
-	
 
 	@Override
-	public Set<Room> getAllRoom() {
+	public List<Room> getAllRoom() {
 		return roomRepository.getAllRoom();
 	}
 	

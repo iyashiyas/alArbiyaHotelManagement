@@ -39,17 +39,18 @@ public class HotelController {
 	
 	@RequestMapping(value="/showBranch", method = RequestMethod.GET)
 	public String showBranch(Model model) {
-		Set<Branch> branches = branchService.getAllBranch();
+		List<Branch> branches = branchService.getAllBranch();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("branches", branches);
 		attributes.put("newBranch", new Branch());
 		model.addAllAttributes(attributes);
 		return "hotel/branch";
 	}
+	
 	@RequestMapping(value="/showBuilding", method = RequestMethod.GET)
 	public String showBuilding(Model model) {
-		Set<Branch> branches = branchService.getAllBranch();
-		Set<Building> buildings = buildingService.getAllBuildings();
+		List<Branch> branches = branchService.getAllBranch();
+		List<Building> buildings = buildingService.getAllBuildings();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("buildings", buildings);
 		attributes.put("branches", branches);
@@ -57,10 +58,11 @@ public class HotelController {
 		model.addAllAttributes(attributes);
 		return "hotel/building";
 	}
+	
 	@RequestMapping(value="/showFloor", method = RequestMethod.GET)
 	public String showFloor(Model model) {
-		Set<Floor> floors = floorService.getAllFloor();
-		Set<Branch> branches = branchService.getAllBranch();
+		List<Floor> floors = floorService.getAllFloor();
+		List<Branch> branches = branchService.getAllBranch();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("floors", floors);
 		attributes.put("branches", branches);
@@ -71,10 +73,10 @@ public class HotelController {
 	
 	@RequestMapping(value="/showRoom", method = RequestMethod.GET)
 	public String showRoom(Model model) {
-		Set<Room> rooms = roomService.getAllRoom();
-		Set<Branch> branches = branchService.getAllBranch();
-		Set<Building> buildings = buildingService.getAllBuildings();
-		Set<Floor> floors = floorService.getAllFloor();
+		List<Room> rooms = roomService.getAllRoom();
+		List<Branch> branches = branchService.getAllBranch();
+		List<Building> buildings = buildingService.getAllBuildings();
+		List<Floor> floors = floorService.getAllFloor();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("floors", floors);
 		attributes.put("branches", branches);
@@ -87,74 +89,65 @@ public class HotelController {
 	
 	@RequestMapping(value="/showRoomTypes", method = RequestMethod.GET)
 	public String showRoomType(Model model) {
-		Set<RoomType> roomTypes = roomTypeService.getAllRoomType();
+		List<RoomType> roomTypes = roomTypeService.getAllRoomType();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("roomTypes", roomTypes);
 		attributes.put("newRoomType", new RoomType());
-	 
 		model.addAllAttributes(attributes);
 		return "hotel/roomType";
 	}
-	
 	
 	@RequestMapping(value="/getAllBuilding", method=RequestMethod.GET, produces = "application/json")
 	public List<Building> getAllBuilding(@RequestParam(required=false) String branchId) {
 		return buildingService.getAllBuilding(branchId);
 	}
 	
-	
 	@RequestMapping(value="/getAllFloor", method=RequestMethod.GET, produces = "application/json")
 	public List<Floor> GetAllFloor(@RequestParam(required=false) String buildingId) {
 		return floorService.getAllFloorByBuildingId(buildingId);
 	}
 	
-	
 	@RequestMapping(value="/addBranch", method=RequestMethod.POST)
-	public String addBranch(@ModelAttribute Branch branch)
-	{
+	public String addBranch(@ModelAttribute Branch branch){
 		branchService.addBranch(branch);
-		 return "redirect:/";
+		return "redirect:/hotel/showBranch";
 	}
-	
 
 	@RequestMapping(value="/addBuilding", method=RequestMethod.POST)
-	public String addBuilding(@ModelAttribute Building building)
-	{
+	public String addBuilding(@ModelAttribute Building building) {
 		buildingService.addBuilding(building);
-		 return "redirect:/";
+		return "redirect:/hotel/showBuilding";
 	}
 	
 	@RequestMapping(value="/addFloor", method=RequestMethod.POST)
-	public String addFloor(@ModelAttribute Floor floor)
-	{
+	public String addFloor(@ModelAttribute Floor floor) {
 		floorService.addFloor(floor);
-		 return "redirect:/";
+		return "redirect:/hotel/showFloor";
 	}
 	
 	@RequestMapping(value="/addRoom", method=RequestMethod.POST)
-	public String addRoom(@ModelAttribute Room room)
-	{
+	public String addRoom(@ModelAttribute Room room){
 		roomService.addRoom(room);
-		 return "redirect:/";
+		return "redirect:/hotel/showRoom";
 	}
+	
 	@RequestMapping(value="/addRoomType", method=RequestMethod.POST)
-	public String addRoomType(@ModelAttribute RoomType roomType)
-	{
+	public String addRoomType(@ModelAttribute RoomType roomType) {
 		roomTypeService.addRoomType(roomType);
 	    return "redirect:/hotel/showRoomTypes";
 	}
-	 @RequestMapping(value="/editBranch", method=RequestMethod.POST)
+	
+	@RequestMapping(value="/editBranch", method=RequestMethod.POST)
 	public String editBranch(@ModelAttribute Branch branch) {
-	 branchService.editBranch(branch);
-	 return "redirect:/";
+		 branchService.editBranch(branch);
+		 return "redirect:/hotel/showBranch";
 	}
 	 
 	@RequestMapping(value="/editRoomType", method=RequestMethod.POST)
 	public String editRoomType(@ModelAttribute RoomType roomType) {
-	 roomTypeService.editRoomType(roomType);
-      return "redirect:/hotel/showRoomTypes";
+		roomTypeService.editRoomType(roomType);
+		return "redirect:/hotel/showRoomTypes";
 	}
-	 
 	
 	public Hotel addHotel() {
 		return null;
