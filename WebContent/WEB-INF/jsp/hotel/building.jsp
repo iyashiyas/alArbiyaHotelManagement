@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,6 +64,7 @@
                         <th> Code</th>
                          <th> Branch</th>
                            <th> Floor</th>
+                            <th> Phone Number</th>
                           <th>Edit</th>
                             <th>Delete</th>
            
@@ -71,18 +73,18 @@
                     
 					<tbody>
                    
-
+<c:forEach items="${buildings}" var="building">
 							<tr class="read">
-                            <td class="check-mail">2</td>
-							<td class="mail-ontact "> Item
-									Name </td>
-									<td class="mail-ontact "> Code
+                            <td class="check-mail"><c:out value="${building.id}" /></td>
+							<td class="mail-ontact "> <c:out value="${building.buildingName}" /></td>
+									<td class="mail-ontact "><c:out value="${building.buildingCode}" />
 									  </td>
-									  
-						
+								 
 							<td class="mail-subject">  
 									Brna </td>
-									<td class="mail-subject"> 40
+									<td class="mail-subject"> ${building.buildingTotalFloor}
+									  </td>
+									  <td class="mail-subject"> ${building.buildingPhoneNumber}
 									  </td>
 						
 							 
@@ -93,6 +95,7 @@
 								data-target="#confirm-submit"></td>
  
 						</tr>
+						</c:forEach>
 						 
 					</tbody>
 				</table> 

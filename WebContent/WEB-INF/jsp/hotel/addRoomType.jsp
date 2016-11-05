@@ -16,30 +16,33 @@
 								</div>
 							</div>
 <div class="ibox-content">
-<form class="form-horizontal" action="" method="post">
+<form:form class="form-horizontal"  action="${pageContext.request.contextPath}/hotel/addRoomType" modelAttribute="newRoomType" method="post">
 				  
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Room Type Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Type Name" name="typeName"
-								class="form-control">
+							<form:input type="text" placeholder="Type Name" name="typeName"
+								class="form-control" path="roomTypeName" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Type Code</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Type Code" name="typeCode"
-								class="form-control">
+							<form:input type="text" placeholder="Type Code" name="typeCode"
+								class="form-control" path="roomTypeCode" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Bed Type  </label>
                           <div class="col-sm-10">
-							<select class="form-control m-b" name="branchCode">
-								<option>Single</option>
-							 </select>
+							<form:select path="roomTypeBedType" class="form-control m-b" name="branchCode">
+								<form:option value="Single">Single</form:option>
+								<form:option value="Double">Double</form:option>
+								<form:option value="Family">Family</form:option>
+								<form:option value="Kids">Kids</form:option>
+							 </form:select>
 						</div>
 					</div>
 					   		 
@@ -47,15 +50,15 @@
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
+							<form:input type="text" placeholder="Description" name="Description"
+								class="form-control" path="roomTypeDescription" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Status </label>
 
 						  <div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
+							 <form:checkbox value="ENABLE" path="roomTypeStatus" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
                              Enable
                                     </label>
@@ -67,7 +70,7 @@
 								 </button>
 						</div>
 					</div>
-				 </form>
+				 </form:form>
 				</div>
 				</div>
 </body>

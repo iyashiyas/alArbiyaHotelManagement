@@ -9,32 +9,33 @@
 </head>
 <body>
 <div class="ibox-content">
-<form class="form-horizontal" action="" method="post">
+<form:form class="form-horizontal" action="${pageContext.request.contextPath}/hotel/addFloor" modelAttribute="newFloor" method="post">
 				  
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Floor Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Floor Name" name="floorName"
-								class="form-control">
+							<form:input type="text" placeholder="Floor Name" name="floorName"
+								class="form-control" path="floorName" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Floor Code</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Floor Code" name="floorCode"
-								class="form-control">
+							<form:input type="text" placeholder="Floor Code" name="floorCode"
+								class="form-control" path="floorCode" />
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="branchCode">
-								<option>Branch</option>
-							 </select>
-						</div>
-					</div>
+					
+						<div class="form-group">
+				<label class="col-sm-2 control-label">Select Branch </label>
+				<div class="col-sm-10">
+				 <form:select class="form-control m-b" path="branch.id" name="branchCode">
+							  <form:options items="${branches}" itemValue="id"
+						 itemLabel="branchCode"></form:options>
+							 </form:select> </div></div>
+							 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Buildings  </label>
                           <div class="col-sm-10">
@@ -50,8 +51,8 @@
 						<label class="col-sm-2 control-label"> Total Rooms</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Total Floor" name="totalRoom"
-								class="form-control">
+							<form:input type="text" placeholder="Total Room" name="totalRoom"
+								class="form-control" path="floorTotalRoom" />
 						</div>
 					</div>
 					  		 
@@ -59,15 +60,15 @@
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
+							<form:input type="text" placeholder="Description" name="Description"
+								class="form-control" path="floorDescription" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Status </label>
 
 						  <div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
+							 <form:checkbox path="floorStatus" value="ENABLE" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
                              Enable
                                     </label>
@@ -79,7 +80,7 @@
 								 </button>
 						</div>
 					</div>
-				 </form>
+				 </form:form>
 				</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=windows-1256"
-	pageEncoding="windows-1256"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type"
@@ -63,6 +64,10 @@
 												<th class="check-mail">Branch ID</th>
 												<th>Branch Name</th>
 												<th>Branch Code</th>
+												<th>Phone Number</th>
+												<th>Email</th>
+												<th>Address</th>
+												<th>Description</th>
 												<th>Edit</th>
 												<th>Delete</th>
 
@@ -70,24 +75,32 @@
 										</thead>
 
 										<tbody>
+											<c:forEach items="${branches}" var="branch">
+
+												<tr class="gradeX">
+													<td class="center id"><c:out value="${branch.id}" /></td>
+													<td class="center branchName"><c:out
+															value="${branch.branchName}" /></td>
+													<td class="center branchCode"><c:out
+															value="${branch.branchCode}" /></td>
+													<td class="center branchPhoneNumber"><c:out
+															value="${branch.branchPhoneNumber}" /></td>
+													<td class="center branchEmail"><c:out
+															value="${branch.branchEmail}" /></td>
+													<td class="center branchAddress"><c:out
+															value="${branch.branchAddress}" /></td>
+													<td class="center branchDescription"><c:out
+															value="${branch.branchDescription}" /></td>
+													<td class="branchEdit"><i class="fa fa-pencil"><a>Edit</a></i></td>
+													<td class="center"><input type="button"
+														class="btn btn-block btn-primary " name="btn"
+														value="Remove" id="submitBtn" data-toggle="modal"
+														data-target="#confirm-submit"></td>
 
 
-											<tr class="read">
-												<td class="check-mail">2</td>
-												<td class="mail-ontact ">Item Name</td>
-												<td class="mail-subject">Item COde</td>
+												</tr>
 
-												<td class=""><i class="fa fa-pencil"><a
-														data-toggle="modal" data-target="#EditBranch">Edit</a></i></td>
-												<td class="text-right mail-date"><input type="button"
-													class="btn btn-block btn-primary " name="btn"
-													value="Remove Items" id="submitBtn" data-toggle="modal"
-													data-target="#confirm-submit"></td>
-
-
-											</tr>
-
-
+											</c:forEach>
 
 										</tbody>
 									</table>
@@ -115,20 +128,18 @@
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<form class="form-horizontal" action="" method="post">
-										<div class="modal-header">Edit Branch Details</div>
+										
 										<jsp:include page="../hotel/editBranch.jsp"></jsp:include>
 									</form>
 								</div>
 							</div>
 						</div>
 					</div>
-
-
-
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="<c:url value="/resources/js/hotel/branch.js"/>"></script>
 
 </body>
 </html>

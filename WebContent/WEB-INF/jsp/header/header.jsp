@@ -51,15 +51,16 @@
 					<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
 							class="nav-label">Profile</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
-							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=BRANCH">Branch</a></li>
-							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=BUILDING">Building</a></li>
-							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=FLOOR">Floor</a></li>
+						    <li><a href="${pageContext.request.contextPath}/">Currency</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel/showBranch">Branch</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel/showBuilding">Building</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel/showFloor">Floor</a></li>
 							<li><a ><i class="fa fa-bar-chart-o"></i>Rooms <span class="fa arrow">
 							</span></a>
 							
 							<ul class="nav nav-third-level collapse">
-							<li><a href="${pageContext.request.contextPath}/hotel?profileCode=ROOM">Rooms</a></li>
-					        <li><a href="${pageContext.request.contextPath}/hotel?profileCode=ROOMTYPE">Room Types</a></li>
+							<li><a href="${pageContext.request.contextPath}/hotel/showRoom">Rooms</a></li>
+					        <li><a href="${pageContext.request.contextPath}/hotel/showRoomTypes">Room Types</a></li>
 					     
 							</ul>
 							</li>

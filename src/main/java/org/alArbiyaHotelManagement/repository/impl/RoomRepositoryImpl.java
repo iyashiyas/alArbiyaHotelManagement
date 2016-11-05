@@ -1,20 +1,52 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.RoomRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 public class RoomRepositoryImpl implements RoomRepository{
 
-
-	public Room addRoom()
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	public Room addRoom(Room room)
 	{
-		return null;
-		
+		entityManager.persist(room);
+		 
+		return room;
+	 	
+	} 
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<Room> getAllRoom() {
+		Query query = entityManager.createQuery("SELECT rm from Room  rm", Room.class);
+		return new HashSet<Room>(query.getResultList());
 	}
-	public Room editRoom(){
+ 
+ 
+	@Override
+	public Room editRoom() {
+		// TODO Auto-generated method stub
 		return null;
 	}
-	public Room deleteRoom(){
+
+	@Override
+	public Room deleteRoom() {
+		// TODO Auto-generated method stub
 		return null;
 	}
+	 
 }

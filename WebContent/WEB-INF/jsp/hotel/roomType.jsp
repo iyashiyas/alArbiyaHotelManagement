@@ -61,15 +61,15 @@
 										</thead>
 
 										<tbody>
+											<c:forEach items="${roomType}" var="roomType">
 											<tr class="read">
-											 <td>a</td>
-										     <td>a</td>
-											  <td>a</td>
-											  	  <td>a</td>
-											
-												  <td>a</td>
-											
-											 <td>a</td>
+											 <td><c:out value="${roomType.id}" /></td>
+										     <td><c:out value="${roomType.roomTypeName}" /></td>
+										     <td><c:out value="${roomType.roomTypeCode}" /></td>
+											  <td><c:out value="${roomType.roomTypeBedType}" /></td>
+										     <td><c:out value="${roomType.roomTypeDescription}" /></td>
+											   <td><c:out value="${roomType.roomTypeStatus}" /></td>
+											 
 											<td class=""><i class="fa fa-pencil"><a href="#edit-Room" class=""
 															data-toggle="modal"  >Edit</a></i></td>
 											 <td class="text-right mail-date"><input type="button"
@@ -77,6 +77,7 @@
 														value="Remove" id="submitBtn" data-toggle="modal"
 														data-target="#confirm-submit"></td>
 											 </tr>
+											 </c:forEach>
 										</tbody>
 									</table>
 								</div>

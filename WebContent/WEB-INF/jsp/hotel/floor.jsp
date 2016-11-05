@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=windows-1256"
-    pageEncoding="windows-1256"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
@@ -64,6 +65,7 @@
                          <th> Branch</th>
                            <th> Building</th>
                             <th> Total Room</th>
+                               <th>Status</th>
                           <th>Edit</th>
                             <th>Delete</th>
            
@@ -72,19 +74,20 @@
                     
 					<tbody>
                    
-
+	<c:forEach items="${floor}" var="floor">
 							<tr class="read">
-                            <td class="check-mail">2</td>
-							<td class="mail-ontact "> Item
-									Name </td>
-									<td class="mail-ontact "> Code
+                            <td class="check-mail"><c:out value="${floor.id}" /></td>
+							<td class="mail-ontact "><c:out value="${floor.floorName}" /></td>
+									<td class="mail-ontact "><c:out value="${floor.floorCode}" />
 									  </td>
-									  	<td class="mail-ontact "> Code
+									  	<td class="mail-ontact ">branch
 									  </td>
 						
 							<td class="mail-subject">  
-									Brna </td>
-									<td class="mail-subject"> 40
+									building </td>
+									<td class="mail-subject"> <c:out value="${floor.floorTotalRoom}" />
+									  </td>
+									  <td class="mail-subject"> <c:out value="${floor.floorStatus}" />
 									  </td>
 						
 							 
@@ -95,7 +98,7 @@
 								data-target="#confirm-submit"></td>
  
 						</tr>
-						 
+						 </c:forEach>
 					</tbody>
 				</table> 
  </div>

@@ -23,7 +23,7 @@
 						<li class="active"><strong>Room</strong></li>
 					</ol>
 				</div>
-				 
+
 			</div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
@@ -56,27 +56,30 @@
 												<th>Room Name</th>
 												<th>Code/Number</th>
 												<th>Price</th>
-											 
-												 <th>Status</th>
+
+												<th>Status</th>
 												<th>Edit</th>
 												<th>Delete</th>
 											</tr>
 										</thead>
 
 										<tbody>
-											<tr class="read">
-											 <td>a</td>
-											 <td>a</td>
-											 <td>a</td>
-											  <td>a</td>
-											 <td>a</td>
-											<td class=""><i class="fa fa-pencil"><a href="#edit-Room" class=""
-															data-toggle="modal"  >Edit</a></i></td>
-											 <td class="text-right mail-date"><input type="button"
+
+											<c:forEach items="${room}" var="room">
+												<tr class="read">
+													<td><c:out value="${room.id}" /></td>
+													<td><c:out value="${room.roomName}" /></td>
+													<td><c:out value="${room.roomCode}" /></td>
+													<td><c:out value="${room.roomPrice}" /></td>
+													<td><c:out value="${room.roomStatus}" /></td>
+													<td class=""><i class="fa fa-pencil"><a
+															href="#edit-Room" class="" data-toggle="modal">Edit</a></i></td>
+													<td class="text-right mail-date"><input type="button"
 														class="btn btn-block btn-primary " name="btn"
 														value="Remove" id="submitBtn" data-toggle="modal"
 														data-target="#confirm-submit"></td>
-											 </tr>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -98,8 +101,8 @@
 							</div>
 						</div>
 
-						<div class="modal fade" id="edit-Room" tabindex="-1"
-							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal fade" id="edit-Room" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 
@@ -119,7 +122,7 @@
 			</div>
 		</div>
 	</div>
-	
-	 
+
+
 </body>
 </html>
