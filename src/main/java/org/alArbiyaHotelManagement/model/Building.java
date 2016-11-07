@@ -42,6 +42,10 @@ public class Building {
 	
 	@Column(name="BUILDING_STATUS") 
 	private String buildingStatus;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="BRANCH_ID")
+	private Branch branch;
 
 	public long getId() {
 		return id;
@@ -106,17 +110,6 @@ public class Building {
 	public void setBuildingStatus(String buildingStatus) {
 		this.buildingStatus = buildingStatus;
 	}
-	
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="BRANCH_ID")
-	private Branch branch;
-
-	
-	//Many to one
-	
-	//One to Many floor
-	
 	
 	public Branch getBranch() {
 		return branch;

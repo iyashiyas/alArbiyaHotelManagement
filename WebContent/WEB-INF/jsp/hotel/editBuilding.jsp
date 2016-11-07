@@ -81,13 +81,6 @@
                                     </label>
                           </div>
 					      </div>
-
-					  	<div class="form-group">
-						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Add
-								 </button>
-						</div>
-					</div>
 					</div>
 					  	 
 					<div class="modal-footer">

@@ -1,6 +1,7 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -29,21 +30,19 @@ public class FloorRepositoryImpl implements FloorRepository{
 		return query.getResultList();
 	}
  
-
 	@Override
 	public Floor editFloor() {
 		return null;
 	}
-
 
 	@Override
 	public Floor deleteFloor() {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Floor> getAllFloorByBuildingId(String buildingId) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT floor from Floor where buildingId =:buildingId", Floor.class);
 		query.setParameter("buildingId", buildingId);
 		return query.getResultList();
