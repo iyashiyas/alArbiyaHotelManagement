@@ -26,6 +26,6 @@ $( document ).ready(function() {
 });
 	 
 function handleSuccess() {
-		$('#EditBranch').modal('hide');
+	$('#EditBranch').modal('hide');
 	location.reload();
 }

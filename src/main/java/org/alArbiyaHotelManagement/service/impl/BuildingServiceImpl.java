@@ -24,20 +24,14 @@ public class BuildingServiceImpl implements BuildingService{
 	}
 	
 	@Override
+	public void editBuilding(Building building) {
+		buildingRepository.editBuilding(building);
+		
+	}
+	
+	@Override
 	public List<Building> getAllBuildings() {
 		return buildingRepository.getAllBuildings();
-	}
-
-
-	@Override
-	public Building deleteBuilding() {
-		return null;
-	}
-
-
-	@Override
-	public Building editBuilding() {
-		return null;
 	}
 
 	@Override

@@ -47,6 +47,18 @@ public class HotelController {
 		return "hotel/branch";
 	}
 	
+	@RequestMapping(value="/addBranch", method=RequestMethod.POST)
+	public String addBranch(@ModelAttribute Branch branch){
+		branchService.addBranch(branch);
+		return "redirect:/hotel/showBranch";
+	}
+	
+	@RequestMapping(value="/editBranch", method=RequestMethod.POST)
+	public String editBranch(@ModelAttribute Branch branch) {
+		 branchService.editBranch(branch);
+		 return "redirect:/hotel/showBranch";
+	}
+	
 	@RequestMapping(value="/showBuilding", method = RequestMethod.GET)
 	public String showBuilding(Model model) {
 		List<Branch> branches = branchService.getAllBranch();
@@ -57,6 +69,18 @@ public class HotelController {
 		attributes.put("newBuilding", new Building());
 		model.addAllAttributes(attributes);
 		return "hotel/building";
+	}
+	
+	@RequestMapping(value="/addBuilding", method=RequestMethod.POST)
+	public String addBuilding(@ModelAttribute Building building) {
+		buildingService.addBuilding(building);
+		return "redirect:/hotel/showBuilding";
+	}
+	
+	@RequestMapping(value="/editBuilding", method=RequestMethod.POST)
+	public String editBuilding(@ModelAttribute Building building) {
+		buildingService.editBuilding(building);
+		return "redirect:/hotel/showBuilding";
 	}
 	
 	@RequestMapping(value="/showFloor", method = RequestMethod.GET)
@@ -107,18 +131,6 @@ public class HotelController {
 		return floorService.getAllFloorByBuildingId(buildingId);
 	}
 	
-	@RequestMapping(value="/addBranch", method=RequestMethod.POST)
-	public String addBranch(@ModelAttribute Branch branch){
-		branchService.addBranch(branch);
-		return "redirect:/hotel/showBranch";
-	}
-
-	@RequestMapping(value="/addBuilding", method=RequestMethod.POST)
-	public String addBuilding(@ModelAttribute Building building) {
-		buildingService.addBuilding(building);
-		return "redirect:/hotel/showBuilding";
-	}
-	
 	@RequestMapping(value="/addFloor", method=RequestMethod.POST)
 	public String addFloor(@ModelAttribute Floor floor) {
 		floorService.addFloor(floor);
@@ -137,12 +149,6 @@ public class HotelController {
 	    return "redirect:/hotel/showRoomTypes";
 	}
 	
-	@RequestMapping(value="/editBranch", method=RequestMethod.POST)
-	public String editBranch(@ModelAttribute Branch branch) {
-		 branchService.editBranch(branch);
-		 return "redirect:/hotel/showBranch";
-	}
-	 
 	@RequestMapping(value="/editRoomType", method=RequestMethod.POST)
 	public String editRoomType(@ModelAttribute RoomType roomType) {
 		roomTypeService.editRoomType(roomType);

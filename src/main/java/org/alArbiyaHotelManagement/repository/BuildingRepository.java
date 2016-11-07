@@ -8,8 +8,7 @@ public interface BuildingRepository {
 
 	public Building addBuilding(Building building);
 	public List<Building> getAllBuildings();
-	public Building editBuilding();
-	public Building deleteBuilding();
 	public List<Building> getAllBuilding(String branchId);
+	public void editBuilding(Building building);
 	
 }

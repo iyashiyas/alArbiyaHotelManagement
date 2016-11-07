@@ -18,7 +18,6 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Building> getAllBuildings() {
@@ -27,22 +26,10 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 	}
 	
 	@Override
-	public Building addBuilding(Building building)
-	{
+	public Building addBuilding(Building building) {
 		entityManager.persist(building);
 		return building;
-		 
 	} 
-
-	@Override
-	public Building editBuilding() {
-		return null;
-	}
-
-	@Override
-	public Building deleteBuilding() {
-		return null;
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -50,6 +37,11 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 		Query query = entityManager.createQuery("SELECT build from Building building where branchId =:branchId", Building.class);
 		query.setParameter("branchId", branchId);
 		return query.getResultList();
+	}
+
+	@Override
+	public void editBuilding(Building building) {
+		
 	}
 	 
  
