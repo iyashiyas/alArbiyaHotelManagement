@@ -9,86 +9,67 @@
 </head>
 <body>
  
-<form class="form-horizontal" action="" method="post">
-				  
-<div class="modal-body">
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Building Name</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Branch Name" name="branchName"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Building Code</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Building Code" name="BuildingCode"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="branchCode">
-								<option>Branch</option>
-							 </select>
-						</div>
-					</div>
+<form class="form-horizontal" id="editBuilding" action="${pageContext.request.contextPath}/hotel/editBuilding" method="post">
+	<div class="modal-body">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Building Name</label>
+			<input type="hidden" id="id" name="id" value=""/>
+			<div class="col-sm-10">
+				<input type="text" placeholder="Branch Name" name="buildingName" id="buildingName" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Building Code</label>
+			<div class="col-sm-10">
+				<input type="text" placeholder="Building Code" name="buildingCode" id="buildingCode" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Select Branch  </label>
+                       <div class="col-sm-10">
+				<select class="form-control m-b" name="branch.branchName" id="branchName">
+					<option>Branch</option>
+				 </select>
+			</div>
+		</div>
 					
-							<div class="form-group">
-						<label class="col-sm-2 control-label">Phone Number</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="PhoneNumber" name="phoneNumber"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Email</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Email" name="email"
-								class="form-control">
-						</div>
-					</div>
-					
-					 <div class="form-group">
-						<label class="col-sm-2 control-label"> Floor</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Total Floor" name="totalFloor"
-								class="form-control">
-						</div>
-					</div>
-					  		 
-					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
-
-						  <div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
-                                    <label for="checkbox1">
-                             Enable
-                                    </label>
-                          </div>
-					      </div>
-					</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Phone Number</label>
+			<div class="col-sm-10">
+				<input type="text" placeholder="PhoneNumber" name="buildingPhoneNumber" id="buildingPhoneNumber" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="text" placeholder="Email" name="buildingEmail" id="buildingEmail" class="form-control">
+			</div>
+		</div>
+		 <div class="form-group">
+			<label class="col-sm-2 control-label"> Floor</label>
+			<div class="col-sm-10">
+				<input type="text" placeholder="Total Floor" name="buildingTotalFloor" id="buildingTotalFloor" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"> Description</label>
+			<div class="col-sm-10">
+				<input type="text" placeholder="Description" name="buildingDescription" id="buildingDescription" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Status </label>
+			 <div class="col-sm-10">
+			 	<input type="checkbox" id="buildingStatus" name="buildingStatus">
+				<label for="checkbox1">Enable</label>
+             </div>
+		 </div>
+	</div>
 					  	 
-					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a   id="submit" class="btn btn-success success">Update</a>
-				</div>
-		
-				</form>
-			 
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+		<a id="submit" class="btn btn-success success">Update</a>
+	</div>	
+</form>
 </body>
 </html>

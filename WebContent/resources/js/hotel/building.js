@@ -1,24 +1,24 @@
 $( document ).ready(function() {
  
-	 $('.branchEdit').click(function() {
+	 $('.buildingEdit').click(function() {
 		   
 		var $row = $(this).parent('tr')
 	  
-		$('#EditBranch').find("#id").val($row.find(".id").text())
-		$('#EditBranch').find("#branchName").val($row.find(".branchName").text())
-		$('#EditBranch').find("#branchCode").val($row.find(".branchCode").text())
-		$('#EditBranch').find("#branchPhoneNumber").val($row.find(".branchPhoneNumber").text())
-		$('#EditBranch').find("#branchEmail").val($row.find(".branchEmail").text())
-		$('#EditBranch').find("#branchAddress").val($row.find(".branchAddress").text())
-		$('#EditBranch').find("#branchDescription").val($row.find(".branchDescription").text())
+		$('#editBuilding').find("#id").val($row.find(".id").text())
+		$('#editBuilding').find("#buildingName").val($row.find(".buildingName").text())
+		$('#editBuilding').find("#buildingCode").val($row.find(".buildingCode").text())
+		$('#editBuilding').find("#buildingPhoneNumber").val($row.find(".buildingPhoneNumber").text())
+		$('#editBuilding').find("#buildingEmail").val($row.find(".buildingEmail").text())
+		$('#editBuilding').find("#buildingTotalFloor").val($row.find(".buildingTotalFloor").text())
+		$('#editBuilding').find("#buildingDescription").val($row.find(".buildingDescription").text())
 		  
 		if($row.find(".branchStatus").text()=="ENABLE" || $row.find(".branchStatus").text()=="ENABLED") {
-			$('#EditBranch').find("#branchStatus").prop('checked',true)
+			$('#editBuilding').find("#buildingStatus").prop('checked',true)
 		} else {
-			$('#EditBranch').find("#branchStatus").prop('checked',false)
+			$('#editBuilding').find("#buildingStatus").prop('checked',false)
 		}
 		 	
-		$('#EditBranch').modal({
+		$('#editBuilding').modal({
 		    backdrop: 'static',
 		    keyboard: true,
 		    show: true});
@@ -26,6 +26,6 @@ $( document ).ready(function() {
 });
 	 
 function handleSuccess() {
-	$('#EditBranch').modal('hide');
+	$('#editBuilding').modal('hide');
 	location.reload();
 }

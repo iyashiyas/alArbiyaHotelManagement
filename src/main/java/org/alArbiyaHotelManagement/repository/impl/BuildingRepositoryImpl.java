@@ -41,7 +41,7 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 
 	@Override
 	public void editBuilding(Building building) {
-		
+		entityManager.persist(building);
 	}
 	 
  

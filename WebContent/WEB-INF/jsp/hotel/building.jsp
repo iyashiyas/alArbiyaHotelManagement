@@ -65,13 +65,16 @@
 								<tbody>
 									<c:forEach items="${buildings}" var="building">
 										<tr class="read">
-			                            	<td class="check-mail"><c:out value="${building.id}" /></td>
-											<td class="mail-ontact "> <c:out value="${building.buildingName}" /></td>
-											<td class="mail-ontact "><c:out value="${building.buildingCode}" /></td>
-											<td class="mail-subject"><c:out value="${building.branch.branchName}" /></td>
-											<td class="mail-subject"> ${building.buildingTotalFloor}</td>
-											<td class="mail-subject"> ${building.buildingPhoneNumber}</td>
-											<td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#edit-Building">Edit</a></i></td>
+			                            	<td class="id"><c:out value="${building.id}" /></td>
+											<td class="buildingName"> <c:out value="${building.buildingName}" /></td>
+											<td class="buildingCode"><c:out value="${building.buildingCode}" /></td>
+											<td class="branchName"><c:out value="${building.branch.branchName}" /></td>
+											<td class="buildingTotalFloor"> ${building.buildingTotalFloor}</td>
+											<td class="buildingPhoneNumber"> ${building.buildingPhoneNumber}</td>
+											<td class="buildingEmail hide"> ${building.buildingEmail}</td>
+											<td class="buildingDescription hide"> ${building.buildingDescription}</td>
+											<td class="buildingStatus hide"> ${building.buildingStatus}</td>
+											<td class="buildingEdit"><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#edit-Building">Edit</a></i></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -92,4 +95,5 @@
 	</div>
 	</div>
 </body>
+<script src="<c:url value="/resources/js/hotel/building.js"/>"></script>
 </html>
