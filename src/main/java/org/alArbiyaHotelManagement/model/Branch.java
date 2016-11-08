@@ -40,7 +40,9 @@ public class Branch {
 	@Column(name="BRANCH_CODE") 
 	private String branchCode;
 
- 
+	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.LAZY) 
+	private List<Building> buildings;
+	
 	public long getId() {
 		return id;
 	}
@@ -101,15 +103,7 @@ public class Branch {
 
 	public void setBranchCode(String branchCode) {
 		this.branchCode = branchCode;
-	}
-	
-	
-	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.LAZY) 
-	private List<Building> buildings;
-
-	
-	//OnetoMany Building
-	 
+	}	 
 	
 	public List<Building> getBuildings() {
 		return buildings;

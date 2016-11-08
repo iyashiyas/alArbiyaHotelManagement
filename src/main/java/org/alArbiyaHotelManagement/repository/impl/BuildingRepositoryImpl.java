@@ -34,8 +34,8 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Building> getAllBuilding(String branchId) {
-		Query query = entityManager.createQuery("SELECT build from Building building where branchId =:branchId", Building.class);
-		query.setParameter("branchId", branchId);
+		Query query = entityManager.createQuery("SELECT buildings from Branch branch join branch.buildings buildings where branch.id =:branchId", Building.class);
+		query.setParameter("branchId", Long.parseLong(branchId));
 		return query.getResultList();
 	}
 

@@ -39,5 +39,8 @@ dependencies {
 	
 	compile "javax.inject:javax.inject:1",
 			"javax.servlet:jstl:1.2"
+			
+	//jackson
+	compile "org.codehaus.jackson:jackson-mapper-asl:1.9.10"
 
 }

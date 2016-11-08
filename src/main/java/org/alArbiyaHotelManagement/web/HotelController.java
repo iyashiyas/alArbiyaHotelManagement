@@ -1,15 +1,14 @@
 package org.alArbiyaHotelManagement.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.Hotel;
- 
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.RoomType;
 import org.alArbiyaHotelManagement.service.BranchService;
@@ -24,6 +23,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
 @RequestMapping(value = "/hotel")
@@ -121,8 +122,8 @@ public class HotelController {
 		return "hotel/roomType";
 	}
 	
-	@RequestMapping(value="/getAllBuilding", method=RequestMethod.GET, produces = "application/json")
-	public List<Building> getAllBuilding(@RequestParam(required=false) String branchId) {
+	@RequestMapping(value="/getAllBuilding", method=RequestMethod.GET)
+	public @ResponseBody List<Building> getAllBuilding(@RequestParam(required=false) String branchId) {
 		return buildingService.getAllBuilding(branchId);
 	}
 	

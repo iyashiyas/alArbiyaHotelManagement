@@ -1,7 +1,6 @@
 $( document ).ready(function() {
  
-$( "#branchId" ).change(function() {
-
+$( ".branchDetail" ).change(function() {
 	var branchId=$(this).val();
 	alert (branchId)
 	 

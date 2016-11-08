@@ -140,4 +140,5 @@
 </div>
  
 </body>
+<script src="<c:url value="/resources/js/hotel/floor.js"/>"></script>
 </html>

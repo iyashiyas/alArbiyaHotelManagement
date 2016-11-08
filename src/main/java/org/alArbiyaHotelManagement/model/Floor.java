@@ -2,13 +2,11 @@ package org.alArbiyaHotelManagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="FLOOR")
@@ -32,7 +30,10 @@ public class Floor {
 	
 	@Column(name="FLOOR_STATUS") 
 	private String floorStatus;
-	 
+
+	@ManyToOne
+	@JoinColumn(name="BUILDING_ID")
+	private Building building;
 
 	public String getFloorStatus() {
 		return floorStatus;
@@ -82,19 +83,6 @@ public class Floor {
 		this.floorDescription = floorDescription;
 	}
 
-	
-	
-
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="BUILDING_ID")
-	private Building building;
-
-	
-	//Many to one
-	
-	//One to Many floor
-	
-	
 	public Building getBuilding() {
 		return building;
 	}
@@ -105,9 +93,4 @@ public class Floor {
         	building.getFloors().add(this);
         }
 	}
-	
-	
-	//Many to ONe BUILDING
-	
-	//One to many room
 }

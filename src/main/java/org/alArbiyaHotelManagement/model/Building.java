@@ -46,6 +46,9 @@ public class Building {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BRANCH_ID")
 	private Branch branch;
+	
+	@OneToMany(mappedBy="building", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
+	private List<Floor> floors;
 
 	public long getId() {
 		return id;
@@ -121,13 +124,6 @@ public class Building {
         	branch.getBuildings().add(this);
         }
 	}
-	 
-	
-	@OneToMany(mappedBy="building", cascade=CascadeType.MERGE, fetch=FetchType.LAZY) 
-	private List<Floor> floors;
-
-	
-	//OnetoMany Building
 	 
 	
 	public List<Floor> getFloors() {

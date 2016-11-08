@@ -28,20 +28,22 @@
 						</div>
 					</div>
 					
-						<div class="form-group">
-				<label class="col-sm-2 control-label">Select Branch </label>
-				<div class="col-sm-10">
-				 <form:select class="form-control m-b" path="branch.id" name="branchCode">
-							  <form:options items="${branches}" itemValue="id"
-						 itemLabel="branchCode"></form:options>
-							 </form:select> </div></div>
-							 
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Branch </label>
+						<div class="col-sm-10">
+						 <form:select class="form-control m-b branchDetail" path="building.branch.id" name="building.branch.id">
+						 	<form:option value="0">Select branch</form:option>
+							<form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
+						 </form:select> 
+			 			</div>
+			 		</div>
+						 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Buildings  </label>
                           <div class="col-sm-10">
-							<select class="form-control m-b" name="buIlingCode">
-								<option>Bild1</option>
-							 </select>
+							<form:select class="form-control m-b" name="building.id" path="building.id">
+								
+							 </form:select>
 						</div>
 					</div>
 					 
@@ -51,7 +53,7 @@
 						<label class="col-sm-2 control-label"> Total Rooms</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Total Room" name="totalRoom"
+							<form:input type="text" placeholder="Total Room" name="floorTotalRoom"
 								class="form-control" path="floorTotalRoom" />
 						</div>
 					</div>
@@ -60,7 +62,7 @@
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Description" name="Description"
+							<form:input type="text" placeholder="Description" name="floorDescription"
 								class="form-control" path="floorDescription" />
 						</div>
 					</div>
@@ -68,7 +70,7 @@
 						<label class="col-sm-2 control-label">Status </label>
 
 						  <div class="col-sm-10">
-							 <form:checkbox path="floorStatus" value="ENABLE" checked="checked" id="checkbox1" />
+							 <form:checkbox path="floorStatus" name="floorStatus" value="ENABLE" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
                              Enable
                                     </label>
