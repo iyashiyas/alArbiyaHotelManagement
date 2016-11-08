@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="BRANCH")
 public class Branch {
@@ -40,7 +42,8 @@ public class Branch {
 	@Column(name="BRANCH_CODE") 
 	private String branchCode;
 
-	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.LAZY) 
+	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
+	@JsonIgnore
 	private List<Building> buildings;
 	
 	public long getId() {
