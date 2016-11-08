@@ -41,7 +41,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Buildings  </label>
                           <div class="col-sm-10">
-							<form:select class="form-control m-b" name="building.id" path="building.id">
+							<form:select class="form-control m-b buildingId" name="building.id" path="building.id">
 								
 							 </form:select>
 						</div>

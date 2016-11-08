@@ -11,8 +11,9 @@ $( ".branchDetail" ).change(function() {
 	        data:{branchId:branchId},
 	        dataType: "json",
 	        success: function(data){ 
-             alert("coming here");
-            	//here also i am getting the alertbox in jsp
+	        	$.each(data, function (i, jsondata) {
+	        		$('.buildingId').append('<option value="'+jsondata.branch.id+'">'+jsondata.branch.branchName+'</option>')
+	        	});
 	        },
 	        error:function(xmlHttpRequest, textStatus, errorThrown){
 	            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
