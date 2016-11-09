@@ -21,7 +21,7 @@
 					<h2>Branch</h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/hotel?profileCode=BRANCH">Profile</a></li>
+							href="${pageContext.request.contextPath}/hotel/showBranch">Profile</a></li>
 						<li class="active"><strong>Branch</strong></li>
 					</ol>
 				</div>

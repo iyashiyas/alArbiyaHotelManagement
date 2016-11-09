@@ -12,7 +12,7 @@
 	<div class="ibox-content">
 		<form:form class="form-horizontal"
 			action="${pageContext.request.contextPath}/hotel/addBranch"
-			method="post" modelAttribute="newBranch">
+			method="post" modelAttribute="newBranch" >
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Branch Name</label>

@@ -24,12 +24,6 @@ public class BuildingServiceImpl implements BuildingService{
 	}
 	
 	@Override
-	public void editBuilding(Building building) {
-		buildingRepository.editBuilding(building);
-		
-	}
-	
-	@Override
 	public List<Building> getAllBuildings() {
 		return buildingRepository.getAllBuildings();
 	}
@@ -37,6 +31,15 @@ public class BuildingServiceImpl implements BuildingService{
 	@Override
 	public List<Building> getAllBuilding(String branchId) {
 		return buildingRepository.getAllBuilding(branchId);
+	}
+
+	@Override
+	public Building editBuilding(Building building) {
+		// TODO Auto-generated method stub
+		if(building.getBuildingStatus()==null) {
+			building.setBuildingStatus("DISABLED");
+		}
+		return buildingRepository.editBuilding(building);
 	}
 	 
 }

@@ -109,8 +109,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
- 
+		</div> 
 <div class="modal fade" id="assign_to_room" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">

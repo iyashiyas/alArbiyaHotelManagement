@@ -110,8 +110,7 @@
 									<div class="modal-body">
 
 										<jsp:include page="../hotel/editRoom.jsp"></jsp:include>
-
-
+ 
 									</div>
 								</div>
 							</div>

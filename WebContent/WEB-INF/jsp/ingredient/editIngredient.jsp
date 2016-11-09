@@ -17,8 +17,7 @@
 				action="${pageContext.request.contextPath}/ingredient/editIngredient"
 				 modelAttribute="newIngredient" method="post">
 				<p>Edit Ingredient items Here</p>
-
-				<div class="form-group">
+                <div class="form-group">
 					<label class="col-sm-2 control-label">Ingredient Category</label>
 					<input type="hidden" name="id" id="id" value="">
 					<div class="col-sm-10">
@@ -81,13 +80,12 @@
 										</div>
 									</div>
 	 
-			<div class="modal-footer">
+			    <div class="modal-footer">
 											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
 											<button type="submit" class="btn btn-success success">Update</button>
 										</div> 
 
 			</form:form>
-		 
-  
+		  
 </body>
 </html>

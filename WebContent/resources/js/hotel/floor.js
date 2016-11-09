@@ -27,6 +27,3 @@ $( ".branchDetail" ).change(function() {
 	 
 });
 });
-  
-   
- 

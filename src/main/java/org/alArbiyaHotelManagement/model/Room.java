@@ -28,6 +28,8 @@ public class Room {
 	
 	@Column(name="ROOM_STATUS") 
 	private String roomStatus;
+	
+	//one to many bookings
 
 	public long getId() {
 		return id;

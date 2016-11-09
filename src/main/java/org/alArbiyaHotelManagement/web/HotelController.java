@@ -29,27 +29,31 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Controller
 @RequestMapping(value = "/hotel")
 public class HotelController {
-	
-	@Autowired BranchService branchService;
-	@Autowired BuildingService buildingService;
 
-	@Autowired FloorService floorService;
-	@Autowired RoomService roomService;
-	
-	@Autowired RoomTypeService roomTypeService;
-	
-	
-	@RequestMapping(value="/showCurrency", method = RequestMethod.GET)
+	@Autowired
+	BranchService branchService;
+	@Autowired
+	BuildingService buildingService;
+
+	@Autowired
+	FloorService floorService;
+	@Autowired
+	RoomService roomService;
+
+	@Autowired
+	RoomTypeService roomTypeService;
+
+	@RequestMapping(value = "/showCurrency", method = RequestMethod.GET)
 	public String showCurrency(Model model) {
-		 return "hotel/currency";
+		return "hotel/currency";
 	}
-	
-	@RequestMapping(value="/showCurrencyRates", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/showCurrencyRates", method = RequestMethod.GET)
 	public String showCurrencyRates(Model model) {
-		 return "hotel/currencyRates";
+		return "hotel/currencyRates";
 	}
-	
-	@RequestMapping(value="/showBranch", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/showBranch", method = RequestMethod.GET)
 	public String showBranch(Model model) {
 		List<Branch> branches = branchService.getAllBranch();
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -106,8 +110,8 @@ public class HotelController {
 		model.addAllAttributes(attributes);
 		return "hotel/floor";
 	}
-	
-	@RequestMapping(value="/showRoom", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/showRoom", method = RequestMethod.GET)
 	public String showRoom(Model model) {
 		List<Room> rooms = roomService.getAllRoom();
 		List<Branch> branches = branchService.getAllBranch();
@@ -122,8 +126,8 @@ public class HotelController {
 		model.addAllAttributes(attributes);
 		return "hotel/room";
 	}
-	
-	@RequestMapping(value="/showRoomTypes", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/showRoomTypes", method = RequestMethod.GET)
 	public String showRoomType(Model model) {
 		List<RoomType> roomTypes = roomTypeService.getAllRoomType();
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -139,7 +143,7 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value="/getAllFloor", method=RequestMethod.GET, produces = "application/json")
-	public List<Floor> GetAllFloor(@RequestParam(required=false) String buildingId) {
+	public List<Floor> getAllFloor(@RequestParam(required=false) String buildingId) {
 		return floorService.getAllFloorByBuildingId(buildingId);
 	}
 	
@@ -154,11 +158,12 @@ public class HotelController {
 		roomService.addRoom(room);
 		return "redirect:/hotel/showRoom";
 	}
+
 	
-	@RequestMapping(value="/addRoomType", method=RequestMethod.POST)
+	@RequestMapping(value = "/addRoomType", method = RequestMethod.POST)
 	public String addRoomType(@ModelAttribute RoomType roomType) {
 		roomTypeService.addRoomType(roomType);
-	    return "redirect:/hotel/showRoomTypes";
+		return "redirect:/hotel/showRoomTypes";
 	}
 	
 	@RequestMapping(value="/editRoomType", method=RequestMethod.POST)
@@ -166,12 +171,6 @@ public class HotelController {
 		roomTypeService.editRoomType(roomType);
 		return "redirect:/hotel/showRoomTypes";
 	}
+	 
 	
-	public Hotel addHotel() {
-		return null;
-	}
-	
-	public Hotel editHotel() {
-		return null;
-	}
 }
