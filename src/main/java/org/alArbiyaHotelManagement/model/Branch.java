@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
 @Table(name="BRANCH")
@@ -42,8 +43,8 @@ public class Branch {
 	@Column(name="BRANCH_CODE") 
 	private String branchCode;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
-	@JsonIgnore
 	private List<Building> buildings;
 	
 	public long getId() {

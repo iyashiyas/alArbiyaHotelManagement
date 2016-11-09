@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 @Entity
 @Table(name="BUILDING")
 public class Building {
@@ -43,6 +46,7 @@ public class Building {
 	@Column(name="BUILDING_STATUS") 
 	private String buildingStatus;
 	
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BRANCH_ID")
 	private Branch branch;

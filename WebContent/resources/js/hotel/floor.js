@@ -2,7 +2,6 @@ $( document ).ready(function() {
  
 $( ".branchDetail" ).change(function() {
 	var branchId=$(this).val();
-	alert (branchId)
 	 
 	    $.ajax({
 	        type:'GET',
@@ -11,8 +10,13 @@ $( ".branchDetail" ).change(function() {
 	        data:{branchId:branchId},
 	        dataType: "json",
 	        success: function(data){ 
-	        	$.each(data, function (i, jsondata) {
-	        		$('.buildingId').append('<option value="'+jsondata.branch.id+'">'+jsondata.branch.branchName+'</option>')
+	        	$.each(data, function (i, building) {
+	        		console.log(building.id);
+	        		$('.buildingId')
+		        		.find('option')
+					    .remove()
+					    .end()		
+		        		.append('<option value="'+building.id+'">'+building.buildingName+'</option>')
 	        	});
 	        },
 	        error:function(xmlHttpRequest, textStatus, errorThrown){
@@ -23,21 +27,6 @@ $( ".branchDetail" ).change(function() {
 	 
 });
 });
- 
-
-
-// If  success function Success create new select example below 
- 
- /*
-     success: function(data){ 
-             $("#buildings").empty();
-            $.each(data, function(index, optionData) {
-                $("#buildings").append("<option value='"
-                     + optionData.buildingId
-                     + "'>" + optionData.buildingName
-                     + "</option>");
-            });
-        });*/
   
    
  
