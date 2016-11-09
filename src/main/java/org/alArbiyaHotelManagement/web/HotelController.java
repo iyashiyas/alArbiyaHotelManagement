@@ -38,6 +38,17 @@ public class HotelController {
 	
 	@Autowired RoomTypeService roomTypeService;
 	
+	
+	@RequestMapping(value="/showCurrency", method = RequestMethod.GET)
+	public String showCurrency(Model model) {
+		 return "hotel/currency";
+	}
+	
+	@RequestMapping(value="/showCurrencyRates", method = RequestMethod.GET)
+	public String showCurrencyRates(Model model) {
+		 return "hotel/currencyRates";
+	}
+	
 	@RequestMapping(value="/showBranch", method = RequestMethod.GET)
 	public String showBranch(Model model) {
 		List<Branch> branches = branchService.getAllBranch();
