@@ -38,11 +38,11 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 		query.setParameter("branchId", Long.parseLong(branchId));
 		return query.getResultList();
 	}
-  
-	@SuppressWarnings("unchecked")
+
 	@Override
 	public void editBuilding(Building building) {
 		entityManager.persist(building);
+		
 	}
 	 
 }
