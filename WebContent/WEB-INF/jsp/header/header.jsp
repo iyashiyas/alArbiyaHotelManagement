@@ -51,7 +51,7 @@
 					<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
 							class="nav-label">Profile</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
-						    <li><a href="${pageContext.request.contextPath}/">Currency</a></li>
+						    <li><a href="${pageContext.request.contextPath}/hotel/showCurrency">Currency</a></li>
 							<li><a href="${pageContext.request.contextPath}/hotel/showBranch">Branch</a></li>
 							<li><a href="${pageContext.request.contextPath}/hotel/showBuilding">Building</a></li>
 							<li><a href="${pageContext.request.contextPath}/hotel/showFloor">Floor</a></li>
@@ -69,13 +69,9 @@
 						
 						
 						
-						<li><a href="#"><i class="fa fa-credit-card"></i> <span
-							class="nav-label">Reservation</span><span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level collapse">
-							<li><a href="#">Check-IN</a> </li>
-							<li><a href="#">Reservation</a> </li>
-							<li><a href="#">Check-Out</a> </li>
-					       </ul></li>
+						<li><a href="${pageContext.request.contextPath}/reservation/reservation"><i class="fa fa-credit-card"></i> <span
+							class="nav-label">Reservation</span></a>
+						 </li>
 						
 						
  
@@ -163,6 +159,9 @@
 		 	<script
 				src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
 	 
+	 <!-- Date Time Picker -->
+	   	<script src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script> 
+	  	<script src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script> 
 	 
 	 <!-- Full Screen Mode js -->
  
