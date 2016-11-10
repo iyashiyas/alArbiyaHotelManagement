@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,8 +32,32 @@ public class Room {
 	@Column(name="ROOM_STATUS") 
 	private String roomStatus;
 	
-	//one to many bookings
+	@ManyToOne
+	@JoinColumn(name="FLOOR_ID")
+	private Floor floor;
 
+	public Floor getFloor() {
+		return floor;
+	}
+
+	public void setFloor(Floor floor) {
+		this.floor = floor;
+        if (floor.getRooms()!=null && !floor.getRooms().contains(this)) {
+        	floor.getRooms().add(this);
+        }
+	}
+
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
+	}
+
+	@OneToOne
+	private RoomType roomType;
+	
 	public long getId() {
 		return id;
 	}
@@ -78,12 +105,4 @@ public class Room {
 	public void setRoomStatus(String roomStatus) {
 		this.roomStatus = roomStatus;
 	}
-
- 
-	
-	
-	
-	//Many toone flor
-	
-	//One to one room type
 }

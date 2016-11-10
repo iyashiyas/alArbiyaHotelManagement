@@ -1,6 +1,5 @@
 package org.alArbiyaHotelManagement.web;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,6 @@ import java.util.Map;
 import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
-import org.alArbiyaHotelManagement.model.Hotel;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.RoomType;
 import org.alArbiyaHotelManagement.service.BranchService;
@@ -24,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
 @RequestMapping(value = "/hotel")
@@ -122,7 +119,7 @@ public class HotelController {
 		attributes.put("branches", branches);
 		attributes.put("buildings", buildings);
 		attributes.put("rooms", rooms);
-		attributes.put("newBuilding", new Building());
+		attributes.put("newRoom", new Room());
 		model.addAllAttributes(attributes);
 		return "hotel/room";
 	}
