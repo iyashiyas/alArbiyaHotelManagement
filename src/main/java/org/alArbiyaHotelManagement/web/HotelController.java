@@ -114,11 +114,13 @@ public class HotelController {
 		List<Branch> branches = branchService.getAllBranch();
 		List<Building> buildings = buildingService.getAllBuildings();
 		List<Floor> floors = floorService.getAllFloor();
+		List<RoomType> roomType = roomTypeService.getAllRoomType();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("floors", floors);
 		attributes.put("branches", branches);
 		attributes.put("buildings", buildings);
 		attributes.put("rooms", rooms);
+		attributes.put("roomType", roomType);
 		attributes.put("newRoom", new Room());
 		model.addAllAttributes(attributes);
 		return "hotel/room";

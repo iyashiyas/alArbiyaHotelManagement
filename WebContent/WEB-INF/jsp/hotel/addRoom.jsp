@@ -65,9 +65,10 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Room Type  </label>
                           <div class="col-sm-10">
-							<select class="form-control m-b" name="typeCode">
-								<option>Type1</option>
-							 </select>
+							<form:select class="form-control m-b roomTypeCode" path="roomType.id" name="roomType.id">
+								<form:option value="0">Select Floor</form:option>
+								<form:options items="${roomType}" itemValue="id" itemLabel="roomTypeCode"></form:options>
+							 </form:select>
 						</div>
 					</div>
 					 
