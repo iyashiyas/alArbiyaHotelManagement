@@ -69,7 +69,7 @@
 						
 						
 						
-						<li><a href="${pageContext.request.contextPath}/reservation/reservation"><i class="fa fa-credit-card"></i> <span
+						<li><a href="${pageContext.request.contextPath}/reservation"><i class="fa fa-credit-card"></i> <span
 							class="nav-label">Reservation</span></a>
 						 </li>
 						
