@@ -15,8 +15,8 @@ public class RoomType {
 	@Column(name="ROOMTYPE_ID")
 	private long id;
 	
-	@Column(name="ROOMTYPE_NAME") 
-	private String roomTypeName;
+	@Column(name="ROOMTYPE") 
+	private String roomType;
 	
 	@Column(name="ROOMTYPE_CODE") 
 	private String roomTypeCode;
@@ -39,11 +39,11 @@ public class RoomType {
 	}
 
 	public String getRoomTypeName() {
-		return roomTypeName;
+		return roomType;
 	}
 
-	public void setRoomTypeName(String roomTypeName) {
-		this.roomTypeName = roomTypeName;
+	public void setRoomTypeName(String roomType) {
+		this.roomType = roomType;
 	}
 
 	public String getRoomTypeCode() {

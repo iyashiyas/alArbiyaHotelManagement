@@ -57,7 +57,7 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-								<form class="form-horizontal" method="post"
+								<form class="form-horizontal" method="POST"
 									action="${pageContext.request.contextPath}/reservation/availableRooms">
 
 									<div class="row">
@@ -70,7 +70,7 @@
 													<div class="col-sm-3 form-group">
 														<label>Check-In</label>
 														<div class='input-group date' id='datetimepicker1'>
-															<input type='text' class="form-control" /> <span
+															<input type='text' class="form-control datepicker" name="startDate"/> <span
 																class="input-group-addon"> <span
 																class="glyphicon glyphicon-calendar"></span>
 															</span>
@@ -81,7 +81,7 @@
 													<div class="col-sm-4 form-group">
 														<label>Check-Out</label>
 														<div class='input-group date' id='datetimepicker2'>
-															<input type='text' class="form-control" /> <span
+															<input type='text' class="form-control datepicker" name="endDate"/> <span
 																class="input-group-addon"> <span
 																class="glyphicon glyphicon-calendar"></span>
 															</span>
@@ -89,11 +89,13 @@
 													</div>
 													<div class="col-sm-1 form-group"></div>
 													<div class="col-sm-3 form-group">
-														<label>Room Type</label> <select class="form-control"><option>Single</option>
-															<option>Suite</option>
-															<option>Room Type1</option></select>
+														<label>Room Type</label> 
+														<select class="form-control" name="roomType">
+															<option value="Single">Single</option>
+															<option value="Double">Double</option>
+														</select>
 													</div>
-													<div class="col-sm-1 form-group"></div>
+													<!-- <div class="col-sm-1 form-group"></div>
 													<div class="col-sm-3 form-group">
 														<label>Rooms</label>
 														<div class="col-sm-13">
@@ -116,7 +118,7 @@
 															<input class="touchspin1" type="text" value=""
 																name="time_finish">
 														</div>
-													</div>
+													</div> -->
 
 
 
@@ -197,6 +199,8 @@
 			maxboostedstep : 10,
 
 		});
+		
+		$('.datepicker').datepicker();
 	</script>
 
 </body>

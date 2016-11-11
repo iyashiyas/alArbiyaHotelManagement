@@ -1,11 +1,14 @@
 package org.alArbiyaHotelManagement.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,28 +38,12 @@ public class Room {
 	@ManyToOne
 	@JoinColumn(name="FLOOR_ID")
 	private Floor floor;
-
-	public Floor getFloor() {
-		return floor;
-	}
-
-	public void setFloor(Floor floor) {
-		this.floor = floor;
-        if (floor.getRooms()!=null && !floor.getRooms().contains(this)) {
-        	floor.getRooms().add(this);
-        }
-	}
-
-	public RoomType getRoomType() {
-		return roomType;
-	}
-
-	public void setRoomType(RoomType roomType) {
-		this.roomType = roomType;
-	}
-
+	
 	@OneToOne
 	private RoomType roomType;
+	
+	@OneToMany(mappedBy="room")
+	private List<Booking> bookings;
 	
 	public long getId() {
 		return id;
@@ -104,5 +91,39 @@ public class Room {
 
 	public void setRoomStatus(String roomStatus) {
 		this.roomStatus = roomStatus;
+	}
+	
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
+	}
+	
+	public Floor getFloor() {
+		return floor;
+	}
+
+	public void setFloor(Floor floor) {
+		this.floor = floor;
+        if (floor.getRooms()!=null && !floor.getRooms().contains(this)) {
+        	floor.getRooms().add(this);
+        }
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void addBooking(Booking booking) {
+		this.bookings.add(booking);
+        if (booking.getRoom() != this) {
+        	booking.setRoom(this);
+        }
+	}
+	
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 }

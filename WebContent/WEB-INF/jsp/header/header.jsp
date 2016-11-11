@@ -66,15 +66,9 @@
 							</li>
 
 						</ul></li>
-						
-						
-						
 						<li><a href="${pageContext.request.contextPath}/reservation"><i class="fa fa-credit-card"></i> <span
 							class="nav-label">Reservation</span></a>
 						 </li>
-						
-						
- 
 					<li><a href="${pageContext.request.contextPath}/unit"><i class="fa fa-pie-chart"></i> <span
 							class="nav-label">Unit</span> </a></li>
 					<li><a href="${pageContext.request.contextPath}/ingredient"><i class="fa fa-shopping-cart"></i> <span
