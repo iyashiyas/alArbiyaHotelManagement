@@ -37,13 +37,17 @@ public class ReservationController {
 	}
 	
 	@RequestMapping(value="/availableRooms", method = RequestMethod.POST)
-	public String getAvailableRooms(String startDate, String endDate, String roomType) throws ParseException {
+	public String getAvailableRooms(String startDate, String endDate, String roomType, Model model) throws ParseException {
 		System.out.println("startDate"+startDate);
 		System.out.println("endDate"+endDate);
 		System.out.println("roomType"+roomType);
 		
 		List<Room> rooms = reservationService.getAvailableRoooms(startDate, endDate, roomType);
-		System.out.println("rooms"+rooms);
+		
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("availableRoooms", rooms);
+		model.addAllAttributes(attributes);
+		
 		return "reservation/availableRooms";
 	}
 	
