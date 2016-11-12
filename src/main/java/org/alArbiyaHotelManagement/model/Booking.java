@@ -7,11 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Booking")
 public class Booking {
+	
+	public Booking(long id, Date startDate, Date endDate) {
+		this.id = id;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
 	
 	@Id @GeneratedValue 
 	@Column(name="ROOM_ID")
@@ -20,6 +27,9 @@ public class Booking {
 	private Date startDate;
 	
 	private Date endDate;
+	
+	@OneToOne
+	UserDetails userDetails;
 	
 	@ManyToOne
 	private Room room;
@@ -57,6 +67,14 @@ public class Booking {
 		if(this.room.getBookings() != null && !this.room.getBookings().contains(this)) {
 			this.room.getBookings().add(this);
 		}
+	}
+
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
 	}
 
 }

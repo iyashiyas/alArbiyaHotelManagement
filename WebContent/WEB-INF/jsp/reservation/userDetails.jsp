@@ -15,15 +15,9 @@
 <title>Reservation</title>
 </head>
 <body>
-
-
-
 	<div id="wrapper">
-
 		<jsp:include page="../header/header.jsp"></jsp:include>
-
 		<div id="page-wrapper" class="gray-bg">
-
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
 					<h2>Add New Member</h2>
@@ -33,12 +27,7 @@
 						<li class="active"><strong>Add New Member</strong></li>
 					</ol>
 				</div>
-
 			</div>
-			<!-- Page Contents35
-			55 -->
-			<!-- Page Heading -->
-
 			<div class="wrapper wrapper-content">
 				<div class="row">
 					<div class="col-lg-12 animated fadeInRight">
@@ -56,47 +45,29 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-
-								<form class="form-horizontal" method="post">
+								<form class="form-horizontal" method="POST" modelAttribute="userDetails">
 									<div class="row ">
-
-
-
-
-										<div class="col-lg-12">
+										<!-- <div class="col-lg-12">
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h3 class="panel-title">Members</h3>
 												</div>
 												<div class="panel-body">
-
 													<div class="col-xs-4 form-group">
 														<label>Member ID * </label> <input class="form-control"
 															placeholder="Member ID" type="text" />
 													</div>
-
 													<div class="col-xs-4 form-group">
 														<label>Member Phone</label> <input class="form-control"
 															placeholder="Member Phone" type="text" />
 													</div>
-
 													<div class="col-xs-4 form-group">
 														<label>Search</label> <a
 															class="form-control btn btn-success " href="">Search</a>
-
 													</div>
-
 												</div>
-
 											</div>
-										</div>
-
-
-
-
-
-
-
+										</div> -->
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
