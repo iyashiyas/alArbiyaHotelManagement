@@ -16,5 +16,10 @@ public class UserServiceImpl implements UserService {
 	public UserDetails addUserDetails(UserDetails userDetail) {
 		return userRepositoty.addUserDetails(userDetail);
 	}
+
+	@Override
+	public UserDetails getUserDetails(String memberId) {
+		return userRepositoty.getUserDetails(memberId);
+	}
 	
 }

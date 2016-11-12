@@ -30,6 +30,15 @@ public class Booking {
 	@Column(name="END_DATE")
 	private Date endDate;
 	
+	@Column(name="BOOKING_STATUS")
+	private String bookingStatus;
+	
+	@Column(name="CHECKED_IN_TIME")
+	private Date checkedInTime;
+	
+	@Column(name="CHECKED_OUT_TIME")
+	private Date checkedOutTime;
+	
 	@OneToOne(cascade={CascadeType.MERGE})
 	@JoinColumn(name="USER_ID")
 	private UserDetails userDetails;
@@ -60,6 +69,30 @@ public class Booking {
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+	}
+
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+
+	public Date getCheckedInTime() {
+		return checkedInTime;
+	}
+
+	public void setCheckedInTime(Date checkedInTime) {
+		this.checkedInTime = checkedInTime;
+	}
+
+	public Date getCheckedOutTime() {
+		return checkedOutTime;
+	}
+
+	public void setCheckedOutTime(Date checkedOutTime) {
+		this.checkedOutTime = checkedOutTime;
+	}
+
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
 	}
 
 	public Date getEndDate() {

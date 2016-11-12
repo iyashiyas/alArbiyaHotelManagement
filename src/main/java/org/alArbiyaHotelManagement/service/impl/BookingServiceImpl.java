@@ -1,8 +1,11 @@
 package org.alArbiyaHotelManagement.service.impl;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.alArbiyaHotelManagement.enums.BookingStatus;
 import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.BookingRepository;
@@ -29,11 +32,16 @@ public class BookingServiceImpl implements BookingService{
 		booking.setBookingReferenceId(bookingId);
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
-		
-		userDetails.setPhoneNumber(userDetails.getPhoneCode()+userDetails.getPhoneNumber());
-		userDetails.setMemberId(memberShipId);
+		booking.setBookingStatus(BookingStatus.BOOKED.name());
+		if(userDetails.getId()<1) {
+			userDetails.setPhoneNumber("");
+			userDetails.setPhoneNumber(userDetails.getPhoneCode()+userDetails.getPhoneNumber());
+			userDetails.setMemberId(memberShipId);
+		}
+		List<Booking> bookings = new ArrayList<Booking>();
+		bookings.add(booking);
+		userDetails.setBooking(bookings);
 		booking.setUserDetails(userDetails);
-		
 		return bookingRepository.createBooking(booking, roomId);
 	}
 

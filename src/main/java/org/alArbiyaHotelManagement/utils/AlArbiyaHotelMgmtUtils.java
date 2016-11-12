@@ -25,7 +25,7 @@ public class AlArbiyaHotelMgmtUtils {
 	}
 
 	public static String getMemberId(String firstName, String email) {
-		final String memberShipCharacter = "012345"+firstName+email;
+		final String memberShipCharacter = "012345"+firstName.toUpperCase()+email.toUpperCase();
 		StringBuilder sb = new StringBuilder( 6 );
 		for( int i = 0; i < 6; i++ ) 
 			sb.append( memberShipCharacter.charAt( secureRandom.nextInt(memberShipCharacter.length()) ) );

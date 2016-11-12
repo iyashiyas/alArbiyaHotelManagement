@@ -1,7 +1,10 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.UserRepository;
@@ -17,6 +20,13 @@ public class UserRepositoryImpl implements UserRepository{
 	public UserDetails addUserDetails(UserDetails userDetail) {
 		entityManager.persist(userDetail);
 		return userDetail;
+	}
+
+	@Override
+	public UserDetails getUserDetails(String memberId) {
+		TypedQuery<UserDetails> query = this.entityManager.createQuery("SELECT userDetails from UserDetails userDetails WHERE userDetails.memberId=:memberId", UserDetails.class);
+		List<UserDetails> userDetails = query.setParameter("memberId", memberId).getResultList();
+		return userDetails.isEmpty() ? null : userDetails.get(0);
 	}
 	
 }

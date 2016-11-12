@@ -39,32 +39,34 @@
 				<div class="row">
 				
 					<div class="col-lg-12">
+						<form action="${pageContext.request.contextPath}/user/getUserDetails">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="panel-title">Members</h3>
+									<h3 class="panel-title">Already a Member</h3>
 								</div>
 								<div class="panel-body">
 									<div class="col-xs-4 form-group">
-										<label>Member ID * </label> <input class="form-control"
-											placeholder="Member ID" type="text" />
+										<input type="hidden" name="roomId" value="${roomId }"/>
+										<input type="hidden" name="startDate" value="${ startDate}"/>
+										<input type="hidden" name="endDate" value="${endDate}"/>
+										
+										<label>Member ID * </label> 
+										<input class="form-control"	placeholder="Member ID" type="text" name="memberId" value=""/>
 									</div>
+									<div style="clear:both;"></div>
 									<div class="col-xs-4 form-group">
-										<label>Member Phone</label> <input class="form-control"
-											placeholder="Member Phone" type="text" />
-									</div>
-									<div class="col-xs-4 form-group">
-										<label>Search</label> <a
-											class="form-control btn btn-success " href="">Search</a>
+										<input class="form-control btn btn-success " type="submit" value="Search"/>
 									</div>
 								</div>
 							</div>
-						</div>
+						</form>
+					</div>
 				
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-									Check In To Room Number <label class="label-primary">112B</label>
+									Check In To Room Number <label class="label-primary">"${ roomId}"</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -81,6 +83,7 @@
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h3 class="panel-title">Basic Details</h3>
+													<input type="hidden" name="id" value="${userDetails.id }"/>
 												</div>
 												<div class="panel-body">
 													<div class="col-xs-2 form-group">

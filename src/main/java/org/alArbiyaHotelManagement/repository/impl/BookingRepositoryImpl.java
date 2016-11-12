@@ -23,7 +23,9 @@ public class BookingRepositoryImpl implements BookingRepository{
 		TypedQuery<Room> query = this.entityManager.createQuery("SELECT room from Room room WHERE room.id=:roomId", Room.class);
 		Room room = query.setParameter("roomId", roomId).getSingleResult();
 		
-		entityManager.persist(booking.getUserDetails());
+		if(booking.getUserDetails().getId()<1) {
+			entityManager.persist(booking.getUserDetails());
+		}
 		booking.setUserDetails(booking.getUserDetails());
 		booking.setRoom(room);
 		entityManager.persist(booking);
