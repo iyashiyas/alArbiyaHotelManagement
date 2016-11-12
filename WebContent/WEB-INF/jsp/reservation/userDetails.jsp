@@ -139,9 +139,9 @@
 													<form:input class="form-control" path="identityNumber" placeholder="Identity Number" type="text" />
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Nation</label> <!-- <select class="form-control">
+													<label>Nation</label>  <select class="form-control">
 														<option>Saudi Arabia</option>
-													</select> -->
+													</select> 
 												</div>
 												<div class="col-xs-5 form-group">
 													<label>Scanned Id</label> 

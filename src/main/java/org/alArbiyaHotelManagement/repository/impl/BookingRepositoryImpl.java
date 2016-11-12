@@ -21,7 +21,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 	EntityManager entityManager;
 	
 	@Override
-	public void createBooking(Booking booking, long roomId) {
+	public Booking createBooking(Booking booking, long roomId) {
 		TypedQuery<Room> query = this.entityManager.createQuery("SELECT room from Room room WHERE room.id=:roomId", Room.class);
 		Room room = query.setParameter("roomId", roomId).getSingleResult();
 		
@@ -29,6 +29,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		booking.setUserDetails(booking.getUserDetails());
 		booking.setRoom(room);
 		entityManager.persist(booking);
+		return booking;
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class BookingServiceImpl implements BookingService{
 	BookingRepository bookingRepository;
 	
 	@Override
-	public void createBooking(String id, String startDte, String endDte, UserDetails userDetails) throws ParseException {
+	public Booking createBooking(String id, String startDte, String endDte, UserDetails userDetails) throws ParseException {
 		long roomId = Long.parseLong(id);
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDte);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDte);
@@ -29,7 +29,7 @@ public class BookingServiceImpl implements BookingService{
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
 		booking.setUserDetails(userDetails);
-		bookingRepository.createBooking(booking, roomId);
+		return bookingRepository.createBooking(booking, roomId);
 	}
 
 }

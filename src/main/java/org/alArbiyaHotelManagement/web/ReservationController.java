@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.RoomType;
 import org.alArbiyaHotelManagement.model.UserDetails;
@@ -75,8 +76,12 @@ public class ReservationController {
 	@RequestMapping(value="/doBooking", method=RequestMethod.POST) 
 	public String doBooking(@ModelAttribute(value="userDetails") UserDetails userDetails, @RequestParam(required=true) String roomId,
 			@RequestParam(required=true) String startDate, 
-			@RequestParam(required=true) String endDate) throws ParseException {
-		bookingService.createBooking(roomId, startDate, endDate, userDetails);
+			@RequestParam(required=true) String endDate,
+			Model model) throws ParseException {
+		Booking booking = bookingService.createBooking(roomId, startDate, endDate, userDetails);
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("bookingDetails", booking);
+		model.addAllAttributes(attributes);
 		return "reservation/reservationDetails";
 	}
 }
