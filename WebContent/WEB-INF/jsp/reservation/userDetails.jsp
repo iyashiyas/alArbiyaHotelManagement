@@ -45,7 +45,7 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-								<form class="form-horizontal" method="POST" modelAttribute="userDetails">
+								<form:form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate } " modelAttribute="userDetails">
 									<div class="row ">
 										<!-- <div class="col-lg-12">
 											<div class="panel panel-default">
@@ -74,35 +74,33 @@
 													<h3 class="panel-title">Basic Details</h3>
 												</div>
 												<div class="panel-body">
-
-
 													<div class="col-xs-2 form-group">
-
-
-														<label>Title</label> <select class="form-control">
-															<option>Mr</option>
-															<option>Mrs</option>
-															<option>Ms</option>
-														</select>
+														<label>Title</label> 
+														<form:select class="form-control" path="title">
+															<form:option value="Mr">Mr</form:option>
+															<form:option value="Mrs">Mrs</form:option>
+															<form:option value="Ms">Ms</form:option>
+														</form:select>
 													</div>
 													<div class="col-xs-10 form-group">
-														<label>Name</label> <input class="form-control"
-															placeholder="Full Name" type="text" />
+														<label>Name</label> 
+														<form:input class="form-control" path="firstName" placeholder="Full Name" type="text" />
 													</div>
 													<div class="col-xs-10 form-group">
-														<label>Phone</label> <input class="form-control"
-															placeholder="phone" type="text" />
+														<label>Phone</label> 
+														<form:input class="form-control" path="phoneNumber" placeholder="phone" type="text" />
 													</div>
-
-
 													<div class="col-xs-2 form-group">
-														<label>Country</label> <select class="form-control"><option>Ind</option>
-															<option>Ksa</option>
-															<option>Us</option></select>
+														<label>Country</label> 
+														<form:select class="form-control" path="country">
+															<form:option value="India">India</form:option>
+															<form:option value="USA">USA</form:option>
+															<form:option value="UAE">United Arab Emirates</form:option>
+														</form:select>
 													</div>
 													<div class="col-xs-11 form-group">
-														<label>Email</label> <input class="form-control"
-															placeholder="Email" type="text" />
+														<label>Email</label> 
+														<form:input class="form-control" path="email" placeholder="Email" type="text" />
 													</div>
 
 												</div>
@@ -115,25 +113,24 @@
 													<h3 class="panel-title">Contact Details</h3>
 												</div>
 												<div class="panel-body">
-
 													<div class="col-xs-7 form-group">
-														<label>Address</label> <input class="form-control"
-															placeholder="Address" type="text" />
+														<label>Address</label> 
+														<form:input class="form-control" path="addressLineOne"	placeholder="Address" type="text" />
 													</div>
 
 													<div class="col-xs-5 form-group">
-														<label>Company Name</label> <input class="form-control"
-															placeholder="Company Name" type="text" />
+														<label>Company Name</label> 
+														<form:input class="form-control" path="companyName" placeholder="Company Name" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>City</label> <input class="form-control"
-															placeholder="City" type="text" />
+														<label>City</label> 
+														<form:input class="form-control" path="city"	placeholder="City" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>State</label> <input class="form-control"
-															placeholder="State" type="text" />
+														<label>State</label> 
+														<form:input class="form-control" path="state" placeholder="State" type="text" />
 													</div>
 
 												</div>
@@ -152,23 +149,24 @@
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Identity type</label> <select class="form-control">
-														<option>Passport</option>
-														<option>National Id Card</option>
-													</select>
+													<label>Identity type</label> 
+													<form:select class="form-control" path="identityType">
+														<form:option value="Passport">Passport</form:option>
+														<form:option value="NIC">National Id Card</form:option>
+													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Identity Number</label> <input class="form-control"
-														placeholder="Identity Number" type="text" />
+													<label>Identity Number</label> 
+													<form:input class="form-control" path="identityNumber" placeholder="Identity Number" type="text" />
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Nation</label> <select class="form-control">
+													<label>Nation</label> <!-- <select class="form-control">
 														<option>Saudi Arabia</option>
-													</select>
+													</select> -->
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Scanned Id</label> <input class="form-control"
-														placeholder="City" type="file" />
+													<label>Scanned Id</label> 
+													<form:input class="form-control" path="scannedId" placeholder="City" type="file" />
 												</div>
 												<div class="col-xs-2 form-group">
 													<label>Finger Print</label>
@@ -185,10 +183,9 @@
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Add To Members List</label> <input type="checkbox"
-														value="" checked="checked">
+													<label>Add To Members List</label> 
+													<form:checkbox path="hotelMember" value="" checked="checked"/>
 												</div>
-
 											</div>
 										</div>
 
@@ -201,7 +198,7 @@
 									</div>
 
 
-								</form>
+								</form:form>
 							</div>
 						</div>
 					</div>

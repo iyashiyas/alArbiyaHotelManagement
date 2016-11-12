@@ -2,6 +2,7 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,7 +44,7 @@ public class Room {
 	@OneToOne
 	private RoomType roomType;
 	
-	@OneToMany(mappedBy="room", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="room", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Booking> bookings;
 	
 	public long getId() {

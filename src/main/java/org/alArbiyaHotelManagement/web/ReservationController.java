@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.RoomType;
-import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.service.ReservationService;
@@ -53,6 +52,8 @@ public class ReservationController {
 		List<Room> rooms = reservationService.getAvailableRoooms(startDate, endDate, roomType);
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("availableRoooms", rooms);
+		attributes.put("startDate", startDate);
+		attributes.put("endDate", endDate);
 		model.addAllAttributes(attributes);
 		return "reservation/availableRooms";
 	}
@@ -72,11 +73,11 @@ public class ReservationController {
 	}
 	
 	@RequestMapping(value="/doBooking", method=RequestMethod.POST) 
-	public String doBooking(@ModelAttribute UserDetails userDetails, @RequestParam(required=true) String roomId,
+	public String doBooking(@ModelAttribute(value="userDetails") UserDetails userDetails, @RequestParam(required=true) String roomId,
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate) throws ParseException {
-		UserDetails user = userService.addUserDetails(userDetails);
-		bookingService.createBooking(roomId, startDate, endDate, user);
+		//UserDetails user = userService.addUserDetails(userDetails);
+		bookingService.createBooking(roomId, startDate, endDate, userDetails);
 		return "reservation/reservationDetails";
 	}
 }

@@ -15,6 +15,8 @@ public class BookingRepositoryImpl implements BookingRepository{
 	
 	@Override
 	public void createBooking(Booking booking) {
+		entityManager.persist(booking.getUserDetails());
+		booking.setUserDetails(booking.getUserDetails());
 		entityManager.persist(booking);
 	}
 }

@@ -1,9 +1,12 @@
 package org.alArbiyaHotelManagement.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +15,7 @@ public class UserDetails {
 	
 	@Id
 	@GeneratedValue
+	@Column(name="USER_ID")
 	private long id;
 	
 	@Column(name="MEMBER_ID")
@@ -19,6 +23,12 @@ public class UserDetails {
 	
 	@Column(name="title")
 	private String title;
+	
+	@Column(name="FIRST_NAME")
+	private String firstName;
+	
+	@Column(name="LAST_NAME")
+	private String lastName;
 	
 	@Column(name="PHONE")
 	private String phoneNumber;
@@ -52,6 +62,9 @@ public class UserDetails {
 	
 	@Column(name="HOTELMEMBER")
 	private String hotelMember;
+	
+	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE})
+	private List<Booking> bookings;
 
 	public long getId() {
 		return id;
@@ -75,6 +88,30 @@ public class UserDetails {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	public String getPhoneNumber() {
@@ -163,6 +200,21 @@ public class UserDetails {
 
 	public void setHotelMember(String hotelMember) {
 		this.hotelMember = hotelMember;
+	}
+
+	public List<Booking> getBooking() {
+		return bookings;
+	}
+	
+	public void addBooking(Booking booking) {
+		this.bookings.add(booking);
+		if(booking.getUserDetails() != this) {
+			booking.setUserDetails(this);
+		}
+	}
+
+	public void setBooking(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 }
