@@ -28,6 +28,8 @@ public class BookingServiceImpl implements BookingService{
 		booking.setBookingReferenceId(bookingId);
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
+		
+		userDetails.setPhoneNumber(userDetails.getPhoneCode()+userDetails.getPhoneNumber());
 		booking.setUserDetails(userDetails);
 		return bookingRepository.createBooking(booking, roomId);
 	}

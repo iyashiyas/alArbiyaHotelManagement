@@ -12,6 +12,13 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css"/>">
 
+<style>
+	.form-horizontal .form-group {
+		margin-right: 0 !important;
+    	margin-left: 0 !important;
+	}
+</style>
+
 <title>Reservation</title>
 </head>
 <body>
@@ -55,7 +62,7 @@
 												<div class="panel-body">
 													<div class="col-xs-2 form-group">
 														<label>Title</label> 
-														<form:select class="form-control" path="title">
+														<form:select class="form-control" path="title" style="width: 150%;">
 															<form:option value="Mr">Mr</form:option>
 															<form:option value="Mrs">Mrs</form:option>
 															<form:option value="Ms">Ms</form:option>
@@ -70,11 +77,11 @@
 														<form:input class="form-control" path="phoneNumber" placeholder="phone" type="text" />
 													</div>
 													<div class="col-xs-2 form-group">
-														<label>Country</label> 
-														<form:select class="form-control" path="country">
-															<form:option value="India">India</form:option>
-															<form:option value="USA">USA</form:option>
-															<form:option value="UAE">United Arab Emirates</form:option>
+														<label>Country Code</label> 
+														<form:select class="form-control" path="phoneCode">
+															<form:option value="+91">+91</form:option>
+															<form:option value="+1">+1</form:option>
+															<form:option value="+971">+971</form:option>
 														</form:select>
 													</div>
 													<div class="col-xs-11 form-group">
@@ -139,9 +146,12 @@
 													<form:input class="form-control" path="identityNumber" placeholder="Identity Number" type="text" />
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Nation</label>  <select class="form-control">
-														<option>Saudi Arabia</option>
-													</select> 
+													<label>Country</label>  
+													<form:select class="form-control" path="country">
+															<form:option value="India">India</form:option>
+															<form:option value="USA">USA</form:option>
+															<form:option value="UAE">UAE</form:option>
+													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
 													<label>Scanned Id</label> 

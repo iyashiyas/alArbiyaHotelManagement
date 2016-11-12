@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="USER_DETAILS")
@@ -32,6 +33,9 @@ public class UserDetails {
 	
 	@Column(name="PHONE")
 	private String phoneNumber;
+	
+	@Transient
+	private String phoneCode;
 	
 	@Column(name="EMAIL")
 	private String email;
@@ -120,6 +124,14 @@ public class UserDetails {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPhoneCode() {
+		return phoneCode;
+	}
+
+	public void setPhoneCode(String phoneCode) {
+		this.phoneCode = phoneCode;
 	}
 
 	public String getEmail() {
