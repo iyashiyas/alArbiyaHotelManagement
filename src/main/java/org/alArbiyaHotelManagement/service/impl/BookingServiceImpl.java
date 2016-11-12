@@ -22,7 +22,10 @@ public class BookingServiceImpl implements BookingService{
 		long roomId = Long.parseLong(id);
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDte);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDte);
+		String bookingId = bookingRepository.getBookingId();
+		
 		Booking booking = new Booking();
+		booking.setBookingReferenceId(bookingId);
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
 		booking.setUserDetails(userDetails);

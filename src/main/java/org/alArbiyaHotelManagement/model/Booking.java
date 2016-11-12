@@ -20,6 +20,9 @@ public class Booking {
 	@Column(name="BOOKING_ID")
 	private long id;
 	
+	@Column(name="BOOKING_REFERENCE_ID")
+	private String bookingReferenceId;
+	
 	@Column(name="START_DATE")
 	private Date startDate;
 	
@@ -40,6 +43,14 @@ public class Booking {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getBookingReferenceId() {
+		return bookingReferenceId;
+	}
+
+	public void setBookingReferenceId(String bookingReferenceId) {
+		this.bookingReferenceId = bookingReferenceId;
 	}
 
 	public Date getStartDate() {
