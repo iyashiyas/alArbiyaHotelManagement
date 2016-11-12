@@ -76,7 +76,6 @@ public class ReservationController {
 	public String doBooking(@ModelAttribute(value="userDetails") UserDetails userDetails, @RequestParam(required=true) String roomId,
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate) throws ParseException {
-		//UserDetails user = userService.addUserDetails(userDetails);
 		bookingService.createBooking(roomId, startDate, endDate, userDetails);
 		return "reservation/reservationDetails";
 	}

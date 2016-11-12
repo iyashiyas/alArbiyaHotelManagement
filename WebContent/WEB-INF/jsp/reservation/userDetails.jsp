@@ -47,27 +47,6 @@
 							<div class="ibox-content">
 								<form:form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate } " modelAttribute="userDetails">
 									<div class="row ">
-										<!-- <div class="col-lg-12">
-											<div class="panel panel-default">
-												<div class="panel-heading">
-													<h3 class="panel-title">Members</h3>
-												</div>
-												<div class="panel-body">
-													<div class="col-xs-4 form-group">
-														<label>Member ID * </label> <input class="form-control"
-															placeholder="Member ID" type="text" />
-													</div>
-													<div class="col-xs-4 form-group">
-														<label>Member Phone</label> <input class="form-control"
-															placeholder="Member Phone" type="text" />
-													</div>
-													<div class="col-xs-4 form-group">
-														<label>Search</label> <a
-															class="form-control btn btn-success " href="">Search</a>
-													</div>
-												</div>
-											</div>
-										</div> -->
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
@@ -166,7 +145,7 @@
 												</div>
 												<div class="col-xs-5 form-group">
 													<label>Scanned Id</label> 
-													<form:input class="form-control" path="scannedId" placeholder="City" type="file" />
+													<form:input class="form-control" path="scannedId" value=""/>
 												</div>
 												<div class="col-xs-2 form-group">
 													<label>Finger Print</label>

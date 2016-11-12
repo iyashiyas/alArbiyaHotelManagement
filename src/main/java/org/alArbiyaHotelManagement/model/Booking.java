@@ -16,13 +16,6 @@ import javax.persistence.Table;
 @Table(name="BOOKING")
 public class Booking {
 	
-	public Booking(long id, Date startDate, Date endDate, UserDetails userDetails) {
-		this.room.setId(id);
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.userDetails = userDetails;
-	}
-	
 	@Id @GeneratedValue 
 	@Column(name="BOOKING_ID")
 	private long id;
