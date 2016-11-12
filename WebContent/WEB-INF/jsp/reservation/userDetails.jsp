@@ -37,6 +37,29 @@
 			</div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
+				
+					<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Members</h3>
+								</div>
+								<div class="panel-body">
+									<div class="col-xs-4 form-group">
+										<label>Member ID * </label> <input class="form-control"
+											placeholder="Member ID" type="text" />
+									</div>
+									<div class="col-xs-4 form-group">
+										<label>Member Phone</label> <input class="form-control"
+											placeholder="Member Phone" type="text" />
+									</div>
+									<div class="col-xs-4 form-group">
+										<label>Search</label> <a
+											class="form-control btn btn-success " href="">Search</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">

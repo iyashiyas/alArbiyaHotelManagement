@@ -1,7 +1,5 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -39,6 +37,20 @@ public class BookingRepositoryImpl implements BookingRepository{
 			randomString = AlArbiyaHotelMgmtUtils.generateRandomString();
 			TypedQuery<String> query = this.entityManager.createQuery("SELECT booking.bookingReferenceId from Booking booking WHERE booking.bookingReferenceId=:bookingReferenceId", String.class);
 			query.setParameter("bookingReferenceId", randomString);
+			if(query.getResultList().isEmpty()) {
+				break;
+			}
+		}
+		return randomString;
+	}
+	
+	@Override
+	public String getMemberShipId(String firstName, String email) {
+		String randomString = ""; 
+		for(int i=0;i<10;i++) {
+			randomString = AlArbiyaHotelMgmtUtils.getMemberId(firstName, email);
+			TypedQuery<String> query = this.entityManager.createQuery("SELECT userDetails.memberId from UserDetails userDetails WHERE userDetails.memberId=:memberId", String.class);
+			query.setParameter("memberId", randomString);
 			if(query.getResultList().isEmpty()) {
 				break;
 			}

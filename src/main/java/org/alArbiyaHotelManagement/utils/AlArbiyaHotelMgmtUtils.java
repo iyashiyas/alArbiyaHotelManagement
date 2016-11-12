@@ -24,4 +24,12 @@ public class AlArbiyaHotelMgmtUtils {
 	   return sb.toString();
 	}
 
+	public static String getMemberId(String firstName, String email) {
+		final String memberShipCharacter = "012345"+firstName+email;
+		StringBuilder sb = new StringBuilder( 6 );
+		for( int i = 0; i < 6; i++ ) 
+			sb.append( memberShipCharacter.charAt( secureRandom.nextInt(memberShipCharacter.length()) ) );
+		return sb.toString();
+	}
+
 }

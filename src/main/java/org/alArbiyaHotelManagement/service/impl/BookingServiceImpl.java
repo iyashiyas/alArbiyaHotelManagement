@@ -23,6 +23,7 @@ public class BookingServiceImpl implements BookingService{
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDte);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDte);
 		String bookingId = bookingRepository.getBookingId();
+		String memberShipId = bookingRepository.getMemberShipId(userDetails.getFirstName(), userDetails.getEmail());
 		
 		Booking booking = new Booking();
 		booking.setBookingReferenceId(bookingId);
@@ -30,7 +31,9 @@ public class BookingServiceImpl implements BookingService{
 		booking.setEndDate(endDate);
 		
 		userDetails.setPhoneNumber(userDetails.getPhoneCode()+userDetails.getPhoneNumber());
+		userDetails.setMemberId(memberShipId);
 		booking.setUserDetails(userDetails);
+		
 		return bookingRepository.createBooking(booking, roomId);
 	}
 
