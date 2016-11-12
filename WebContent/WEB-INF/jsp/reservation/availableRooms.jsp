@@ -64,32 +64,26 @@
 											<thead>
 												<tr>
 													<th>Room Id</th>
-													<th>Room Number</th>
-													<th>Floor</th>
+													<th>Room Name</th>
+													<th>Room Code</th>
 													<th>Coast Per Day</th>
 													<th>Status</th>
-													<th>Check-In</th>
+													<th>Floor</th>
+													<th>Type</th>
 													<th>Book</th>
 												</tr>
 											</thead>
 											<tbody>
-
-												<!-- Fetching Language Table-->
-
-<c:forEach items="${availableRoooms}" var="availableRooom">
+											<c:forEach items="${availableRoooms}" var="availableRooom">
 												  <tr class="read" >
 													<td class="id">${availableRooom.id}</td>
-													<td class="unitName">${availableRooom.roomName}</td>
-													<td class="unitDescription">${availableRooom.roomCode}</td>
-													<td class="unitCategory">${availableRooom.roomPrice}</td>
-													<td class="unitStatus">${availableRooom.roomStatus}</td>
-													<td class="measurementUnit hide">${availableRooom.floor.id}</td>
-													
-													 <td class="hide">${availableRooom.roomType }</td>
+													<td class="roomName">${availableRooom.roomName}</td>
+													<td class="roomCode">${availableRooom.roomCode}</td>
+													<td class="roomPrice">${availableRooom.roomPrice}</td>
+													<td class="roomStatus">${availableRooom.roomStatus}</td>
+													<td class="floor">${availableRooom.floor.id}</td>
+													 <td class="roomType">${availableRooom.roomType.roomType }</td>
 												</tr>  
-												
-												 
-												
 											</c:forEach>
 
 
