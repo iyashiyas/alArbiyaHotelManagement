@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 import org.alArbiyaHotelManagement.model.Booking;
+import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.BookingRepository;
 import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -17,11 +18,11 @@ public class BookingServiceImpl implements BookingService{
 	BookingRepository bookingRepository;
 	
 	@Override
-	public void createBooking(String id, String startDte, String endDte) throws ParseException {
+	public void createBooking(String id, String startDte, String endDte, UserDetails userDetails) throws ParseException {
 		long roomId = Long.parseLong(id);
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDte);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDte);
-		Booking booking = new Booking(roomId, startDate, endDate);
+		Booking booking = new Booking(roomId, startDate, endDate, userDetails);
 		bookingRepository.createBooking(booking);
 	}
 

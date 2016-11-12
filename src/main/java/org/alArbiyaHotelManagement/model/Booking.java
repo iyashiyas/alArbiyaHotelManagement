@@ -14,10 +14,11 @@ import javax.persistence.Table;
 @Table(name="Booking")
 public class Booking {
 	
-	public Booking(long id, Date startDate, Date endDate) {
+	public Booking(long id, Date startDate, Date endDate, UserDetails userDetails) {
 		this.id = id;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.userDetails = userDetails;
 	}
 	
 	@Id @GeneratedValue 

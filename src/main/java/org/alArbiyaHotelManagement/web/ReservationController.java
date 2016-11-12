@@ -76,7 +76,7 @@ public class ReservationController {
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate) throws ParseException {
 		UserDetails user = userService.addUserDetails(userDetails);
-		bookingService.createBooking(roomId, startDate, endDate);
+		bookingService.createBooking(roomId, startDate, endDate, user);
 		return "reservation/reservationDetails";
 	}
 }

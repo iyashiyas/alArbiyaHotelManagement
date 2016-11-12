@@ -5,7 +5,9 @@ import javax.persistence.PersistenceContext;
 
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.UserRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserRepositoryImpl implements UserRepository{
 
 	@PersistenceContext
