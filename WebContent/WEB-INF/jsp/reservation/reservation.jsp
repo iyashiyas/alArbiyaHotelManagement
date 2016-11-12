@@ -15,15 +15,9 @@
 <title>Reservation</title>
 </head>
 <body>
-
-
-
 	<div id="wrapper">
-
 		<jsp:include page="../header/header.jsp"></jsp:include>
-
 		<div id="page-wrapper" class="gray-bg">
-
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
 					<h2>Reservation</h2>
@@ -33,11 +27,7 @@
 						<li class="active"><strong>Reservation</strong></li>
 					</ol>
 				</div>
-
 			</div>
-			<!-- Page Contents35
-			55 -->
-			<!-- Page Heading -->
 
 			<div class="wrapper wrapper-content">
 				<div class="row">

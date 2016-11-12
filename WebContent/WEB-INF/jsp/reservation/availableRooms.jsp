@@ -84,7 +84,7 @@
 													<td class="floor">${availableRooom.floor.id}</td>
 													 <td class="roomType">${availableRooom.roomType.roomType }</td>
 													 <td class="center"><a class="btn btn-success"
--														href="${pageContext.request.contextPath}/reservation/checkIn">Check-In</a></td>
+-														href="${pageContext.request.contextPath}/reservation/book/?roomId=availableRooom.id">Book</a></td>
 												</tr>  
 											</c:forEach>
 

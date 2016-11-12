@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/reservation")
@@ -51,9 +52,11 @@ public class ReservationController {
 		return "reservation/availableRooms";
 	}
 	
-	@RequestMapping(value="/checkIn", method = RequestMethod.GET)
-	public String CheckIn() {
-
-	   return "reservation/addNewMember";
+	@RequestMapping(value="/book", method = RequestMethod.GET)
+	public String CheckIn(@RequestParam(required=true) String roomId, Model model) {
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("roomId", roomId);
+		model.addAllAttributes(attributes);
+		return "reservation/userDetails";
 	}
 }
