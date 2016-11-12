@@ -76,22 +76,23 @@
 
 												<!-- Fetching Language Table-->
 
-												<tr class="gradeX">
+<c:forEach items="${availableRoooms}" var="availableRooom">
+												  <tr class="read" >
+													<td class="id">${availableRooom.id}</td>
+													<td class="unitName">${availableRooom.roomName}</td>
+													<td class="unitDescription">${availableRooom.roomCode}</td>
+													<td class="unitCategory">${availableRooom.roomPrice}</td>
+													<td class="unitStatus">${availableRooom.roomStatus}</td>
+													<td class="measurementUnit hide">${availableRooom.floor.id}</td>
+													
+													 <td class="hide">${availableRooom.roomType }</td>
+												</tr>  
+												
+												 
+												
+											</c:forEach>
 
-													<td class="center">1</td>
-													<td class="center">Room1</td>
-													<td class="center">Floor</td>
-													<td class="center">225 sar/-</td>
-													<td class="center">Clean/dirty/block</td>
-													<td class="center"><a class="btn btn-success"
-														href="${pageContext.request.contextPath}/reservation/checkIn">Check-In</a></td>
-													<td class="center"><button type="button"
-															disabled="disabled" class="btn btn-default">Book</button></td>
 
-												</tr>
-
-												<!-- Demo -->
-												<!--End Action -->
 										</table>
 									</div>
 								</div>
