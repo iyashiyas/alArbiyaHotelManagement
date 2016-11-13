@@ -15,22 +15,8 @@
 <title>Reservation</title>
 </head>
 <body>
-
-	<div id="wrapper">
-		<jsp:include page="../header/header.jsp"></jsp:include>
-		<div id="page-wrapper" class="gray-bg">
-
-			<div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-9">
-					<h2>Available Rooms</h2>
-					<ol class="breadcrumb">
-						<li><a
-							href="${pageContext.request.contextPath}/reservation/reservation">Reservation</a></li>
-						<li class="active"><strong>Available Rooms</strong></li>
-					</ol>
-				</div>
-
-			</div>
+  
+	 	  
 			<!-- Page Contents35
 			55 -->
 			<!-- Page Heading -->
@@ -41,8 +27,8 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-									Available Rooms from <label class="label-primary">08-11-2016</label>
-									to <label class="label-primary">09-11-2016</label>
+									Available Rooms from <label class="label-primary">${startDate}</label>
+									to <label class="label-primary">${endDate }</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -98,8 +84,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		 
 
 </body>
 </html>

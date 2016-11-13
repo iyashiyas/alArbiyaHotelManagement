@@ -56,7 +56,7 @@ public class ReservationController {
 		attributes.put("startDate", startDate);
 		attributes.put("endDate", endDate);
 		model.addAllAttributes(attributes);
-		return "reservation/availableRooms";
+		return "reservation/reservation";
 	}
 	
 	@RequestMapping(value="/book", method = RequestMethod.GET)

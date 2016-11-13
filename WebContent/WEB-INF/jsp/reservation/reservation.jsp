@@ -37,11 +37,11 @@
 								<h5>Reservation</h5>
 								<div class="ibox-tools">
 
-									<a class="btn btn-primary " data-toggle="modal"
+									<!-- <a class="btn btn-primary " data-toggle="modal"
 										href="#Checked-Rooms"><i class="fa fa-th-list">
 											Checked Rooms</i> </a> <a class="btn btn-primary" data-toggle="modal"
-										href="#membersList"><i class="fa fa-globe"> Members</i> </a> <a
-										class="collapse-link"> <i class="fa fa-chevron-up"></i>
+										href="#membersList"><i class="fa fa-globe"> Members</i> </a> -->
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
 
 								</div>
@@ -60,9 +60,9 @@
 													<div class="col-sm-3 form-group">
 														<label>Check-In</label>
 														<div class='input-group date' id='datetimepicker1'>
-															<input type='text' class="form-control datepicker" name="startDate"/> <span
-																class="input-group-addon"> <span
-																class="glyphicon glyphicon-calendar"></span>
+															<input type='text' class="form-control "
+																name="startDate" /> <span class="input-group-addon">
+																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
 													</div>
@@ -71,16 +71,16 @@
 													<div class="col-sm-4 form-group">
 														<label>Check-Out</label>
 														<div class='input-group date' id='datetimepicker2'>
-															<input type='text' class="form-control datepicker" name="endDate"/> <span
-																class="input-group-addon"> <span
-																class="glyphicon glyphicon-calendar"></span>
+															<input type='text' class="form-control "
+																name="endDate" /> <span class="input-group-addon">
+																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
 													</div>
 													<div class="col-sm-1 form-group"></div>
 													<div class="col-sm-3 form-group">
-														<label>Room Type</label> 
-														<select class="form-control" name="roomType">
+														<label>Room Type</label> <select class="form-control"
+															name="roomType">
 															<option value="Single">Single</option>
 															<option value="Double">Double</option>
 															<option value="Suite">Suite</option>
@@ -133,12 +133,15 @@
 					</div>
 				</div>
 			</div>
+			
+			<jsp:include page="../reservation/availableRooms.jsp"></jsp:include>
+			
 		</div>
 	</div>
 
 
 
-
+	<%-- 
 	<div class="modal fade" id="membersList" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -149,10 +152,10 @@
 			</div>
 
 		</div>
-	</div>
+	</div> --%>
 
 
-	<div class="modal fade" id="Checked-Rooms" tabindex="-1" role="dialog"
+	<%-- <div class="modal fade" id="Checked-Rooms" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -162,10 +165,10 @@
 			</div>
 
 		</div>
-	</div>
+	</div> --%>
 
 
-	<div class="modal fade" id="CheckOut" tabindex="-1" role="dialog"
+	<%-- <div class="modal fade" id="CheckOut" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -174,7 +177,7 @@
 
 			</div>
 		</div>
-	</div>
+	</div> --%>
 
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/plugins/dateTimePicker/callDateTimepicker.js"/>"></script>
@@ -191,7 +194,7 @@
 			maxboostedstep : 10,
 
 		});
-		
+
 		$('.datepicker').datepicker();
 	</script>
 
