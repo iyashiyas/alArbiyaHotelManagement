@@ -48,9 +48,9 @@
 										<thead>
 											<tr>
 												<th class="check-mail">Id</th>
-												<th>Room Type Name</th>
+												<th>Room Type</th>
 												<th>Type Code</th>
-												<th>Bed Type</th>
+												<!-- <th>Bed Type</th> -->
 												<th>Type Description</th>
 										  		 <th>Status</th>
 												<th>Edit</th>
@@ -61,9 +61,9 @@
 											<c:forEach items="${roomTypes}" var="roomType">
 											<tr class="read">
 											 <td class="roomTypeId"><c:out value="${roomType.id}" /></td>
-										     <td class="roomTypeName"><c:out value="${roomType.roomTypeName}" /></td>
+										     <td class="roomType"><c:out value="${roomType.roomType}" /></td>
 										     <td class="roomTypeCode"><c:out value="${roomType.roomTypeCode}" /></td>
-											  <td class="roomBedType"><c:out value="${roomType.roomTypeBedType}" /></td>
+											<%--   <td class="roomBedType"><c:out value="${roomType.roomTypeBedType}" /></td> --%>
 										     <td class="roomTypeDescription"><c:out value="${roomType.roomTypeDescription}" /></td>
 											   <td class="roomTypeStatus"><c:out value="${roomType.roomTypeStatus}"/></td>
 											 

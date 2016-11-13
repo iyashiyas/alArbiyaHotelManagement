@@ -7,6 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
  
 
+
+
+import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.repository.FloorRepository;
 import org.springframework.stereotype.Repository;
@@ -40,8 +43,10 @@ public class FloorRepositoryImpl implements FloorRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Floor> getAllFloorByBuildingId(String buildingId) {
-		Query query = entityManager.createQuery("SELECT floor from Floor where buildingId =:buildingId", Floor.class);
-		query.setParameter("buildingId", buildingId);
+		  
+		Query query = entityManager.createQuery("SELECT floors from Building building join building.floors floors where building.id =:buildingId", Floor.class);
+		query.setParameter("buildingId", Long.parseLong(buildingId));
+	 
 		return query.getResultList();
 
 	}
@@ -49,6 +54,7 @@ public class FloorRepositoryImpl implements FloorRepository{
 	@Override
 	public Floor editFloor(Floor floor) {
 		// TODO Auto-generated method stub
+		 
 		entityManager.merge(floor);
 		return floor;
 	}

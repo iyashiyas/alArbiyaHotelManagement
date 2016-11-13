@@ -1,7 +1,8 @@
 $( document ).ready(function() {
+	
  $( ".branchDetail" ).change(function() {
 	var branchId=$(this).val();
-	 
+	 $('.buildingId').empty();
 	    $.ajax({
 	        type:'GET',
 	        contentType: "application/json",
@@ -11,11 +12,7 @@ $( document ).ready(function() {
 	        success: function(data){ 
 	        	$.each(data, function (i, building) {
 	        		console.log(building.id);
-	        		$('.buildingId')
-		        		.find('option')
-					    .remove()
-					    .end()		
-		        		.append('<option value="'+building.id+'">'+building.buildingName+'</option>')
+	        		$('.buildingId').append('<option value="'+building.id+'">'+building.buildingCode+'</option>')
 	        	});
 	        },
 	        error:function(xmlHttpRequest, textStatus, errorThrown){
@@ -25,9 +22,8 @@ $( document ).ready(function() {
 	    });
 	 
 });
-});
+ 
   
- // Edit
  $('.editFloorbtn').click(function() {
 	   
 		var $row = $(this).parent('tr')
@@ -38,9 +34,7 @@ $( document ).ready(function() {
 		$('#editFloor').find("#floorBuildingName").val($row.find(".floorBuildingName").text())
 	    $('#editFloor').find("#floorTotalRoom").val($row.find(".floorTotalRoom").text())
 	    $('#editFloor').find("#floorDescription").val($row.find(".floorDescription").text())
-	  $('#editFloor').find("#floorBuildingId").val($row.find(".floorBuildingId").text())
-	  
-	    
+	    $('#editFloor').find("#floorBuildingId").val($row.find(".floorBuildingId").text())
 	    
 	   // branchName
 		
@@ -55,7 +49,7 @@ $( document ).ready(function() {
 		    keyboard: true,
 		    show: true});
 	});
-  function handleSuccess() {
-	$('#editFloor').modal('hide');
-	location.reload();
-}  
+ 
+});
+   
+  

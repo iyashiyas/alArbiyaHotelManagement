@@ -19,11 +19,15 @@
 <form:form class="form-horizontal"  action="${pageContext.request.contextPath}/hotel/addRoomType" modelAttribute="newRoomType" method="post">
 				  
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Type Name</label>
+						<label class="col-sm-2 control-label">Room Type </label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Type Name" name="typeName"
-								class="form-control" path="roomTypeName" />
+					   <form:select class="form-control" path="roomType" name="roomType">
+															<form:option value="Single">Single</form:option>
+															<form:option value="Double">Double</form:option>
+															<form:option value="Suite">Suite</form:option>
+															<form:option value="Dormitory">Dormitory</form:option>
+					   </form:select>
 						</div>
 					</div>
 					<div class="form-group">
@@ -35,10 +39,10 @@
 						</div>
 					</div>
 					 
-					<div class="form-group">
+					<%--<div class="form-group">
 						<label class="col-sm-2 control-label">Bed Types </label>
 
-						  <div class="col-sm-10">
+						   <div class="col-sm-10">
 							 
 							 <form:checkbox value="Single" path="roomTypeBedType" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
@@ -55,9 +59,9 @@
                                     <label for="checkbox1">
                              Kids
                                     </label>
-                          </div>
+                          </div> 
                           
-					      </div>
+					      </div>--%>
 					
 					
 					

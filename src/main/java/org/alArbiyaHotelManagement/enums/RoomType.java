@@ -2,7 +2,7 @@ package org.alArbiyaHotelManagement.enums;
 
 public enum RoomType {
 
-	SINGLE("Single"), DOUBLE("Double");
+	SINGLE("Single"), DOUBLE("Double"), SUITE("Suite") , DORMITORY("Dormitory");
 	
 	private String type;
 	

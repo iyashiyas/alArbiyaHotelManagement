@@ -27,12 +27,12 @@
 			</div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
-					<jsp:include page="../hotel/roomTab.jsp"></jsp:include>
+					 
 
 					<!-- Page Contents -->
 					<!-- Page Heading -->
 
-					<div class="col-lg-8 animated fadeInRight">
+					<div class="col-lg-12 animated fadeInRight">
 
 						<jsp:include page="../hotel/addRoom.jsp"></jsp:include>
 
@@ -56,28 +56,36 @@
 												<th>Room Name</th>
 												<th>Code/Number</th>
 												<th>Price</th>
-
+												<th>Floor</th>
+												<th>Room Type</th>
 												<th>Status</th>
 												<th>Edit</th>
-												<th>Delete</th>
+
 											</tr>
 										</thead>
 
 										<tbody>
 
-											<c:forEach items="${room}" var="room">
+											<c:forEach items="${rooms}" var="room">
 												<tr class="read">
-													<td><c:out value="${room.id}" /></td>
-													<td><c:out value="${room.roomName}" /></td>
-													<td><c:out value="${room.roomCode}" /></td>
-													<td><c:out value="${room.roomPrice}" /></td>
-													<td><c:out value="${room.roomStatus}" /></td>
-													<td class=""><i class="fa fa-pencil"><a
-															href="#edit-Room" class="" data-toggle="modal">Edit</a></i></td>
-													<td class="text-right mail-date"><input type="button"
-														class="btn btn-block btn-primary " name="btn"
-														value="Remove" id="submitBtn" data-toggle="modal"
-														data-target="#confirm-submit"></td>
+													<td class="roomId"><c:out value="${room.id}" /></td>
+													<td class="roomName"><c:out value="${room.roomName}" /></td>
+													<td class="roomCode"><c:out value="${room.roomCode}" /></td>
+													<td class="roomPrice"><c:out value="${room.roomPrice}" /></td>
+													<td class="roomFloorCode"><c:out
+															value="${room.floor.floorCode}" /></td>
+													<td class="roomFloorId hide"><c:out
+															value="${room.floor.id}" /></td>
+													<td class="roomType"><c:out
+															value="${room.roomType.roomType}" /></td>
+													<td class="roomTypeId hide"><c:out
+															value="${room.roomType.id}" /></td>
+													<td class="roomStatus"><c:out
+															value="${room.roomStatus}" /></td>
+															<td class="roomDescription hide"><c:out
+															value="${room.roomDescription}" /></td>
+													<td class="edit-roombtn"><i class="fa fa-pencil"><a>Edit</a></i></td>
+
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -85,7 +93,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="confirm-submit" tabindex="-1"
+						<!-- <div class="modal fade" id="confirm-submit" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -99,7 +107,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="modal fade" id="edit-Room" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,7 +118,7 @@
 									<div class="modal-body">
 
 										<jsp:include page="../hotel/editRoom.jsp"></jsp:include>
- 
+
 									</div>
 								</div>
 							</div>
@@ -122,6 +130,7 @@
 		</div>
 	</div>
 
+<script src="<c:url value="/resources/js/hotel/room.js"/>"></script>
 
 </body>
 </html>

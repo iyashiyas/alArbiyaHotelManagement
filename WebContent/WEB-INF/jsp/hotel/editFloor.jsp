@@ -34,12 +34,11 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Buildings Code</label>
+				<label class="col-sm-2 control-label">Building Code</label>
 				<div class="col-sm-10">
 					<input type="text" id="floorBuildingName" disabled="disabled"
-						class="form-control" name="buildingName">
-						<input type="hidden" id="floorBuildingId" disabled="disabled"
-						class="form-control" name="building.id">
+						class="form-control"> <input type="hidden"
+						id="floorBuildingId" name="building.id" value="">
 				</div>
 			</div>
 

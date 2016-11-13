@@ -147,9 +147,10 @@ public class HotelController {
 	public @ResponseBody List<Building> getAllBuilding(@RequestParam(required=false) String branchId) {
 		return buildingService.getAllBuilding(branchId);
 	}
+	 
 	
-	@RequestMapping(value="/getAllFloor", method=RequestMethod.GET, produces = "application/json")
-	public List<Floor> getAllFloor(@RequestParam(required=false) String buildingId) {
+	@RequestMapping(value="/getAllFloor", method=RequestMethod.GET)
+	public @ResponseBody List<Floor> getAllFloor(@RequestParam(required=false) String buildingId) {
 		return floorService.getAllFloorByBuildingId(buildingId);
 	}
 	
@@ -176,6 +177,12 @@ public class HotelController {
 	public String editRoomType(@ModelAttribute RoomType roomType) {
 		roomTypeService.editRoomType(roomType);
 		return "redirect:/hotel/showRoomTypes";
+	}
+	 
+	@RequestMapping(value="/editRoom", method=RequestMethod.POST)
+	public String editRoom(@ModelAttribute Room room) {
+		roomService.editRoom(room);
+		return "redirect:/hotel/showRoom";
 	}
 	 
 	

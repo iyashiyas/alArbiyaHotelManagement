@@ -8,61 +8,62 @@
 <title>Insert title here</title>
 </head>
 <body>
- 		 
- 
-<form class="form-horizontal" action="" method="post">
+ 		  
+<form:form class="form-horizontal" modelAttribute="newRoom"	action="${pageContext.request.contextPath}/hotel/editRoom" method="post">
 				  <div class="modal-body">
-					<div class="form-group">
+				  
+				  <input type="hidden" id="roomId" name="id"> 
+				  
+						<div class="form-group">
 						<label class="col-sm-2 control-label">Room Name</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Room Name" name="floorName"
-								class="form-control">
+							<form:input type="text" id="roomName" placeholder="Room Name" name="roomName"
+								class="form-control" path="roomName" />
 						</div>
 					</div>
+					
+					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Number/Code</label>
+						<label class="col-sm-2 control-label">Room Code</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Room Code" name="roomCode"
-								class="form-control">
+							<form:input type="text" id="roomCode" placeholder="Room Code" name="roomCode"
+								class="form-control" path="roomCode" />
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="branchCode">
-								<option>Branch</option>
-							 </select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="buIlingCode">
-								<option>Bild1</option>
-							 </select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Floor  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="floorCode">
-								<option>Floor</option>
-							 </select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Room Type  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="typeCode">
-								<option>Type1</option>
-							 </select>
-						</div>
-					</div>
-					 
+					
 					  
+					  <div class="form-group">
+						<label class="col-sm-2 control-label">Coast Per Day</label>
+
+						<div class="col-sm-10">
+							<form:input type="text" id="roomPrice" placeholder="Sr" name="roomPrice"
+								class="form-control" path="roomPrice" />
+						</div>
+					</div>
+					
 					 <div class="form-group">
+						<label class="col-sm-2 control-label">Floor</label>
+
+						<div class="col-sm-10">
+							<input type="text" id="roomFloorCode"  placeholder="Sr"  
+								class="form-control" disabled="disabled" >
+								
+								<input type="hidden" id="roomFloorId" name="floor.id" value="" >
+						</div>
+					</div>
+					
+					 <div class="form-group">
+						<label class="col-sm-2 control-label">Room Type</label>
+
+						<div class="col-sm-10">
+							<input type="text" id="roomType" placeholder="roomType"
+								class="form-control" id="roomTypeCode" disabled="disabled">
+								<input type="hidden" id="roomTypeId" name="roomType.id" value="">
+						</div>
+					</div>
+					 <%-- <div class="form-group">
 						<label class="col-sm-2 control-label">Price Per Day</label>
 
 							<div class="col-sm-10">
@@ -72,40 +73,41 @@
 														  style="width:10%;">
 														<option>Currency</option>
 													</select>
-													<input class="form-control" type="text"
+													<form:input class="form-control" type="text"
 														 placeholder="Enter Name" name="currencyCode"
-														style="width:40%;margin-left: 10px;" >
+														style="width:40%;margin-left: 10px;" path="roomPrice" />
 												 
 						 </div>
 							 </div>
-					 </div>
+					 </div> --%>
 					 
 					  		 
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> Description</label>
 
 						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
+							<form:input type="text" id="roomDescription" placeholder="Description" name="Description"
+								class="form-control" path="roomDescription" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Status </label>
 
 						  <div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
+							 <form:checkbox value="ENABLE" checked="checked"  id="roomStatus" path="roomStatus"/>
                                     <label for="checkbox1">
                              Enable
                                     </label>
                           </div>
 					      </div>
-                          </div>
-                            	 
+                          
+					</div>
+					 
 					<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a   id="submit" class="btn btn-success success">Update</a>
+					<button  id="submit" type="submit" class="btn btn-success success">Update</button>
 				</div>
-				 </form>
+				 </form:form>
 			 
 </body>
 </html>

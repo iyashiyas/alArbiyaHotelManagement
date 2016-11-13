@@ -14,12 +14,11 @@
 			   <div class="modal-body">
 			  <input type="hidden" name="id" id="id" value="">
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Type Name</label>
+						<label class="col-sm-2 control-label">Room Type </label>
 
 						<div class="col-sm-10">
-							<form:input type="text" id="roomTypeName" placeholder="Type Name" name="typeName"
-								class="form-control" path="roomTypeName" />
-						</div>
+					   <input type="text" disabled="disabled" id="roomType" class="form-control">
+						</div> 
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Type Code</label>
@@ -30,10 +29,10 @@
 						</div>
 					</div>
 					 
-					<div class="form-group">
+					<%--<div class="form-group">
 						<label class="col-sm-2 control-label">Bed Types </label>
 
-						  <div class="col-sm-10">
+						   <div class="col-sm-10">
 							 
 							 <form:checkbox value="Single" path="roomTypeBedType" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
@@ -50,9 +49,9 @@
                                     <label for="checkbox1">
                              Kids
                                     </label>
-                          </div>
+                          </div> 
                           
-					      </div>
+					      </div>--%>
 					
 					
 					
@@ -69,12 +68,18 @@
 						<label class="col-sm-2 control-label">Status </label>
 
 						  <div class="col-sm-10">
-							 <form:checkbox value="ENABLE" id="roomTypeStatus" path="roomTypeStatus" checked="checked" />
+							 <form:checkbox value="ENABLE" path="roomTypeStatus" checked="checked" id="roomTypeStatus" />
                                     <label for="checkbox1">
                              Enable
                                     </label>
                           </div>
 					      </div>
+                         <div class="form-group">
+						<div class="col-lg-offset-2 col-lg-8">
+							<button class="btn btn-primary" type="submit">Add
+								 </button>
+						</div>
+						</div>
 					      </div>
                          
 			<div class="modal-footer">

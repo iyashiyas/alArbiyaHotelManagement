@@ -12,7 +12,7 @@ $( document ).ready(function() {
 		var $row = $(this).parent('tr')
 	  
 		$('#editRoomType').find("#id").val($row.find(".roomTypeId").text())
-		$('#editRoomType').find("#roomTypeName").val($row.find(".roomTypeName").text())
+		$('#editRoomType').find("#roomType").val($row.find(".roomType").text())
 		$('#editRoomType').find("#roomTypeCode").val($row.find(".roomTypeCode").text())
 		$('#editRoomType').find("#roomTypeDescription").val($row.find(".roomTypeDescription").text())
 		  

@@ -36,43 +36,47 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch</label>
+						<label class="col-sm-2 control-label">Select Branch Code</label>
                           <div class="col-sm-10">
-							<form:select class="form-control m-b branchCode" path="floor.building.branch.id" name="floor.building.branch.id">
-								<form:option value="0">Select Branch</form:option>
-								<form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
+						 <form:select class="form-control m-b branchDetail" path="" name="branch.id">
+						 	<form:option value="0">Select branch</form:option>
+							<form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
+						 </form:select> 
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Select Buildings Code </label>
+                          <div class="col-sm-10">
+								<form:select class="form-control m-b buildingId" name="building.id" path="">
+								
 							 </form:select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings  </label>
+						<label class="col-sm-2 control-label">Select Floor Code </label>
                           <div class="col-sm-10">
-							<form:select class="form-control m-b buildingCode" path="floor.building.id" name="floor.building.id">
-								<form:option value="0">Select Building</form:option>
-								<form:options items="${buildings}" itemValue="id" itemLabel="buildingCode"></form:options>
+							<form:select class="form-control m-b FloorId" name="floor.id" path="floor.id">
+								
 							 </form:select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Floor  </label>
-                          <div class="col-sm-10">
-							<form:select class="form-control m-b buildingCode" path="floor.id" name="floor.id">
-								<form:option value="0">Select Floor</form:option>
-								<form:options items="${floors}" itemValue="id" itemLabel="floorCode"></form:options>
-							 </form:select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Room Type  </label>
+						<label class="col-sm-2 control-label">Select Room Type </label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b roomTypeCode" path="roomType.id" name="roomType.id">
-								<form:option value="0">Select Floor</form:option>
-								<form:options items="${roomType}" itemValue="id" itemLabel="roomTypeCode"></form:options>
+							  <form:options items="${roomType}" itemValue="id" itemLabel="roomType"></form:options>
 							 </form:select>
 						</div>
 					</div>
 					 
-					  
+					  <div class="form-group">
+						<label class="col-sm-2 control-label">Coast Per Day</label>
+
+						<div class="col-sm-10">
+							<form:input type="text" placeholder="Sr" name="roomPrice"
+								class="form-control" path="roomPrice" />
+						</div>
+					</div>
 					 <%-- <div class="form-group">
 						<label class="col-sm-2 control-label">Price Per Day</label>
 

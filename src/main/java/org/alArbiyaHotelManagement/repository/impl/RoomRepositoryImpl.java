@@ -30,8 +30,9 @@ public class RoomRepositoryImpl implements RoomRepository{
 	}
  
 	@Override
-	public Room editRoom() {
-		return null;
+	public Room editRoom(Room room) {
+		entityManager.merge(room);
+		return room;
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public interface RoomRepository {
     
 	public Room addRoom(Room room);
 	public List<Room> getAllRoom();
-	public Room editRoom();
+	public Room editRoom(Room room);
 	public Room deleteRoom();
 	
 }

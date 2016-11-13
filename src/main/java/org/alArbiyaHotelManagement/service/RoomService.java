@@ -8,6 +8,6 @@ public interface RoomService {
 	public Room addRoom(Room room);
 	public List<Room> getAllRoom();
 	public Room deleteRoom();
-	public Room editRoom();
+	public Room editRoom(Room room);
 
 }

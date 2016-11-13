@@ -30,7 +30,13 @@ public class RoomServiceImpl implements RoomService {
 	public Room deleteRoom() {
 		return null;
 	}
-	public  Room editRoom() {
-		return null;
+
+	@Override
+	public Room editRoom(Room room) {
+		if(room.getRoomStatus()==null) {
+			room.setRoomStatus("DISABLED");
+		}
+		return roomRepository.editRoom(room);
 	}
+	 
 }

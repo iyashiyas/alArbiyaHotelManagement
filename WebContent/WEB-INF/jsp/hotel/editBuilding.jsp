@@ -14,8 +14,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Building Name</label>
 			<input type="hidden" id="id" name="id" value="">
-		 
-		   
+		  
 			<div class="col-sm-10">
 				<input type="text" placeholder="Branch Name" name="buildingName" id="buildingName" class="form-control">
 			</div>

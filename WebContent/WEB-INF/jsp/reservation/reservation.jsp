@@ -83,6 +83,8 @@
 														<select class="form-control" name="roomType">
 															<option value="Single">Single</option>
 															<option value="Double">Double</option>
+															<option value="Suite">Suite</option>
+															<option value="Dormitory">Dormitory</option>
 														</select>
 													</div>
 													<!-- <div class="col-sm-1 form-group"></div>
