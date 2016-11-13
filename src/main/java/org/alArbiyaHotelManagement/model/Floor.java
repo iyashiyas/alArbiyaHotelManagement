@@ -24,7 +24,7 @@ public class Floor {
 	@Column(name="FLOOR_NAME") 
 	private String floorName;
 	
-	@Column(name="FLOOR_CODE") 
+	@Column(name="FLOOR_CODE", unique=true) 
 	private String floorCode;
 	
 	@Column(name="FLOOR_TOTALROOM") 

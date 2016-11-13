@@ -18,7 +18,7 @@ public class RoomType {
 	@Column(name="ROOMTYPE") 
 	private String roomType;
 	
-	@Column(name="ROOMTYPE_CODE") 
+	@Column(name="ROOMTYPE_CODE", unique=true) 
 	private String roomTypeCode;
 	
 	@Column(name="ROOMTYPE_BEDTYPE") 

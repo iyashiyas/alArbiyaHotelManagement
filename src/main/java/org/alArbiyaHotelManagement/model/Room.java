@@ -25,7 +25,7 @@ public class Room {
 	@Column(name="ROOM_NAME") 
 	private String roomName;
 	
-	@Column(name="ROOM_CODE") 
+	@Column(name="ROOM_CODE", unique=true) 
 	private String roomCode;
 	
 	@Column(name="ROOM_PRICE") 

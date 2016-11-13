@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
-import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
 @Table(name="BUILDING")
@@ -28,7 +27,7 @@ public class Building {
 	@Column(name="BUILDING_NAME") 
 	private String buildingName;
 	
-	@Column(name="BUILDING_CODE") 
+	@Column(name="BUILDING_CODE", unique=true) 
 	private String buildingCode;
 	
 	@Column(name="BUILDING_PHONENUMBER") 

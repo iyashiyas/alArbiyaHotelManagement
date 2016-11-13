@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
@@ -40,7 +39,7 @@ public class Branch {
 	@Column(name="BRANCH_STATUS") 
 	private String branchStatus;
 	
-	@Column(name="BRANCH_CODE") 
+	@Column(name="BRANCH_CODE", unique=true) 
 	private String branchCode;
 
 	@JsonManagedReference
