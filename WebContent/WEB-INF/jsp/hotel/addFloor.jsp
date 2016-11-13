@@ -29,7 +29,7 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch </label>
+						<label class="col-sm-2 control-label">Select Branch Code</label>
 						<div class="col-sm-10">
 						 <form:select class="form-control m-b branchDetail" path="building.branch.id" name="building.branch.id">
 						 	<form:option value="0">Select branch</form:option>
@@ -39,7 +39,7 @@
 			 		</div>
 						 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings  </label>
+						<label class="col-sm-2 control-label">Select Buildings Code</label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b buildingId" name="building.id" path="building.id">
 								

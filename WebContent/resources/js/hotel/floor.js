@@ -1,6 +1,5 @@
 $( document ).ready(function() {
- 
-$( ".branchDetail" ).change(function() {
+ $( ".branchDetail" ).change(function() {
 	var branchId=$(this).val();
 	 
 	    $.ajax({
@@ -27,3 +26,36 @@ $( ".branchDetail" ).change(function() {
 	 
 });
 });
+  
+ // Edit
+ $('.editFloorbtn').click(function() {
+	   
+		var $row = $(this).parent('tr')
+	  
+		$('#editFloor').find("#floorId").val($row.find(".floorId").text())
+		$('#editFloor').find("#floorName").val($row.find(".floorName").text())
+		$('#editFloor').find("#floorCode").val($row.find(".floorCode").text())
+		$('#editFloor').find("#floorBuildingName").val($row.find(".floorBuildingName").text())
+	    $('#editFloor').find("#floorTotalRoom").val($row.find(".floorTotalRoom").text())
+	    $('#editFloor').find("#floorDescription").val($row.find(".floorDescription").text())
+	  $('#editFloor').find("#floorBuildingId").val($row.find(".floorBuildingId").text())
+	  
+	    
+	    
+	   // branchName
+		
+		if($row.find(".floorStatus").text()=="ENABLE" || $row.find(".floorStatus").text()=="ENABLED") {
+			$('#editFloor').find("#floorStatus").prop('checked',true)
+		} else {
+			$('#editFloor').find("#floorStatus").prop('checked',false)
+		}
+		 	
+		$('#editFloor').modal({
+		    backdrop: 'static',
+		    keyboard: true,
+		    show: true});
+	});
+  function handleSuccess() {
+	$('#editFloor').modal('hide');
+	location.reload();
+}  

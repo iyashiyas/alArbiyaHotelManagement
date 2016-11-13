@@ -9,79 +9,82 @@
 <title>Edit Branch</title>
 </head>
 <body>
- 
-		
-			<div class="modal-header">Edit Branch Details</div>
-			   <div class="modal-body">
 
-			<input type="hidden" id="id" name="id" value=""/>
-			<div class="form-group"> 
-				<label class="col-sm-2 control-label">Branch Name</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" path="branchName" id="branchName" placeholder="Branch Name"
-						name="branchName" class="form-control" />
-				</div>
+	<div class="modal-header">Edit Branch Details</div>
+	<div class="modal-body">
+
+		<input type="hidden" id="id" name="id" value="" />
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Branch Name</label>
+
+			<div class="col-sm-10">
+				<form:input type="text" path="branchName" id="branchName"
+					placeholder="Branch Name" name="branchName" class="form-control" />
 			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Branch Code</label>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Branch Code</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" placeholder="Branch Code" id="branchCode" name="branchCode"
-						class="form-control" path="branchCode" />
-				</div>
+			<div class="col-sm-10">
+				<form:input type="text" placeholder="Branch Code" id="branchCode"
+					name="branchCode" class="form-control" path="branchCode" />
 			</div>
+		</div>
 
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Phone Number</label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Phone Number</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" path="branchPhoneNumber"
-						placeholder="PhoneNumber" id="branchPhoneNumber" name="phoneNumber" class="form-control" />
-				</div>
+			<div class="col-sm-10">
+				<form:input type="text" path="branchPhoneNumber"
+					placeholder="PhoneNumber" id="branchPhoneNumber" name="phoneNumber"
+					class="form-control" />
 			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Email</label>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Email</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" placeholder="Email" name="email"
-						class="form-control" id="branchEmail" path="branchEmail" />
-				</div>
+			<div class="col-sm-10">
+				<form:input type="text" placeholder="Email" name="email"
+					class="form-control" id="branchEmail" path="branchEmail" />
 			</div>
+		</div>
 
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Address</label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Address</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" id="branchAddress" path="branchAddress" placeholder="Address"
-						name="address" class="form-control" />
-				</div>
+			<div class="col-sm-10">
+				<form:input type="text" id="branchAddress" path="branchAddress"
+					placeholder="Address" name="address" class="form-control" />
 			</div>
+		</div>
 
-			<div class="form-group">
-				<label class="col-sm-2 control-label"> Description</label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"> Description</label>
 
-				<div class="col-sm-10">
-					<form:input type="text" path="branchDescription"
-						placeholder="Description" id="branchDescription" name="Description" class="form-control" />
-				</div>
+			<div class="col-sm-10">
+				<form:input type="text" path="branchDescription"
+					placeholder="Description" id="branchDescription" name="Description"
+					class="form-control" />
 			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Status </label>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Status </label>
 
-				<div class="col-sm-10">
-					 <form:checkbox id="branchStatus" path="branchStatus" value="ENABLE"
-						checked="checked" />
-					<label for="checkbox1"> Enable </label>
-				</div>
+			<div class="col-sm-10">
+				<form:checkbox id="branchStatus" path="branchStatus" value="ENABLE"
+					checked="checked" />
+				<label for="checkbox1"> Enable </label>
 			</div>
-			</div>
+		</div>
+	</div>
 
-			<div class="modal-footer">
-				<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
-				<button type="submit" class="btn btn-success success">Update</button>
-			</div> 
+	<div class="modal-footer">
+		<button type="button" data-reload="yes" data-dismiss="modal"
+			class="btn btn-default">Cancel</button>
+		<button type="submit" class="btn btn-success success">Update</button>
+	</div>
 
-	 
+
 </body>
 </html>

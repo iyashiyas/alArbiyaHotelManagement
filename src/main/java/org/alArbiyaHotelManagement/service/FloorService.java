@@ -9,6 +9,6 @@ public interface FloorService {
 	public Floor addFloor(Floor floor);
 	public List<Floor> getAllFloor();
 	public Floor deleteFloor();
-	public Floor editFloor();
+	public Floor editFloor(Floor floor);
 	public List<Floor> getAllFloorByBuildingId(String buildingId);
 }

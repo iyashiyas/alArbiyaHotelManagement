@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Branch </label>
+				<label class="col-sm-2 control-label">Select Branch Code</label>
 				<div class="col-sm-10">
 				 <form:select class="form-control m-b" path="branch.id" name="branch.id">
 							  <form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>

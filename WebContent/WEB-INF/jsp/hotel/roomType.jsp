@@ -54,8 +54,7 @@
 												<th>Type Description</th>
 										  		 <th>Status</th>
 												<th>Edit</th>
-												<th>Delete</th>
-											</tr>
+											    </tr>
 										</thead>
 
 										<tbody>
@@ -69,18 +68,14 @@
 											   <td class="roomTypeStatus"><c:out value="${roomType.roomTypeStatus}"/></td>
 											 
 											<td class="edit-roomType"><i class="fa fa-pencil"><a >Edit</a></i></td>
-											 <td class="text-right mail-date"><input type="button"
-														class="btn btn-block btn-primary " name="btn"
-														value="Remove" id="submitBtn" data-toggle="modal"
-														data-target="#confirm-submit"></td>
-											 </tr>
+							                  </tr>
 											 </c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="confirm-submit" tabindex="-1"
+						<!-- <div class="modal fade" id="confirm-submit" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -94,7 +89,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="modal fade" id="editRoomType" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

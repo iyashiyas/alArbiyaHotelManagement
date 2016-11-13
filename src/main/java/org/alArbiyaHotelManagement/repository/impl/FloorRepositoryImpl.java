@@ -30,11 +30,7 @@ public class FloorRepositoryImpl implements FloorRepository{
 		Query query = entityManager.createQuery("SELECT flr from Floor flr", Floor.class);
 		return query.getResultList();
 	}
- 
-	@Override
-	public Floor editFloor() {
-		return null;
-	}
+  
 
 	@Override
 	public Floor deleteFloor() {
@@ -48,6 +44,13 @@ public class FloorRepositoryImpl implements FloorRepository{
 		query.setParameter("buildingId", buildingId);
 		return query.getResultList();
 
+	}
+
+	@Override
+	public Floor editFloor(Floor floor) {
+		// TODO Auto-generated method stub
+		entityManager.merge(floor);
+		return floor;
 	}
 	 
  

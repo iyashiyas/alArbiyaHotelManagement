@@ -6,11 +6,11 @@
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
-<title>Edit Branch</title>
+<title>Edit Room Type</title>
 </head>
 <body>
  <form:form class="form-horizontal"  action="${pageContext.request.contextPath}/hotel/editRoomType" modelAttribute="newRoomType" method="post">
-				  		<div class="modal-header">Edit Branch Details</div>
+				  		<div class="modal-header">Edit Room Type Details</div>
 			   <div class="modal-body">
 			  <input type="hidden" name="id" id="id" value="">
 					<div class="form-group">

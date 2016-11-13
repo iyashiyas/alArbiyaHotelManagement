@@ -36,16 +36,20 @@ public class FloorServiceImpl implements FloorService{
 		return null;
 	}
 
-	@Override
-	public Floor editFloor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	 
 
 	@Override
 	public List<Floor> getAllFloorByBuildingId(String buildingId) {
 		// TODO Auto-generated method stub
 		return floorRepository.getAllFloorByBuildingId(buildingId);
+	}
+
+	@Override
+	public Floor editFloor(Floor floor) { 
+		if(floor.getFloorStatus()==null) {
+			floor.setFloorStatus("DISABLED");
+		}
+		return floorRepository.editFloor(floor);
 	}
 
 	 

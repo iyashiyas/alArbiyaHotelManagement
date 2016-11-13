@@ -4,84 +4,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type"
+	content="text/html; charset=windows-1256">
+<title>edit Floor</title>
 </head>
 <body>
- 
-<form class="form-horizontal" action="" method="post">
-				  
-<div class="modal-body">
-				 	<div class="form-group">
-						<label class="col-sm-2 control-label">Floor Name</label>
 
-						<div class="col-sm-10">
-							<input type="text" placeholder="Floor Name" name="floorName"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Floor Code</label>
+	<form:form class="form-horizontal"
+		action="${pageContext.request.contextPath}/hotel/editFloor"
+		modelAttribute="newFloor" method="post">
+		<div class="modal-header">Edit Floor Details</div>
+		<div class="modal-body">
 
-						<div class="col-sm-10">
-							<input type="text" placeholder="Floor Code" name="floorCode"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="branchCode">
-								<option>Branch</option>
-							 </select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings  </label>
-                          <div class="col-sm-10">
-							<select class="form-control m-b" name="buIlingCode">
-								<option>Bild1</option>
-							 </select>
-						</div>
-					</div>
-					 
-					 
-					
-					 <div class="form-group">
-						<label class="col-sm-2 control-label"> Total Rooms</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Total Floor" name="totalRoom"
-								class="form-control">
-						</div>
-					</div>
-					  		 
-					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
-
-						  <div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
-                                    <label for="checkbox1">
-                             Enable
-                                    </label>
-                          </div>
-					      </div>
-					      </div>
-					  	 
-					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a   id="submit" class="btn btn-success success">Update</a>
+			<div class="form-group">
+				<input type="hidden" id="floorId" name="id" value="" /> <label
+					class="col-sm-2 control-label">Floor Name</label>
+				<div class="col-sm-10">
+					<form:input type="text" placeholder="Floor Name" name="floorName"
+						class="form-control" id="floorName" path="floorName" />
 				</div>
-		
-				</form>
-			 
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Floor Code</label>
+
+				<div class="col-sm-10">
+					<form:input type="text" id="floorCode" placeholder="Floor Code"
+						name="floorCode" class="form-control" path="floorCode" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Buildings Code</label>
+				<div class="col-sm-10">
+					<input type="text" id="floorBuildingName" disabled="disabled"
+						class="form-control" name="buildingName">
+						<input type="hidden" id="floorBuildingId" disabled="disabled"
+						class="form-control" name="building.id">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label"> Total Rooms</label>
+
+				<div class="col-sm-10">
+					<form:input type="text" placeholder="Total Room"
+						name="floorTotalRoom" id="floorTotalRoom" class="form-control"
+						path="floorTotalRoom" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label"> Description</label>
+
+				<div class="col-sm-10">
+					<form:input type="text" id="floorDescription"
+						name="floorDescription" class="form-control"
+						path="floorDescription" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Status </label>
+
+				<div class="col-sm-10">
+					<form:checkbox id="floorStatus" path="floorStatus"
+						name="floorStatus" value="ENABLE" checked="checked" />
+					<label for="checkbox1"> Enable </label>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<button type="button" data-reload="yes" data-dismiss="modal"
+				class="btn btn-default">Cancel</button>
+			<button type="submit" class="btn btn-success success">Update</button>
+		</div>
+	</form:form>
+
 </body>
 </html>

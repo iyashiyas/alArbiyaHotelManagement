@@ -1,31 +1,37 @@
 $( document ).ready(function() {
  
-	 $('.buildingEdit').click(function() {
+	 $('.buildingEditbtn').click(function() {
 		   
 		var $row = $(this).parent('tr')
 	  
-		$('#editBuilding').find("#id").val($row.find(".id").text())
-		$('#editBuilding').find("#buildingName").val($row.find(".buildingName").text())
-		$('#editBuilding').find("#buildingCode").val($row.find(".buildingCode").text())
-		$('#editBuilding').find("#buildingPhoneNumber").val($row.find(".buildingPhoneNumber").text())
-		$('#editBuilding').find("#buildingEmail").val($row.find(".buildingEmail").text())
-		$('#editBuilding').find("#buildingTotalFloor").val($row.find(".buildingTotalFloor").text())
-		$('#editBuilding').find("#buildingDescription").val($row.find(".buildingDescription").text())
-		  
-		if($row.find(".branchStatus").text()=="ENABLE" || $row.find(".branchStatus").text()=="ENABLED") {
-			$('#editBuilding').find("#buildingStatus").prop('checked',true)
+		$('#editBuildingModal').find("#id").val($row.find(".id").text())
+		$('#editBuildingModal').find("#buildingName").val($row.find(".buildingName").text())
+		$('#editBuildingModal').find("#buildingCode").val($row.find(".buildingCode").text())
+		$('#editBuildingModal').find("#buildingPhoneNumber").val($row.find(".buildingPhoneNumber").text())
+		$('#editBuildingModal').find("#buildingEmail").val($row.find(".buildingEmail").text())
+		$('#editBuildingModal').find("#buildingTotalFloor").val($row.find(".buildingTotalFloor").text())
+		$('#editBuildingModal').find("#buildingDescription").val($row.find(".buildingDescription").text())
+	    $('#editBuildingModal').find("#branchName").val($row.find(".branchName").text())
+	    $('#editBuildingModal').find("#branchId").val($row.find(".branchId").text())
+	  
+	    
+		//branchName
+		
+		if($row.find(".buildingStatus").text()=="ENABLE" || $row.find(".buildingStatus").text()=="ENABLED") {
+			$('#editBuildingModal').find("#buildingStatus").prop('checked',true)
 		} else {
-			$('#editBuilding').find("#buildingStatus").prop('checked',false)
+			$('#editBuildingModal').find("#buildingStatus").prop('checked',false)
 		}
 		 	
-		$('#editBuilding').modal({
+		$('#editBuildingModal').modal({
 		    backdrop: 'static',
 		    keyboard: true,
 		    show: true});
 	});
+	
 });
-	 
 function handleSuccess() {
-	$('#editBuilding').modal('hide');
+	$('#editBuildingModal').modal('hide');
 	location.reload();
 }
+	 

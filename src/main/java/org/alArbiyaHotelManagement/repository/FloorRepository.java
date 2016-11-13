@@ -8,7 +8,7 @@ public interface FloorRepository {
 
 	public Floor addFloor(Floor floor);
 	public List<Floor> getAllFloor();
-	public Floor editFloor();
+	public Floor editFloor(Floor floor);
 	public Floor deleteFloor();
 	public List<Floor> getAllFloorByBuildingId(String buildingID);
 }

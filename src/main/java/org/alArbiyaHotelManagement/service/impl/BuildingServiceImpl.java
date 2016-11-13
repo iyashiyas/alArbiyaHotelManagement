@@ -34,12 +34,13 @@ public class BuildingServiceImpl implements BuildingService{
 	}
 
 	@Override
-	public void editBuilding(Building building) {
+	public Building editBuilding(Building building) {
 		// TODO Auto-generated method stub
 		if(building.getBuildingStatus()==null) {
 			building.setBuildingStatus("DISABLED");
 		}
-		buildingRepository.editBuilding(building);
+	
+		return buildingRepository.editBuilding(building);
 	}
 	 
 }

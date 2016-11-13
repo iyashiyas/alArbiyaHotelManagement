@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.web;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,6 +95,12 @@ public class HotelController {
 	public String editBuilding(@ModelAttribute Building building) {
 		buildingService.editBuilding(building);
 		return "redirect:/hotel/showBuilding";
+	}
+	
+	@RequestMapping(value="/editFloor", method=RequestMethod.POST)
+	public String editFloor(@ModelAttribute Floor floor) {
+		floorService.editFloor(floor);
+		return "redirect:/hotel/showFloor";
 	}
 	
 	@RequestMapping(value="/showFloor", method = RequestMethod.GET)
