@@ -41,8 +41,18 @@
 										href="#Checked-Rooms"><i class="fa fa-th-list">
 											Checked Rooms</i> </a> <a class="btn btn-primary" data-toggle="modal"
 										href="#membersList"><i class="fa fa-globe"> Members</i> </a> -->
+									  
+                        <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-th-list">  Check In</i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <jsp:include page="../reservation/checkIn.jsp"></jsp:include>
+                                        </ul>
+                       
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
+								
+									
 
 								</div>
 							</div>

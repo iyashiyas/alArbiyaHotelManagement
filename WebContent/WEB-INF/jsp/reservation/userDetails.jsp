@@ -11,12 +11,14 @@
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css"/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/phoneCode/intlTelInput.css"/>">
 
 <style>
-	.form-horizontal .form-group {
-		margin-right: 0 !important;
-    	margin-left: 0 !important;
-	}
+.form-horizontal .form-group {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
 </style>
 
 <title>Reservation</title>
@@ -37,31 +39,32 @@
 			</div>
 			<div class="wrapper wrapper-content">
 				<div class="row">
-				
+
 					<div class="col-lg-12">
-						<form action="${pageContext.request.contextPath}/user/getUserDetails">
+						<form
+							action="${pageContext.request.contextPath}/user/getUserDetails">
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h3 class="panel-title">Already a Member</h3>
 								</div>
 								<div class="panel-body">
 									<div class="col-xs-4 form-group">
-										<input type="hidden" name="roomId" value="${roomId }"/>
-										<input type="hidden" name="startDate" value="${ startDate}"/>
-										<input type="hidden" name="endDate" value="${endDate}"/>
-										
-										<label>Member ID * </label> 
-										<input class="form-control"	placeholder="Member ID" type="text" name="memberId" value=""/>
+										<input type="hidden" name="roomId" value="${roomId }" /> <input
+											type="hidden" name="startDate" value="${ startDate}" /> <input
+											type="hidden" name="endDate" value="${endDate}" /> <label>Member
+											ID * </label> <input class="form-control" placeholder="Member ID"
+											type="text" name="memberId" value="" />
 									</div>
-									<div style="clear:both;"></div>
+									<div style="clear: both;"></div>
 									<div class="col-xs-4 form-group">
-										<input class="form-control btn btn-success " type="submit" value="Search"/>
+										<input class="form-control btn btn-success " type="submit"
+											value="Search" />
 									</div>
 								</div>
 							</div>
 						</form>
 					</div>
-				
+
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
@@ -77,42 +80,41 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-								<form:form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate } " modelAttribute="userDetails">
+								<form:form class="form-horizontal" method="POST"
+									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }"
+									modelAttribute="userDetails">
 									<div class="row ">
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h3 class="panel-title">Basic Details</h3>
-													<input type="hidden" name="id" value="${userDetails.id }"/>
+													<input type="hidden" name="id" value="${userDetails.id }" />
 												</div>
 												<div class="panel-body">
 													<div class="col-xs-2 form-group">
-														<label>Title</label> 
-														<form:select class="form-control" path="title" style="width: 150%;">
+														<label>Title</label>
+														<form:select class="form-control" path="title"
+															style="width: 150%;">
 															<form:option value="Mr">Mr</form:option>
 															<form:option value="Mrs">Mrs</form:option>
 															<form:option value="Ms">Ms</form:option>
 														</form:select>
 													</div>
 													<div class="col-xs-10 form-group">
-														<label>Name</label> 
-														<form:input class="form-control" path="firstName" placeholder="Full Name" type="text" />
+														<label>Name</label>
+														<form:input class="form-control" path="firstName"
+															placeholder="Full Name" type="text" />
 													</div>
-													<div class="col-xs-10 form-group">
-														<label>Phone</label> 
-														<form:input class="form-control" path="phoneNumber" placeholder="phone" type="text" />
+													<div class="col-xs-14 form-group">
+														<label>Phone</label>
+														<form:input class="form-control" id="mobile-number"
+															path="phoneNumber" placeholder="phone" type="text" />
 													</div>
-													<div class="col-xs-2 form-group">
-														<label>Country Code</label> 
-														<form:select class="form-control" path="phoneCode">
-															<form:option value="+91">+91</form:option>
-															<form:option value="+1">+1</form:option>
-															<form:option value="+971">+971</form:option>
-														</form:select>
-													</div>
-													<div class="col-xs-11 form-group">
-														<label>Email</label> 
-														<form:input class="form-control" path="email" placeholder="Email" type="text" />
+
+													<div class="col-xs-12 form-group">
+														<label>Email</label>
+														<form:input class="form-control" path="email"
+															placeholder="Email" type="text" />
 													</div>
 
 												</div>
@@ -126,23 +128,27 @@
 												</div>
 												<div class="panel-body">
 													<div class="col-xs-7 form-group">
-														<label>Address</label> 
-														<form:input class="form-control" path="addressLineOne"	placeholder="Address" type="text" />
+														<label>Address</label>
+														<form:input class="form-control" path="addressLineOne"
+															placeholder="Address" type="text" />
 													</div>
 
 													<div class="col-xs-5 form-group">
-														<label>Company Name</label> 
-														<form:input class="form-control" path="companyName" placeholder="Company Name" type="text" />
+														<label>Company Name</label>
+														<form:input class="form-control" path="companyName"
+															placeholder="Company Name" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>City</label> 
-														<form:input class="form-control" path="city"	placeholder="City" type="text" />
+														<label>City</label>
+														<form:input class="form-control" path="city"
+															placeholder="City" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>State</label> 
-														<form:input class="form-control" path="state" placeholder="State" type="text" />
+														<label>State</label>
+														<form:input class="form-control" path="state"
+															placeholder="State" type="text" />
 													</div>
 
 												</div>
@@ -161,27 +167,30 @@
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Identity type</label> 
+													<label>Identity type</label>
 													<form:select class="form-control" path="identityType">
 														<form:option value="Passport">Passport</form:option>
 														<form:option value="NIC">National Id Card</form:option>
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Identity Number</label> 
-													<form:input class="form-control" path="identityNumber" placeholder="Identity Number" type="text" />
+													<label>Identity Number</label>
+													<form:input class="form-control" path="identityNumber"
+														placeholder="Identity Number" type="text" />
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Country</label>  
+													<label>Country</label>
+								 
 													<form:select class="form-control" path="country">
-															<form:option value="India">India</form:option>
-															<form:option value="USA">USA</form:option>
-															<form:option value="UAE">UAE</form:option>
+													    <form:option value="KSA">KSA</form:option>
+														<form:option value="India">India</form:option>
+														<form:option value="USA">USA</form:option>
+														<form:option value="UAE">UAE</form:option>
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Scanned Id</label> 
-													<form:input class="form-control" path="scannedId" value=""/>
+													<label>Scanned Id</label>
+													<form:input class="form-control" path="scannedId" value="" />
 												</div>
 												<div class="col-xs-2 form-group">
 													<label>Finger Print</label>
@@ -198,8 +207,9 @@
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Add To Members List</label> 
-													<form:checkbox path="hotelMember" value="" checked="checked"/>
+													<label>Add To Members List</label>
+													<form:checkbox path="hotelMember" value=""
+														checked="checked" />
 												</div>
 											</div>
 										</div>
@@ -221,5 +231,12 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/plugins/phoneCode/intlTelInput.min.js"/>">
+		
+	</script>
+	<script type="text/javascript">
+		$("#mobile-number").intlTelInput();
+	</script>
 </body>
 </html>
