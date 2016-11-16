@@ -20,12 +20,17 @@ public class HotelServicesGroup {
 	@Column(name="HOTEL_SERVICE_GROUP_ID")
 	private long id;
 	
+	@OneToMany(mappedBy = "hotelServicesParentGroup", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+	private List<HotelServicesGroup> hotelServiceChildGroups;
+	
 	@ManyToOne
-	private HotelServices hotelServices;
+	private HotelServicesGroup hotelServicesParentGroup;
 	
 	@OneToMany(mappedBy="hotelServicesGroup", fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
 	private List<HotelServicesValue> hotelServicesValues;
 	
+	@ManyToOne
+	private HotelServices hotelServices;
 	
 	public long getId() {
 		return id;
@@ -57,9 +62,37 @@ public class HotelServicesGroup {
 		}
 	}
 	
-	
 	public void setHotelServicesValues(List<HotelServicesValue> hotelServicesValues) {
 		this.hotelServicesValues = hotelServicesValues;
 	}
 
+	public List<HotelServicesGroup> getHotelServiceChildGroups() {
+		return hotelServiceChildGroups;
+	}
+
+	public void addHotelServiceChildGroup(HotelServicesGroup hotelServiceChildGroup) {
+		this.hotelServiceChildGroups.add(hotelServiceChildGroup);
+		if(hotelServiceChildGroup.getHotelServicesParentGroup() != this) {
+			hotelServiceChildGroup.setHotelServicesParentGroup(this);
+		}
+	}
+	
+	public void setHotelServiceChildGroups(List<HotelServicesGroup> hotelServiceChildGroups) {
+		this.hotelServiceChildGroups = hotelServiceChildGroups;
+	}
+
+	public HotelServicesGroup getHotelServicesParentGroup() {
+		return hotelServicesParentGroup;
+	}
+
+	public void setHotelServicesParentGroup(HotelServicesGroup hotelServicesParentGroup) {
+		this.hotelServicesParentGroup = hotelServicesParentGroup;
+		if(!hotelServicesParentGroup.getHotelServiceChildGroups().contains(this)){
+			hotelServicesParentGroup.getHotelServiceChildGroups().add(hotelServicesParentGroup);
+		}
+	}
+	
+	
+	
+	
 }

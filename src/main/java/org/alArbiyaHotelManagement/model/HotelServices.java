@@ -26,7 +26,7 @@ public class HotelServices {
 	private String serviceName;
 	
 	@OneToMany(mappedBy = "hotelServices", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
-	private List<HotelServicesGroup> hotelServiceGroups;
+	private List<HotelServicesGroup> hotelServiceParentGroups;
 
 	public long getId() {
 		return id;
@@ -53,18 +53,18 @@ public class HotelServices {
 	}
 
 	public List<HotelServicesGroup> getHotelServiceGroups() {
-		return hotelServiceGroups;
+		return hotelServiceParentGroups;
 	}
 	
 	public void addHotelServiceGroup(HotelServicesGroup hotelServicesGroup) {
-		this.hotelServiceGroups.add(hotelServicesGroup);
+		this.hotelServiceParentGroups.add(hotelServicesGroup);
 		if(hotelServicesGroup.getHotelServices() !=this) {
 			hotelServicesGroup.setHotelServices(this);
 		}
 	}
 
-	public void setHotelServiceGroups(List<HotelServicesGroup> hotelServiceGroups) {
-		this.hotelServiceGroups = hotelServiceGroups;
+	public void setHotelServiceGroups(List<HotelServicesGroup> hotelServiceParentGroups) {
+		this.hotelServiceParentGroups = hotelServiceParentGroups;
 	} 
 
 }
