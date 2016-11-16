@@ -49,177 +49,54 @@
                </div>
 			</div>
 			<div class="ibox-content">
-			<div class="mail-box-header">
-              <h2>Category Name</h2>
-				<div class="mail-tools tooltip-demo m-t-md">
-					<div class="btn-group pull-right">
-						<button class="btn btn-white btn-sm">
-							<i class="fa fa-arrow-left"></i>
-						</button>
-						<button class="btn btn-white btn-sm">
-							<i class="fa fa-arrow-right"></i>
-						</button>
-					</div>
-					  
-				</div>
-			</div>
-			<div class="mail-box">
-              <table class="table table-hover table-mail">
+		 
+			 
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+						
                      <thead>
                     <tr>
-                    <th class="check-mail">Item Id</th>
+                    <th class=" ">Item Id</th>
                       <th>Item Name</th>
                         <th>Item Description</th>
                           <th>Edit</th>
-                            <th>Delete</th>
+                         
                     </tr>
                     </thead>
                     
 					<tbody>
-                        <tr class="read">
+                        <tr class=" ">
                             <td class="check-mail">1 </td>
 							<td class="mail-ontact "> Item
 									Name </td>
 							<td class="mail-subject"> Item
 									Description </td>
 						   <td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Items" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
-
+						  
                          	</tr>
-
-							<tr class="read">
-                            <td class="check-mail">2</td>
-							<td class="mail-ontact "> Item
-									Name </td>
-							<td class="mail-subject"> Item
-									Description </td>
-							 
-							<td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Items" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
-
-
-						</tr>
-							<tr class="read">
-                            <td class="check-mail">3 </td>
-							<td class="mail-ontact "> Item
-									Name </td>
-							<td class="mail-subject"> Item
-									Description </td>
-							 
-							<td class=""><i class="fa fa-pencil"><a   data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-							<td class="text-right mail-date"><input type="button"
-								class="btn btn-block btn-primary " name="btn"
-								value="Remove Items" id="submitBtn" data-toggle="modal"
-								data-target="#confirm-submit"></td>
  
-						</tr>
+							 
                          </tbody>
 				</table> 
  </div>
 			</div>
 		</div>
-			<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">Confirm Delete</div>
-				<div class="modal-body">Are you sure you want to delete this
-					item</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a  id="submit" class="btn btn-success success">Delete</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
-		<div class="modal fade" id="confirm-Edit" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-			   <form class="form-horizontal" action="" method="post">
-				<div class="modal-header">Edit CoffeeShop Items</div>
-				<div class="modal-body">
-
-             
-					<p>Update Items Here</p>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Items Category</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="items_category">
-								<option>HotDrinks 1</option>
-								<option>Cold Drinks 2</option>
-								 
-							</select>
-						</div>
-					</div>
- 
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Item Id</label>
-
-						<div class="col-sm-10">
-							<input type="text" disabled="disabled" placeholder="Item id"
-								name="Item_ID" class="form-control">
-						</div>
-					</div>
-
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Item Name</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Item Name" name="item_Name"
-								class="form-control">
-						</div>
-					</div>
-						 Need To add Unit ,Ingredients and price
-						 
-					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
-
-						<div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
-                                    <label for="checkbox1">
-                                        Disable
-                                    </label>
-                                    </div>
-					</div>
-                      </div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a   id="submit" class="btn btn-success success">Update</a>
-				</div>
-				</form>
-			</div>
-			</div>
-		</div>
-	</div>
-
 	 
+	  
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-</div>
+ 	<div class="modal fade"  id="addNewCategoryCoffeeShop" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									
+										 <jsp:include page="../action/addNewCoffeeCategory.jsp"></jsp:include>
+								</div>
+							</div>
+						</div>
 
-<script type="text/javascript" src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/action/coffeeShop.js"/>"></script>
 
 </body>
 </html>
