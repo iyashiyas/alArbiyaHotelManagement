@@ -57,8 +57,8 @@ public class HotelServicesGroup {
 
 	public void setHotelServices(HotelServices hotelServices) {
 		this.hotelServices = hotelServices;
-		if(!hotelServices.getHotelServiceGroups().contains(this)) {
-			hotelServices.getHotelServiceGroups().add(this);
+		if(!hotelServices.getHotelServiceParentGroups().contains(this)) {
+			hotelServices.getHotelServiceParentGroups().add(this);
 		}
 	}
 

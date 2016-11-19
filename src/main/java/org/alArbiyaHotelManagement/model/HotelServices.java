@@ -55,23 +55,15 @@ public class HotelServices {
 		this.serviceName = serviceName;
 	}
 
-	public List<HotelServicesGroup> getHotelServiceGroups() {
+	public List<HotelServicesGroup> getHotelServiceParentGroups() {
 		return hotelServiceParentGroups;
 	}
 	
-	public void addHotelServiceGroup(HotelServicesGroup hotelServicesGroup) {
+	public void addHotelServiceParentGroup(HotelServicesGroup hotelServicesGroup) {
 		this.hotelServiceParentGroups.add(hotelServicesGroup);
 		if(hotelServicesGroup.getHotelServices() !=this) {
 			hotelServicesGroup.setHotelServices(this);
 		}
-	}
-
-	public void setHotelServiceGroups(List<HotelServicesGroup> hotelServiceParentGroups) {
-		this.hotelServiceParentGroups = hotelServiceParentGroups;
-	}
-
-	public List<HotelServicesGroup> getHotelServiceParentGroups() {
-		return hotelServiceParentGroups;
 	}
 
 	public void setHotelServiceParentGroups(

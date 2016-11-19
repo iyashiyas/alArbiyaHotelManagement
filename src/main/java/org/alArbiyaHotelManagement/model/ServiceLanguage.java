@@ -60,7 +60,7 @@ public class ServiceLanguage {
 
 	public void setHotelServices(HotelServices hotelServices) {
 		this.hotelServices = hotelServices;
-		if (!hotelServices.getServiceLanguages().contains(this)) {
+		if (hotelServices.getServiceLanguages()!=null && !hotelServices.getServiceLanguages().contains(this)) {
 			hotelServices.getServiceLanguages().add(this);
         }
 	}

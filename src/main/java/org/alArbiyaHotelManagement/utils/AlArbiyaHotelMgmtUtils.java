@@ -53,7 +53,6 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServicesParentGroup(parentServicesGroup);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
@@ -86,6 +85,7 @@ public class AlArbiyaHotelMgmtUtils {
 		List<HotelServicesGroup> childHotelServicesGroups = new ArrayList<HotelServicesGroup>();
 		childHotelServicesGroups.add(childServicesGroup);
 		parentServicesGroup.setHotelServiceChildGroups(childHotelServicesGroups);
+		childServicesGroup.setHotelServicesParentGroup(parentServicesGroup);
 		
 		List<ServiceLanguage> serviceLanguages = new ArrayList<ServiceLanguage>();
 		i=0;
@@ -98,6 +98,10 @@ public class AlArbiyaHotelMgmtUtils {
 			i++;
 		}
 		hotelServices.setServiceLanguages(serviceLanguages);
+		
+		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
+		hotelServiceParentGroups.add(parentServicesGroup);
+		hotelServices.setHotelServiceParentGroups(hotelServiceParentGroups);
 		return hotelServices;
 	}
 
