@@ -23,19 +23,19 @@
 			</div>
 		</div>
 		<div class="ibox-content">
-			<form class="form-horizontal" action="" method="post">
+			<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addCoffeShop" method="POST" modelAttribute="coffeShop">
 				<p>Add Coffee items Here</p>
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Categories</label>
 
 					<div class="col-sm-10">
-						<select class="form-control m-b" name="items_category">
-							<option>Hot Drinks</option>
-							<option>Cold Drinks</option>
-							<option>Ice-Creams</option>
-							<option>Pies and Pastries</option>
-						</select>
+						<form:select class="form-control m-b" name="category" path="category">
+							<form:option value="HOTDRINKS">Hot Drinks</form:option>
+							<form:option value="COLDDRINKS">Cold Drinks</form:option>
+							<form:option value="ICECREAM">Ice-Creams</form:option>
+							<form:option value="PIESANDPASTRIES">Pies and Pastries</form:option>
+						</form:select>
 					</div>
 				</div>
 
@@ -43,22 +43,25 @@
 					<label class="col-sm-2 control-label">Item Name</label>
 
 					<div class="col-sm-10">
-						<input type="text" placeholder="Item Name" name="item_Name"
-							class="form-control">
+						<form:input type="text" placeholder="Item Name" name="itemName" path="itemName"
+							class="form-control"/>
 					</div>
 				</div>
 
 
-				<div class="form-group">
+				 <div class="form-group">
 					<label class="col-sm-2 control-label">Other Languages</label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeLanguage">
 
 							<div class="entry-coffeeLanguage input-group ">
-								<select class="form-control m-b" name="coffeeShopLanguages.coffeeShoplanguage.id"
-									style="width: 30%;" id="language_dropdown"><option>Arabic</option>
-									<option>English</option></select> <input class="form-control"
-									type="text" name="coffeeShopLanguages.coffeeShopLanguageName"
+								<form:select class="form-control m-b" name="languageId[0]" path="languageId[0]"
+									style="width: 30%;" id="language_dropdown">
+								<option value="1">Arabic</option>
+									<form:option value="0">English</form:option>
+								</form:select> 
+								<form:input class="form-control"
+									type="text" name="langageName[0]" path="langageName[0]"
 									placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
 								<span class="input-group-btn">
 									<button class="btn btn-primary coffeShopLanguage-btn-add" type="button">
@@ -74,24 +77,25 @@
 
 
 
-				<div class="form-group">
+				<%-- <div class="form-group">
 					<label class="col-sm-2 control-label">Select Ingredient and
 						Price</label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeIngredients">
 							<div class="entry-coffeeIngredients input-group ">
-								<select class="form-control" name="coffeeShopIngredients.coffeeShopIngredient.id" style="width: 30%;">
+								<form:select class="form-control" name="ingredientId[0]" path="ingredientId[0]" style="width: 30%;">
 									<optgroup label="Sauce">
-										<option>Tomato Sauce</option>
-										<option>Chilly Sauce</option>
+										<form:option value="1">Tomato Sauce</form:option>
+										<form:option value="2">Chilly Sauce</form:option>
 									</optgroup>
 									<optgroup label="Ingredient1">
-										<option>Sauce</option>
-										<option>Sauce</option>
+										<form:option value="3">Sauce</form:option>
+										<form:option value="4">Sauce</form:option>
 									</optgroup>
-								</select> <input class="form-control" type="text"
+								</form:select> 
+								<form:input class="form-control" type="text"
 									placeholder="Enter Price"
-									style="width: 40%; margin-left: 10px;" name="coffeeShopIngredients.coffeeShopIngredientName">  <span
+									style="width: 40%; margin-left: 10px;" name="ingredientPrice[0]" path="ingredientPrice[0]"/>  <span
 									class="input-group-btn">
 									<button class="btn btn-primary coffeShopIngredients-btn-add" type="button">
 										<span class="glyphicon glyphicon-plus"></span>
@@ -108,19 +112,20 @@
 					<div class="col-sm-10">
 						<div class="controls-coffeeShopUnits">
 							<div class="entry-coffeeShopUnits input-group ">
-								<select class="form-control" style="width: 30%;" name="coffeeShopUnits.coffeeShopUnit.id">
+								<form:select class="form-control" style="width: 30%;" name="unitId[0]" path="unitId[0]">
 									<optgroup label="General">
-										<option>Small</option>
-										<option>Medium</option>
-										<option>Normal</option>
+										<form:option value="1">Small</form:option>
+										<form:option value="2">Medium</form:option>
+										<form:option value="3">Normal</form:option>
 									</optgroup>
 									<optgroup label="length">
-										<option>CM</option>
-										<option>Meter</option>
+										<form:option value="4">CM</form:option>
+										<form:option value="5">Meter</form:option>
 									</optgroup>
-								</select> <input class="form-control" type="text"
+								</form:select> 
+								<form:input class="form-control" type="text"
 									placeholder="Enter Price"
-									style="width: 40%; margin-left: 10px;" name="coffeeShopUnits.coffeeShopUnitName"> <span
+									style="width: 40%; margin-left: 10px;" name="unitPrice[0]" path="unitPrice[0]"/> <span
 									class="input-group-btn">
 									<button class="btn btn-primary coffeShopUnits-btn-add" type="button">
 										<span class="glyphicon glyphicon-plus"></span>
@@ -129,22 +134,22 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"> Description</label>
 
 					<div class="col-sm-10">
-						<input type="text" placeholder="Description" name="Description"
-							class="form-control">
+						<form:input type="text" placeholder="Description" name="description" path="description"
+							class="form-control"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Status </label>
 
 					<div class="col-sm-10">
-						<input type="checkbox" id="checkbox1"> <label
+						<%-- <form:checkbox type="checkbox" id="checkbox1" name="status" path="status"/> --%> <label
 							for="checkbox1"> Disable </label>
 					</div>
 				</div>
@@ -156,7 +161,7 @@
 					</div>
 				</div>
 
-			</form>
+			</form:form>
 		</div>
 	</div>
 

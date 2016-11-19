@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	$('select').removeAttr('multiple');
+})
+
 $(function() {
 	var coffeeLangugaeCount = 0;
 	$(document).on('click','.coffeShopLanguage-btn-add',function(e) {
