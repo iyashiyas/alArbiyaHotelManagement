@@ -43,7 +43,7 @@ public class AlArbiyaHotelMgmtUtils {
 		return sb.toString();
 	}
 	
-	public HotelServices toHotelService(CoffeeShop coffeeShop) {
+	public static HotelServices toHotelService(CoffeeShop coffeeShop) {
 		HotelServices hotelServices = new HotelServices();
 		hotelServices.setServiceName(HotelServicesEnum.COFFEESHOP.name());
 		hotelServices.setServiceStatus(coffeeShop.getStatus());
