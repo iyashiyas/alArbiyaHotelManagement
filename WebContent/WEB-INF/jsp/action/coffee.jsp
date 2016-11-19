@@ -11,92 +11,92 @@
 
 </head>
 <body>
-
 	<!-- Include Page Header-->
-   <div id="wrapper"> 
-   <jsp:include page="../header/header.jsp"></jsp:include>
-	
-	<div id="page-wrapper" class="gray-bg">
-	
-		 <div class="row wrapper border-bottom white-bg page-heading">
-		<div class="col-lg-9">
-			<h2>Coffee Shop</h2>
-			<ol class="breadcrumb">
-				<li><a
-					href="${pageContext.request.contextPath}/action">Services</a></li>
-				<li class="active"><strong>CoffeeShop</strong></li>
-			</ol>
-		</div>
- 
-	</div>
-	<!-- Page Contents -->
-	<!-- Page Heading -->
-	
-	 
-	 <div class="wrapper wrapper-content">
-        <div class="row">
-        <jsp:include page="../action/coffeeTab.jsp"></jsp:include>
-	
-	<div class="col-lg-8 animated fadeInRight">
-		 
-	   <jsp:include page="../action/addCoffee.jsp"></jsp:include>
-		<div class="ibox float-e-margins">
-			<div class="ibox-title">
-				<h5>Items Table</h5>
-				<div class="ibox-tools">
-					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-					</a>
-               </div>
-			</div>
-			<div class="ibox-content">
-		 
-			 
-        <table class="table table-striped table-bordered table-hover dataTables-example">
-						
-                     <thead>
-                    <tr>
-                    <th class=" ">Item Id</th>
-                      <th>Item Name</th>
-                        <th>Item Description</th>
-                          <th>Edit</th>
-                         
-                    </tr>
-                    </thead>
-                    
-					<tbody>
-                        <tr class=" ">
-                            <td class="check-mail">1 </td>
-							<td class="mail-ontact "> Item
-									Name </td>
-							<td class="mail-subject"> Item
-									Description </td>
-						   <td class=""><i class="fa fa-pencil"><a  data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
-						  
-                         	</tr>
- 
-							 
-                         </tbody>
-				</table> 
- </div>
-			</div>
-		</div>
-	 
-	  
-</div>
-</div>
-</div>
+	<div id="wrapper">
+		<jsp:include page="../header/header.jsp"></jsp:include>
 
- 	<div class="modal fade"  id="addNewCategoryCoffeeShop" tabindex="-1"
-							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									
-										 <jsp:include page="../action/addNewCoffeeCategory.jsp"></jsp:include>
+		<div id="page-wrapper" class="gray-bg">
+
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-9">
+					<h2>Coffee Shop</h2>
+					<ol class="breadcrumb">
+						<li><a href="${pageContext.request.contextPath}/action">Services</a></li>
+						<li class="active"><strong>CoffeeShop</strong></li>
+					</ol>
+				</div>
+
+			</div>
+			<!-- Page Contents -->
+			<!-- Page Heading -->
+
+
+			<div class="wrapper wrapper-content">
+				<div class="row">
+					<jsp:include page="../action/coffeeTab.jsp"></jsp:include>
+
+					<div class="col-lg-8 animated fadeInRight">
+
+						<jsp:include page="../action/addCoffee.jsp"></jsp:include>
+
+
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>Items Table</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
 								</div>
 							</div>
+							<div class="ibox-content">
+
+
+								<table
+									class="table table-striped table-bordered table-hover dataTables-example">
+
+									<thead>
+										<tr>
+											<th>Item Id</th>
+											<th>Item Name</th>
+											<th>Item Description</th>
+											<th>Edit</th>
+
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr class=" ">
+											<td>1</td>
+											<td>Item Name</td>
+											<td>Item Description</td>
+											<td><i class="fa fa-pencil"><a>Edit</a></i></td>
+
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
+					</div>
 
-<script type="text/javascript" src="<c:url value="/resources/js/action/coffeeShop.js"/>"></script>
 
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="modal fade" id="addNewCategoryCoffeeShop" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<jsp:include page="../action/addNewCoffeeCategory.jsp"></jsp:include>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/action/coffeeShop.js"/>"></script>
 </body>
 </html>
