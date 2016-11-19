@@ -1,13 +1,17 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.service.ActionService;
 
 public class ActionServiceImpl implements ActionService {
-	public Action addAction() {
+	
+	public Action editAction() {
 		return null;
 	}
-	public Action editAction() {
+	@Override
+	public Action addCoffeeShop(CoffeeShop coffeeShop) {
+		
 		return null;
 	}
 }

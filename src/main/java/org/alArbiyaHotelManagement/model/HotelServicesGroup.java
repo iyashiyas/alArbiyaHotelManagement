@@ -20,6 +20,9 @@ public class HotelServicesGroup {
 	@Column(name="HOTEL_SERVICE_GROUP_ID")
 	private long id;
 	
+	@Column(name="SERVICEGROUPNAME")
+	private String serviceGroupName;
+
 	@OneToMany(mappedBy = "hotelServicesParentGroup", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceChildGroups;
 	
@@ -40,6 +43,14 @@ public class HotelServicesGroup {
 		this.id = id;
 	}
 
+	public String getServiceGroupName() {
+		return serviceGroupName;
+	}
+
+	public void setServiceGroupName(String serviceGroupName) {
+		this.serviceGroupName = serviceGroupName;
+	}
+	
 	public HotelServices getHotelServices() {
 		return hotelServices;
 	}

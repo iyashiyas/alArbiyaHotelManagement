@@ -27,6 +27,9 @@ public class HotelServices {
 	
 	@OneToMany(mappedBy = "hotelServices", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
+	
+	@OneToMany(mappedBy="hotelServices", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
+	private List<ServiceLanguage> serviceLanguages;
 
 	public long getId() {
 		return id;
@@ -65,6 +68,30 @@ public class HotelServices {
 
 	public void setHotelServiceGroups(List<HotelServicesGroup> hotelServiceParentGroups) {
 		this.hotelServiceParentGroups = hotelServiceParentGroups;
+	}
+
+	public List<HotelServicesGroup> getHotelServiceParentGroups() {
+		return hotelServiceParentGroups;
+	}
+
+	public void setHotelServiceParentGroups(
+			List<HotelServicesGroup> hotelServiceParentGroups) {
+		this.hotelServiceParentGroups = hotelServiceParentGroups;
+	}
+
+	public List<ServiceLanguage> getServiceLanguages() {
+		return serviceLanguages;
+	}
+
+	public void addServiceLanguage(ServiceLanguage serviceLanguage) {
+        this.serviceLanguages.add(serviceLanguage);
+        if (serviceLanguage.getHotelServices() != this) {
+        	serviceLanguage.setHotelServices(this);
+        }
+    }
+	
+	public void setServiceLanguages(List<ServiceLanguage> serviceLanguages) {
+		this.serviceLanguages = serviceLanguages;
 	} 
 
 }

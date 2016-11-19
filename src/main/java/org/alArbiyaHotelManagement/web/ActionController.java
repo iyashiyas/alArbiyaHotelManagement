@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
+import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ActionController {
 	
 	@Autowired BranchService branchService;
+	@Autowired ActionService actionService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder){
@@ -38,6 +40,7 @@ public class ActionController {
 	public String addCoffeShop(Model model,@RequestParam(required=false) org.alArbiyaHotelManagement.enums.Action actionCode,
 			CoffeeShop coffeeShop) {
 		String actionCde = (actionCode == null || actionCode.name() == "") ? "action" : actionCode.getActionName();
+		actionService.addCoffeeShop(coffeeShop);
 		return "action/"+actionCde;
 	}
 	
