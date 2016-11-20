@@ -254,6 +254,11 @@ INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `coun
 INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `country_COUNTRY_ID`) VALUES('6',"INACTIVE","Italy",'117');
 INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `country_COUNTRY_ID`) VALUES('7',"ACTIVE","Spanish",'213');
 
+
+--Service category
+INSERT INTO hotel_services_category VALUES('1', 'ENABLED', 'COFFEESHOP');
+INSERT INTO hotel_services_category VALUES('2', 'ENABLED', 'LAUNDRY');
+
 --Unit Category
 --INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('1','General','GN');
 --INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('2','Length','LN');
