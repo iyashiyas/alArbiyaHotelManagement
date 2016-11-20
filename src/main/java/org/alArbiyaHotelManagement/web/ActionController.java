@@ -19,8 +19,7 @@ import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,10 +39,10 @@ public class ActionController {
 	@Autowired
 	IngredientService ingredientService;
 
-	@InitBinder
+	/*@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.setAutoGrowNestedPaths(false);
-	}
+	}*/
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAction(
@@ -62,6 +61,8 @@ public class ActionController {
 		List<Language> languages = languageService.getEnableLanguages();
 		List<Unit> units = unitService.getAllUnits();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
+		
+		List<CoffeeShop> getAllcoffeeShops =actionService.getAllCoffeShopItems();
 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CoffeeShop coffeeShop = new CoffeeShop();
@@ -90,7 +91,7 @@ public class ActionController {
 			coffeeeShopIngredientHelper.setIngredientName(ingredient.getIngredientName());
 			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
 		}
-
+		attributes.put("getAllcoffeeShops", getAllcoffeeShops);
 		attributes.put("coffeShop", coffeeShop);
 		attributes.put("languageHelper", languages);
 		attributes.put("unitHelper", units);
@@ -99,15 +100,11 @@ public class ActionController {
 		return "action/coffee";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/addCoffeShop")
-	public String addCoffeShop(
-			Model model,
-			@RequestParam(required = false) org.alArbiyaHotelManagement.enums.Action actionCode,
-			CoffeeShop coffeeShop) {
-		String actionCde = (actionCode == null || actionCode.name() == "") ? "action"
-				: actionCode.getActionName();
+
+	@RequestMapping(value = "/addCoffeShop", method = RequestMethod.POST)
+	public String addCoffeShop(@ModelAttribute CoffeeShop coffeeShop) {
 		actionService.addCoffeeShop(coffeeShop);
-		return "action/" + actionCde;
+		return "redirect:/action/showCoffeeShop";
 	}
 
 }

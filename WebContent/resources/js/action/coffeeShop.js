@@ -13,8 +13,8 @@ $(function() {
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"coffeeShopLanguages[" + coffeeLangugaeCount+ "].coffeeShopLanguageName")
-				newEntry.find('select').attr('name',"coffeeShopLanguages[" + coffeeLangugaeCount + "].coffeeShoplanguage.id")
+				newEntry.find('input').attr('name',"languageName[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"languageHelper[" + coffeeLangugaeCount + "].languageId")
 				controlForm.find('.entry-coffeeLanguage:not(:last) .coffeShopLanguage-btn-add')
 					.removeClass('coffeShopLanguage-btn-add')
 					.addClass('coffeShopLanguage-btn-remove')
@@ -29,6 +29,7 @@ $(function() {
 });
 
 
+
 $(function() {
 	var coffeeLangugaeCount = 0;
 	$(document).on('click','.coffeShopIngredients-btn-add',function(e) {
@@ -40,8 +41,8 @@ $(function() {
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"coffeeShopIngredients[" + coffeeLangugaeCount+ "].coffeeShopIngredientName")
-				newEntry.find('select').attr('name',"coffeeShopIngredients[" + coffeeLangugaeCount + "].coffeeShopIngredient.id")
+				newEntry.find('input').attr('name',"ingredientPrice[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"ingredientHelper[" + coffeeLangugaeCount + "].ingredientId")
 				controlForm.find('.entry-coffeeIngredients:not(:last) .coffeShopIngredients-btn-add')
 					.removeClass('coffeShopIngredients-btn-add')
 					.addClass('coffeShopIngredients-btn-remove')
@@ -67,8 +68,8 @@ $(function() {
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"coffeeShopUnits[" + coffeeLangugaeCount+ "].coffeeShopUnitName")
-				newEntry.find('select').attr('name',"coffeeShopUnits[" + coffeeLangugaeCount + "].coffeeShopUnit.id")
+				newEntry.find('input').attr('name',"unitPrice[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"unitHelper[" + coffeeLangugaeCount + "].unitId")
 				controlForm.find('.entry-coffeeShopUnits:not(:last) .coffeShopUnits-btn-add')
 					.removeClass('coffeShopUnits-btn-add')
 					.addClass('coffeShopUnits-btn-remove')

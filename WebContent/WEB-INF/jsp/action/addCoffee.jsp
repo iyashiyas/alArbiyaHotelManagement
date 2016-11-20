@@ -80,9 +80,7 @@
 						</div>
 					</div>
 				</div>
-
-
-
+ 
 
   <div class="form-group">
 					<label class="col-sm-2 control-label">Select Ingredient and
@@ -152,7 +150,7 @@
 					<label class="col-sm-2 control-label">Status </label>
 
 					<div class="col-sm-10">
-						<%-- <form:checkbox type="checkbox" id="checkbox1" name="status" path="status"/> --%>
+					 <form:checkbox id="checkbox1"  value="ACTIVE"  name="status" path="status" />  
 						<label for="checkbox1"> Disable </label>
 					</div>
 				</div>

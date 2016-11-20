@@ -1,5 +1,7 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.util.List;
+
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.HotelServices;
@@ -22,5 +24,10 @@ public class ActionServiceImpl implements ActionService {
 		HotelServices hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop);
 		actionRepository.hotelService(hotelServices);
 		return null;
+	}
+	@Override
+	public List<CoffeeShop> getAllCoffeShopItems() {
+		// TODO Auto-generated method stub
+		return actionRepository.getAllCoffeShopItems();
 	}
 }

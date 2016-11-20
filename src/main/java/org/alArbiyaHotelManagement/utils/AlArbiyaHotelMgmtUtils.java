@@ -56,6 +56,7 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
+		childServicesGroup.setHotelServices(hotelServices);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
@@ -65,8 +66,10 @@ public class AlArbiyaHotelMgmtUtils {
 			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
 			
 			HotelServicesValue hotelServicesValuTwo = new HotelServicesValue();
+			hotelServicesValuTwo.setExternalId(ingredientHelper.getIngredientId().toString());
 			hotelServicesValuTwo.setFieldName(HotelServicesValues.INGREDIENTPRICE.name());
 			hotelServicesValuTwo.setFieldValue(coffeeShop.getIngredientPrice().get(i).toString());
+			
 			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValuTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValuOne);
@@ -82,6 +85,7 @@ public class AlArbiyaHotelMgmtUtils {
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
 			
 			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
+			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
 			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
 			hotelServicesValueTwo.setFieldValue(coffeeShop.getUnitPrice().get(i).toString());
 			

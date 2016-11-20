@@ -88,7 +88,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 	@Override
 	public List<Ingredient> getAllIngredients() {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where ingredientStatus='ACTIVE' order by id", Ingredient.class);
+		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where ingredientStatus='ENABLE' order by id", Ingredient.class);
 		return query.getResultList(); 
 	}
  

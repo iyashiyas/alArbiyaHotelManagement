@@ -18,6 +18,9 @@ public class HotelServicesValue {
 	@Column(name="FIELD_NAME")
 	private String fieldName;
 	
+	@Column(name="EXTERNAL_ID")
+	private String externalId;
+	
 	@Column(name="FIELD_VALUE")
 	private String fieldValue;
 	
@@ -38,6 +41,16 @@ public class HotelServicesValue {
 
 	public void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
+	}
+	
+	
+
+	public String getExternalId() {
+		return externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
 	}
 
 	public String getFieldValue() {

@@ -1,16 +1,19 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.HotelServices;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
-
+import javax.persistence.Query;
 @Repository
 @Transactional
 public class ActionRepositoryImpl implements ActionRepository{
@@ -43,7 +46,11 @@ public class ActionRepositoryImpl implements ActionRepository{
 				}
 			}
 		}
-		
-		
+		 
 	}
+	@Override
+	public List<CoffeeShop> getAllCoffeShopItems() {
+		 return null;
+	}
+	
 }

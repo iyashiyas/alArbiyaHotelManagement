@@ -95,7 +95,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 	@Override
 	public List<Unit> getAllUnits() {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ACTIVE' order by id", Unit.class);
+		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ENABLE' order by id", Unit.class);
 		return query.getResultList(); 
 	}
 	 

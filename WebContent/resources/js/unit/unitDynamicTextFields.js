@@ -22,8 +22,7 @@ $(function() {
 		e.preventDefault();
 		return false;
 	});
-});
-
+}); 
 $(function() {
 	
 	$(document).on('click','.edit-btn-add',function(e) {
@@ -33,8 +32,7 @@ $(function() {
 		var controlForm = $('.editControls:last'), currentEntry = $(this)
 			.parents('.editEntry:first'), newEntry = $(
 			currentEntry.clone()).appendTo(controlForm);
-
-			newEntry.find('input').val('');
+            newEntry.find('input').val('');
 			//newEntry.find('#editFormLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].id")
 			newEntry.find('#editFormLanguageLanguageId').attr('name',"unitLanguages[" + editUnitLangugaeCount + "].language.id")
 			newEntry.find('#editFormLanguageName').attr('name',"unitLanguages[" + editUnitLangugaeCount+ "].unitLanguageName")
