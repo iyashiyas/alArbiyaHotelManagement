@@ -8,12 +8,12 @@ import javax.transaction.Transactional;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.HotelServices;
+import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
-import javax.persistence.Query;
+
 @Repository
 @Transactional
 public class ActionRepositoryImpl implements ActionRepository{
@@ -28,18 +28,18 @@ public class ActionRepositoryImpl implements ActionRepository{
 		return null;
 	}
 	@Override
-	public void hotelService(HotelServices hotelServices) {
-		entityManager.persist(hotelServices);
-		for(HotelServicesGroup hotelServiceParentGroup:hotelServices.getHotelServiceParentGroups()){
+	public void hotelService(HotelServicesItem hotelServicesItem) {
+		entityManager.persist(hotelServicesItem);
+		for(HotelServicesGroup hotelServiceParentGroup:hotelServicesItem.getHotelServiceParentGroups()){
 			entityManager.persist(hotelServiceParentGroup);
 		}
-		for(HotelServicesGroup hotelServiceParentGroup:hotelServices.getHotelServiceParentGroups()){
+		for(HotelServicesGroup hotelServiceParentGroup:hotelServicesItem.getHotelServiceParentGroups()){
 			for(HotelServicesGroup hotelServiceChildGroup:hotelServiceParentGroup.getHotelServiceChildGroups()){
 				entityManager.persist(hotelServiceChildGroup);
 			}
 		}
 		
-		for(HotelServicesGroup hotelServiceParentGroup:hotelServices.getHotelServiceParentGroups()){
+		for(HotelServicesGroup hotelServiceParentGroup:hotelServicesItem.getHotelServiceParentGroups()){
 			for(HotelServicesGroup hotelServiceChildGroup:hotelServiceParentGroup.getHotelServiceChildGroups()){
 				for(HotelServicesValue hotelServicesValue:hotelServiceChildGroup.getHotelServicesValues()){
 					entityManager.persist(hotelServicesValue);

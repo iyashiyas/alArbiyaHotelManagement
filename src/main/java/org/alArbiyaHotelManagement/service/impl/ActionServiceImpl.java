@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.HotelServices;
+import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -21,7 +21,7 @@ public class ActionServiceImpl implements ActionService {
 	}
 	@Override
 	public Action addCoffeeShop(CoffeeShop coffeeShop) {
-		HotelServices hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop);
+		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop);
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}

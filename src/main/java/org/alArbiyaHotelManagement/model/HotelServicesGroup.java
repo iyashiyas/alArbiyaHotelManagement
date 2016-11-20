@@ -33,7 +33,7 @@ public class HotelServicesGroup {
 	private List<HotelServicesValue> hotelServicesValues;
 	
 	@ManyToOne
-	private HotelServices hotelServices;
+	private HotelServicesItem hotelServicesItem;
 	
 	public long getId() {
 		return id;
@@ -51,14 +51,14 @@ public class HotelServicesGroup {
 		this.serviceGroupName = serviceGroupName;
 	}
 	
-	public HotelServices getHotelServices() {
-		return hotelServices;
+	public HotelServicesItem getHotelServicesItem() {
+		return hotelServicesItem;
 	}
 
-	public void setHotelServices(HotelServices hotelServices) {
-		this.hotelServices = hotelServices;
-		if(!hotelServices.getHotelServiceParentGroups().contains(this)) {
-			hotelServices.getHotelServiceParentGroups().add(this);
+	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
+		this.hotelServicesItem = hotelServicesItem;
+		if(!hotelServicesItem.getHotelServiceParentGroups().contains(this)) {
+			hotelServicesItem.getHotelServiceParentGroups().add(this);
 		}
 	}
 

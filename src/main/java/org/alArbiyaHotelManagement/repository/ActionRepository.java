@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.HotelServices;
+import org.alArbiyaHotelManagement.model.HotelServicesItem;
 
 public interface ActionRepository {
 	public Action addAction();
 	public Action editAction();
-	public void hotelService(HotelServices hotelServices);
+	public void hotelService(HotelServicesItem hotelServices);
 	public List<CoffeeShop> getAllCoffeShopItems() ;
 }

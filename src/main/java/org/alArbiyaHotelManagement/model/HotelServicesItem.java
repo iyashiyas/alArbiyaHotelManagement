@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class HotelServices {
+public class HotelServicesItem {
 	
 	@Id @GeneratedValue 
 	@Column(name="SERVICE_ID")
@@ -61,8 +61,8 @@ public class HotelServices {
 	
 	public void addHotelServiceParentGroup(HotelServicesGroup hotelServicesGroup) {
 		this.hotelServiceParentGroups.add(hotelServicesGroup);
-		if(hotelServicesGroup.getHotelServices() !=this) {
-			hotelServicesGroup.setHotelServices(this);
+		if(hotelServicesGroup.getHotelServicesItem() !=this) {
+			hotelServicesGroup.setHotelServicesItem(this);
 		}
 	}
 
@@ -77,8 +77,8 @@ public class HotelServices {
 
 	public void addServiceLanguage(ServiceLanguage serviceLanguage) {
         this.serviceLanguages.add(serviceLanguage);
-        if (serviceLanguage.getHotelServices() != this) {
-        	serviceLanguage.setHotelServices(this);
+        if (serviceLanguage.getHotelServicesItem() != this) {
+        	serviceLanguage.setHotelServicesItem(this);
         }
     }
 	

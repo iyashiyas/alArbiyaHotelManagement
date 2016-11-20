@@ -15,7 +15,7 @@ import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.enums.HotelServicesChildCategory;
 import org.alArbiyaHotelManagement.enums.HotelServicesEnum;
 import org.alArbiyaHotelManagement.enums.HotelServicesValues;
-import org.alArbiyaHotelManagement.model.HotelServices;
+import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.model.ServiceLanguage;
@@ -46,17 +46,17 @@ public class AlArbiyaHotelMgmtUtils {
 		return sb.toString();
 	}
 	
-	public static HotelServices toHotelService(CoffeeShop coffeeShop) {
-		HotelServices hotelServices = new HotelServices();
-		hotelServices.setServiceName(HotelServicesEnum.COFFEESHOP.name());
-		hotelServices.setServiceStatus(coffeeShop.getStatus());
+	public static HotelServicesItem toHotelService(CoffeeShop coffeeShop) {
+		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		hotelServicesItem.setServiceName(HotelServicesEnum.COFFEESHOP.name());
+		hotelServicesItem.setServiceStatus(coffeeShop.getStatus());
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(coffeeShop.getCategory());
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServices(hotelServices);
+		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
@@ -107,18 +107,18 @@ public class AlArbiyaHotelMgmtUtils {
 		i=0;
 		for(CoffeeeShopLanguageHelper languageHelper: coffeeShop.getLanguageHelper()) {
 			ServiceLanguage serviceLanguage = new ServiceLanguage();
-			serviceLanguage.setHotelServices(hotelServices);
+			serviceLanguage.setHotelServicesItem(hotelServicesItem);
 			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
 			serviceLanguage.setLanguage(null);
 			serviceLanguages.add(serviceLanguage);
 			i++;
 		}
-		hotelServices.setServiceLanguages(serviceLanguages);
+		hotelServicesItem.setServiceLanguages(serviceLanguages);
 		
 		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
 		hotelServiceParentGroups.add(parentServicesGroup);
-		hotelServices.setHotelServiceParentGroups(hotelServiceParentGroups);
-		return hotelServices;
+		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
+		return hotelServicesItem;
 	}
 
 }
