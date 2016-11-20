@@ -15,6 +15,7 @@ import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.enums.HotelServicesChildCategory;
 import org.alArbiyaHotelManagement.enums.HotelServicesEnum;
 import org.alArbiyaHotelManagement.enums.HotelServicesValues;
+import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
@@ -46,9 +47,11 @@ public class AlArbiyaHotelMgmtUtils {
 		return sb.toString();
 	}
 	
-	public static HotelServicesItem toHotelService(CoffeeShop coffeeShop) {
+	public static HotelServicesItem toHotelService(CoffeeShop coffeeShop, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
-		hotelServicesItem.setServiceName(HotelServicesEnum.COFFEESHOP.name());
+		hotelServicesItem.setServiceName(coffeeShop.getItemName());
+		hotelServicesItem.setServiceDescription(coffeeShop.getDescription());
+		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 		hotelServicesItem.setServiceStatus(coffeeShop.getStatus());
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();

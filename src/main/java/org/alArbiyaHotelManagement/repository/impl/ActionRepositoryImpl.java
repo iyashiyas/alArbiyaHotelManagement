@@ -4,13 +4,16 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -51,6 +54,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 	@Override
 	public List<CoffeeShop> getAllCoffeShopItems() {
 		 return null;
+	}
+	
+	@Override
+	public HotelServicesCategory getHotelServicesCategory(long hotelServicesCategoryId) {
+		TypedQuery<HotelServicesCategory> query = this.entityManager.createQuery("SELECT cate from HotelServicesCategory cate WHERE cate.id=:hotelServicesCategoryId", HotelServicesCategory.class);
+		HotelServicesCategory hotelServicesCategory = query.setParameter("languageId", hotelServicesCategoryId).getSingleResult();
+		return hotelServicesCategory;
 	}
 	
 }

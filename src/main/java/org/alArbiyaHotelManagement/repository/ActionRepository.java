@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 
 public interface ActionRepository {
@@ -11,4 +12,5 @@ public interface ActionRepository {
 	public Action editAction();
 	public void hotelService(HotelServicesItem hotelServices);
 	public List<CoffeeShop> getAllCoffeShopItems() ;
+	public HotelServicesCategory getHotelServicesCategory(long parseLong);
 }

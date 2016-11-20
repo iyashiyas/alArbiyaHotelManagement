@@ -10,6 +10,7 @@ public class CoffeeShop {
 	private String itemName;
 	private String description;
 	private String status;
+	private String hotelServiceCategoryId;
 	private List<CoffeeeShopLanguageHelper> languageHelper;
 	private List<String> languageName;
 	private List<CoffeeeShopUnitHelper> unitHelper;
@@ -85,6 +86,14 @@ public class CoffeeShop {
 	
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getHotelServiceCategoryId() {
+		return hotelServiceCategoryId;
+	}
+
+	public void setHotelServiceCategoryId(String hotelServiceCategoryId) {
+		this.hotelServiceCategoryId = hotelServiceCategoryId;
 	}
 
 	public List<String> getLanguageName() {
