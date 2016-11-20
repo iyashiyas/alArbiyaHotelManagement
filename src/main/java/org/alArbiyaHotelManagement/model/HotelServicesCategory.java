@@ -25,7 +25,7 @@ public class HotelServicesCategory {
 	@Column(name="SERVICE_CATEGORY_NAME")
 	private String serviceCategoryName;
 	
-	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
 
 	public long getId() {

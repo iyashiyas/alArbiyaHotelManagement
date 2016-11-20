@@ -1,7 +1,5 @@
 package org.alArbiyaHotelManagement.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +25,6 @@ public class ServiceLanguage {
 	private Language language;
 	
 	@ManyToOne
-	@JoinColumn(name="SERVICE_ID")
 	private HotelServicesItem hotelServicesItem;
 
 	public long getId() {

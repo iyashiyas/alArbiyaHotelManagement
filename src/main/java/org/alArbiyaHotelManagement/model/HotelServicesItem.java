@@ -17,22 +17,22 @@ import javax.persistence.Table;
 public class HotelServicesItem {
 	
 	@Id @GeneratedValue 
-	@Column(name="SERVICE_ID")
+	@Column(name="SERVICE_ITEM_ID")
 	private long id;
 	
-	@Column(name="SERVICE_STATUS")
-	private String serviceStatus;
+	@Column(name="SERVICE_ITEM_STATUS")
+	private String serviceItemStatus;
 	
-	@Column(name="SERVICE_NAME")
-	private String serviceName;
+	@Column(name="SERVICE_ITEM_NAME")
+	private String serviceItemName;
 	
-	@Column(name="SERVICE_DESCRIPTION")
-	private String serviceDescription;
+	@Column(name="SERVICE_ITEM_DESCRIPTION")
+	private String serviceItemDescription;
 	
-	@OneToMany(mappedBy = "hotelServices", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
 	
-	@OneToMany(mappedBy="hotelServices", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
+	@OneToMany(mappedBy="hotelServicesItem", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
 	
 	@ManyToOne
@@ -46,28 +46,28 @@ public class HotelServicesItem {
 		this.id = id;
 	}
 
-	public String getServiceStatus() {
-		return serviceStatus;
+	public String getServiceItemStatus() {
+		return serviceItemStatus;
 	}
 
-	public void setServiceStatus(String serviceStatus) {
-		this.serviceStatus = serviceStatus;
+	public void setServiceItemStatus(String serviceItemStatus) {
+		this.serviceItemStatus = serviceItemStatus;
 	}
 
-	public String getServiceName() {
-		return serviceName;
+	public String getServiceItemName() {
+		return serviceItemName;
 	}
 
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
+	public void setServiceItemName(String serviceItemName) {
+		this.serviceItemName = serviceItemName;
 	}
 	
-	public String getServiceDescription() {
-		return serviceDescription;
+	public String getServiceItemDescription() {
+		return serviceItemDescription;
 	}
 
-	public void setServiceDescription(String serviceDescription) {
-		this.serviceDescription = serviceDescription;
+	public void setServiceItemDescription(String serviceItemDescription) {
+		this.serviceItemDescription = serviceItemDescription;
 	}
 
 	public List<HotelServicesGroup> getHotelServiceParentGroups() {

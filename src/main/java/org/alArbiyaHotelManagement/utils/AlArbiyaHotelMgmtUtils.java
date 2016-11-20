@@ -49,10 +49,10 @@ public class AlArbiyaHotelMgmtUtils {
 	
 	public static HotelServicesItem toHotelService(CoffeeShop coffeeShop, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
-		hotelServicesItem.setServiceName(coffeeShop.getItemName());
-		hotelServicesItem.setServiceDescription(coffeeShop.getDescription());
+		hotelServicesItem.setServiceItemName(coffeeShop.getItemName());
+		hotelServicesItem.setServiceItemDescription(coffeeShop.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
-		hotelServicesItem.setServiceStatus(coffeeShop.getStatus());
+		hotelServicesItem.setServiceItemStatus(coffeeShop.getStatus());
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(coffeeShop.getCategory());
