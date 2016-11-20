@@ -17,7 +17,7 @@ public class HotelServicesCategory {
 
 	@Id @GeneratedValue 
 	@Column(name="SERVICE_CATEGORY_ID")
-	private long id;
+	private long hotelServicesCategoryId;
 	
 	@Column(name="SERVICE_CATEGORY_STATUS")
 	private String categoryStatus;
@@ -28,12 +28,12 @@ public class HotelServicesCategory {
 	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
 
-	public long getId() {
-		return id;
+	public long getHotelServicesCategoryId() {
+		return hotelServicesCategoryId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setHotelServicesCategoryId(long hotelServicesCategoryId) {
+		this.hotelServicesCategoryId = hotelServicesCategoryId;
 	}
 
 	public String getCategoryStatus() {

@@ -58,8 +58,8 @@ public class ActionRepositoryImpl implements ActionRepository{
 	
 	@Override
 	public HotelServicesCategory getHotelServicesCategory(long hotelServicesCategoryId) {
-		TypedQuery<HotelServicesCategory> query = this.entityManager.createQuery("SELECT cate from HotelServicesCategory cate WHERE cate.id=:hotelServicesCategoryId", HotelServicesCategory.class);
-		HotelServicesCategory hotelServicesCategory = query.setParameter("languageId", hotelServicesCategoryId).getSingleResult();
+		TypedQuery<HotelServicesCategory> query = this.entityManager.createQuery("SELECT cate from HotelServicesCategory cate WHERE cate.hotelServicesCategoryId=:hotelServicesCategoryId", HotelServicesCategory.class);
+		HotelServicesCategory hotelServicesCategory = query.setParameter("hotelServicesCategoryId", hotelServicesCategoryId).getSingleResult();
 		return hotelServicesCategory;
 	}
 	

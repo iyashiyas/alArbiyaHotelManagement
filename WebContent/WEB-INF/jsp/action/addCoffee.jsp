@@ -26,6 +26,9 @@
 			<form:form class="form-horizontal"
 				action="${pageContext.request.contextPath}/action/addCoffeShop"
 				method="POST" modelAttribute="coffeShop">
+				
+				<input type="hidden" name="hotelServiceCategoryId" value="1"/>
+				
 				<p>Add Coffee items Here</p>
 
 				<div class="form-group">
