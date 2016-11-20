@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="HOTEL_SERVICES_ITEM")
 public class HotelServicesItem {
 	
 	@Id @GeneratedValue 
@@ -25,11 +26,17 @@ public class HotelServicesItem {
 	@Column(name="SERVICE_NAME")
 	private String serviceName;
 	
+	@Column(name="SERVICE_DESCRIPTION")
+	private String serviceDescription;
+	
 	@OneToMany(mappedBy = "hotelServices", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
 	
 	@OneToMany(mappedBy="hotelServices", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
+	
+	@ManyToOne
+	private HotelServicesCategory hotelServicesCategory;
 
 	public long getId() {
 		return id;
@@ -53,6 +60,14 @@ public class HotelServicesItem {
 
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
+	}
+	
+	public String getServiceDescription() {
+		return serviceDescription;
+	}
+
+	public void setServiceDescription(String serviceDescription) {
+		this.serviceDescription = serviceDescription;
 	}
 
 	public List<HotelServicesGroup> getHotelServiceParentGroups() {
@@ -84,6 +99,17 @@ public class HotelServicesItem {
 	
 	public void setServiceLanguages(List<ServiceLanguage> serviceLanguages) {
 		this.serviceLanguages = serviceLanguages;
+	}
+
+	public HotelServicesCategory getHotelServicesCategory() {
+		return hotelServicesCategory;
+	}
+
+	public void setHotelServicesCategory(HotelServicesCategory hotelServicesCategory) {
+		this.hotelServicesCategory = hotelServicesCategory;
+		if(hotelServicesCategory.getHotelServicesItems() != null && !hotelServicesCategory.getHotelServicesItems().contains(this)) {
+			hotelServicesCategory.getHotelServicesItems().add(this);
+		}
 	} 
 
 }
