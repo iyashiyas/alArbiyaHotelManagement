@@ -8,4 +8,7 @@ public interface IngredientRepository {
 	public Ingredient addIngredient(Ingredient ingredient);
 	public Ingredient editIngredient(Ingredient ingredient);
 	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode);
+	public List<Ingredient> getAllIngredients();
+	
+	
 }

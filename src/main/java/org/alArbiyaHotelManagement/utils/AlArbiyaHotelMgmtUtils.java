@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
+import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
+import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
+import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.enums.HotelServicesChildCategory;
 import org.alArbiyaHotelManagement.enums.HotelServicesEnum;
 import org.alArbiyaHotelManagement.enums.HotelServicesValues;
@@ -56,27 +59,36 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
-		for(Long ingredentId: coffeeShop.getIngredientId()) {
-			HotelServicesValue hotelServicesValue = new HotelServicesValue();
-			hotelServicesValue.setFieldName(HotelServicesValues.INGREDIENTID.name());
-			hotelServicesValue.setFieldValue(ingredentId.toString());
-			hotelServicesValue.setFieldName(HotelServicesValues.INGREDIENTVALUE.name());
-			hotelServicesValue.setFieldValue(coffeeShop.getIngredientPrice().get(i).toString());
-			hotelServicesValue.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValues.add(hotelServicesValue);
+		for(CoffeeeShopIngredientHelper ingredientHelper: coffeeShop.getIngredientHelper()) {
+			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
+			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
+			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
+			
+			HotelServicesValue hotelServicesValuTwo = new HotelServicesValue();
+			hotelServicesValuTwo.setFieldName(HotelServicesValues.INGREDIENTPRICE.name());
+			hotelServicesValuTwo.setFieldValue(coffeeShop.getIngredientPrice().get(i).toString());
+			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValuTwo.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValuOne);
+			hotelServicesValues.add(hotelServicesValuTwo);
 			
 			i++;
 		}
 		
 		i=0;
-		for(Long unitId: coffeeShop.getUnitId()) {
-			HotelServicesValue hotelServicesValue = new HotelServicesValue();
-			hotelServicesValue.setFieldName(HotelServicesValues.UNITID.name());
-			hotelServicesValue.setFieldValue(unitId.toString());
-			hotelServicesValue.setFieldName(HotelServicesValues.UNITPRICE.name());
-			hotelServicesValue.setFieldValue(coffeeShop.getUnitPrice().get(i).toString());
-			hotelServicesValue.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValues.add(hotelServicesValue);
+		for(CoffeeeShopUnitHelper unitHelper: coffeeShop.getUnitHelper()) {
+			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
+			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
+			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
+			
+			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
+			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
+			hotelServicesValueTwo.setFieldValue(coffeeShop.getUnitPrice().get(i).toString());
+			
+			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValueOne);
+			hotelServicesValues.add(hotelServicesValueTwo);
 			
 			i++;
 		}
@@ -89,10 +101,10 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		List<ServiceLanguage> serviceLanguages = new ArrayList<ServiceLanguage>();
 		i=0;
-		for(Long unitId: coffeeShop.getLanguageId()) {
+		for(CoffeeeShopLanguageHelper languageHelper: coffeeShop.getLanguageHelper()) {
 			ServiceLanguage serviceLanguage = new ServiceLanguage();
 			serviceLanguage.setHotelServices(hotelServices);
-			serviceLanguage.setHotelServiceLanguageName(coffeeShop.getLangageName().get(i).toString());
+			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
 			serviceLanguage.setLanguage(null);
 			serviceLanguages.add(serviceLanguage);
 			i++;

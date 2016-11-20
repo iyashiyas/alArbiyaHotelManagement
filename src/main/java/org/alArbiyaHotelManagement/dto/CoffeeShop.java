@@ -8,15 +8,53 @@ public class CoffeeShop {
 	
 	private String category;
 	private String itemName;
-	private List<Long> languageId;
-	private List<String> langageName;
-	private List<Long> ingredientId;
-	private List<BigDecimal> ingredientPrice;
-	private List<Long> unitId;
-	private List<BigDecimal> unitPrice;
 	private String description;
 	private String status;
+	private List<CoffeeeShopLanguageHelper> languageHelper;
+	private List<String> languageName;
+	private List<CoffeeeShopUnitHelper> unitHelper;
+	private List<BigDecimal> unitPrice;
+	private List<CoffeeeShopIngredientHelper> ingredientHelper;
+	private List<BigDecimal> ingredientPrice;
 	
+	
+	public List<CoffeeeShopLanguageHelper> getLanguageHelper() {
+		if(languageHelper==null) {
+			languageHelper = new ArrayList<CoffeeeShopLanguageHelper>();
+			languageHelper.add(new CoffeeeShopLanguageHelper());
+		}
+		return languageHelper;
+	}
+
+	public void setLanguageHelper(List<CoffeeeShopLanguageHelper> languageHelper) {
+		this.languageHelper = languageHelper;
+	}
+
+	public List<CoffeeeShopUnitHelper> getUnitHelper() {
+		if(unitHelper==null) {
+			unitHelper = new ArrayList<CoffeeeShopUnitHelper>();
+			unitHelper.add(new CoffeeeShopUnitHelper());
+		}
+		return unitHelper;
+	}
+
+	public void setUnitHelper(List<CoffeeeShopUnitHelper> unitHelper) {
+		this.unitHelper = unitHelper;
+	}
+
+	public List<CoffeeeShopIngredientHelper> getIngredientHelper() {
+		if(ingredientHelper==null){
+			ingredientHelper = new ArrayList<CoffeeeShopIngredientHelper>();
+			ingredientHelper.add(new CoffeeeShopIngredientHelper());
+		}
+		return ingredientHelper;
+	}
+
+	public void setIngredientHelper(
+			List<CoffeeeShopIngredientHelper> ingredientHelper) {
+		this.ingredientHelper = ingredientHelper;
+	}
+
 	public String getCategory() {
 		return category;
 	}
@@ -31,78 +69,6 @@ public class CoffeeShop {
 	
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
-	}
-	
-	public List<Long> getLanguageId() {
-		if(this.languageId == null) {
-			this.languageId = new ArrayList<Long>();
-			this.languageId.add(1L);
-		}
-		return languageId;
-	}
-	
-	public void setLanguageId(List<Long> languageId) {
-		this.languageId = languageId;
-	}
-	
-	public List<String> getLangageName() {
-		if(this.langageName == null) {
-			this.langageName = new ArrayList<String>();
-			this.langageName.add("");
-		}
-		return langageName;
-	}
-	
-	public void setLangageName(List<String> langageName) {
-		this.langageName = langageName;
-	}
-	
-	public List<Long> getUnitId() {
-		if(this.unitId == null) {
-			this.unitId = new ArrayList<Long>();
-			unitId.add(1l);
-		}
-		return unitId;
-	}
-	
-	public void setUnitId(List<Long> unitId) {
-		this.unitId = unitId;
-	}
-	
-	public List<BigDecimal> getUnitPrice() {
-		if(this.unitPrice == null) {
-			this.unitPrice = new ArrayList<BigDecimal>();
-			this.unitPrice.add(new BigDecimal(0));
-		}
-		return unitPrice;
-	}
-	
-	public void setUnitPrice(List<BigDecimal> unitPrice) {
-		this.unitPrice = unitPrice;
-	}
-	
-	public List<Long> getIngredientId() {
-		if(this.ingredientId == null) {
-			this.ingredientId = new ArrayList<Long>();
-			this.ingredientId.add(0L);
-		}
-		return ingredientId;
-	}
-	
-	public void setIngredientId(List<Long> ingredientId) {
-		this.ingredientId = ingredientId;
-	}
-	
-	public List<BigDecimal> getIngredientPrice() {
-		if(this.ingredientPrice == null) {
-			this.ingredientPrice = new ArrayList<BigDecimal>();
-			this.ingredientPrice.add(new BigDecimal(0));
-		}
-		return ingredientPrice;
-	}
-	
-	public void setIngredientPrice(List<BigDecimal> ingredientPrice) {
-		this.ingredientPrice = ingredientPrice;
 	}
 	
 	public String getDescription() {
@@ -120,15 +86,41 @@ public class CoffeeShop {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	@Override
-	public String toString() {
-		return "CoffeeShop [category=" + category + ", itemName=" + itemName
-				+ ", languageId=" + languageId + ", langageName=" + langageName
-				+ ", unitId=" + unitId + ", unitPrice=" + unitPrice
-				+ ", ingredientId=" + ingredientId + ", ingredientPrice="
-				+ ingredientPrice + ", description=" + description
-				+ ", status=" + status + "]";
+
+	public List<String> getLanguageName() {
+		if(languageName == null) {
+			languageName = new ArrayList<String>();
+			languageName.add("");
+		}
+		return languageName;
 	}
-	
+
+	public void setLanguageName(List<String> languageName) {
+		this.languageName = languageName;
+	}
+
+	public List<BigDecimal> getUnitPrice() {
+		if(unitPrice == null) {
+			unitPrice = new ArrayList<BigDecimal>();
+			unitPrice.add(new BigDecimal(0.0));
+		}
+		return unitPrice;
+	}
+
+	public void setUnitPrice(List<BigDecimal> unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public List<BigDecimal> getIngredientPrice() {
+		if(ingredientPrice == null) {
+			ingredientPrice = new ArrayList<BigDecimal>();
+			ingredientPrice.add(new BigDecimal(0.0));
+		}
+		return ingredientPrice;
+	}
+
+	public void setIngredientPrice(List<BigDecimal> ingredientPrice) {
+		this.ingredientPrice = ingredientPrice;
+	} 
+	 
 }

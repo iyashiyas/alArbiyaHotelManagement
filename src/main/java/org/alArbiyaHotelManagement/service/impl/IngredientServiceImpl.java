@@ -32,4 +32,10 @@ public class IngredientServiceImpl implements IngredientService {
 	public List<Ingredient> getAllIngredienttWithCategory(String categoryCode) {
 		return ingredientRepository.getAllIngredienttWithCategory(categoryCode);
 	}
+
+	@Override
+	public List<Ingredient> getAllIngredients() {
+		// TODO Auto-generated method stub
+		return ingredientRepository.getAllIngredients();
+	}
 }

@@ -92,5 +92,12 @@ public class UnitRepositoryImpl implements UnitRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 	}
+	@Override
+	public List<Unit> getAllUnits() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ACTIVE' order by id", Unit.class);
+		return query.getResultList(); 
+	}
+	 
 	 
 }

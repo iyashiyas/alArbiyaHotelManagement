@@ -50,9 +50,10 @@
 							<div class="entry input-group ">
 								<form:select class="form-control m-b select" id="drp"
 									path="ingredientLanguages[0].language.id" name="ingredientLanguages[0].language.id" style="width:30%;">
-								 
-									<form:options items="${languages}" itemValue="id"
+								
+								  <form:options items="${languages}" itemValue="id"
 										itemLabel="languageName"></form:options>
+										
 								</form:select>
 								<form:input class="form-control" type="text"
 									name="ingredientLanguages[0].ingredientLanguageName"

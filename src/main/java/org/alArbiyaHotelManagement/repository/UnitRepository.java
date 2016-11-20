@@ -9,4 +9,5 @@ public interface UnitRepository {
 	public Unit editUnit(Unit unit);
 	public List<Unit> getAllUnitWithCategory(String categoryCode);
 	public void disableUnit(long id, String status);
+	public List<Unit> getAllUnits();
 }

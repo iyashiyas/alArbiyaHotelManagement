@@ -34,6 +34,11 @@ public class UnitServiceImpl implements UnitService {
 	public void disableUnit(long id, String status) {
 		unitRepository.disableUnit(id, status);
 	}
+	@Override
+	public List<Unit> getAllUnits() {
+		// TODO Auto-generated method stub
+		return unitRepository.getAllUnits();
+	}
 	
 	
 }

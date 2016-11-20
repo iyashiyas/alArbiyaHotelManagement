@@ -16,6 +16,7 @@ import org.alArbiyaHotelManagement.model.Ingredient;
  
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -82,6 +83,13 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		        .where(conditions.toArray(new Predicate[] {}))
 		);
 		return typedQuery.getResultList();
+	}
+
+	@Override
+	public List<Ingredient> getAllIngredients() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where ingredientStatus='ACTIVE' order by id", Ingredient.class);
+		return query.getResultList(); 
 	}
  
 }
