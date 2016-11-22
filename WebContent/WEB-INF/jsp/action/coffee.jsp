@@ -67,9 +67,9 @@
 									<tbody>
 									<c:forEach items="${getAllcoffeeShops}" var="coffeeShop">
 										<tr class=" ">
-											<td>1</td>
-											<td><c:out value="${coffeeShop.itemName}" /></td>
-											<td>${coffeeShop.description}</td>
+											<td>${coffeeShop.id}</td>
+											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
+											<td>${coffeeShop.serviceItemDescription}</td>
 											<td><i class="fa fa-pencil"><a>Edit</a></i></td>
 
 										</tr>

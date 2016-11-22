@@ -8,6 +8,7 @@ import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
+import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
@@ -62,7 +63,7 @@ public class ActionController {
 		List<Unit> units = unitService.getAllUnits();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
 		
-		List<CoffeeShop> getAllcoffeeShops =actionService.getAllCoffeShopItems();
+		List<HotelServicesItem> getAllcoffeeShops =actionService.getAllCoffeShopItems();
 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CoffeeShop coffeeShop = new CoffeeShop();
@@ -106,5 +107,7 @@ public class ActionController {
 		actionService.addCoffeeShop(coffeeShop);
 		return "redirect:/action/showCoffeeShop";
 	}
+	
+ 
 
 }

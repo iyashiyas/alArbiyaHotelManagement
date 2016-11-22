@@ -28,7 +28,7 @@ public class ActionServiceImpl implements ActionService {
 		return null;
 	}
 	@Override
-	public List<CoffeeShop> getAllCoffeShopItems() {
+	public List<HotelServicesItem> getAllCoffeShopItems() {
 		// TODO Auto-generated method stub
 		return actionRepository.getAllCoffeShopItems();
 	}

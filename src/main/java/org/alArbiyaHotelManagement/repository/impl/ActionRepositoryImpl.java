@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -52,8 +53,9 @@ public class ActionRepositoryImpl implements ActionRepository{
 		 
 	}
 	@Override
-	public List<CoffeeShop> getAllCoffeShopItems() {
-		 return null;
+	public List<HotelServicesItem> getAllCoffeShopItems() {
+		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item order by id", HotelServicesItem.class);
+		return query.getResultList();
 	}
 	
 	@Override
