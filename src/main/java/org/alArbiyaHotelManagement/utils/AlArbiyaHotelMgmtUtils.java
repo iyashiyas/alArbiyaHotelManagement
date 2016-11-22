@@ -55,6 +55,7 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(coffeeShop.getCategory());
+		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());

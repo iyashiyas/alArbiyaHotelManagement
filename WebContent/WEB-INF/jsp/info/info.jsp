@@ -29,8 +29,13 @@
 				<div class="col-lg-12">
 					<div class="row">
 						<div class="col-lg-12 animated fadeInRight">
-							 
-									<div class="col-sm-8">
+							 <div class="ibox float-e-margins">
+                      	<div class="ibox-tools">
+									 <a  class="btn btn-primary" href="#editBuildingModal" data-toggle="modal"><i class="fa fa-pencil"> </i>Edit Information</a>
+								</div>
+						 
+							  <div class="panel panel-primary row">
+							  <div class="col-sm-8">
 										<form class="form-horizontal">
 											<c:forEach items="${hotelInfo}" var="hotelInfo">
 												<div class="form-group">
@@ -133,15 +138,25 @@
 												</div>
 											</c:forEach>
 										</form>
-
-
-
+ 
 									</div>
-									<div class="col-lg-4">
-										<img src="<c:url value="/resources/css/patterns/logonly.png"/>"  class="img-circle circle-border "
-										 alt="profile"> 
-										 <br>
-										 <input type="file">
+								  
+									  <div class="col-lg-4">
+                <div class="widget style1 navy-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                     	<img src="<c:url value="/resources/css/patterns/logonly.png"/>"  class="img-circle" alt="profile"> 
+                        </div>
+                        <div class="col-xs-8 text-right">
+                      <input type="file"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+									
+									
+									</div>
+									</div>
 									</div>
 
 								</div>
@@ -151,7 +166,7 @@
 						</div>
 
 					</div>
-				</div>
+		 
 
 				<div class="modal fade" id="editBuildingModal" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
