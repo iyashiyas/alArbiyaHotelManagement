@@ -12,9 +12,7 @@
 
 </head>
 <body>
-
-
-	<div class="ibox float-e-margins">
+ <div class="ibox float-e-margins">
 		<div class="ibox-title">
 			<h5>Add New Ingredient Items</h5>
 			<div class="ibox-tools">
@@ -27,10 +25,9 @@
 				method="post">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Ingredient Category</label>
-
-					<div class="col-sm-10">
+                    	<div class="col-sm-10">
 						<form:select class="form-control m-b" path="ingredientCategory" >
-							<form:option value="SAUCE">SAUCE </form:option>
+							<form:option value="SAUCE">SAUCE</form:option>
 							<form:option value="FLOUR">FLOUR</form:option>
                        </form:select>
 					</div>
@@ -52,8 +49,7 @@
 									path="ingredientLanguages[0].language.id" name="ingredientLanguages[0].language.id" style="width:30%;">
 								
 								  <form:options items="${languages}" itemValue="id"
-										itemLabel="languageName"></form:options>
-										
+										itemLabel="languageName"></form:options> 
 								</form:select>
 								<form:input class="form-control" type="text"
 									name="ingredientLanguages[0].ingredientLanguageName"
@@ -71,7 +67,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-2 control-label"> Description</label>
+					<label class="col-sm-2 control-label">Description</label>
 
 					<div class="col-sm-10">
 						<form:input type="text" placeholder="Description"

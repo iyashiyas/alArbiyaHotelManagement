@@ -149,6 +149,18 @@
 							name="description" path="description" class="form-control" />
 					</div>
 				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> Image</label>
+
+					<div class="col-sm-10">
+						<input type="file" placeholder="Image"
+							name="image" class="form-control">
+					</div>
+				</div>
+				
+				
+				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Status </label>
 

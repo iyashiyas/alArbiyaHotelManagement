@@ -33,7 +33,7 @@
 							</span>
 							</a>
 							<ul class="dropdown-menu animated fadeInRight m-t-xs">
-								<li><a href="#">Profile</a></li>
+								<li><a href="${pageContext.request.contextPath}/info/showInfo">Profile</a></li>
 								<li class="divider"></li>
 								<li><a href="#">Logout</a></li>
 							</ul>

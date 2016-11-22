@@ -258,6 +258,13 @@ INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `coun
 --Service category
 INSERT INTO hotel_services_category VALUES('1', 'ENABLED', 'COFFEESHOP');
 INSERT INTO hotel_services_category VALUES('2', 'ENABLED', 'LAUNDRY');
+INSERT INTO hotel_services_category VALUES('3', 'ENABLED', 'RESTAURANT');
+INSERT INTO hotel_services_category VALUES('4', 'ENABLED', 'CARRENTAL');
+
+
+--Hotel Information
+
+INSERT INTO HOTEL_INFO values ('1','HOTEL ADDRESS 1','HOTEL ADDRESS 2', 'Hotel City','hotel@email.com','00 000 000','HOTEL_HEAD_OFFICE_BRANCH' ,'HOTEL NAME','Hotel Nation', '000 00 000','Hotel State' ,'10')
 
 --Unit Category
 --INSERT INTO `unit_category` (`UNIT_CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_CODE`) VALUES ('1','General','GN');

@@ -107,105 +107,16 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-
-
+		</div> 
 <div class="modal fade" id="assign_to_room" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-			   <form class="form-horizontal" action="" method="post">
-				<div class="modal-header">Edit Unit</div>
-				<div class="modal-body">
-
-             
-					<p>Update Unit items Here</p>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="branch">
-								<option>branch 1</option>
-								<option>branch 2</option>
-								<option>branch 3</option>
-								<option>branch 4</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Building</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="building">
-								<option>Building 1</option>
-								<option>Building 2</option>
-								<option>Building 3</option>
-								<option>Building 4</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select floor</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="floor">
-								<option>floor 1</option>
-								<option>floor 2</option>
-								<option>floor 3</option>
-								<option>floor 4</option>
-							</select>
-						</div>
-					</div>
-						<div class="form-group">
-						<label class="col-sm-2 control-label">Select Screen Type</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="floor">
-								<option>Room Service Screens</option>
-								<option>Service Screens</option>
-							 
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Room Type</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="floor">
-								<option>Room Type1</option>
-								<option>Room Type2</option>
-								<option>Room Type3</option>
-								<option>Room Type4</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Room Number</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="floor">
-								<option>Room 1</option>
-								<option>Room 2</option>
-								<option>Room 3</option>
-								<option>Room 4</option>
-							</select>
-						</div>
-					</div>
-  
-  
-                </div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Assign To Room</a>
-				</div>
-				</form>
+			  <jsp:include page="../player/assignToRoom.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>
-
-
+ 
 </div>
 </div>
 </div>

@@ -66,7 +66,6 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
 			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
 			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
-			
 			HotelServicesValue hotelServicesValuTwo = new HotelServicesValue();
 			hotelServicesValuTwo.setExternalId(ingredientHelper.getIngredientId().toString());
 			hotelServicesValuTwo.setFieldName(HotelServicesValues.INGREDIENTPRICE.name());
@@ -75,8 +74,7 @@ public class AlArbiyaHotelMgmtUtils {
 			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValuTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValuOne);
-			hotelServicesValues.add(hotelServicesValuTwo);
-			
+			hotelServicesValues.add(hotelServicesValuTwo); 
 			i++;
 		}
 		
