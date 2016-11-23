@@ -79,6 +79,12 @@ public class ActionRepositoryImpl implements ActionRepository{
 	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
 		// TODO Auto-generated method stub
 		entityManager.merge(hotelServicesCategory);
+	}   
+	@Override
+	public void updateHouseKeepingStatus(
+			HotelServicesCategory hotelServicesCategory) {
+		entityManager.merge(hotelServicesCategory);
+		
 	}
 	
 }

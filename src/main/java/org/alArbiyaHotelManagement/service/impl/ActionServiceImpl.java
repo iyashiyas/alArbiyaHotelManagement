@@ -64,4 +64,14 @@ public class ActionServiceImpl implements ActionService {
 		actionRepository.updateParkingStatus(hotelServicesCategory);
 		
 	}
+	@Override
+	public void updateHouseKeepingStatus(
+			HotelServicesCategory hotelServicesCategory) {
+		if(hotelServicesCategory.getCategoryStatus()==null) {
+			hotelServicesCategory.setCategoryStatus("DISABLED");
+		} 
+		actionRepository.updateHouseKeepingStatus(hotelServicesCategory);
+		
+		
+	}
 }

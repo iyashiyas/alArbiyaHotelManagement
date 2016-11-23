@@ -1,10 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SHMS-ParkingService</title>
+<title>SHMS-HouseKeepingService</title>
 </head>
 <body>
 	 <div id="wrapper">
@@ -48,22 +52,19 @@
 		<div class="ibox float-e-margins">
 
 	         <div class="ibox-content text-center p-md">
-	        	<form class="form-horizontal" action="" method="post">
-	            <div class="form-group">
-	            	<label class="col-sm-2 control-label">Change Status</label>
-					  <div class="col-sm-10">
-							 <input type="radio" id="radio" name="status">
-                                    <label for="radio">
-                                        Disable
-                                    </label>
-                              <input type="radio" id="radio" name="status">
-                                    <label for="radio">
-                                        Enable
-                                    </label>
-                                    
+	        	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/updateHouseKeepingStatus" method="post" modelAttribute="hotelServiceCategory">
+	          	  <div class="form-group">
+				       	<label class="col-sm-2 control-label">Status</label>
+                            <input type="hidden" name="serviceCategoryName" value="HOUSEKEEPING">
+                            <input type="hidden" name="hotelServicesCategoryId" value="3">
+						<div class="col-sm-10">
+						 
+			<form:checkbox id="checkbox1" path="categoryStatus" value="ENABLED"
+						checked="checked" />
+				<label for="checkbox1"> ENABLE </label>
+			</div>
 					</div>
-					</div>
-					
+		 
 					 <div class="form-group">
 					 
                        	<label class="col-sm-2 control-label">Categories</label>
@@ -105,8 +106,8 @@
                    	</div>
 					 
 					 <div class="form-group">
-						  <button class="btn btn-primary" type="button"> Update </button>
-						</div></form>
+						  <button class="btn btn-primary" type="submit"> Update </button>
+						</div></form:form>
 					</div>
 					
 					

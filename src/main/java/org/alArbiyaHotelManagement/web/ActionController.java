@@ -204,5 +204,23 @@ public class ActionController {
 		actionService.updateParkingStatus(hotelServicesCategory);
 		return "redirect:/action/showParkingAction";
 	}
+	
+	
+	@RequestMapping(value = "/showHouseKeepingAction", method = RequestMethod.GET)
+	public String showHouseKeepingAction(Model model) {
+		Map<String, Object> attributes = new HashMap<String, Object>();
+
+		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
+        attributes.put("hotelServiceCategory", hotelServiceCategory);
+		model.addAllAttributes(attributes);
+        return "action/houseKeeping";
+	}
+	
+	@RequestMapping(value = "/updateHouseKeepingStatus", method = RequestMethod.POST)
+	public String updateHouseKeepingStatus(
+			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
+		actionService.updateHouseKeepingStatus(hotelServicesCategory);
+		return "redirect:/action/showHouseKeepingAction";
+	}
 
 }
