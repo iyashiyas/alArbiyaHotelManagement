@@ -55,4 +55,13 @@ public class ActionServiceImpl implements ActionService {
 		actionRepository.updateCheckOutStatus(hotelServicesCategory);
 		
 	}
+	@Override
+	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
+		// TODO Auto-generated method stub
+		if(hotelServicesCategory.getCategoryStatus()==null) {
+			hotelServicesCategory.setCategoryStatus("DISABLED");
+		} 
+		actionRepository.updateParkingStatus(hotelServicesCategory);
+		
+	}
 }

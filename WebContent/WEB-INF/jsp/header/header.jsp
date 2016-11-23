@@ -78,7 +78,7 @@
 						<ul class="nav nav-second-level collapse">
 							<li><a href="${pageContext.request.contextPath}/action">All Services</a></li>
 					        <li><a href="${pageContext.request.contextPath}/action/showCheckoutAction">Check-Out</a></li>
-				            <li><a href="${pageContext.request.contextPath}/action?actionCode=PARKING">Parking</a></li>
+				            <li><a href="${pageContext.request.contextPath}/action/showParkingAction">Parking</a></li>
 				             <li><a href="${pageContext.request.contextPath}/action?actionCode=HOUSEKEEPING">House Keeping</a></li>
 							<li><a href="${pageContext.request.contextPath}/action?actionCode=LAUNDRY">Laundry</a></li>
 						    <li><a href="${pageContext.request.contextPath}/action/showCoffeeShop">Coffee Shop</a></li>

@@ -15,5 +15,6 @@ public interface ActionService {
 	public void addRestaurantItems(Restaurant restaurant);
 	public List<HotelServicesItem> getAllRestaurantItems();
 	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
+	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory);
 
 }

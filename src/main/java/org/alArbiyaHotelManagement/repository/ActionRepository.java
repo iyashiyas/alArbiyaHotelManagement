@@ -17,4 +17,5 @@ public interface ActionRepository {
 	public HotelServicesCategory getHotelServicesCategory(long parseLong);
 	public List<HotelServicesItem> getAllRestaurantItems();
 	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
+	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory);
 }

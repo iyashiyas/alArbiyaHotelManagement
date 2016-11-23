@@ -178,12 +178,31 @@ public class ActionController {
 
 		return "action/checkout";
 	}
-
+    
 	@RequestMapping(value = "/updateCheckOutStatus", method = RequestMethod.POST)
 	public String updateCheckOutStatus(
 			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
 		actionService.updateCheckOutStatus(hotelServicesCategory);
 		return "redirect:/action/showCheckoutAction";
+	}
+	 
+	@RequestMapping(value = "/showParkingAction", method = RequestMethod.GET)
+	public String showParkingAction(Model model) {
+		Map<String, Object> attributes = new HashMap<String, Object>();
+
+		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
+
+		attributes.put("hotelServiceCategory", hotelServiceCategory);
+		model.addAllAttributes(attributes);
+
+		return "action/parking";
+	}
+	
+	@RequestMapping(value = "/updateParkingStatus", method = RequestMethod.POST)
+	public String updateParkingStatus(
+			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
+		actionService.updateParkingStatus(hotelServicesCategory);
+		return "redirect:/action/showParkingAction";
 	}
 
 }
