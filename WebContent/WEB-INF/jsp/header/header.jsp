@@ -77,7 +77,7 @@
 							class="nav-label">Services</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
 							<li><a href="${pageContext.request.contextPath}/action">All Services</a></li>
-					        <li><a href="${pageContext.request.contextPath}/action?actionCode=CHECKOUT">Check-Out</a></li>
+					        <li><a href="${pageContext.request.contextPath}/action/showCheckoutAction">Check-Out</a></li>
 				            <li><a href="${pageContext.request.contextPath}/action?actionCode=PARKING">Parking</a></li>
 				             <li><a href="${pageContext.request.contextPath}/action?actionCode=HOUSEKEEPING">House Keeping</a></li>
 							<li><a href="${pageContext.request.contextPath}/action?actionCode=LAUNDRY">Laundry</a></li>

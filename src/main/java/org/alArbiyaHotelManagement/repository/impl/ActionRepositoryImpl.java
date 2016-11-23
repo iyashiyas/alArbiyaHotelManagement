@@ -8,13 +8,12 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.alArbiyaHotelManagement.dto.CoffeeShop;
+ 
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
-import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -70,6 +69,11 @@ public class ActionRepositoryImpl implements ActionRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='6' order by id", HotelServicesItem.class);
 		return query.getResultList();
+	}
+	@Override
+	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
+		// TODO Auto-generated method stub
+		entityManager.merge(hotelServicesCategory);
 	}
 	
 }

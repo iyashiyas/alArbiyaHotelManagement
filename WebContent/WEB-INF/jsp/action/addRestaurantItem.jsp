@@ -11,8 +11,7 @@
 <title>SHMS-addRestaurant</title>
 
 </head>
-<body>
-
+<body> 
 	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems"
 		modelAttribute="restaurant" method="post">
 		<p>Add Restaurant items Here</p>

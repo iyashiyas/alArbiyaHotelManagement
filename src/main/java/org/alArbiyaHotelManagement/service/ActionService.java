@@ -5,6 +5,7 @@ import java.util.List;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
   
 public interface ActionService {
@@ -13,5 +14,6 @@ public interface ActionService {
 	public List<HotelServicesItem> getAllCoffeShopItems();
 	public void addRestaurantItems(Restaurant restaurant);
 	public List<HotelServicesItem> getAllRestaurantItems();
+	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
 
 }

@@ -45,4 +45,14 @@ public class ActionServiceImpl implements ActionService {
 		// TODO Auto-generated method stub
 		return actionRepository.getAllRestaurantItems();
 	}
+	@Override
+	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
+		// TODO Auto-generated method stub
+		
+		if(hotelServicesCategory.getCategoryStatus()==null) {
+			hotelServicesCategory.setCategoryStatus("DISABLED");
+		} 
+		actionRepository.updateCheckOutStatus(hotelServicesCategory);
+		
+	}
 }
