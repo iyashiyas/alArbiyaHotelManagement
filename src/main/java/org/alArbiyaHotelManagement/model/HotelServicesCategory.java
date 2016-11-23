@@ -27,7 +27,7 @@ public class HotelServicesCategory {
 	
 	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
-
+ 
 	public long getHotelServicesCategoryId() {
 		return hotelServicesCategoryId;
 	}

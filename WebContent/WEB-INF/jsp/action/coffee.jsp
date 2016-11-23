@@ -49,8 +49,7 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-
-
+ 
 								<table
 									class="table table-striped table-bordered table-hover dataTables-example">
 
@@ -67,7 +66,7 @@
 									<tbody>
 									<c:forEach items="${getAllcoffeeShops}" var="coffeeShop">
 										<tr class=" ">
-											<td>${coffeeShop.id}</td>
+											<td></td>
 											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
 											<td>${coffeeShop.serviceItemDescription}</td>
 											<td><i class="fa fa-pencil"><a>Edit</a></i></td>
@@ -79,8 +78,7 @@
 							</div>
 						</div>
 					</div>
-
-
+ 
 				</div>
 			</div>
 		</div>

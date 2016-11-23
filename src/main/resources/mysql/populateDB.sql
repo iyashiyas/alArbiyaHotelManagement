@@ -257,9 +257,14 @@ INSERT INTO `language` (`LANGUAGE_ID`, `LANGUAGE_STATUS`, `LANGUAGE_NAME`, `coun
 
 --Service category
 INSERT INTO hotel_services_category VALUES('1', 'ENABLED', 'COFFEESHOP');
-INSERT INTO hotel_services_category VALUES('2', 'ENABLED', 'LAUNDRY');
-INSERT INTO hotel_services_category VALUES('3', 'ENABLED', 'RESTAURANT');
-INSERT INTO hotel_services_category VALUES('4', 'ENABLED', 'CARRENTAL');
+INSERT INTO hotel_services_category VALUES('2', 'ENABLED', 'CHECKOUT');
+INSERT INTO hotel_services_category VALUES('3', 'ENABLED', 'PARKING');
+INSERT INTO hotel_services_category VALUES('4', 'ENABLED', 'HOUSEKEEPING');
+INSERT INTO hotel_services_category VALUES('5', 'ENABLED', 'LAUNDRY');
+INSERT INTO hotel_services_category VALUES('6', 'ENABLED', 'RESTAURANT');
+INSERT INTO hotel_services_category VALUES('7', 'ENABLED', 'CARRENTAL');
+INSERT INTO hotel_services_category VALUES('8', 'ENABLED', 'RECEPTION');
+INSERT INTO hotel_services_category VALUES('9', 'ENABLED', 'ENTERTINMENT');
 
 
 --Hotel Information

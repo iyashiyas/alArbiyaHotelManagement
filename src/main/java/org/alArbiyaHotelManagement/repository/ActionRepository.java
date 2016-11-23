@@ -3,6 +3,8 @@ package org.alArbiyaHotelManagement.repository;
 import java.util.List;
 
  
+
+import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;

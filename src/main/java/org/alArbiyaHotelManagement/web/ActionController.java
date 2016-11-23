@@ -99,13 +99,21 @@ public class ActionController {
 		attributes.put("ingredientHelper", ingredients);
 		model.addAllAttributes(attributes);
 		return "action/coffee";
-	}
-
-
+	} 
+	
+	
 	@RequestMapping(value = "/addCoffeShop", method = RequestMethod.POST)
 	public String addCoffeShop(@ModelAttribute CoffeeShop coffeeShop) {
 		actionService.addCoffeeShop(coffeeShop);
 		return "redirect:/action/showCoffeeShop";
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
+	public String showRestaurant(Model model) { 
+		return "action/restaurant";
 	}
 	
  

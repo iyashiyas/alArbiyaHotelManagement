@@ -82,7 +82,7 @@
 				             <li><a href="${pageContext.request.contextPath}/action?actionCode=HOUSEKEEPING">House Keeping</a></li>
 							<li><a href="${pageContext.request.contextPath}/action?actionCode=LAUNDRY">Laundry</a></li>
 						    <li><a href="${pageContext.request.contextPath}/action/showCoffeeShop">Coffee Shop</a></li>
-						    <li><a href="${pageContext.request.contextPath}/action?actionCode=RESTAURANT">Restaurant</a></li>
+						    <li><a href="${pageContext.request.contextPath}/action/showRestaurant">Restaurant</a></li>
 							 <li><a href="${pageContext.request.contextPath}/action?actionCode=CARRENTAL">Car Rental</a></li>
 					         <li><a href="${pageContext.request.contextPath}/action?actionCode=RECEPTION">Reception</a></li>
 						     <li><a href="${pageContext.request.contextPath}/action?actionCode=ENTERTAINMENT">Entertainment</a></li>
