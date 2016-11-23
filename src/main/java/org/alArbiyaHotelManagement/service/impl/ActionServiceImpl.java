@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
+import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
@@ -31,5 +32,17 @@ public class ActionServiceImpl implements ActionService {
 	public List<HotelServicesItem> getAllCoffeShopItems() {
 		// TODO Auto-generated method stub
 		return actionRepository.getAllCoffeShopItems();
+	}
+	@Override
+	public void addRestaurantItems(Restaurant restaurant) {
+		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(restaurant.getHotelServiceCategoryId()));
+		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceRestaurant(restaurant, hotelServicesCategory);
+		actionRepository.hotelService(hotelServices);
+		
+	}
+	@Override
+	public List<HotelServicesItem> getAllRestaurantItems() {
+		// TODO Auto-generated method stub
+		return actionRepository.getAllRestaurantItems();
 	}
 }

@@ -54,7 +54,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 	}
 	@Override
 	public List<HotelServicesItem> getAllCoffeShopItems() {
-		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item order by id", HotelServicesItem.class);
+		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='1' order by id", HotelServicesItem.class);
 		return query.getResultList();
 	}
 	
@@ -63,6 +63,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 		TypedQuery<HotelServicesCategory> query = this.entityManager.createQuery("SELECT cate from HotelServicesCategory cate WHERE cate.hotelServicesCategoryId=:hotelServicesCategoryId", HotelServicesCategory.class);
 		HotelServicesCategory hotelServicesCategory = query.setParameter("hotelServicesCategoryId", hotelServicesCategoryId).getSingleResult();
 		return hotelServicesCategory;
+	}
+	
+	@Override
+	public List<HotelServicesItem> getAllRestaurantItems() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='6' order by id", HotelServicesItem.class);
+		return query.getResultList();
 	}
 	
 }

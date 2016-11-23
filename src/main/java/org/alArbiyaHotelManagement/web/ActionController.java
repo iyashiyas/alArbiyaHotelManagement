@@ -8,6 +8,7 @@ import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
+import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
@@ -113,9 +114,60 @@ public class ActionController {
 	
 	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
 	public String showRestaurant(Model model) { 
+		
+		
+		List<Language> languages = languageService.getEnableLanguages();
+		List<Ingredient> ingredients = ingredientService.getAllIngredients();
+		List<Unit> units = unitService.getAllUnits();
+		List<HotelServicesItem> getAllRestaurantItems =actionService.getAllRestaurantItems();
+		
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		
+		Restaurant restaurant = new Restaurant();
+		
+		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null;
+		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper =null;
+		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
+		
+		
+		for (Language language : languages) {
+			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
+			coffeeeShopLanguageHelper.setLanguageId(language.getId());
+			coffeeeShopLanguageHelper.setLangageName(language.getLanguageName());
+			restaurant.getLanguageHelper().add(coffeeeShopLanguageHelper);
+		}
+		
+		
+		for (Ingredient ingredient : ingredients) {
+			coffeeeShopIngredientHelper = new CoffeeeShopIngredientHelper();
+			coffeeeShopIngredientHelper.setIngredientId(ingredient.getId());
+			coffeeeShopIngredientHelper.setIngredientName(ingredient.getIngredientName());
+			restaurant.getIngredientHelper().add(coffeeeShopIngredientHelper);
+		}
+		for (Unit unit : units) {
+			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
+			coffeeeShopUnitHelper.setUnitId(unit.getId());
+			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
+			restaurant.getUnitHelper().add(coffeeeShopUnitHelper);
+		}
+		
+		attributes.put("restaurant", restaurant);
+		attributes.put("ingredientHelper", ingredients);
+		attributes.put("unitHelper", units);
+		attributes.put("languageHelper", languages);
+		attributes.put("getAllRestaurantItems", getAllRestaurantItems);
+		
+		
+		model.addAllAttributes(attributes);
 		return "action/restaurant";
 	}
 	
+	
+	@RequestMapping(value = "/addRestaurantItems", method = RequestMethod.POST)
+	public String addRestaurantItems(@ModelAttribute Restaurant restaurant) {
+		actionService.addRestaurantItems(restaurant);
+		return "redirect:/action/showRestaurant";
+	}
  
 
 }
