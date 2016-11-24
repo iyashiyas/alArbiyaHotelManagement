@@ -32,7 +32,7 @@
 			<label class="col-sm-2 control-label">Item Name</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" path="carRentalItemName" placeholder="Item Name"
+				<form:input type="text" required="required" path="carRentalItemName" placeholder="Item Name"
 					name="carRentalItemName" class="form-control" />
 			</div>
 		</div>
@@ -68,7 +68,7 @@
 			<label class="col-sm-2 control-label">Price Per Day</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" path="carRentalPrice" placeholder="Price"
+				<form:input type="number" required="required" path="carRentalPrice" placeholder="Price"
 					name="carRentalPrice" class="form-control" />
 			</div>
 		</div>

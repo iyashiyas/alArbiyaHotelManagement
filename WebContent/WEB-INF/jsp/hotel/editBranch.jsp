@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css"/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/phoneCode/intlTelInput.css"/>">
+	
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
 <title>Edit Branch</title>
@@ -20,14 +25,14 @@
 
 			<div class="col-sm-10">
 				<form:input type="text" path="branchName" id="branchName"
-					placeholder="Branch Name" name="branchName" class="form-control" />
+					placeholder="Branch Name"  required="required" name="branchName" class="form-control" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Branch Code</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="Branch Code" id="branchCode"
+				<form:input type="text"  required="required" placeholder="Branch Code" id="branchCode"
 					name="branchCode" class="form-control" path="branchCode" />
 			</div>
 		</div>
@@ -36,7 +41,7 @@
 			<label class="col-sm-2 control-label">Phone Number</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" path="branchPhoneNumber"
+				<form:input type="number"  required="required" path="branchPhoneNumber"
 					placeholder="PhoneNumber" id="branchPhoneNumber" name="phoneNumber"
 					class="form-control" />
 			</div>
@@ -45,8 +50,8 @@
 			<label class="col-sm-2 control-label">Email</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="Email" name="email"
-					class="form-control" id="branchEmail" path="branchEmail" />
+				<form:input type="email" placeholder="Email" name="email"
+					class="form-control"  required="required" id="branchEmail" path="branchEmail" />
 			</div>
 		</div>
 
@@ -85,6 +90,12 @@
 		<button type="submit" class="btn btn-success success">Update</button>
 	</div>
 
-
+<script type="text/javascript"
+		src="<c:url value="/resources/js/plugins/phoneCode/intlTelInput.min.js"/>">
+		
+	</script>
+	<script type="text/javascript">
+		$("#branchPhoneNumber").intlTelInput();
+	</script>
 </body>
 </html>

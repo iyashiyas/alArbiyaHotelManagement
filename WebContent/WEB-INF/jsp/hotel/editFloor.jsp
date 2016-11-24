@@ -21,7 +21,7 @@
 					class="col-sm-2 control-label">Floor Name</label>
 				<div class="col-sm-10">
 					<form:input type="text" placeholder="Floor Name" name="floorName"
-						class="form-control" id="floorName" path="floorName" />
+						class="form-control" required="required" id="floorName" path="floorName" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -29,14 +29,14 @@
 
 				<div class="col-sm-10">
 					<form:input type="text" id="floorCode" placeholder="Floor Code"
-						name="floorCode" class="form-control" path="floorCode" />
+						name="floorCode" required="required" class="form-control" path="floorCode" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Building Code</label>
 				<div class="col-sm-10">
-					<input type="text" id="floorBuildingName" disabled="disabled"
+					<input type="text"   id="floorBuildingName" disabled="disabled"
 						class="form-control"> <input type="hidden"
 						id="floorBuildingId" name="building.id" value="">
 				</div>
@@ -46,7 +46,7 @@
 				<label class="col-sm-2 control-label"> Total Rooms</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="Total Room"
+					<form:input type="number" required="required" placeholder="Total Room"
 						name="floorTotalRoom" id="floorTotalRoom" class="form-control"
 						path="floorTotalRoom" />
 				</div>

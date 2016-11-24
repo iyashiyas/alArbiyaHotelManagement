@@ -36,7 +36,7 @@
 												<label class="col-sm-2 control-label">Unit Name</label>
 
 												<div class="col-sm-10">
-													<form:input type="text" path="unitName" id="unitName"
+													<form:input type="text" required="required" path="unitName" id="unitName"
 														class="form-control" />
 												</div>
 											</div>

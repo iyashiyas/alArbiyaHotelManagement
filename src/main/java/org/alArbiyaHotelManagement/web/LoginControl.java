@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  
 
 @Controller
-@RequestMapping(value = "/SHMS")
 public class LoginControl {
 
 	@RequestMapping(value = "/login")

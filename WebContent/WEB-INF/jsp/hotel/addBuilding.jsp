@@ -19,7 +19,7 @@
 
 				<div class="col-sm-10">
 					<form:input type="text" placeholder="Building Name"
-						name="buildingName" class="form-control" path="buildingName" />
+						name="buildingName"  required="required" class="form-control" path="buildingName" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -27,13 +27,13 @@
 
 				<div class="col-sm-10">
 					<form:input type="text" placeholder="Building Code"
-						name="buildingCode" class="form-control" path="buildingCode" />
+						name="buildingCode"  required="required" class="form-control" path="buildingCode" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Branch Code</label>
+				<label class="col-sm-2 control-label" >Select Branch Code</label>
 				<div class="col-sm-10">
-				 <form:select class="form-control m-b" path="branch.id" name="branch.id">
+				 <form:select class="form-control m-b"  required="required" path="branch.id" name="branch.id">
 							  <form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
 				 </form:select> 				
 				 </div>			
@@ -43,7 +43,7 @@
 				<label class="col-sm-2 control-label">Phone Number</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="PhoneNumber"
+					<form:input type="number"  required="required" placeholder="PhoneNumber"
 						name="buildingPhoneNumber" class="form-control" path="buildingPhoneNumber" />
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 				<label class="col-sm-2 control-label">Email</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="Email" name="buildingEmail"
+					<form:input type="email" placeholder="Email" name="buildingEmail"
 						class="form-control" path="buildingEmail" />
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 				<label class="col-sm-2 control-label"> Floor</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="Total Floor" name="buildingTotalFloor"
+					<form:input type="number"  required="required" placeholder="Total Floor" name="buildingTotalFloor"
 						class="form-control" path="buildingTotalFloor" />
 				</div>
 			</div>

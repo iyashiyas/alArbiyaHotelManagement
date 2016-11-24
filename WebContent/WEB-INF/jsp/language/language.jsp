@@ -27,7 +27,7 @@
 			<h2>Languages</h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
+					href="${pageContext.request.contextPath}/SHMS">Home</a></li>
 				<li class="active"><strong>Language</strong></li>
 			</ol>
 		</div>

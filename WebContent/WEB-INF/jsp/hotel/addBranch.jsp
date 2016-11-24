@@ -1,12 +1,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type"
-	content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css"/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/phoneCode/intlTelInput.css"/>">
+	
+<title>SHMS-Add Branch</title>
 </head>
 <body>
 	<div class="ibox-content">
@@ -18,7 +22,7 @@
 				<label class="col-sm-2 control-label">Branch Name</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" path="branchName" placeholder="Branch Name"
+					<form:input type="text" required="required" path="branchName" placeholder="Branch Name"
 						name="branchName" class="form-control" />
 				</div>
 			</div>
@@ -26,7 +30,7 @@
 				<label class="col-sm-2 control-label">Branch Code</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="Branch Code" name="branchCode"
+					<form:input type="text" placeholder="Branch Code" required="required" name="branchCode"
 						class="form-control" path="branchCode" />
 				</div>
 			</div>
@@ -35,16 +39,18 @@
 				<label class="col-sm-2 control-label">Phone Number</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" path="branchPhoneNumber"
-						placeholder="PhoneNumber" name="phoneNumber" class="form-control" />
+					<form:input type="number"  id="mobile-number" path="branchPhoneNumber"
+						placeholder="PhoneNumber"  required="required" name="phoneNumber" class="form-control" />
 				</div>
 			</div>
+		 
+			 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Email</label>
 
 				<div class="col-sm-10">
-					<form:input type="text" placeholder="Email" name="email"
-						class="form-control" path="branchEmail" />
+					<form:input type="email" placeholder="Email" name="email"
+						class="form-control"  path="branchEmail" />
 				</div>
 			</div>
 
@@ -83,5 +89,12 @@
 
 		</form:form>
 	</div>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/plugins/phoneCode/intlTelInput.min.js"/>">
+		
+	</script>
+	<script type="text/javascript">
+		$("#mobile-number").intlTelInput();
+	</script>
 </body>
 </html>

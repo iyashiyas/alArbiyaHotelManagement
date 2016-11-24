@@ -46,7 +46,7 @@
 										<label class="col-sm-2 control-label">Unit Name</label>
 
 										<div class="col-sm-10">
-											<form:input type="text" placeholder="unit Name By English"
+											<form:input type="text" required="required" placeholder="unit Name By English"
 												name="unitName" path="unitName" class="form-control"
 												value="" />
 										</div>
@@ -84,7 +84,7 @@
 										<label class="col-sm-2 control-label"> Measurement </label>
 
 										<div class="col-sm-10">
-											<form:input type="text" placeholder="Measurement"
+											<form:input type="text" required="required" placeholder="Measurement"
 												name="measurementUnit" path="measurementUnit"
 												class="form-control" />
 										</div>

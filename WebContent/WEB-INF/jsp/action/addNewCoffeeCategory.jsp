@@ -43,7 +43,7 @@
 				<label class="col-sm-4 control-label"> Name</label>
 
 				<div class="col-sm-6">
-					<input type="text" placeholder="Name" name="Name"
+					<input type="text" required="required" placeholder="Name" name="Name"
 						class="form-control">
 				</div>
 			</div>

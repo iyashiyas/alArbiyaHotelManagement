@@ -22,7 +22,7 @@
 						<label class="col-sm-2 control-label">Room Type </label>
 
 						<div class="col-sm-10">
-					   <form:select class="form-control" path="roomType" name="roomType">
+					   <form:select class="form-control"  required="required" path="roomType" name="roomType">
 															<form:option value="Single">Single</form:option>
 															<form:option value="Double">Double</form:option>
 															<form:option value="Suite">Suite</form:option>
@@ -34,7 +34,7 @@
 						<label class="col-sm-2 control-label">Type Code</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Type Code" name="typeCode"
+							<form:input type="text"  required="required" placeholder="Type Code" name="typeCode"
 								class="form-control" path="roomTypeCode" />
 						</div>
 					</div>

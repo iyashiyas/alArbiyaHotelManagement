@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Password" required="required">
                 </div>
-                <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/">Login</a>
+                <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/SHMS">Login</a>
 
                 <a href="#"><small>Forgot password?</small></a>
               

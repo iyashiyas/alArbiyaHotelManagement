@@ -18,7 +18,7 @@
 						<label class="col-sm-2 control-label">Room Name</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" id="roomName" placeholder="Room Name" name="roomName"
+							<form:input type="text" required="required" id="roomName" placeholder="Room Name" name="roomName"
 								class="form-control" path="roomName" />
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 						<label class="col-sm-2 control-label">Room Code</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" id="roomCode" placeholder="Room Code" name="roomCode"
+							<form:input type="text" required="required" id="roomCode" placeholder="Room Code" name="roomCode"
 								class="form-control" path="roomCode" />
 						</div>
 					</div>
@@ -38,7 +38,7 @@
 						<label class="col-sm-2 control-label">Coast Per Day</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" id="roomPrice" placeholder="Sr" name="roomPrice"
+							<form:input type="email" required="required" id="roomPrice" placeholder="Sr" name="roomPrice"
 								class="form-control" path="roomPrice" />
 						</div>
 					</div>
@@ -48,7 +48,7 @@
 
 						<div class="col-sm-10">
 							<input type="text" id="roomFloorCode"  placeholder="Sr"  
-								class="form-control" disabled="disabled" >
+								class="form-control"   disabled="disabled" >
 								
 								<input type="hidden" id="roomFloorId" name="floor.id" value="" >
 						</div>

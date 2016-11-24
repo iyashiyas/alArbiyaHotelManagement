@@ -9,6 +9,11 @@
 <link
 	href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />"
 	rel="stylesheet">
+
+<link
+	href="<c:url value="/resources/css/dateTimePicker/datepicker3.css" />"
+	rel="stylesheet">
+
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css"/>">
 
@@ -41,18 +46,19 @@
 										href="#Checked-Rooms"><i class="fa fa-th-list">
 											Checked Rooms</i> </a> <a class="btn btn-primary" data-toggle="modal"
 										href="#membersList"><i class="fa fa-globe"> Members</i> </a> -->
-									  
-                        <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">
-                                            <i class="fa fa-th-list">  Check In</i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-user">
-                                            <jsp:include page="../reservation/checkIn.jsp"></jsp:include>
-                                        </ul>
-                       
+
+									<a class="dropdown-toggle btn btn-primary"
+										data-toggle="dropdown" href="#"> <i class="fa fa-th-list">
+											Check In</i>
+									</a>
+									<ul class="dropdown-menu dropdown-user">
+										<jsp:include page="../reservation/checkIn.jsp"></jsp:include>
+									</ul>
+
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
-								
-									
+
+
 
 								</div>
 							</div>
@@ -67,7 +73,23 @@
 													<h3 class="panel-title">Check In</h3>
 												</div>
 												<div class="panel-body">
-													<div class="col-sm-3 form-group">
+													<div class="col-lg-6 form-group">
+
+
+														<div id="data_5">
+															<label class="font-noraml">Choose Booking Date</label>
+															<div class="input-daterange input-group" id="datepicker">
+																<input type="text" class="form-control" name="startDate" />
+																<span class="input-group-addon">to</span> <input
+																	type="text" class="input form-control" name="endDate" />
+															</div>
+														</div>
+													</div>
+
+
+
+
+													<!-- 		
 														<label>Check-In</label>
 														<div class='input-group date' id='datetimepicker1'>
 															<input type='text' class="form-control "
@@ -77,7 +99,7 @@
 														</div>
 													</div>
 													<div class="col-sm-1 form-group"></div>
-
+  
 													<div class="col-sm-4 form-group">
 														<label>Check-Out</label>
 														<div class='input-group date' id='datetimepicker2'>
@@ -86,9 +108,11 @@
 																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
-													</div>
-													<div class="col-sm-1 form-group"></div>
-													<div class="col-sm-3 form-group">
+													</div> -->
+
+
+													<div class="col-lg-1 form-group"></div>
+													<div class="col-lg-3 form-group">
 														<label>Room Type</label> <select class="form-control"
 															name="roomType">
 															<option value="Single">Single</option>
@@ -123,9 +147,9 @@
 													</div> -->
 
 
-
-													<div class="col-md-12 center-block">
-
+													<div class="col-lg-1 form-group"></div>
+													<div class="col-lg-2 form-group">
+														<label>Search</label>
 														<button id="singlebutton" type="submit"
 															name="singlebutton" class="btn btn-primary center-block">
 															Search Available Rooms</button>
@@ -143,12 +167,11 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<jsp:include page="../reservation/availableRooms.jsp"></jsp:include>
-			
+
 		</div>
 	</div>
-
 
 
 	<%-- 
@@ -193,6 +216,9 @@
 		src="<c:url value="/resources/js/plugins/dateTimePicker/callDateTimepicker.js"/>"></script>
 
 	<script type="text/javascript"
+		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datepicker.js"/>"></script>
+
+	<script type="text/javascript"
 		src="<c:url value="/resources/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"/>"></script>
 
 	<script type="text/javascript">
@@ -205,8 +231,22 @@
 
 		});
 
-		$('.datepicker').datepicker();
+		$('.datepicker').datepicker(
+
+		);
 	</script>
+
+	<script type="text/javascript">
+		$('#data_5 .input-daterange').datepicker({
+			todayBtn : "linked",
+			keyboardNavigation : false,
+			calendarWeeks : true,
+			forceParse : false,
+			autoclose : true
+		});
+	</script>
+
+
 
 </body>
 </html>

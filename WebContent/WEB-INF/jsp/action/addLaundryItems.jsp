@@ -31,8 +31,8 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Item Name</label>
 
-			<div class="col-sm-10">
-				<form:input type="text" path="laundryItemName" placeholder="Item Name"
+			<div class="col-sm-10"> 
+				<form:input type="text" required="required" path="laundryItemName" placeholder="Item Name"
 					name="laundryItemName" class="form-control" />
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 			<label class="col-sm-2 control-label">Price  </label>
 
 			<div class="col-sm-10">
-				<form:input type="text" path="laundryItemPrice" placeholder="Price"
+				<form:input type="number" required="required" path="laundryItemPrice" placeholder="Price"
 					name="laundryItemPrice" class="form-control" />
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 						<label class="col-sm-2 control-label"> Normal Time To FInish</label>
 
 						<div class="col-sm-10">
-							 <form:input class="touchspin1" path="laundryItemTimeFinish" type="text" value="" name="laundryItemTimeFinish" />
+							 <form:input class="touchspin1" required="required" path="laundryItemTimeFinish" type="number" value="" name="laundryItemTimeFinish" />
 
 						</div>
 					</div>

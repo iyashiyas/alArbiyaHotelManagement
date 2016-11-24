@@ -35,7 +35,7 @@
 							<ul class="dropdown-menu animated fadeInRight m-t-xs">
 								<li><a href="${pageContext.request.contextPath}/info/showInfo">Profile</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/SHMS/login">Lock</a></li>
+								<li><a href="${pageContext.request.contextPath}/login">Lock</a></li>
 							</ul>
 						</div>
 						<div class="logo-element">SHMS</div>
@@ -44,7 +44,7 @@
 					<!-- ENd Profile Menu  -->
  
                       <!--Main Tab Menus Left Side -->
-					<li><a href="${pageContext.request.contextPath}/"><i class="fa fa-th-large"></i> <span
+					<li><a href="${pageContext.request.contextPath}/SHMS"><i class="fa fa-th-large"></i> <span
 							class="nav-label">Home</span> </a></li>
 					<li><a href="${pageContext.request.contextPath}/language"><i class="fa fa-diamond"></i> <span
 							class="nav-label">Languages</span></a></li>
@@ -123,7 +123,7 @@
 				 
 					<li><span class="m-r-sm   welcome-message">Welcome
 							Admin</span></li>
-					 	<li><a href="${pageContext.request.contextPath}/SHMS/login"> <i class="fa fa-sign-out"></i>
+					 	<li><a href="${pageContext.request.contextPath}/login"> <i class="fa fa-sign-out"></i>
 							Log out
 					</a></li>
 				</ul>

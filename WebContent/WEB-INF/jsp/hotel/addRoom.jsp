@@ -23,7 +23,7 @@
 						<label class="col-sm-2 control-label">Room Name</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Room Name" name="floorName"
+							<form:input type="text"  required="required" placeholder="Room Name" name="floorName"
 								class="form-control" path="roomName" />
 						</div>
 					</div>
@@ -31,14 +31,14 @@
 						<label class="col-sm-2 control-label">Room Number/Code</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Room Code or Number" name="roomCode"
+							<form:input type="text"  required="required" placeholder="Room Code or Number" name="roomCode"
 								class="form-control" path="roomCode" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Branch Code</label>
                           <div class="col-sm-10">
-						 <form:select class="form-control m-b branchDetail" path="" name="branch.id">
+						 <form:select class="form-control m-b branchDetail"  required="required" path="" name="branch.id">
 						 	<form:option value="0">Select branch</form:option>
 							<form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
 						 </form:select> 
@@ -47,15 +47,15 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Buildings Code </label>
                           <div class="col-sm-10">
-								<form:select class="form-control m-b buildingId" name="building.id" path="">
+								<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="">
 								
 							 </form:select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Floor Code </label>
+						<label class="col-sm-2 control-label" >Select Floor Code </label>
                           <div class="col-sm-10">
-							<form:select class="form-control m-b FloorId" name="floor.id" path="floor.id">
+							<form:select class="form-control m-b FloorId"  required="required" name="floor.id" path="floor.id">
 								
 							 </form:select>
 						</div>
@@ -64,7 +64,7 @@
 						<label class="col-sm-2 control-label">Select Room Type </label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b roomTypeCode" path="roomType.id" name="roomType.id">
-							  <form:options items="${roomType}" itemValue="id" itemLabel="roomType"></form:options>
+							  <form:options items="${roomType}" itemValue="id"  required="required" itemLabel="roomType"></form:options>
 							 </form:select>
 						</div>
 					</div>
@@ -73,8 +73,8 @@
 						<label class="col-sm-2 control-label">Coast Per Day</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Sr" name="roomPrice"
-								class="form-control" path="roomPrice" />
+							<form:input type="number" placeholder="Sr" name="roomPrice"
+								class="form-control" path="roomPrice"  required="required" />
 						</div>
 					</div>
 					 <%-- <div class="form-group">

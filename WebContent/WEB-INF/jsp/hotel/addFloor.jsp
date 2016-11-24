@@ -15,7 +15,7 @@
 						<label class="col-sm-2 control-label">Floor Name</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Floor Name" name="floorName"
+							<form:input type="text"  required="required" placeholder="Floor Name" name="floorName"
 								class="form-control" path="floorName" />
 						</div>
 					</div>
@@ -23,7 +23,7 @@
 						<label class="col-sm-2 control-label">Floor Code</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Floor Code" name="floorCode"
+							<form:input type="text"  required="required" placeholder="Floor Code" name="floorCode"
 								class="form-control" path="floorCode" />
 						</div>
 					</div>
@@ -31,7 +31,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Branch Code</label>
 						<div class="col-sm-10">
-						 <form:select class="form-control m-b branchDetail" path="building.branch.id" name="building.branch.id">
+						 <form:select class="form-control m-b branchDetail"  required="required" path="building.branch.id" name="building.branch.id">
 						 	<form:option value="0">Select branch</form:option>
 							<form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
 						 </form:select> 
@@ -41,7 +41,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Buildings Code</label>
                           <div class="col-sm-10">
-							<form:select class="form-control m-b buildingId" name="building.id" path="building.id">
+							<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="building.id">
 								
 							 </form:select>
 						</div>
@@ -53,7 +53,7 @@
 						<label class="col-sm-2 control-label"> Total Rooms</label>
 
 						<div class="col-sm-10">
-							<form:input type="text" placeholder="Total Room" name="floorTotalRoom"
+							<form:input type="number"  required="required" placeholder="Total Room" name="floorTotalRoom"
 								class="form-control" path="floorTotalRoom" />
 						</div>
 					</div>

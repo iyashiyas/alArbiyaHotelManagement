@@ -33,7 +33,7 @@
 			<label class="col-sm-2 control-label">Item Name</label>
 
 			<div class="col-sm-10">
-				<form:input type="text" path="itemName" placeholder="Item Name"
+				<form:input type="text" required="required" path="itemName" placeholder="Item Name"
 					name="itemName" class="form-control" />
 			</div>
 		</div>
@@ -82,7 +82,7 @@
 										itemLabel="ingredientName"></form:options>
 								</form:select>
  
-								<form:input class="form-control" type="text"
+								<form:input class="form-control" type="number"
 									placeholder="Enter Price"
 									style="width: 40%; margin-left: 10px;"
 									name="ingredientPrice[0]" path="ingredientPrice[0]" />
@@ -107,7 +107,7 @@
 										itemLabel="unitName"></form:options>
 								</form:select>
 								 
-								<form:input class="form-control" type="text"
+								<form:input class="form-control" type="number"
 									placeholder="Enter Price"
 									style="width: 40%; margin-left: 10px;" name="unitPrice[0]"
 									path="unitPrice[0]" />

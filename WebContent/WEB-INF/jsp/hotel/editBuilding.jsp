@@ -16,20 +16,20 @@
 			<input type="hidden" id="id" name="id" value="">
 		  
 			<div class="col-sm-10">
-				<input type="text" placeholder="Branch Name" name="buildingName" id="buildingName" class="form-control">
+				<input type="text" placeholder="Branch Name" required="required" name="buildingName" id="buildingName" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Building Code</label>
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="Building Code" path="buildingCode" name="buildingCode" id="buildingCode" class="form-control" />
+				<form:input type="text" required="required" placeholder="Building Code" path="buildingCode" name="buildingCode" id="buildingCode" class="form-control" />
 			</div>
 		</div>
   
 	 	<div class="form-group">
 			<label class="col-sm-2 control-label">Branch Code</label>
 			<div class="col-sm-10">
-				<input type="text"  disabled="disabled"  id="branchName" class="form-control" />
+				<input type="text"  disabled="disabled" required="required"  id="branchName" class="form-control" />
 				  <input type="hidden" id="branchId" name="branch.id" value="">
 				  
 			</div>
@@ -48,19 +48,19 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Phone Number</label>
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="PhoneNumber" name="buildingPhoneNumber" path="buildingPhoneNumber" id="buildingPhoneNumber" class="form-control" />
+				<form:input type="number" placeholder="PhoneNumber" name="buildingPhoneNumber" path="buildingPhoneNumber" id="buildingPhoneNumber" class="form-control" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="Email" path="buildingEmail" name="buildingEmail" id="buildingEmail" class="form-control" />
+				<form:input type="email" placeholder="Email"  path="buildingEmail" name="buildingEmail" id="buildingEmail" class="form-control" />
 			</div>
 		</div>
 		 <div class="form-group">
 			<label class="col-sm-2 control-label"> Floor</label>
 			<div class="col-sm-10">
-				<form:input type="text" placeholder="Total Floor" path="buildingTotalFloor" name="buildingTotalFloor" id="buildingTotalFloor" class="form-control" />
+				<form:input type="number" required="required" placeholder="Total Floor" path="buildingTotalFloor" name="buildingTotalFloor" id="buildingTotalFloor" class="form-control" />
 			</div>
 		</div>
 		<div class="form-group">

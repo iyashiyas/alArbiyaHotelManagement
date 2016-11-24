@@ -17,7 +17,7 @@ public class HomeController {
 	@Autowired
 	BranchService branchService;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/SHMS")
 	public String showHomePage(Model model) {
 		List<Branch> branches = branchService.getAllBranch();
 		

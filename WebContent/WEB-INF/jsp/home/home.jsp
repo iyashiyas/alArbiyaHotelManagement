@@ -29,7 +29,7 @@
 			<div class="col-lg-9">
 				<h2>Widgets</h2>
 				<ol class="breadcrumb">
-					<li><a href="${pageContext.request.contextPath}/">Home</a></li>
+					<li><a href="${pageContext.request.contextPath}/SHMS">Home</a></li>
 					<li class="active"><strong>Home</strong></li>
 				</ol>
 			</div>

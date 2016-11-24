@@ -31,7 +31,7 @@
 					<label class="col-sm-2 control-label">Ingredient Name</label>
 
 					<div class="col-sm-10">
-	 <form:input type="text" placeholder="Ingredient Name" name="ingredientName" class="form-control" path="ingredientName"/>
+	 <form:input type="text" placeholder="Ingredient Name" required="required" name="ingredientName" class="form-control" path="ingredientName"/>
 					</div>
 				</div>
 
