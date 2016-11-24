@@ -9,6 +9,7 @@ import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.dto.Restaurant;
+import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
@@ -224,6 +225,23 @@ public class ActionController {
 			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
 		actionService.updateHouseKeepingStatus(hotelServicesCategory);
 		return "redirect:/action/showHouseKeepingAction";
+	}
+	
+	
+	@RequestMapping(value = "/showCarRentalAction", method = RequestMethod.GET)
+	public String showCarRentalAction(Model model) {
+		List<Language> languages = languageService.getEnableLanguages();
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("languages", languages);
+		attributes.put("newCarRental", new CarRental());
+		model.addAllAttributes(attributes);
+        return "action/carRental";
+	}
+	
+	@RequestMapping(value="/addCarRentalItem", method=RequestMethod.POST)
+	public String addCarRentalItem(@ModelAttribute CarRental carRental) {
+		actionService.addCarRentalItem(carRental);
+		return "redirect:/action/showCarRentalAction";
 	}
 
 }

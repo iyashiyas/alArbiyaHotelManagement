@@ -9,11 +9,18 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
  
+
+
+
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.CarRental;
+import org.alArbiyaHotelManagement.model.CarRentalLanguage;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
+import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -85,6 +92,23 @@ public class ActionRepositoryImpl implements ActionRepository{
 			HotelServicesCategory hotelServicesCategory) {
 		entityManager.merge(hotelServicesCategory);
 		
+	}
+	@Override
+	public CarRental addCarRentalItem(CarRental carRental) {
+		// TODO Auto-generated method stub
+		  
+		this.entityManager.persist(carRental);
+		for(CarRentalLanguage carRentalLanguage: carRental.getCarRentalLanguages()) {
+			if(!carRentalLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", carRentalLanguage.getLanguage().getId()).getSingleResult();
+				carRentalLanguage.setLanguage(language);
+				carRentalLanguage.setCarRental(carRental);
+				this.entityManager.merge(carRentalLanguage);
+			}
+		} 
+		
+		return carRental;
 	}
 	
 }

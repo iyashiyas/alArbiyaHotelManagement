@@ -5,6 +5,7 @@ import java.util.List;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
@@ -73,5 +74,14 @@ public class ActionServiceImpl implements ActionService {
 		actionRepository.updateHouseKeepingStatus(hotelServicesCategory);
 		
 		
+	}
+	@Override
+	public CarRental addCarRentalItem(CarRental carRental) {
+		// TODO Auto-generated method stub
+		if(carRental.getCarRentalStatus()==null)
+		{
+			carRental.setCarRentalStatus("DISABLED");
+		}
+		return actionRepository.addCarRentalItem(carRental);
 	}
 }

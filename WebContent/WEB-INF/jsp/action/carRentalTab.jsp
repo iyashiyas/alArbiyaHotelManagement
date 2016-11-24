@@ -17,8 +17,8 @@
 			</div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
-                                <li ><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">Bus</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=GN">Car</a></li>
+                                <li ><a href="">Bus</a></li>
+                                <li><a href="">Car</a></li>
                              </ul>
                              <div class="clearfix"></div>
                         </div>
