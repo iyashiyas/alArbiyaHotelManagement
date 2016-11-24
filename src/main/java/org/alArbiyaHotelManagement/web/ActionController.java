@@ -167,6 +167,7 @@ public class ActionController {
 		return "redirect:/action/showRestaurant";
 	}
 
+	
 	@RequestMapping(value = "/showCheckoutAction", method = RequestMethod.GET)
 	public String showCheckoutAction(Model model) {
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -186,6 +187,7 @@ public class ActionController {
 		return "redirect:/action/showCheckoutAction";
 	}
 	 
+	
 	@RequestMapping(value = "/showParkingAction", method = RequestMethod.GET)
 	public String showParkingAction(Model model) {
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -204,6 +206,7 @@ public class ActionController {
 		actionService.updateParkingStatus(hotelServicesCategory);
 		return "redirect:/action/showParkingAction";
 	}
+	
 	
 	
 	@RequestMapping(value = "/showHouseKeepingAction", method = RequestMethod.GET)

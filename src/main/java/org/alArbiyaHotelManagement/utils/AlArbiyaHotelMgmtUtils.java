@@ -123,11 +123,7 @@ public class AlArbiyaHotelMgmtUtils {
 		return hotelServicesItem;
 	}
 
-	
-	
 	 
-	
-	
 	public static HotelServicesItem toHotelServiceRestaurant(Restaurant restaurant, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(restaurant.getItemName());
