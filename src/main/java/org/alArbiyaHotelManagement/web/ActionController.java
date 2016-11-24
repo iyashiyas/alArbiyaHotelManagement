@@ -14,6 +14,7 @@ import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.Laundry;
 import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.service.BranchService;
@@ -244,4 +245,19 @@ public class ActionController {
 		return "redirect:/action/showCarRentalAction";
 	}
 
+	@RequestMapping(value = "/showLaundryAction", method = RequestMethod.GET)
+	public String showLaundryAction(Model model) {
+		List<Language> languages = languageService.getEnableLanguages();
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("languages", languages);
+		attributes.put("newLaundry", new Laundry());
+		model.addAllAttributes(attributes);
+        return "action/laundry";
+	}
+	
+	@RequestMapping(value="/addLaundryItem", method=RequestMethod.POST)
+	public String addLaundryItem(@ModelAttribute Laundry laundry) {
+		actionService.addLaundryItem(laundry);
+		return "redirect:/action/showLaundryAction";
+	}
 }

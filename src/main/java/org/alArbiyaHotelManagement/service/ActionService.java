@@ -8,6 +8,7 @@ import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
+import org.alArbiyaHotelManagement.model.Laundry;
   
 public interface ActionService {
 	public Action addCoffeeShop(CoffeeShop coffeeShop);
@@ -20,5 +21,6 @@ public interface ActionService {
 	public void updateHouseKeepingStatus(
 			HotelServicesCategory hotelServicesCategory);
 	public CarRental addCarRentalItem(CarRental carRental);
+	public Laundry addLaundryItem(Laundry laundry);
 
 }

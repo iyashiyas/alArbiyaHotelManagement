@@ -47,94 +47,8 @@
                </div>
 			</div>
 			<div class="ibox-content">
-				<form class="form-horizontal" action="" method="post">
-					<p>Add Laundry items Here</p>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Categories</label>
-
-						<div class="col-sm-10">
-							<select class="form-control m-b" name="laun_Item_Category">
-								<option>Iron</option>
-								<option>Laundry</option>
-							  </select>
-						</div>
-					</div>
-  
-
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Item Name</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Item Name" name="laun_Item_Name"
-								class="form-control">
-						</div>
-						</div>
-						
-						
-						<div class="form-group">
-					<label class="col-sm-2 control-label">Other Languages</label>
-				     	  <div class="col-sm-10">
-					  <div class="controls"> 
-                
-                    <div class="entry input-group ">	
-                      <select class="form-control m-b" id="language_dropdown"><option>Arabic</option><option>English</option></select> 
-                        <input class="form-control"  type="text" name="other_language_lundry" placeholder="Enter Name" />
-                        <span class="input-group-btn">
-                         <button class="btn btn-primary btn-add" type="button">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                          </span> 
-                             </div>
-                    </div>
-                    </div>
-                    </div>
-						 
-					 	<div class="form-group">
-						<label class="col-sm-2 control-label"> Price</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Price" name="Price"
-								class="form-control">
-						</div>
-					</div>
-						<div class="form-group">
-						<label class="col-sm-2 control-label"> Normal Time To FInish</label>
-
-						<div class="col-sm-10">
-							 <input class="touchspin1" type="text" value="" name="time_finish">
-
-						</div>
-					</div>
-						 
-					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
-
-						<div class="col-sm-10">
-							<input type="text" placeholder="Description" name="Description"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
-
-						<div class="col-sm-10">
-							 <input type="checkbox" id="checkbox1">
-                                    <label for="checkbox1">
-                                        Disable
-                                    </label>
-                                    </div>
-					</div>
-
-					  	<div class="form-group">
-						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Create new
-								Items</button>
-						</div>
-					</div>
-					</form>
-				    
+			 
+			 <jsp:include page="../action/addLaundryItems.jsp"></jsp:include>
 				
 			</div>
 		</div>
@@ -343,10 +257,10 @@
 </div>
 
  <script type="text/javascript" src="<c:url value="/resources/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"/>"></script>
- <script type="text/javascript" src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
+ <script type="text/javascript" src="<c:url value="/resources/js/action/laundry.js"/>"></script>
  <script type="text/javascript">
  
- $("input[name='time_finish']").TouchSpin({
+ $("input[name='laundryItemTimeFinish']").TouchSpin({
      min: 1,
      max: 60,
      step: 1,

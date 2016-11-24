@@ -12,6 +12,8 @@ import javax.transaction.Transactional;
 
 
 
+
+
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.CarRentalLanguage;
@@ -20,6 +22,8 @@ import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.Laundry;
+import org.alArbiyaHotelManagement.model.LaundryLanguage;
 import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
@@ -109,6 +113,21 @@ public class ActionRepositoryImpl implements ActionRepository{
 		} 
 		
 		return carRental;
+	}
+	@Override
+	public Laundry addLaundryItem(Laundry laundry) {
+		// TODO Auto-generated method stub
+		this.entityManager.persist(laundry);
+		for(LaundryLanguage laundryLanguage: laundry.getLaundryLanguages()) {
+			if(!laundryLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", laundryLanguage.getLanguage().getId()).getSingleResult();
+				laundryLanguage.setLanguage(language);
+				laundryLanguage.setLaundry(laundry);
+				this.entityManager.merge(laundryLanguage);
+			}
+		}  
+		return laundry;
 	}
 	
 }

@@ -6,10 +6,12 @@ import java.util.List;
 
  
 
+
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
+import org.alArbiyaHotelManagement.model.Laundry;
 
 public interface ActionRepository {
 	public Action addAction();
@@ -23,4 +25,5 @@ public interface ActionRepository {
 	public void updateHouseKeepingStatus(
 			HotelServicesCategory hotelServicesCategory);
 	public CarRental addCarRentalItem(CarRental carRental);
+	public Laundry addLaundryItem(Laundry laundry);
 }

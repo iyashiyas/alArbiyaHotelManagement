@@ -8,6 +8,7 @@ import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
+import org.alArbiyaHotelManagement.model.Laundry;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -83,5 +84,14 @@ public class ActionServiceImpl implements ActionService {
 			carRental.setCarRentalStatus("DISABLED");
 		}
 		return actionRepository.addCarRentalItem(carRental);
+	}
+	@Override
+	public Laundry addLaundryItem(Laundry laundry) {
+		// TODO Auto-generated method stub
+		if(laundry.getLaundryItemName()==null)
+		{
+			laundry.setLaundryItemName("DISABLED");
+		}
+		return actionRepository.addLaundryItem(laundry);
 	}
 }
