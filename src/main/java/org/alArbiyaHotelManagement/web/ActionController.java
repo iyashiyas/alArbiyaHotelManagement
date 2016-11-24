@@ -198,8 +198,7 @@ public class ActionController {
 
 		attributes.put("hotelServiceCategory", hotelServiceCategory);
 		model.addAllAttributes(attributes);
-
-		return "action/parking";
+        return "action/parking";
 	}
 	
 	@RequestMapping(value = "/updateParkingStatus", method = RequestMethod.POST)

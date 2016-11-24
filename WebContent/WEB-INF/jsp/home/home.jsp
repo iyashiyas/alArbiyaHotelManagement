@@ -35,6 +35,35 @@
 			</div>
 		</div>
 	        <div class="raw  animated fadeInRight">
+	        
+	          <div class="col-lg-4">
+                    <div class="widget lazur-bg p-xl">
+
+                                <h2>
+                                    Hotel Name
+                                </h2>
+                        <ul class="list-unstyled m-t-md">
+                            <li>
+                                <span class="fa fa-envelope m-r-xs"></span>
+                                <label>Email:</label>
+                                hotel@mail.com
+                            </li>
+                            <li>
+                                <span class="fa fa-home m-r-xs"></span>
+                                <label>Address:</label>
+                                Street 200, Avenue 10
+                            </li>
+                            <li>
+                                <span class="fa fa-phone m-r-xs"></span>
+                                <label>Contact:</label>
+                                (+121) 678 3462
+                            </li>
+                        </ul>
+
+                    </div>
+                    </div>
+	        
+	        
 	    <div class="col-lg-7">
                 <div>
                     <table class="table">

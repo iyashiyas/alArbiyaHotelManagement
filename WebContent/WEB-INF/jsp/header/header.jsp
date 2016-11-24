@@ -35,7 +35,7 @@
 							<ul class="dropdown-menu animated fadeInRight m-t-xs">
 								<li><a href="${pageContext.request.contextPath}/info/showInfo">Profile</a></li>
 								<li class="divider"></li>
-								<li><a href="#">Logout</a></li>
+								<li><a href="${pageContext.request.contextPath}/SHMS/login">Lock</a></li>
 							</ul>
 						</div>
 						<div class="logo-element">SHMS</div>
@@ -99,8 +99,7 @@
 
 					<li><a href="${pageContext.request.contextPath}/order"><i class="fa fa-table"></i> <span
 							class="nav-label">Order</span> </a></li>
-
-
+ 
 				</ul>
 			</div>
 		</nav>
@@ -124,7 +123,7 @@
 				 
 					<li><span class="m-r-sm   welcome-message">Welcome
 							Admin</span></li>
-					 	<li><a href="#"> <i class="fa fa-sign-out"></i>
+					 	<li><a href="${pageContext.request.contextPath}/SHMS/login"> <i class="fa fa-sign-out"></i>
 							Log out
 					</a></li>
 				</ul>
