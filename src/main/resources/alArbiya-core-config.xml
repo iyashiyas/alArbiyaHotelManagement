@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
-   
+    
    <context:component-scan base-package="org.alArbiyaHotelManagement.web"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.model"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.service"/>
@@ -51,11 +51,11 @@
     <mvc:interceptors>
         <bean id="localeChangeInterceptor"
             class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-            <property name="paramName" value="language" />
+            <property name="paramName" value="lang" />
         </bean>
     </mvc:interceptors>
     <!-- end internationaliazation  -->
-     
+   
      <!-- Use @Transaction annotations for managing transactions -->
   	<tx:annotation-driven transaction-manager="myTxManager" />
   	<context:annotation-config/>
