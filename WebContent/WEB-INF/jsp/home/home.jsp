@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -18,8 +19,7 @@
 		<jsp:include page="../header/header.jsp"></jsp:include>
 		<div id="page-wrapper" class="gray-bg">
 		
-		<!-- End -->
-	
+		<!-- End --> 
 	
 		<!-- Page Contents -->
 		
@@ -40,6 +40,8 @@
                     <div class="widget lazur-bg p-xl">
 
                                 <h2>
+                                  <a href="#"><small><spring:message code="label.Home" /></small></a>
+             
                                     Hotel Name
                                 </h2>
                         <ul class="list-unstyled m-t-md">
@@ -125,13 +127,17 @@
                                    Total Floor
                             </td>
                             
+                           
                         </tr>
                         </tbody>
                     </table>
                 </div>
+                
+              
                 </div>
                 </div>
                 </div>
+                 
 	     </div>
 	    
  </body>

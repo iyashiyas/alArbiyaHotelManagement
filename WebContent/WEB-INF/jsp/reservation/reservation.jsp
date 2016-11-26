@@ -75,7 +75,7 @@
 												<div class="panel-body">
 													<div class="col-lg-6 form-group">
 
-
+<!-- 
 														<div id="data_5">
 															<label class="font-noraml">Choose Booking Date</label>
 															<div class="input-daterange input-group" id="datepicker">
@@ -85,11 +85,11 @@
 															</div>
 														</div>
 													</div>
+ -->
 
 
 
-
-													<!-- 		
+												 		
 														<label>Check-In</label>
 														<div class='input-group date' id='datetimepicker1'>
 															<input type='text' class="form-control "
@@ -108,7 +108,7 @@
 																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
-													</div> -->
+													</div>  
 
 
 													<div class="col-lg-1 form-group"></div>

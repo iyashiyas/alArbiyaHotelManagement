@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -38,13 +40,14 @@
                 </div>
                 <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/SHMS">Login</a>
 
-                <a href="#"><small>Forgot password?</small></a>
-              
+                <a href="#"><small>Forgot Password ?</small></a>
+              <small><spring:message code="label.Home" />
             </form>
             <p class="m-t"> <small>Al Arabiya Depth For Advanced Project Ltd  &copy; 2016</small> </p>
         </div>
     </div>
-
+ <a href="?lang=en" class="btn btn-sm btn-success">English</a> <a href="?lang=ar" class="btn btn-sm btn-success">Arabic</a>
+   
 
 <script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 			<script
