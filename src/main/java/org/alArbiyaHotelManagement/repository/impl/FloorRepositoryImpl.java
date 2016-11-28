@@ -5,11 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
- 
 
-
-
-import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.repository.FloorRepository;
 import org.springframework.stereotype.Repository;

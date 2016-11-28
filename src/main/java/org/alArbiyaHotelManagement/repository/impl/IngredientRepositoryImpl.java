@@ -13,10 +13,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
- 
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
-import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -85,6 +83,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		return typedQuery.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Ingredient> getAllIngredients() {
 		// TODO Auto-generated method stub

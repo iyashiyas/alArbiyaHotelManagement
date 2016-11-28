@@ -1,9 +1,7 @@
 package org.alArbiyaHotelManagement.service.impl;
 
 import java.util.List;
-import java.util.Set;
 
-import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.RoomRepository;
 import org.alArbiyaHotelManagement.service.RoomService;

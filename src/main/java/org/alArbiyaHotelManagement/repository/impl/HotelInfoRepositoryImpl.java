@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
  
+
 import org.alArbiyaHotelManagement.model.HotelInfo;
 import org.alArbiyaHotelManagement.repository.HotelInfoRepository;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,7 @@ public class HotelInfoRepositoryImpl implements HotelInfoRepository {
 			return info;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<HotelInfo> getHotelInfo() {
 		// TODO Auto-generated method stub

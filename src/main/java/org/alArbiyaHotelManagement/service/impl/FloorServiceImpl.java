@@ -1,12 +1,9 @@
 package org.alArbiyaHotelManagement.service.impl;
 
 import java.util.List;
-import java.util.Set;
 
-import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.repository.FloorRepository;
- 
 import org.alArbiyaHotelManagement.service.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,19 +1,11 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-
-import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Building;
-import org.alArbiyaHotelManagement.model.Floor;
-import org.alArbiyaHotelManagement.model.Language;
-import org.alArbiyaHotelManagement.model.Unit;
-import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.BuildingRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

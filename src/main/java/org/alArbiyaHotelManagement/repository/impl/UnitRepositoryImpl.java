@@ -92,6 +92,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Unit> getAllUnits() {
 		// TODO Auto-generated method stub
