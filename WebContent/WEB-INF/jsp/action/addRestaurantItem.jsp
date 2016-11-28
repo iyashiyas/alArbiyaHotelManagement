@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -14,10 +15,10 @@
 <body> 
 	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems"
 		modelAttribute="restaurant" method="post">
-		<p>Add Restaurant items Here</p>
+		<p><spring:message code="label.AddRestaurantItemsHere" /></p>
 		<input type="hidden" name="hotelServiceCategoryId" value="6" />
 		<div class="form-group">
-					<label class="col-sm-2 control-label">Categories</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.Categories" /></label>
 
 					<div class="col-sm-10">
 						<form:select class="form-control m-b" name="category"
@@ -30,16 +31,16 @@
 				</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Item Name</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.ItemName" /></label>
 
 			<div class="col-sm-10">
-				<form:input type="text" required="required" path="itemName" placeholder="Item Name"
+				<form:input type="text" required="required" path="itemName" placeholder="ItemName"
 					name="itemName" class="form-control" />
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Other Languages</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 			<div class="col-sm-10">
 				<div class="controls-restaurantLanguage">
 
@@ -69,8 +70,7 @@
 		</div>
 						
 						 <div class="form-group">
-					<label class="col-sm-2 control-label">Select Ingredient and
-						Price</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.SelectIngredientAndPrice" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeIngredients">
 							<div class="entry-coffeeIngredients input-group ">
@@ -98,7 +98,7 @@
 				</div>
 					 
 							<div class="form-group">
-					<label class="col-sm-2 control-label">Select Unit And Price</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /> </label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeShopUnits">
 							<div class="entry-coffeeShopUnits input-group ">
@@ -123,7 +123,7 @@
 				</div>  
 						 
 					<div class="form-group">
-			<label class="col-sm-2 control-label"> Description</label>
+			<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="text" path="description" placeholder="Description"
@@ -132,7 +132,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label"> Image</label>
+			<label class="col-sm-2 control-label"> <spring:message code="label.Image" /></label>
 
 			<div class="col-sm-10">
 				<input type="file" placeholder="Image" name="image"
@@ -141,18 +141,17 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Status </label>
+			<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 			<div class="col-sm-10">
 				<form:checkbox id="checkbox1" value="ENABLE"  name="status" path="status" />
-				<label for="checkbox1"> ENABLE </label>
+				<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
 			</div>
 		</div>
 
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-8">
-				<button class="btn btn-primary" type="submit">Create new
-					Items</button>
+				<button class="btn btn-primary" type="submit"><spring:message code="label.CreateNewItem" /></button>
 			</div>
 		</div>
 

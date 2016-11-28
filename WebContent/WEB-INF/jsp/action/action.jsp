@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -24,11 +25,11 @@
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Services</h2>
+			<h2><spring:message code="label.Service" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
-				<li class="active"><strong>Services</strong></li>
+					href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+				<li class="active"><strong><spring:message code="label.Services" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -37,7 +38,8 @@
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5>Services Table Will Help you To View The All Services For Screens
+						<spring:message code="label.ServicesTableWillHelpyouToViewTheAllServicesForScreens" /><h5>
+						
 							 </h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -52,11 +54,11 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th>Service ID</th>
-										<th>Service Name</th>
-										<th>Description</th>
-										<th>Status</th>
-									    <th>View All Language</th>
+										<th><spring:message code="label.serviceID" /></th>
+										<th><spring:message code="label.serviceName" /></th>
+										<th><spring:message code="label.Description" /></th>
+										<th><spring:message code="label.Status" /></th>
+									   
 									</tr>
 								</thead>
 								<tbody>
@@ -67,8 +69,7 @@
 											<td class="center">Service 1</td>
 											<td class="center">Service Description View Here</td>
 											<td class="center">Active</td>
-											<td class="center"><a href="#" data-toggle="modal" data-target="#View_AllLanguages">View All</a></td>	 	      
-                                           </tr>
+										     </tr>
 									  
 									<!-- Demo -->
 									<!--End Action -->

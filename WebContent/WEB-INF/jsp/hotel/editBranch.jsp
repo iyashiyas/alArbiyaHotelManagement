@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -16,12 +17,12 @@
 <body>
 
 
-	<div class="modal-header">Edit Branch Details</div>
+	<div class="modal-header"><spring:message code="label.EditBranchDetails" /></div>
 	<div class="modal-body">
 
 		<input type="hidden" id="id" name="id" value="" />
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Branch Name</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.BranchName" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="text" path="branchName" id="branchName"
@@ -29,7 +30,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Branch Code</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.BranchCode" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="text"  required="required" placeholder="Branch Code" id="branchCode"
@@ -38,7 +39,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Phone Number</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.PhoneNumber" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="number"  required="required" path="branchPhoneNumber"
@@ -47,7 +48,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Email</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.Email" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="email" placeholder="Email" name="email"
@@ -56,7 +57,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Address</label>
+			<label class="col-sm-2 control-label"><spring:message code="label.Email" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="text" id="branchAddress" path="branchAddress"
@@ -65,7 +66,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label"> Description</label>
+			<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 			<div class="col-sm-10">
 				<form:input type="text" path="branchDescription"
@@ -74,20 +75,20 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Status </label>
+			<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 			<div class="col-sm-10">
 				<form:checkbox id="branchStatus" path="branchStatus" value="ENABLE"
 					checked="checked" />
-				<label for="checkbox1"> Enable </label>
+				<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
 			</div>
 		</div>
 	</div>
 
 	<div class="modal-footer">
 		<button type="button" data-reload="yes" data-dismiss="modal"
-			class="btn btn-default">Cancel</button>
-		<button type="submit" class="btn btn-success success">Update</button>
+			class="btn btn-default"><spring:message code="label.Cancel" /></button>
+		<button type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
 	</div>
 
 <script type="text/javascript"

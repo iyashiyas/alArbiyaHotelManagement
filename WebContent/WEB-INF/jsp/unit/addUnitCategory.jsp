@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html><html>
@@ -11,14 +12,14 @@
 <form class="form-horizontal" action="#" method="post">
 								 
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Category Name</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.CategoryName" /></label>
    <div class="col-sm-10">
 	 <form:input type="text" placeholder="Category Name" name="categoryName" class="form-control" path="categoryName"/>
 					</div>
 				</div>
 				 
 				 	<div class="form-group">
-										<label class="col-sm-2 control-label">Other Languages</label>
+										<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguage" /></label>
 										<div class="col-sm-10">
 											<div class="controls">
 												<div class="entry input-group ">
@@ -42,15 +43,15 @@
 										</div>
 									</div>
 				  <div class="form-group">
-					<label class="col-sm-2 control-label">Category Code</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.CategoryCode" /></label>
    <div class="col-sm-10">
 	 <form:input type="text" placeholder="Category Code" name="unitCategoryCode" class="form-control" path="unitCategoryCode"/>
 					</div>
 				</div>
 				
 				<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-											<button id="submit" type="submit" class="btn btn-success success">Update</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+											<button id="submit" type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
 										</div>
 										</form>
 

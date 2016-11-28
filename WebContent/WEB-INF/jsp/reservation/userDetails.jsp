@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -21,7 +22,7 @@
 }
 </style>
 
-<title>Reservation</title>
+<title><spring:message code="UserDetails" /></title>
 </head>
 <body>
 	<div id="wrapper">
@@ -29,11 +30,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Add New Member</h2>
+					<h2><spring:message code="AddNewMember" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation/reservation">Reservation</a></li>
-						<li class="active"><strong>Add New Member</strong></li>
+							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message code="Reservation" /></a></li>
+						<li class="active"><strong><spring:message code="AddNewMember" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -45,7 +46,7 @@
 							action="${pageContext.request.contextPath}/user/getUserDetails">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="panel-title">Already a Member</h3>
+									<h3 class="panel-title"><spring:message code="AllReadyAMember" /></h3>
 								</div>
 								<div class="panel-body">
 									<div class="col-xs-4 form-group">
@@ -69,7 +70,7 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-									Check In To Room Number <label class="label-primary">"${ roomId}"</label>
+								 	<spring:message code="CheckInToRoomNumber" /> <label class="label-primary">"${ roomId}"</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -87,7 +88,7 @@
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
-													<h3 class="panel-title">Basic Details</h3>
+													<h3 class="panel-title"><spring:message code="label.BasicDetails" /></h3>
 													<input type="hidden" name="id" value="${userDetails.id }" />
 												</div>
 												<div class="panel-body">
@@ -101,18 +102,18 @@
 														</form:select>
 													</div>
 													<div class="col-xs-10 form-group">
-														<label>Name</label>
+														<label><spring:message code="label.Name" /></label>
 														<form:input class="form-control" path="firstName"
 															placeholder="Full Name" type="text" />
 													</div>
 													<div class="col-xs-14 form-group">
-														<label>Phone</label>
+														<label><spring:message code="label.Phone" /></label>
 														<form:input class="form-control" id="mobile-number"
 															path="phoneNumber" placeholder="phone" type="text" />
 													</div>
 
 													<div class="col-xs-12 form-group">
-														<label>Email</label>
+														<label><spring:message code="label.Email" /></label>
 														<form:input class="form-control" path="email"
 															placeholder="Email" type="text" />
 													</div>
@@ -124,29 +125,29 @@
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
-													<h3 class="panel-title">Contact Details</h3>
+													<h3 class="panel-title"><spring:message code="label.ContactDetails" /></h3>
 												</div>
 												<div class="panel-body">
 													<div class="col-xs-7 form-group">
-														<label>Address</label>
+														<label><spring:message code="label.Address" /></label>
 														<form:input class="form-control" path="addressLineOne"
 															placeholder="Address" type="text" />
 													</div>
 
 													<div class="col-xs-5 form-group">
-														<label>Company Name</label>
+														<label><spring:message code="label.CompanyName" /></label>
 														<form:input class="form-control" path="companyName"
 															placeholder="Company Name" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>City</label>
+														<label><spring:message code="label.City" /></label>
 														<form:input class="form-control" path="city"
 															placeholder="City" type="text" />
 													</div>
 
 													<div class="col-xs-10 form-group">
-														<label>State</label>
+														<label><spring:message code="label.State" /></label>
 														<form:input class="form-control" path="state"
 															placeholder="State" type="text" />
 													</div>
@@ -163,23 +164,23 @@
 
 										<div class="panel panel-default">
 											<div class="panel-heading">
-												<h3 class="panel-title">Identity Details</h3>
+												<h3 class="panel-title"><spring:message code="label.IdentityDetails" /></h3>
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Identity type</label>
+													<label><spring:message code="IdentityType" /></label>
 													<form:select class="form-control" path="identityType">
-														<form:option value="Passport">Passport</form:option>
-														<form:option value="NIC">National Id Card</form:option>
+														<form:option value="Passport"><spring:message code="label.Passport" /></form:option>
+														<form:option value="NIC"><spring:message code="label.NationalIdCard" /></form:option>
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Identity Number</label>
+													<label><spring:message code="label.IdentityNumber" /></label>
 													<form:input class="form-control" path="identityNumber"
 														placeholder="Identity Number" type="text" />
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Country</label>
+													<label><spring:message code="label.Country" /></label>
 								 
 													<form:select class="form-control" path="country">
 													    <form:option value="KSA">KSA</form:option>
@@ -189,13 +190,12 @@
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
-													<label>Scanned Id</label>
+													<label><spring:message code="label.ScanId" /></label>
 													<form:input class="form-control" path="scannedId" value="" />
 												</div>
 												<div class="col-xs-2 form-group">
-													<label>Finger Print</label>
-													<button class="btn btn-primary" disabled="disabled">Scan
-														Finger Print</button>
+													<label><spring:message code="label.FingerPrint" /></label>
+													<button class="btn btn-primary" disabled="disabled"><spring:message code="label.ScanFingerPrint" /></button>
 												</div>
 
 											</div>
@@ -203,11 +203,11 @@
 
 										<div class="panel panel-default">
 											<div class="panel-heading">
-												<h3 class="panel-title">Office Use</h3>
+												<h3 class="panel-title"><spring:message code="label.OfficeUse" /></h3>
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label>Add To Members List</label>
+													<label><spring:message code="label.AddToMemberList" /></label>
 													<form:checkbox path="hotelMember" value=""
 														checked="checked" />
 												</div>
@@ -217,8 +217,7 @@
 										<div class="col-md-12 center-block">
 
 											<button id="singlebutton" type="submit" name="singlebutton"
-												class="btn btn-primary center-block">Create Member
-												And Check In To Room</button>
+												class="btn btn-primary center-block"><spring:message code="label.CreateBooking" /></button>
 										</div>
 									</div>
 

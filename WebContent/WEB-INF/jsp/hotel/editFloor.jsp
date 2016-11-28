@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -13,19 +14,19 @@
 	<form:form class="form-horizontal"
 		action="${pageContext.request.contextPath}/hotel/editFloor"
 		modelAttribute="newFloor" method="post">
-		<div class="modal-header">Edit Floor Details</div>
+		<div class="modal-header"><spring:message code="label.EditFloorDetails" /></div>
 		<div class="modal-body">
 
 			<div class="form-group">
 				<input type="hidden" id="floorId" name="id" value="" /> <label
-					class="col-sm-2 control-label">Floor Name</label>
+					class="col-sm-2 control-label"><spring:message code="label.FloorName" /></label>
 				<div class="col-sm-10">
 					<form:input type="text" placeholder="Floor Name" name="floorName"
 						class="form-control" required="required" id="floorName" path="floorName" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Floor Code</label>
+				<label class="col-sm-2 control-label"><spring:message code="label.FloorCode" /></label>
 
 				<div class="col-sm-10">
 					<form:input type="text" id="floorCode" placeholder="Floor Code"
@@ -34,7 +35,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Building Code</label>
+				<label class="col-sm-2 control-label"><spring:message code="label.BuildingCode" /></label>
 				<div class="col-sm-10">
 					<input type="text"   id="floorBuildingName" disabled="disabled"
 						class="form-control"> <input type="hidden"
@@ -43,7 +44,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label"> Total Rooms</label>
+				<label class="col-sm-2 control-label"><spring:message code="label.TotalRooms" /></label>
 
 				<div class="col-sm-10">
 					<form:input type="number" required="required" placeholder="Total Room"
@@ -53,7 +54,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label"> Description</label>
+				<label class="col-sm-2 control-label"><spring:message code="label.Description" /></label>
 
 				<div class="col-sm-10">
 					<form:input type="text" id="floorDescription"
@@ -62,20 +63,20 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Status </label>
+				<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 				<div class="col-sm-10">
 					<form:checkbox id="floorStatus" path="floorStatus"
 						name="floorStatus" value="ENABLE" checked="checked" />
-					<label for="checkbox1"> Enable </label>
+					<label for="checkbox1"><spring:message code="label.Enable" /> </label>
 				</div>
 			</div>
 		</div>
 
 		<div class="modal-footer">
 			<button type="button" data-reload="yes" data-dismiss="modal"
-				class="btn btn-default">Cancel</button>
-			<button type="submit" class="btn btn-success success">Update</button>
+				class="btn btn-default"><spring:message code="label.Cancel" /></button>
+			<button type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
 		</div>
 	</form:form>
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -20,11 +21,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Booking Details</h2>
+					<h2><spring:message code="BookingDetails" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation">Reservation</a></li>
-						<li class="active"><strong>Booking Details</strong></li>
+							href="${pageContext.request.contextPath}/reservation"><spring:message code="Reservation" /></a></li>
+						<li class="active"><strong><spring:message code="BookingDetails" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -34,7 +35,7 @@
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Booking Details</h5>
+								<h5><spring:message code="BookingDetails" /></h5>
 								<div class="ibox-tools">
 
 									<!-- <a class="btn btn-primary " data-toggle="modal"
@@ -55,36 +56,35 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>Reference Id</td>
+					<td><spring:message code="ReferenceID" /></td>
 					<td>${bookingDetails.bookingReferenceId}</td>
 				</tr>
 				<tr>
-					<td>Room Number</td>
+					<td><spring:message code="RoomNumber" /></td>
 					<td>${bookingDetails.room.roomCode}</td>
 				</tr>
 				
 				<tr>
-					<td>Member Id</td>
+					<td><spring:message code="MemberID" /></td>
 					<td>${bookingDetails.userDetails.memberId}</td>
 				</tr>
 				<tr>
-					<td>Member Name</td>
+					<td><spring:message code="MemberName" /></td>
 					<td>${bookingDetails.userDetails.firstName}  ${bookingDetails.userDetails.lastName}</td>
 				</tr>
 				<tr>
-					<td>Booked From</td>
+					<td><spring:message code="BookedFrom" /></td>
 					<td>${bookingDetails.startDate}</td>
 				</tr>
 				<tr>
-					<td>Booked till</td>
+					<td><spring:message code="BookedTill" /></td>
 					<td>${bookingDetails.endDate}</td>
 				</tr>
 			</tbody>
 		</table>
 		
-			<button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary center-block"> PrintOut</button>
-		<a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/reservation">Do
-			another booking</a>
+			<button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary center-block"> ${bookingDetails.PrintOut}</button>
+		<a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/reservation">${bookingDetails.DoAnotherBooking}</a>
 	</div>
 	
 	</div>

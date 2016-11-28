@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html><html>
@@ -10,7 +11,7 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Categories - <a href="#addUnitCategory-Modal" data-toggle="modal" >New Category</a></h5>
+				<h5><spring:message code="label.Categories" /> - <a href="#addUnitCategory-Modal" data-toggle="modal" ><spring:message code="label.NewCategory" /></a></h5>
 				 
 			</div> 
 			<div class="ibox-content ">

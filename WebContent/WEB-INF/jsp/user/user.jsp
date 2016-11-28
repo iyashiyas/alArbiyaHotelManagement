@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -23,11 +24,11 @@
  
 <div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>User Management</h2>
+			<h2><spring:message code="label.UserManagement" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/user">User Management</a></li>
-				<li class="active"><strong>Users</strong></li>
+					href="${pageContext.request.contextPath}/user"><spring:message code="label.UserManagement" /></a></li>
+				<li class="active"><strong><spring:message code="label.Users" /></strong></li>
 			</ol>
 		</div> 
 	</div>
@@ -45,7 +46,7 @@
 	<div class="col-lg-8 animated fadeInRight">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Add New User</h5>
+				<h5><spring:message code="label.AddNewUser" /></h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
@@ -53,7 +54,7 @@
 			</div>
 			<div class="ibox-content">
 				<form class="form-horizontal" action="" method="post">
-					<p>Add New User Here</p>
+					<p><spring:message code="label.AddNewUserHere" /></p>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Select Role</label>
@@ -68,7 +69,7 @@
 					</div>
  
 					<div class="form-group">
-						<label class="col-sm-2 control-label">User Id</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.UserId" /></label>
 
 						<div class="col-sm-10">
 							<input type="text" disabled="disabled" placeholder="User id"
@@ -78,7 +79,7 @@
 
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">User Name</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.UserName" /></label>
 
 						<div class="col-sm-10">
 							<input type="text" placeholder="User Name" name="User_Name"
@@ -86,7 +87,7 @@
 						</div>
 					</div>
 						<div class="form-group">
-						<label class="col-sm-2 control-label">Password</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Password" /></label>
 
 						<div class="col-sm-10">
 							<input type="password" placeholder="Password" name="Password"
@@ -94,7 +95,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
+						<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 						<div class="col-sm-10">
 							<input type="text" placeholder="Description" name="Description"
@@ -104,8 +105,7 @@
 
 					  	<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Create new
-								User</button>
+							<button class="btn btn-primary" type="submit"><spring:message code="label.CreateNewUser" /></button>
 						</div>
 					</div>
 					

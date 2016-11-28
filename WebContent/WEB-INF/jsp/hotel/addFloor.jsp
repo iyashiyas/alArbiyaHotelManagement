@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -12,7 +13,7 @@
 <form:form class="form-horizontal" action="${pageContext.request.contextPath}/hotel/addFloor" modelAttribute="newFloor" method="post">
 				  
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Floor Name</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.FloorName" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text"  required="required" placeholder="Floor Name" name="floorName"
@@ -20,7 +21,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Floor Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.FloorCode" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text"  required="required" placeholder="Floor Code" name="floorCode"
@@ -29,7 +30,7 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.SelectBranchCode" /></label>
 						<div class="col-sm-10">
 						 <form:select class="form-control m-b branchDetail"  required="required" path="building.branch.id" name="building.branch.id">
 						 	<form:option value="0">Select branch</form:option>
@@ -39,7 +40,7 @@
 			 		</div>
 						 
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.SelectBuildingCode" /></label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="building.id">
 								
@@ -50,7 +51,7 @@
 					 
 					
 					 <div class="form-group">
-						<label class="col-sm-2 control-label"> Total Rooms</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.TotalRooms" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="number"  required="required" placeholder="Total Room" name="floorTotalRoom"
@@ -59,7 +60,7 @@
 					</div>
 					  		 
 					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
+						<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text" placeholder="Description" name="floorDescription"
@@ -67,18 +68,18 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 						  <div class="col-sm-10">
 							 <form:checkbox path="floorStatus" name="floorStatus" value="ENABLE" checked="checked" id="checkbox1" />
                                     <label for="checkbox1">
-                             Enable
+                             <spring:message code="label.Enable" />
                                     </label>
                           </div>
 					      </div>
                          <div class="form-group">
 						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Add
+							<button class="btn btn-primary" type="submit"><spring:message code="label.Add" />
 								 </button>
 						</div>
 					</div>

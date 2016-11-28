@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -15,7 +16,7 @@
 				  <input type="hidden" id="roomId" name="id"> 
 				  
 						<div class="form-group">
-						<label class="col-sm-2 control-label">Room Name</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.RoomName" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text" required="required" id="roomName" placeholder="Room Name" name="roomName"
@@ -25,7 +26,7 @@
 					
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.RoomCode" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text" required="required" id="roomCode" placeholder="Room Code" name="roomCode"
@@ -35,7 +36,7 @@
 					
 					  
 					  <div class="form-group">
-						<label class="col-sm-2 control-label">Coast Per Day</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.CoastPerDay" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="email" required="required" id="roomPrice" placeholder="Sr" name="roomPrice"
@@ -44,7 +45,7 @@
 					</div>
 					
 					 <div class="form-group">
-						<label class="col-sm-2 control-label">Floor</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Floor" /></label>
 
 						<div class="col-sm-10">
 							<input type="text" id="roomFloorCode"  placeholder="Sr"  
@@ -55,7 +56,7 @@
 					</div>
 					
 					 <div class="form-group">
-						<label class="col-sm-2 control-label">Room Type</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Roomtype" /></label>
 
 						<div class="col-sm-10">
 							<input type="text" id="roomType" placeholder="roomType"
@@ -83,7 +84,7 @@
 					 
 					  		 
 					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
+						<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text" id="roomDescription" placeholder="Description" name="Description"
@@ -91,12 +92,12 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 						  <div class="col-sm-10">
 							 <form:checkbox value="ENABLE" checked="checked"  id="roomStatus" path="roomStatus"/>
                                     <label for="checkbox1">
-                             Enable
+                             <spring:message code="label.Enable" />
                                     </label>
                           </div>
 					      </div>
@@ -104,8 +105,8 @@
 					</div>
 					 
 					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button  id="submit" type="submit" class="btn btn-success success">Update</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+					<button  id="submit" type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
 				</div>
 				 </form:form>
 			 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -30,8 +31,8 @@
 			<h2>Player</h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
-				<li class="active"><strong>Player</strong></li>
+					href="${pageContext.request.contextPath}/"><spring:message code="Home" /></a></li>
+				<li class="active"><strong><spring:message code="Player" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -40,7 +41,7 @@
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5>Player Table Will Help you To Control Service Screens With IP
+						<h5><spring:message code="PlayerTableWillHelpyouToControlServiceScreensWithIP" />
 							 </h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -55,12 +56,12 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th>Player ID</th>
-										<th>Player IP</th>
-										<th>Status</th>
-										<th>Assigned Room</th>
-										<th>Assign</th>
-										<th>Action</th>
+										<th><spring:message code="PlayerId" /></th>
+										<th><spring:message code="PlayerIP" /></th>
+										<th><spring:message code="Status" /></th>
+										<th><spring:message code="AssignedRoom" /></th>
+										<th><spring:message code="Assign" /></th>
+										<th><spring:message code="Action" /></th>
 									</tr>
 								</thead>
 								<tbody>

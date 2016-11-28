@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -14,7 +15,7 @@
 <body>
  <div class="ibox float-e-margins">
 		<div class="ibox-title">
-			<h5>Add New Ingredient Items</h5>
+			<h5><spring:message code="label.AddNewIngredients" /></h5>
 			<div class="ibox-tools">
 				<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 				</a>
@@ -33,7 +34,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Ingredient Name</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.IngredientName" /></label>
 
 					<div class="col-sm-10">
 	 					<form:input type="text" required="required" placeholder="Ingredient Name" class="form-control" path="ingredientName"/>
@@ -41,7 +42,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Other Languages</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 					<div class="col-sm-10">
 						<div class="controls">
 							<div class="entry input-group ">
@@ -67,7 +68,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Description</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.Description" /></label>
 
 					<div class="col-sm-10">
 						<form:input type="text" placeholder="Description"
@@ -75,18 +76,17 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					<label class="col-sm-2 control-label">Status </label>
+					<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 					<div class="col-sm-10">
 						<form:checkbox id="ingredientStatus" name="ingredientStatus"
 							path="ingredientStatus" checked="checked"  value="ENABLE" />
-						Enable
+						<spring:message code="label.Enable" />
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-8">
-						<form:button class="btn btn-primary" type="submit">Create new
-								Ingredient</form:button>
+						<form:button class="btn btn-primary" type="submit"><spring:message code="label.CreateNewIngredients" /></form:button>
 					</div>
 				</div>
 

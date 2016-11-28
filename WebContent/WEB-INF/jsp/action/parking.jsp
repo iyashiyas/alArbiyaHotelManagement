@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -19,11 +20,11 @@
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Services</h2>
+			<h2><spring:message code="label.Services" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/action">Services</a></li>
-				<li class="active"><strong>Parking</strong></li>
+					href="${pageContext.request.contextPath}/action"><spring:message code="label.Services" /></a></li>
+				<li class="active"><strong><spring:message code="label.Parking" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -36,11 +37,11 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content text-center p-md">
 
-                    <h2><span class="text-navy">Parking - Service</span>
-                    is  Helps The Customer  <br/>For Getting Vehicle From Parking Area By Vehicle Number</h2>
+                    <h2><span class="text-navy"><spring:message code="label.ParkingService" /></span>
+                    <spring:message code="label.IsHelpsTheCustomer" />  <br/>For Getting Vehicle From Parking Area By Vehicle Number</h2>
 
                     <p>
-                        Here have options you can turn on/off Parking Service From Service Screens   
+                       <spring:message code="label.Herehaveoptionsyoucanturnon/offParkingServiceFromServiceScreens" />
                     </p>
 
 
@@ -61,13 +62,13 @@
 							 <div class="col-sm-10">
 			<form:checkbox id="checkbox1" path="categoryStatus" value="ENABLED"
 						checked="checked" />
-				<label for="checkbox1"> ENABLE </label>
+				<label for="checkbox1">   <spring:message code="label.Enable" /> </label>
 			</div>
 					</div>
 					</div>
 						<div class="form-group">
 						 
-							<button class="btn btn-primary" type="submit"> Update </button>
+							<button class="btn btn-primary" type="submit">   <spring:message code="label.Update" /> </button>
 						</div></form:form>
 					</div>
 					

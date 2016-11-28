@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -16,11 +17,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Hotel Information</h2>
+					<h2>  <spring:message code="label.HotelInformation" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/info/showInfo">Profile</a></li>
-						<li class="active"><strong>Info</strong></li>
+							href="${pageContext.request.contextPath}/info/showInfo"><spring:message code="label.Profile" /></a></li>
+						<li class="active"><strong><spring:message code="label.Info" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -31,7 +32,7 @@
 						<div class="col-lg-12 animated fadeInRight">
 							 <div class="ibox float-e-margins">
                       	<div class="ibox-tools">
-									 <a  class="btn btn-primary" href="#editBuildingModal" data-toggle="modal"><i class="fa fa-pencil"> </i>Edit Information</a>
+									 <a  class="btn btn-primary" href="#editBuildingModal" data-toggle="modal"><i class="fa fa-pencil"> </i><spring:message code="label.EditInformation" /></a>
 								</div>
 						 
 							  <div class="panel panel-primary row">
@@ -39,7 +40,7 @@
 										<form class="form-horizontal">
 											<c:forEach items="${hotelInfo}" var="hotelInfo">
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Hotel Name :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.HotelName" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -49,7 +50,7 @@
 
 
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Address1 :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.Address1" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -58,7 +59,7 @@
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Address2 :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.Address2" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -67,8 +68,7 @@
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Head Branch
-														Name :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.HeadBranch" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -78,7 +78,7 @@
 
 
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Office Phone
+													<label class="col-sm-4 control-label"><spring:message code="label.OfficePhone" />
 														:</label>
 
 													<div class="">
@@ -87,7 +87,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Office Fax :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.OfficeFax" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -95,7 +95,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Office Email
+													<label class="col-sm-4 control-label"><spring:message code="label.OfficeEmail" />
 														:</label>
 
 													<div class="">
@@ -104,7 +104,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Office City :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.OfficeCity" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -112,7 +112,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">State :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.State" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -120,7 +120,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Nation :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.Nation" /> :</label>
 
 													<div class="">
 														<label class="control-label">
@@ -128,7 +128,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label">Total Branch
+													<label class="col-sm-4 control-label"><spring:message code="label.TotalBranch" />
 														:</label>
 
 													<div class="">
@@ -152,8 +152,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-									
+            </div> 
 									
 									</div>
 									</div>
@@ -172,7 +171,7 @@
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<div class="modal-header">Edit Hotel Information</div>
+							<div class="modal-header"><spring:message code="label.EditHotelInformation" /></div>
 							<jsp:include page="../info/editInfo.jsp"></jsp:include>
 						</div>
 					</div>

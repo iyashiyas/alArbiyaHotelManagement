@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -6,17 +7,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>SHMS-Unit</title>
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<title>SHMS-Unit</title> 
 </head>
-<body>
-
-<div class="ibox float-e-margins">
- 
+<body> 
+<div class="ibox float-e-margins"> 
 		<div class="ibox-title">
-								<h5>Add New Unit Items</h5>
+								<h5><spring:message code="label.AddNewUnitItems" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -26,10 +23,10 @@
 			 <form:form id="addUnitForm" class="form-horizontal"
 									action="${pageContext.request.contextPath}/unit/addUnit"
 									method="POST" modelAttribute="newUnit">
-									<p>Add Unit items Here</p>
+									<p><spring:message code="label.AddUnitItemsHere" /></p>
 
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Unit Category</label>
+										<label class="col-sm-2 control-label"><spring:message code="label.UnitCategory" /></label>
 
 										<div class="col-sm-10">
 											<form:select class="form-control m-b" name="unitCategory"
@@ -43,7 +40,7 @@
 									</div>
 
                                         <div class="form-group">
-										<label class="col-sm-2 control-label">Unit Name</label>
+										<label class="col-sm-2 control-label"><spring:message code="label.UnitName" /></label>
 
 										<div class="col-sm-10">
 											<form:input type="text" required="required" placeholder="unit Name By English"
@@ -54,7 +51,7 @@
 
  
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Other Languages</label>
+										<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 										<div class="col-sm-10">
 											<div class="controls">
 												<div class="entry input-group ">
@@ -81,7 +78,7 @@
 
 
 									<div class="form-group">
-										<label class="col-sm-2 control-label"> Measurement </label>
+										<label class="col-sm-2 control-label"> <spring:message code="label.Measurement" /> </label>
 
 										<div class="col-sm-10">
 											<form:input type="text" required="required" placeholder="Measurement"
@@ -90,7 +87,7 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label"> Description</label>
+										<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 										<div class="col-sm-10">
 											<form:input type="text" placeholder="Description"
@@ -99,19 +96,18 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Status </label>
+										<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 										<div class="col-sm-10">
 											<form:checkbox id="unitStatus" name="unitStatus"
 												path="unitStatus" value="ENABLE" checked="checked" />
-											Enable
+											<spring:message code="label.Enable" />
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="col-lg-offset-2 col-lg-8">
-											<form:button class="btn btn-primary" type="submit">Create new
-								unit</form:button>
+										 <form:button class="btn btn-primary" type="submit"><spring:message code="label.CreateUnit" /></form:button>
 										</div>
 									</div>
 

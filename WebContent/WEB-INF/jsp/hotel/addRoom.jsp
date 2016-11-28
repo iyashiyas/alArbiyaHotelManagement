@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -20,15 +21,15 @@
 <form:form class="form-horizontal" modelAttribute="newRoom" action="${pageContext.request.contextPath}/hotel/addRoom" method="post">
 				  
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Name</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.RoomName" /></label>
 
 						<div class="col-sm-10">
-							<form:input type="text"  required="required" placeholder="Room Name" name="floorName"
+							<form:input type="text"  required="required" placeholder="label.RoomName"  name="floorName"
 								class="form-control" path="roomName" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Room Number/Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.RoomNumber/Code" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text"  required="required" placeholder="Room Code or Number" name="roomCode"
@@ -36,7 +37,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Branch Code</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.SelectBranchCode" /></label>
                           <div class="col-sm-10">
 						 <form:select class="form-control m-b branchDetail"  required="required" path="" name="branch.id">
 						 	<form:option value="0">Select branch</form:option>
@@ -45,7 +46,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Buildings Code </label>
+						<label class="col-sm-2 control-label"><spring:message code="label.SelectBuildingCode" /> </label>
                           <div class="col-sm-10">
 								<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="">
 								
@@ -53,7 +54,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" >Select Floor Code </label>
+						<label class="col-sm-2 control-label" ><spring:message code="label.SelectFloorCode" /></label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b FloorId"  required="required" name="floor.id" path="floor.id">
 								
@@ -61,7 +62,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Select Room Type </label>
+						<label class="col-sm-2 control-label"><spring:message code="label.SelectRoomType" /> </label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b roomTypeCode" path="roomType.id" name="roomType.id">
 							  <form:options items="${roomType}" itemValue="id"  required="required" itemLabel="roomType"></form:options>
@@ -70,7 +71,7 @@
 					</div>
 					 
 					  <div class="form-group">
-						<label class="col-sm-2 control-label">Coast Per Day</label>
+						<label class="col-sm-2 control-label"><spring:message code="label.CoastPerDay" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="number" placeholder="Sr" name="roomPrice"
@@ -97,7 +98,7 @@
 					 
 					  		 
 					<div class="form-group">
-						<label class="col-sm-2 control-label"> Description</label>
+						<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 						<div class="col-sm-10">
 							<form:input type="text" placeholder="Description" name="Description"
@@ -105,18 +106,18 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Status </label>
+						<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 						  <div class="col-sm-10">
 							 <form:checkbox value="ENABLE" checked="checked"  id="checkbox1" path="roomStatus"/>
                                     <label for="checkbox1">
-                             Enable
+                             <spring:message code="label.Enable" />
                                     </label>
                           </div>
 					      </div>
                          <div class="form-group">
 						<div class="col-lg-offset-2 col-lg-8">
-							<button class="btn btn-primary" type="submit">Add
+							<button class="btn btn-primary" type="submit"><spring:message code="label.Add" />
 								 </button>
 						</div>
 					</div>

@@ -27,10 +27,10 @@
 		<!-- Page Heading -->
 		<div class="row wrapper border-bottom white-bg page-heading">
 			<div class="col-lg-9">
-				<h2>Widgets</h2>
+				<h2><spring:message code="label.Home" /></h2>
 				<ol class="breadcrumb">
-					<li><a href="${pageContext.request.contextPath}/SHMS">Home</a></li>
-					<li class="active"><strong>Home</strong></li>
+					<li><a href="${pageContext.request.contextPath}/SHMS"><spring:message code="label.Home" /></a></li>
+					<li class="active"><strong><spring:message code="label.Home" /></strong></li>
 				</ol>
 			</div>
 		</div>
@@ -47,17 +47,17 @@
                         <ul class="list-unstyled m-t-md">
                             <li>
                                 <span class="fa fa-envelope m-r-xs"></span>
-                                <label>Email:</label>
+                                <label><spring:message code="label.Email" />:</label>
                                 hotel@mail.com
                             </li>
                             <li>
                                 <span class="fa fa-home m-r-xs"></span>
-                                <label>Address:</label>
+                                <label><spring:message code="label.Address" />:</label>
                                 Street 200, Avenue 10
                             </li>
                             <li>
                                 <span class="fa fa-phone m-r-xs"></span>
-                                <label>Contact:</label>
+                                <label><spring:message code="label.Contact" />:</label>
                                 (+121) 678 3462
                             </li>
                         </ul>
@@ -73,61 +73,53 @@
                         <tr>
                             <td>
                                 <button type="button" class="btn btn-danger m-r-sm">12</button>
-                                Total Rooms
+                              <spring:message code="label.TotalServices" />
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-primary m-r-sm">28</button>
-                               Total Services
-                            </td>
+                             
                             <td>
                                 <button type="button" class="btn btn-info m-r-sm">15</button>
-                             Available Rooms
+                            <spring:message code="label.TotalRooms" />
                             </td>
+                            
                         </tr>
                         <tr>
                             <td>
                                 <button type="button" class="btn btn-info m-r-sm">20</button>
-                                Total Screens
+                                 <spring:message code="label.TotalScreens" />
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success m-r-sm">40</button>
-                                Total Active Screens
+                                <spring:message code="label.TotalActiveScreens" />
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-danger m-r-sm">30</button>
-                                Reservations
-                            </td>
+                            
                         </tr>
                         <tr>
                             <td>
                                 <button type="button" class="btn btn-success m-r-sm">20</button>
-                                 Check-in Rooms
+                                  <spring:message code="label.CheckInRooms" />
                             </td>
                             <td>
                                 <button type="button" class="btn btn-default m-r-sm">40</button>
-                                Total Users
+                                <spring:message code="label.Totalusers" />
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-warning m-r-sm">30</button>
-                                Total Active Order
-                            </td>
+                            
                         </tr>
                               <tr>
                               <td>
                                 <button type="button" class="btn btn-warning m-r-sm">30</button>
-                                Total Branch
+                                   <spring:message code="label.TotalBranch" />
                             </td>
                            
                             <td>
                                 <button type="button" class="btn btn-danger m-r-sm">40</button>
-                                   Total Building
+                                    <spring:message code="label.Totalbuilding" />
                             </td>
                              <td>
                                 <button type="button" class="btn btn-info m-r-sm">20</button>
-                                   Total Floor
+                                          <spring:message code="label.TotalFloor" />
                             </td>
                             
-                           
+                             
                         </tr>
                         </tbody>
                     </table>

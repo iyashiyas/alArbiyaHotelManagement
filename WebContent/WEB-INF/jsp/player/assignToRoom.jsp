@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -18,13 +19,11 @@
 </head>
 <body>
 	<form class="form-horizontal" action="" method="post">
-		<div class="modal-header">Edit Unit</div>
+		<div class="modal-header"><spring:message code="AssignToRoom" /></div>
 		<div class="modal-body">
- 
-			<p>Update Unit items Here</p>
-
+  
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Branch</label>
+				<label class="col-sm-2 control-label"><spring:message code="SelectBranch" /></label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="branch">
@@ -35,7 +34,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Building</label>
+				<label class="col-sm-2 control-label"><spring:message code="SelectBuilding" /> </label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="building">
@@ -47,7 +46,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select floor</label>
+				<label class="col-sm-2 control-label"><spring:message code="Selectfloor" /></label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="floor">
@@ -59,7 +58,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Screen Type</label>
+				<label class="col-sm-2 control-label"><spring:message code="SelectScreenType" /></label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="floor">
@@ -70,7 +69,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Room Type</label>
+				<label class="col-sm-2 control-label"><spring:message code="SelectRoomType" /></label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="floor">
@@ -82,7 +81,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Select Room Number</label>
+				<label class="col-sm-2 control-label"><spring:message code="SelectRoomNumber" /></label>
 
 				<div class="col-sm-10">
 					<select class="form-control m-b" name="floor">
@@ -97,9 +96,8 @@
 
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			<a href="#" id="submit" class="btn btn-success success">Assign To
-				Room</a>
+			<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="Cancel" /></button>
+			<a href="#" id="submit" class="btn btn-success success"><spring:message code="Cancel" /></a>
 		</div>
 	</form>
 </body>

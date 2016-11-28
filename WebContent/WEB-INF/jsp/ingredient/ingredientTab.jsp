@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html><html>
@@ -38,7 +39,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 
-				<div class="modal-header">Add New Category</div>
+				<div class="modal-header"><spring:message code="label.AddNewCategory" /></div>
 				<div class="modal-body">
 					<%--  <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include> --%>
 				</div>

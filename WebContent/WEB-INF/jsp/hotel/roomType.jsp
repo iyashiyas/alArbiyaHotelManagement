@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Room Type</h2>
+					<h2><spring:message code="label.RoomType" /></h2>
 					<ol class="breadcrumb">
 						<li><a href="${pageContext.request.contextPath}/">Profile</a></li>
 						<li class="active"><strong>Room</strong></li>
@@ -34,7 +35,7 @@
 
        <div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>RoomType Over View</h5>
+								<h5><spring:message code="label.RoomtypeOverView" />/h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -47,13 +48,13 @@
 
 										<thead>
 											<tr>
-												<th class="check-mail">Id</th>
-												<th>Room Type</th>
-												<th>Type Code</th>
+												<th class="check-mail"><spring:message code="label.ID" /></th>
+												<th><spring:message code="label.RoomType" /></th>
+												<th><spring:message code="label.TypeCode" /></th>
 												<!-- <th>Bed Type</th> -->
-												<th>Type Description</th>
-										  		 <th>Status</th>
-												<th>Edit</th>
+												<th><spring:message code="label.TypeDescription" /></th>
+										  		 <th><spring:message code="label.Status" /></th>
+												<th><spring:message code="label.Edit" /></th>
 											    </tr>
 										</thead>
 

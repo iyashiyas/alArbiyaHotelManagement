@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -16,11 +17,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Building</h2>
+					<h2><spring:message code="label.Building" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/hotel?profileCode=BUILDING">Profile</a></li>
-						<li class="active"><strong>Building</strong></li>
+							href="${pageContext.request.contextPath}/hotel?profileCode=BUILDING"><spring:message code="label.Profile" /></a></li>
+						<li class="active"><strong><spring:message code="label.Building" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -30,7 +31,7 @@
 					<div class="col-lg-10 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Add New Building's Details</h5>
+								<h5><spring:message code="label.AddNewBuildingDetails" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -41,7 +42,7 @@
 
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Building Details</h5>
+								<h5><spring:message code="label.BuildingDetails" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -54,14 +55,14 @@
 										class="table table-striped table-bordered table-hover dataTables-example">
 										<thead>
 											<tr>
-												<th class="check-mail">ID</th>
-												<th>Building Name</th>
-												<th>Code</th>
-												<th>Branch</th>
-												<th>Floor</th>
-												<th>Phone Number</th>
-												<th>Status</th>
-												<th>Action</th>
+												<th class="check-mail"><spring:message code="label.ID" /></th>
+												<th><spring:message code="label.BuildingName" /></th>
+												<th><spring:message code="label.Code" /></th>
+												<th><spring:message code="label.Branch" /></th>
+												<th><spring:message code="label.Floor" /></th>
+												<th><spring:message code="label.PhoneNumber" /></th>
+												<th><spring:message code="label.Status" /></th>
+												<th><spring:message code="label.Action" /></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -86,7 +87,7 @@
 															value="${building.buildingDescription}" /></td>
 													<td class="buildingStatus"><c:out
 															value="${building.buildingStatus}" /></td>
-													<td class="buildingEditbtn"><i class="fa fa-pencil"><a>Edit</a></i></td>
+													<td class="buildingEditbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -103,7 +104,7 @@
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header">Edit Building Details</div>
+					<div class="modal-header"><spring:message code="label.EditBuldingDetails" /></div>
 					<jsp:include page="../hotel/editBuilding.jsp"></jsp:include>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -15,12 +16,12 @@
   	 
 			 <form:form class="form-horizontal" id="confirm-EditForm"
 										modelAttribute="newUnit" method="POST" action="unit/editUnit">
-										<div class="modal-header">Edit Unit</div>
+										<div class="modal-header"><spring:message code="label.EditUnit" /></div>
 										<div class="modal-body">
-                                 	<p>Update Unit items Here</p>
+                                 	<p><spring:message code="label.UpdateUnitItemsHere" /></p>
 
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Unit Category</label>
+												<label class="col-sm-2 control-label"><spring:message code="label.UnitCategory" /></label>
 												<input type="hidden" name="id" id="id" value="">
 												<div class="col-sm-10">
 													<form:select class="form-control m-b" path="unitCategory">
@@ -33,7 +34,7 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Unit Name</label>
+												<label class="col-sm-2 control-label"><spring:message code="label.UnitName" /></label>
 
 												<div class="col-sm-10">
 													<form:input type="text" required="required" path="unitName" id="unitName"
@@ -42,8 +43,7 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Other
-													Languages</label>
+												<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguage" /></label>
 												<div class="col-sm-10">
 													<div class="editControls">
 														<div class="editEntry input-group " style="margin-bottom: 15px;">
@@ -68,7 +68,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label"> Measurement </label>
+												<label class="col-sm-2 control-label"> <spring:message code="label.Measurement" /> </label>
 
 												<div class="col-sm-10">
 													<form:input type="text" path="measurementUnit"
@@ -76,7 +76,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label"> Description</label>
+												<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
 												<div class="col-sm-10">
 													<form:input type="text" path="unitDescription" id="unitDescription"
@@ -85,18 +85,18 @@
 											</div>
 
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Status </label>
+												<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 												<div class="col-sm-10">
 													<form:checkbox path="unitStatus" id="unitStatus" value=""/> <label
-														for="checkbox1"> Enable </label>
+														for="checkbox1"> <spring:message code="label.Enable" /> </label>
 												</div>
 											</div>
 										</div>
 	 
 			<div class="modal-footer">
-											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default">Cancel</button>
-											<button type="submit" class="btn btn-success success">Update</button>
+											<button type="button" data-reload="yes" data-dismiss="modal" class="btn btn-default"><spring:message code="label.Cancel" /></button>
+											<button type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
 										</div> 
 
 			</form:form>

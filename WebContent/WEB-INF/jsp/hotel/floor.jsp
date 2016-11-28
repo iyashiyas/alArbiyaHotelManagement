@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -18,11 +19,11 @@
 
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Building</h2>
+					<h2><spring:message code="label.Floor" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/hotel/showFloor">Profile</a></li>
-						<li class="active"><strong>Floor</strong></li>
+							href="${pageContext.request.contextPath}/hotel/showFloor"><spring:message code="label.Profile" /></a></li>
+						<li class="active"><strong><spring:message code="label.Floor" /></strong></li>
 					</ol>
 				</div>
 
@@ -36,7 +37,7 @@
 					<div class="col-lg-10 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Add New Floor Details</h5>
+								<h5><spring:message code="label.AddNewFloorDetails" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -47,7 +48,7 @@
 
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Floor Details</h5>
+								<h5><spring:message code="label.FloorDetails" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -61,14 +62,14 @@
 										<thead>
 											<tr>
 
-												<th class="check-mail">ID</th>
-												<th>Floor Name</th>
-												<th>Code</th>
-												<th>Building</th>
-												<th>Total Room</th>
-												<th>Description</th>
-												<th>Status</th>
-												<th>Edit</th>
+												<th class="check-mail"><spring:message code="label.ID" /></th>
+												<th><spring:message code="label.FloorName" /></th>
+												<th><spring:message code="label.Code" /></th>
+												<th><spring:message code="label.Building" /></th>
+												<th><spring:message code="label.TotalRoom" /></th>
+												<th><spring:message code="label.Description" /></th>
+												<th><spring:message code="label.Status" /></th>
+												<th><spring:message code="label.Edit" /></th>
 											</tr>
 										</thead>
 
@@ -91,7 +92,7 @@
 															value="${floor.floorDescription}" /></td>
 													<td class="floorStatus"><c:out
 															value="${floor.floorStatus}" /></td>
-													<td class="editFloorbtn"><i class="fa fa-pencil"><a>Edit</a></i></td>
+													<td class="editFloorbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td>
 
 												</tr>
 											</c:forEach>

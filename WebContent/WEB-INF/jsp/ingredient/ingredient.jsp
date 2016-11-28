@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -17,10 +18,10 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Ingredient</h2>
+					<h2><spring:message code="label.Ingredient" /></h2>
 					<ol class="breadcrumb">
-						<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-						<li class="active"><strong>Ingredient</strong></li>
+						<li><a href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+						<li class="active"><strong><spring:message code="label.Ingredient" /></strong></li>
 					</ol>
 				</div>
 				 
@@ -35,7 +36,7 @@
 
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Ingredient Items</h5>
+								<h5><spring:message code="label.IngredientItems" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -48,12 +49,12 @@
 
 										<thead>
 											<tr>
-												<th class="check-mail">Ingredient Id</th>
-												<th>Ingredient Name</th>
-												<th>Ingredient Description</th>
-												 <th>Category</th>
-												<th>Status</th>
-												<th>Action</th>
+												<th class="check-mail"><spring:message code="label.IngredientID" /></th>
+												<th><spring:message code="label.IngredientName" /></th>
+												<th><spring:message code="label.Description" /></th>
+												 <th><spring:message code="label.Category" /></th>
+												<th><spring:message code="label.Status" /></th>
+												<th><spring:message code="label.Action" /></th>
 											</tr>
 										</thead>
 
@@ -73,7 +74,7 @@
 														<td class="ingredientLanguageName${loop.index} hide" value="${language.ingredientLanguageName }"></td>
 													</c:forEach>
 													<td class="ingredientEdit"><i class="fa fa-pencil"><a class=""
-															data-toggle="modal"  >Edit</a></i></td>
+															data-toggle="modal"  ><spring:message code="label.Edit" /></a></i></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -102,7 +103,7 @@
 							<div class="modal-dialog">
 								<div class="modal-content">
 
-									<div class="modal-header">Edit Ingredient</div>
+									<div class="modal-header"><spring:message code="label.EditIngredient" /></div>
 									<div class="modal-body">
 
 										<jsp:include page="../ingredient/editIngredient.jsp"></jsp:include>

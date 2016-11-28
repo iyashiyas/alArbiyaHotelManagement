@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -23,7 +24,7 @@
 			<ol class="breadcrumb">
 				<li><a
 					href="${pageContext.request.contextPath}/action">Services</a></li>
-				<li class="active"><strong>Checkout</strong></li>
+				<li class="active"><strong><spring:message code="label.Checkout" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -36,10 +37,11 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content text-center p-md">
 
-                    <h2><span class="text-navy">Checkout - Service</span>
-                    is  Helps The Customer  <br/>For Check-out  Rooms From Service Screens</h2>
+                    <h2><span class="text-navy"><spring:message code="label.Checkout" /> - <spring:message code="label.Service" /></span>
+                    <spring:message code="label.IsHelpsTheCustomer" />  <br/><spring:message code="label.ForCheck-outRoomsFromServiceScreens" /></h2>
                      <p>
-                        Here have options you can turn on/off Check-out Service From Service Screens   
+                      <spring:message code="label.Herehaveoptionsyoucanturnon/offCheck-outServiceFromServiceScreens" />
+                         
                      </p>
 
 
@@ -60,13 +62,13 @@
 							 <div class="col-sm-10">
 			<form:checkbox id="checkbox1" path="categoryStatus" value="ENABLED"
 						checked="checked" />
-				<label for="checkbox1"> ENABLE </label>
+				<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
 			</div>
 					</div>
 					</div>
 						<div class="form-group">
 						 
-							<button class="btn btn-primary" type="submit"> Update </button>
+							<button class="btn btn-primary" type="submit"> <spring:message code="label.Update" /> </button>
 						</div></form:form>
 					</div>
 					

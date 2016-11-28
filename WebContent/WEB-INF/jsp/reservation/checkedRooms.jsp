@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 <body>
 
 	<!-- Include Page Header-->
-	<div class="modal-header">Occupied Rooms</div>
+	<div class="modal-header"><spring:message code="OccupiedRooms" /></div>
 	<div class="modal-body">
 
 		<div class="ibox-content">
@@ -26,12 +27,12 @@
 					class="table table-striped table-bordered table-hover dataTables-example">
 					<thead>
 						<tr>
-							<th>Room Number</th>
-							<th>Member ID</th>
-							<th>Name</th>
-							<th>Check In Date</th>
-							<th>Check Out Date</th>
-							<th>Checkout</th>
+							<th><spring:message code="RoomNumber" /></th>
+							<th><spring:message code="MemberId" /></th>
+							<th><spring:message code="Name" /></th>
+							<th><spring:message code="CheckInDate" /></th>
+							<th><spring:message code="CheckOutDate" /></th>
+							<th><spring:message code="CheckOut" /></th>
 
 						</tr>
 					</thead>

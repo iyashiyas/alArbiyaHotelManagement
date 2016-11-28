@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -20,11 +21,11 @@
 	
 		 <div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Service</h2>
+			<h2><spring:message code="label.Services" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/action">Service</a></li>
-				<li class="active"><strong>Laundry</strong></li>
+					href="${pageContext.request.contextPath}/action"><spring:message code="label.Services" /></a></li>
+				<li class="active"><strong><spring:message code="label.Laundry" /></strong></li>
 			</ol>
 		</div>
 	 
@@ -40,7 +41,7 @@
 	<div class="col-lg-8 animated fadeInRight">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Add New Items</h5>
+				<h5><spring:message code="label.AddNewItems" /></h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
@@ -54,36 +55,24 @@
 		</div>
 	    <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Items Table</h5>
+				<h5><spring:message code="label.ItemsTable" /></h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
                </div>
 			</div>
 			<div class="ibox-content">
-			<div class="mail-box-header">
-              <h2>Category Name</h2>
-				<div class="mail-tools tooltip-demo m-t-md">
-					<div class="btn-group pull-right">
-						<button class="btn btn-white btn-sm">
-							<i class="fa fa-arrow-left"></i>
-						</button>
-						<button class="btn btn-white btn-sm">
-							<i class="fa fa-arrow-right"></i>
-						</button>
-					</div>
-					  
-				</div>
+			 
 			</div>
 			<div class="mail-box">
               <table class="table table-hover table-mail">
                      <thead>
                     <tr>
-                    <th class="check-mail">Item Id</th>
-                      <th>Item Name</th>
-                        <th>Item Description</th>
-                          <th>Edit</th>
-                            <th>Delete</th>
+                    <th class="check-mail"><spring:message code="label.ItemID" /></th>
+                      <th><spring:message code="label.ItemName" /></th>
+                        <th><spring:message code="label.Description" /></th>
+                          <th><spring:message code="label.Edit" /></th>
+                        
                     </tr>
                     </thead>
                     

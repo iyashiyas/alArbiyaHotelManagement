@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -27,10 +28,10 @@
 
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Unit</h2>
+					<h2><spring:message code="label.Unit" /></h2>
 					<ol class="breadcrumb">
-						<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-						<li class="active"><strong>Unit</strong></li>
+						<li><a href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+						<li class="active"><strong><spring:message code="label.Unit" /></strong></li>
 					</ol>
 				</div>
 				 
@@ -49,7 +50,7 @@
 					  
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Unit Items</h5>
+								<h5><spring:message code="label.UnitItems" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -62,12 +63,12 @@
 						
 										<thead>
 											<tr>
-												<th class="check-mail">Unit Id</th>
-												<th>Unit Name</th>
-												<th>Description</th>
-												<th>Category</th>
-												<th>Status</th>
-												<th>Action</th>
+												<th class="check-mail"><spring:message code="label.UnitID" /></th>
+												<th><spring:message code="label.UnitName" /></th>
+												<th><spring:message code="label.Description" /></th>
+												<th><spring:message code="label.Category" /></th>
+												<th><spring:message code="label.Status" /></th>
+												<th><spring:message code="label.Action" /></th>
 											</tr>
 										</thead>
 
@@ -90,7 +91,7 @@
 														<td class="unitLanguageName${loop.index} hide" value="${language.unitLanguageName }"></td>
 													</c:forEach>
 													
-													<td class="unitEdit"><i class="fa fa-pencil"><a  >Edit</a></i></td>
+													<td class="unitEdit"><i class="fa fa-pencil"><a  ><spring:message code="label.Edit" /></a></i></td>
 												
 												</tr>  
 												

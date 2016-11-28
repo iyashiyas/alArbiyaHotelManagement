@@ -33,17 +33,16 @@
             <p>Login in. To see it in action.</p>
             <form class="m-t" role="form" action="index.html">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" required="required">
+                    <input type="text" class="form-control" placeholder="<spring:message code="label.UserName" />" required="required">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="required">
+                    <input type="password" class="form-control" placeholder="<spring:message code="label.Password" />" required="required">
                 </div>
-                <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/SHMS">Login</a>
+                <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/SHMS"><spring:message code="label.Login" /></a>
 
-                <a href="#"><small>Forgot Password ?</small></a>
-              <small><spring:message code="label.Home" />
+                <a href="#"><small>ForgotPassword?</small></a>
             </form>
-            <p class="m-t"> <small>Al Arabiya Depth For Advanced Project Ltd  &copy; 2016</small> </p>
+            <p class="m-t"> <small> AlArabiyaDepthForAdvancedProjectLtd  &copy; 2016</small> </p>
         </div>
     </div>
  <a href="?lang=en" class="btn btn-sm btn-success">English</a> <a href="?lang=ar" class="btn btn-sm btn-success">Arabic</a>

@@ -47,6 +47,8 @@ public class Room {
 	@OneToMany(mappedBy="room", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Booking> bookings;
 	
+	 
+	
 	public long getId() {
 		return id;
 	}
@@ -128,4 +130,8 @@ public class Room {
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
+	
+	  
+	
+	 
 }

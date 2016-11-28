@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -25,11 +26,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2>Reservation</h2>
+					<h2><spring:message code="label.Reservation" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation/reservation">Reservation</a></li>
-						<li class="active"><strong>Reservation</strong></li>
+							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message code="label.Reservation" /></a></li>
+						<li class="active"><strong><spring:message code="label.Reservation" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -39,7 +40,7 @@
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Reservation</h5>
+								<h5><spring:message code="label.Reservation" /></h5>
 								<div class="ibox-tools">
 
 									<!-- <a class="btn btn-primary " data-toggle="modal"
@@ -49,7 +50,7 @@
 
 									<a class="dropdown-toggle btn btn-primary"
 										data-toggle="dropdown" href="#"> <i class="fa fa-th-list">
-											Check In</i>
+											<spring:message code="label.CheckIn" /></i>
 									</a>
 									<ul class="dropdown-menu dropdown-user">
 										<jsp:include page="../reservation/checkIn.jsp"></jsp:include>
@@ -70,7 +71,7 @@
 										<div class="col-lg-12">
 											<div class="panel panel-default">
 												<div class="panel-heading">
-													<h3 class="panel-title">Check In</h3>
+													<h3 class="panel-title"><spring:message code="label.CheckIn" /></h3>
 												</div>
 												<div class="panel-body">
 													<div class="col-lg-6 form-group">
@@ -90,7 +91,7 @@
 
 
 												 		
-														<label>Check-In</label>
+														<label><spring:message code="label.CheckIn" /></label>
 														<div class='input-group date' id='datetimepicker1'>
 															<input type='text' class="form-control "
 																name="startDate" /> <span class="input-group-addon">
@@ -101,7 +102,7 @@
 													<div class="col-sm-1 form-group"></div>
   
 													<div class="col-sm-4 form-group">
-														<label>Check-Out</label>
+														<label><spring:message code="label.CheckOut" /></label>
 														<div class='input-group date' id='datetimepicker2'>
 															<input type='text' class="form-control "
 																name="endDate" /> <span class="input-group-addon">
@@ -113,7 +114,7 @@
 
 													<div class="col-lg-1 form-group"></div>
 													<div class="col-lg-3 form-group">
-														<label>Room Type</label> <select class="form-control"
+														<label><spring:message code="label.Roomtype" /></label> <select class="form-control"
 															name="roomType">
 															<option value="Single">Single</option>
 															<option value="Double">Double</option>
@@ -149,10 +150,10 @@
 
 													<div class="col-lg-1 form-group"></div>
 													<div class="col-lg-2 form-group">
-														<label>Search</label>
+														<label><spring:message code="label.Search" /></label>
 														<button id="singlebutton" type="submit"
 															name="singlebutton" class="btn btn-primary center-block">
-															Search Available Rooms</button>
+															<spring:message code="label.SearchAvailableRooms" /></button>
 													</div>
 
 												</div>

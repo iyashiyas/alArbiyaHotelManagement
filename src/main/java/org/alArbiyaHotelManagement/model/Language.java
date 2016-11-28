@@ -25,6 +25,17 @@ public class Language {
 	
 	@Column(name="LANGUAGE_STATUS") 
 	private String status;
+	
+	@Column(name="LANGUAGE_CODE") 
+	private String languageCode;
+
+	public String getLanguageCode() {
+		return languageCode;
+	}
+
+	public void setLanguageCode(String languageCode) {
+		this.languageCode = languageCode;
+	}
 
 	@Fetch(FetchMode.JOIN)
 	@OneToOne(fetch=FetchType.EAGER) 

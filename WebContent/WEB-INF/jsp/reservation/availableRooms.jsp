@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -27,8 +28,8 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-									Available Rooms from <label class="label-primary">${startDate}</label>
-									to <label class="label-primary">${endDate }</label>
+									<spring:message code="label.AvailableRoomsFor" /> <label class="label-primary">${startDate}</label>
+									<spring:message code="label.To" /> <label class="label-primary">${endDate }</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -49,14 +50,14 @@
 											class="table table-striped table-bordered table-hover dataTables-example">
 											<thead>
 												<tr>
-													<th>Room Id</th>
-													<th>Room Name</th>
-													<th>Room Code</th>
-													<th>Coast Per Day</th>
-													<th>Status</th>
-													<th>Floor</th>
-													<th>Type</th>
-													<th>Book</th>
+													<th><spring:message code="label.RoomId" /></th>
+													<th><spring:message code="label.RoomName" /></th>
+													<th><spring:message code="label.RoomCode" /></th>
+													<th><spring:message code="label.CoastPerDay" /></th>
+													<th><spring:message code="label.Status" /></th>
+													<th><spring:message code="label.Floor" /></th>
+													<th><spring:message code="label.Type" /></th>
+													<th><spring:message code="label.Book" /></th>
 												</tr>
 											</thead>
 											<tbody>

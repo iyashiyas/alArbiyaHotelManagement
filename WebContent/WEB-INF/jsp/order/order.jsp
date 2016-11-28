@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -26,11 +27,11 @@
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2>Order</h2>
+			<h2><spring:message code="Order" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
-				<li class="active"><strong>Order</strong></li>
+					href="${pageContext.request.contextPath}/"><spring:message code="Home" /></a></li>
+				<li class="active"><strong><spring:message code="Order" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -39,7 +40,7 @@
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5>Order Table Will Help you To View The All Order From Service Screen
+						<h5> <spring:message code="OrderTableWillHelpyouToViewTheAllOrderFromServiceScreen" />
 							 </h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -54,13 +55,13 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th>Order ID</th>
-										<th>Order Room</th>
-										<th>Details</th>
-										<th>Request time</th>
-											<th>Accept Request</th>
-										<th>Ready For Delivery </th>
-										<th>Delivered </th>
+										<th><spring:message code="OrderID" /></th>
+										<th><spring:message code="OrderRoom" /></th>
+										<th><spring:message code="Details" /></th>
+										<th><spring:message code="RequestTime" /></th>
+											<th><spring:message code="AcceptRequest" /></th>
+										<th><spring:message code="ReadyForDelivery" /> </th>
+										<th><spring:message code="Delivered" /> </th>
 									</tr>
 								</thead>
 								<tbody>
@@ -98,14 +99,14 @@
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header">Confirm Submit</div>
+					<div class="modal-header"><spring:message code="ConfirmSubmit" /></div>
 					<div class="modal-body">
-						Are you sure you want to submit <label id="#langName"></label>?
+						<spring:message code="AreYouSureYouWanttoSubmit" /> <label id="#langName"></label>?
 
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-						<a href="#" id="submit" class="btn btn-success success">Submit</a>
+						<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="Cancel" /></button>
+						<a href="#" id="submit" class="btn btn-success success"><spring:message code="Submit" /></a>
 					</div>
 				</div>
 			</div>
@@ -123,11 +124,11 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th>Order ID</th>
-										<th>Order Items</th>
-										<th>Ingredients</th>
-										<th>Quantity</th>
-										<th>Price</th>
+										<th><spring:message code="OrderID" /></th>
+										<th><spring:message code="OrderItems" /></th>
+										<th><spring:message code="Ingredients" /></th>
+										<th><spring:message code="Quantity" /></th>
+										<th><spring:message code="Price" /></th>
 									 
 									</tr>
 								</thead>
@@ -155,7 +156,7 @@
   
                 </div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="Close" /></button>
 				 
 				</div>
 				</form>
