@@ -2,14 +2,11 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,11 +21,7 @@ public class Role {
     @Column(name="ROLE")
     private String role;
      
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="user_roles", 
-        joinColumns = {@JoinColumn(name="ROLE_ID", referencedColumnName="ROLE_ID")},
-        inverseJoinColumns = {@JoinColumn(name="USER_ID", referencedColumnName="USER_ID")}
-    )
+    @ManyToMany(mappedBy = "roles")
     private Set<User> userRoles;
  
     public Integer getId() {

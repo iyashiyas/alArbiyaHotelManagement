@@ -1,13 +1,14 @@
 package org.alArbiyaHotelManagement.model;
 
-import javax.persistence.CascadeType;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +26,12 @@ public class User {
     @Column(name="PASSWORD")
     private String password;
      
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinTable(name="USER_ROLES",
-        joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName="USER_ID")},
-        inverseJoinColumns = {@JoinColumn(name="ROLE_ID", referencedColumnName="ROLE_ID")}
-    )
-    private Role role;
+    @ManyToMany
+    @JoinTable( 
+        name = "USERS_ROLES", 
+        joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"), 
+        inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")) 
+    private List<Role> roles;
  
     public Integer getId() {
         return id;
@@ -56,12 +57,12 @@ public class User {
         this.password = password;
     }
  
-    public Role getRole() {
-        return role;
+    public List<Role> getRoles() {
+        return roles;
     }
  
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }   
  
 }
