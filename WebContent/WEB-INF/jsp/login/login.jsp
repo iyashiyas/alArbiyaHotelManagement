@@ -40,12 +40,12 @@
                 </div>
                 <a class="btn btn-primary block full-width m-b" href="${pageContext.request.contextPath}/SHMS"><spring:message code="label.Login" /></a>
 
-                <a href="#"><small>ForgotPassword?</small></a>
+                <a href="#"><small><spring:message code="label.forgotPassword" /></small></a>
             </form>
-            <p class="m-t"> <small> AlArabiyaDepthForAdvancedProjectLtd  &copy; 2016</small> </p>
+            <p class="m-t"> <small> <spring:message code="label.AlArabiyaDepthForAdvancedProjectLtd" />  &copy; <spring:message code="label.2016" /></small> </p>
         </div>
     </div>
- <a href="?lang=en" class="btn btn-sm btn-success">English</a> <a href="?lang=ar" class="btn btn-sm btn-success">Arabic</a>
+ <a href="?lang=en" class="btn btn-sm btn-success"><spring:message code="label.english" /></a> <a href="?lang=ar" class="btn btn-sm btn-success"><spring:message code="label.arabic" /></a>
    
 
 <script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>

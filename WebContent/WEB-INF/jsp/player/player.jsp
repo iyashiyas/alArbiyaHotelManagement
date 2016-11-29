@@ -31,8 +31,8 @@
 			<h2>Player</h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/"><spring:message code="Home" /></a></li>
-				<li class="active"><strong><spring:message code="Player" /></strong></li>
+					href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+				<li class="active"><strong><spring:message code="label.Player" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -41,7 +41,7 @@
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5><spring:message code="PlayerTableWillHelpyouToControlServiceScreensWithIP" />
+						<h5><spring:message code="label.player.playertableWillHelpyouToControlServiceScreensWithIP" />
 							 </h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -56,12 +56,12 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th><spring:message code="PlayerId" /></th>
-										<th><spring:message code="PlayerIP" /></th>
-										<th><spring:message code="Status" /></th>
-										<th><spring:message code="AssignedRoom" /></th>
-										<th><spring:message code="Assign" /></th>
-										<th><spring:message code="Action" /></th>
+										<th><spring:message code="label.PlayerId" /></th>
+										<th><spring:message code="label.player.playerIP" /></th>
+										<th><spring:message code="label.Status" /></th>
+										<th><spring:message code="label.player.assignedRoom" /></th>
+										<th><spring:message code="label.player.assign" /></th>
+										<th><spring:message code="label.Action" /></th>
 									</tr>
 								</thead>
 								<tbody>

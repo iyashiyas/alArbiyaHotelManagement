@@ -110,9 +110,9 @@
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header"><spring:message code="ConfirmSubmit" /></div>
+					<div class="modal-header"><spring:message code="label.ConfirmSubmit" /></div>
 					<div class="modal-body">
-					<spring:message code="Areyousureyouwanttodisable?" />
+					<spring:message code="label.Areyousureyouwanttodisable?" />
 						
 					</div>
 					<div class="modal-footer">

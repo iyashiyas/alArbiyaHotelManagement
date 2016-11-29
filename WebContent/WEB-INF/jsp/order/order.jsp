@@ -27,11 +27,11 @@
 	<!-- Page Heading -->
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-9">
-			<h2><spring:message code="Order" /></h2>
+			<h2><spring:message code="label.Order" /></h2>
 			<ol class="breadcrumb">
 				<li><a
-					href="${pageContext.request.contextPath}/"><spring:message code="Home" /></a></li>
-				<li class="active"><strong><spring:message code="Order" /></strong></li>
+					href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+				<li class="active"><strong><spring:message code="label.Order" /></strong></li>
 			</ol>
 		</div>
 	</div>
@@ -40,7 +40,7 @@
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5> <spring:message code="OrderTableWillHelpyouToViewTheAllOrderFromServiceScreen" />
+						<h5> <spring:message code="label.OrderTableWillHelpyouToViewTheAllOrderFromServiceScreen" />
 							 </h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -55,13 +55,13 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th><spring:message code="OrderID" /></th>
-										<th><spring:message code="OrderRoom" /></th>
-										<th><spring:message code="Details" /></th>
-										<th><spring:message code="RequestTime" /></th>
-											<th><spring:message code="AcceptRequest" /></th>
-										<th><spring:message code="ReadyForDelivery" /> </th>
-										<th><spring:message code="Delivered" /> </th>
+										<th><spring:message code="label.OrderID" /></th>
+										<th><spring:message code="label.OrderRoom" /></th>
+										<th><spring:message code="label.Details" /></th>
+										<th><spring:message code="label.RequestTime" /></th>
+											<th><spring:message code="label.AcceptRequest" /></th>
+										<th><spring:message code="label.ReadyForDelivery" /> </th>
+										<th><spring:message code="label.Delivered" /> </th>
 									</tr>
 								</thead>
 								<tbody>
@@ -99,14 +99,14 @@
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header"><spring:message code="ConfirmSubmit" /></div>
+					<div class="modal-header"><spring:message code="label.ConfirmSubmit" /></div>
 					<div class="modal-body">
-						<spring:message code="AreYouSureYouWanttoSubmit" /> <label id="#langName"></label>?
+						<spring:message code="label.AreYouSureYouWanttoSubmit" /> <label id="#langName"></label>?
 
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="Cancel" /></button>
-						<a href="#" id="submit" class="btn btn-success success"><spring:message code="Submit" /></a>
+						<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+						<a href="#" id="submit" class="btn btn-success success"><spring:message code="label.Submit" /></a>
 					</div>
 				</div>
 			</div>
@@ -116,7 +116,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 			   <form class="form-horizontal" action="" method="post">
-				<div class="modal-header">Order Details</div>
+				<div class="modal-header"><spring:message code="label.order.orderDetails" /></div>
 				<div class="modal-body">
                 
 				 <div class="table-responsive">
@@ -124,11 +124,11 @@
 								class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th><spring:message code="OrderID" /></th>
-										<th><spring:message code="OrderItems" /></th>
-										<th><spring:message code="Ingredients" /></th>
-										<th><spring:message code="Quantity" /></th>
-										<th><spring:message code="Price" /></th>
+										<th><spring:message code="label.OrderID" /></th>
+										<th><spring:message code="label.OrderItems" /></th>
+										<th><spring:message code="label.Ingredients" /></th>
+										<th><spring:message code="label.Quantity" /></th>
+										<th><spring:message code="label.Price" /></th>
 									 
 									</tr>
 								</thead>
@@ -156,7 +156,7 @@
   
                 </div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="Close" /></button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Close" /></button>
 				 
 				</div>
 				</form>
