@@ -36,5 +36,11 @@ public class RoomServiceImpl implements RoomService {
 		}
 		return roomRepository.editRoom(room);
 	}
+
+	@Override
+	public List<Room> getAllFloorByBuildingId(String floorId) {
+		// TODO Auto-generated method stub
+		return roomRepository.getAllFloorByBuildingId(floorId);
+	}
 	 
 }

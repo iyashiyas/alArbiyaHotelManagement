@@ -1,10 +1,12 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.RoomRepository;
 import org.springframework.stereotype.Repository;
@@ -38,6 +40,14 @@ public class RoomRepositoryImpl implements RoomRepository{
 	@Override
 	public Room deleteRoom() {
 		return null;
+	}
+
+	@Override
+	public List<Room> getAllFloorByBuildingId(String floorId) {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT rooms from Floor floor join floor.rooms rooms where floor.id =:floorId ", Room.class);
+		query.setParameter("floorId", Long.parseLong(floorId));
+	    return query.getResultList();
 	}
 	 
 }

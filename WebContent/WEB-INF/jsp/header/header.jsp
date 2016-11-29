@@ -142,7 +142,7 @@
 									code="label.Users" /></a></li>
 					</ul></li>
 
-				<li><a href="${pageContext.request.contextPath}/player"><i
+				<li><a href="${pageContext.request.contextPath}/player/showPlayer"><i
 						class="fa fa-desktop"></i> <span class="nav-label"><spring:message
 								code="label.Player" /></span> </a></li>
 
