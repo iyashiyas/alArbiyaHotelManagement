@@ -18,11 +18,7 @@ public class UserController {
 	
 	@Autowired
 	UserService userservice;
-	
-	@RequestMapping(method = RequestMethod.GET)
-	public String showUser() {
-		return "user/user";
-	}
+	 
 
 	@RequestMapping(value="/getUserDetails", method=RequestMethod.GET)
 	public String getUserDetails(@RequestParam(required=true) String roomId,

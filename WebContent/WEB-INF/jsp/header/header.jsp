@@ -137,8 +137,8 @@
 						class="nav-label"><spring:message
 								code="label.UserManagement" /></span><span class="fa arrow"></span> </a>
 					<ul class="nav nav-second-level collapse">
-						<li><a href="#"><spring:message code="label.Roles" /></a></li>
-						<li><a href="${pageContext.request.contextPath}/user"><spring:message
+						<li><a href="${pageContext.request.contextPath}/role/showRole"><spring:message code="label.Roles" /></a></li>
+						<li><a href="${pageContext.request.contextPath}/usermanagement/showUser"><spring:message
 									code="label.Users" /></a></li>
 					</ul></li>
 

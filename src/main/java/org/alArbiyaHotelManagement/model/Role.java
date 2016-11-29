@@ -17,7 +17,10 @@ public class Role {
     @GeneratedValue
     @Column(name="ROLE_ID")
     private Integer id;
-     
+    
+    @Column(name="ROLE_NAME")
+    private String roleName;
+    
     @Column(name="ROLE")
     private String role;
      
@@ -32,7 +35,15 @@ public class Role {
         this.id = id;
     }
  
-    public String getRole() {
+    public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getRole() {
         return role;
     }
  
