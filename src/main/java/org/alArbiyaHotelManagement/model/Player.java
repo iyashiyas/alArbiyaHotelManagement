@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
  
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,39 @@ public class Player {
 	@Column(name="PLAYER_STATUS")
 	private String playerStatus;
 	  
-	 
-	 
+	@OneToOne
+	@JoinColumn(name="ROOM_ID", nullable=false)
+	private Room room;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getPlayerIpAddress() {
+		return playerIpAddress;
+	}
+
+	public void setPlayerIpAddress(String playerIpAddress) {
+		this.playerIpAddress = playerIpAddress;
+	}
+
+	public String getPlayerStatus() {
+		return playerStatus;
+	}
+
+	public void setPlayerStatus(String playerStatus) {
+		this.playerStatus = playerStatus;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
 }
