@@ -30,11 +30,13 @@ public class HotelController {
 
 	@Autowired
 	BranchService branchService;
+	
 	@Autowired
 	BuildingService buildingService;
 
 	@Autowired
 	FloorService floorService;
+	
 	@Autowired
 	RoomService roomService;
 

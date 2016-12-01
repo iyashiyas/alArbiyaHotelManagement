@@ -42,10 +42,11 @@ public class RoomRepositoryImpl implements RoomRepository{
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Room> getAllFloorByBuildingId(String floorId) {
+	public List<Room> getAllRoomsByFloor(String floorId) {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT rooms from Floor floor join floor.rooms rooms where floor.id =:floorId ", Room.class);
+		Query query = entityManager.createQuery("SELECT rooms from Floor floor join floor.rooms rooms where floor.id =:floorId", Room.class);
 		query.setParameter("floorId", Long.parseLong(floorId));
 	    return query.getResultList();
 	}

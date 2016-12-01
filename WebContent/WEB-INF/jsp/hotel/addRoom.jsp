@@ -49,7 +49,7 @@
 						<label class="col-sm-2 control-label"><spring:message code="label.SelectBuildingCode" /> </label>
                           <div class="col-sm-10">
 								<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="">
-								
+								 	<form:option value="0">Select Building</form:option>
 							 </form:select>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 						<label class="col-sm-2 control-label" ><spring:message code="label.SelectFloorCode" /></label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b FloorId"  required="required" name="floor.id" path="floor.id">
-								
+								 	<form:option value="0">Select Floor</form:option>
 							 </form:select>
 						</div>
 					</div>

@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
- 
-
-import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Role;
  
 import org.alArbiyaHotelManagement.service.RoleService;

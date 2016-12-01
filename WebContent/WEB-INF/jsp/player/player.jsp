@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -9,9 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-<link id=""
-	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
-	rel="stylesheet">
+<link id="" href="<c:url value="/resources/css/dataTables/datatables.min.css"/>" rel="stylesheet">
 
 
 <title>SHMS-Player</title>
@@ -48,8 +47,7 @@
 								</h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-									</a>
-
+									</a> 
 								</div>
 							</div>
 							<div class="ibox-content">
@@ -64,26 +62,25 @@
 												<th><spring:message code="label.Status" /></th>
 												<th><spring:message code="label.player.assignedRoom" /></th>
 												<th><spring:message code="label.player.assign" /></th>
-												<th><spring:message code="label.Action" /></th>
-											</tr>
+											 </tr>
 										</thead>
 										<tbody>
 
 											<!-- Fetching Language Table-->
+											<c:forEach items="${players}" var="players">
+												<tr class="gradeX">
 
-											<tr class="gradeX">
-
-												<td class="center">1</td>
-												<td class="center">192.168.100.158</td>
-												<td class="center"><i class="fa fa-circle text-danger"></i>
-													Inactive</td>
-												<td class="center">Room Not Assigned</td>
-												<td class="center"><a href="#" data-toggle="modal"
-													data-target="#assign_to_room">Assign To Room</a></td>
-												<td class="center"><a href="#" data-toggle="modal"
-													data-target="#confirm-submit">Disable</a></td>
-
-											</tr>
+													<td class="center id">${players.id}</td>
+													<td class="center playerIpAddress">${players.playerIpAddress}</td>
+													<td class="center playerStatus"><label
+														class=" label ${players.playerStatus == 'NOTCONFIGURED' ? 'label-primary' : 'label-danger'}">
+															<c:out value="${players.playerStatus}" />
+													</label></td>
+													<td class="center playerRoomNumber">Room Not Assigned</td>
+													<td class="center assigntoRoom"><a>Assign To Room</a></td>
+												 
+												</tr>
+											</c:forEach>
 
 
 											<!-- Demo -->
@@ -116,35 +113,27 @@
 						</div>
 					</div>
 				</div>
-				<div class="modal fade" id="assign_to_room" tabindex="-1"
+				<div class="modal fade" id="assign" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<jsp:include page="../player/assignToRoom.jsp"></jsp:include>
+							 <jsp:include page="../player/assignToRoom.jsp"></jsp:include>
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-	</div> 
+	</div>
 
-	<script
-		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
-		
-	</script>
-	<script type='text/javascript'
-		src="<c:url value="/resources/js/modal_language.js" />">
-		
-	</script>
-	<script type='text/javascript'
-		src="<c:url value="/resources/js/player/player.js" />">
-		
-	</script>
+	<script src="<c:url value="/resources/js/datatablecustom.js" />" type="text/javascript">
+	 </script>
+	 
+	<script type='text/javascript' src="<c:url value="/resources/js/player/player.js" />">
+	 </script>
 
 </body>
 </html>

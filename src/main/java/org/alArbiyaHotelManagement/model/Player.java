@@ -25,7 +25,7 @@ public class Player {
 	private String playerStatus;
 	  
 	@OneToOne
-	@JoinColumn(name="ROOM_ID", nullable=false)
+	@JoinColumn(name="ROOM_ID", nullable=true)
 	private Room room;
 
 	public long getId() {

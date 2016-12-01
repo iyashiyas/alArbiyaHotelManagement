@@ -38,9 +38,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public List<Room> getAllFloorByBuildingId(String floorId) {
+	public List<Room> getAllRoomsByFloor(String floorId) {
 		// TODO Auto-generated method stub
-		return roomRepository.getAllFloorByBuildingId(floorId);
+		return roomRepository.getAllRoomsByFloor(floorId);
 	}
 	 
 }

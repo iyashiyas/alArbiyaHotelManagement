@@ -47,8 +47,44 @@ $( document ).ready(function() {
 			                return;
 			        },
 			    });
-			 
-		});
-});
-
+	   });
+	 
+// Get Rooms By Floor ID
+$( ".FloorId" ).change(function() {
+	 $('.roomId').empty();
+		var floorId=$(this).val();
+		 
+		    $.ajax({
+		        type:'GET',
+		        contentType: "application/json",
+		        url:'getAllRoomsByFloor',
+		        data:{floorId:floorId},
+		        dataType: "json",
+		        success: function(data){ 
+		        	$.each(data, function (i, room) {
+		        		console.log(room.id);
+		        		$('.roomId').append('<option value="'+room.id+'">'+room.roomCode+'</option>')
+		        	});
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		 
+	});
  
+	 
+	 $('.assigntoRoom').click(function() {
+		   
+		var $row = $(this).parent('tr')
+	    $('#assign').find("#id").val($row.find(".id").text())
+	 	  $('#assign').find("#playerIpAddress").val($row.find(".playerIpAddress").text())
+		$('#assign').modal({
+		    backdrop: 'static',
+		    keyboard: true,
+		    show: true});
+	});
+ 
+ 
+	 });

@@ -10,6 +10,6 @@ public interface RoomRepository {
 	public List<Room> getAllRoom();
 	public Room editRoom(Room room);
 	public Room deleteRoom();
-	public List<Room> getAllFloorByBuildingId(String floorId);
+	public List<Room> getAllRoomsByFloor(String floorId);
 	
 }

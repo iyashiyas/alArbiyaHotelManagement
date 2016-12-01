@@ -43,7 +43,7 @@
 						<label class="col-sm-2 control-label"><spring:message code="label.SelectBuildingCode" /></label>
                           <div class="col-sm-10">
 							<form:select class="form-control m-b buildingId"  required="required" name="building.id" path="building.id">
-								
+								 	<form:option value="0">Select Building</form:option>
 							 </form:select>
 						</div>
 					</div>

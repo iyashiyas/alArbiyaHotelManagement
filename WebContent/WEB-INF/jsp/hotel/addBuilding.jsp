@@ -35,6 +35,7 @@
 				<label class="col-sm-2 control-label" ><spring:message code="label.SelectBranchCode" /></label>
 				<div class="col-sm-10">
 				 <form:select class="form-control m-b"  required="required" path="branch.id" name="branch.id">
+				  	<form:option value="0">Select branch</form:option>
 							  <form:options items="${branches}" itemValue="id" itemLabel="branchCode"></form:options>
 				 </form:select> 				
 				 </div>			

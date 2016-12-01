@@ -20,8 +20,7 @@ $( document ).ready(function() {
 			            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
 			                return;
 			        },
-			    });
-			 
+			    }); 
 		});
 		 
 	  
