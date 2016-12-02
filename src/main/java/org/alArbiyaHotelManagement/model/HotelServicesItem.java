@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.model;
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -37,6 +38,9 @@ public class HotelServicesItem {
 	
 	@ManyToOne
 	private HotelServicesCategory hotelServicesCategory;
+
+	@Column(name="IMAGE_URL_NAME")
+	private String imageUrlName;
 
 	public long getId() {
 		return id;
@@ -110,6 +114,15 @@ public class HotelServicesItem {
 		if(hotelServicesCategory.getHotelServicesItems() != null && !hotelServicesCategory.getHotelServicesItems().contains(this)) {
 			hotelServicesCategory.getHotelServicesItems().add(this);
 		}
+	}
+
+	public String getImageUrlName() {
+		return this.imageUrlName;
+	}
+	
+	public void setImageUrlName(String imageUrlName) {
+		// TODO Auto-generated method stub
+		this.imageUrlName = imageUrlName; 
 	} 
 
 }

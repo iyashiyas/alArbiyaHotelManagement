@@ -1,5 +1,10 @@
 package org.alArbiyaHotelManagement.web;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,11 +49,7 @@ public class ActionController {
 	@Autowired
 	IngredientService ingredientService;
 
-	/*
-	 * @InitBinder public void initBinder(WebDataBinder binder) {
-	 * binder.setAutoGrowNestedPaths(false); }
-	 */
-
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAction(
 			Model model,
@@ -110,7 +111,31 @@ public class ActionController {
 
 	@RequestMapping(value = "/addCoffeShop", method = RequestMethod.POST)
 	public String addCoffeShop(@ModelAttribute CoffeeShop coffeeShop) {
-		actionService.addCoffeeShop(coffeeShop);
+		File serverFile = null;
+		if (!coffeeShop.getMultipartFile().isEmpty()) {
+			try {
+				byte[] bytes = coffeeShop.getMultipartFile().getBytes();
+
+				// Creating the directory to store file
+				String rootPath = System.getProperty("user.home");
+				File dir = new File(rootPath + File.separator + "coffeeShop");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				serverFile = new File(dir.getAbsolutePath()
+						+ File.separator + new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date())+".jpeg");
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		actionService.addCoffeeShop(coffeeShop, serverFile);
 		return "redirect:/action/showCoffeeShop";
 	}
 

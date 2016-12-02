@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import java.io.File;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
@@ -24,9 +25,11 @@ public class ActionServiceImpl implements ActionService {
 		return null;
 	}
 	@Override
-	public Action addCoffeeShop(CoffeeShop coffeeShop) {
+	public Action addCoffeeShop(CoffeeShop coffeeShop, File file) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(coffeeShop.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop, hotelServicesCategory);
+		hotelServices.setImageUrlName(file.getAbsolutePath());
+		System.out.println("file.getAbsolutePath() "+file.getAbsolutePath());
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}

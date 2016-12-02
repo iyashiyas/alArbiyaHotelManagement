@@ -26,7 +26,8 @@
 		<div class="ibox-content">
 			<form:form class="form-horizontal"
 				action="${pageContext.request.contextPath}/action/addCoffeShop"
-				method="POST" modelAttribute="coffeShop">
+				method="POST" modelAttribute="coffeShop"
+				enctype="multipart/form-data">
 				
 				<input type="hidden" name="hotelServiceCategoryId" value="1"/>
 				
@@ -155,7 +156,7 @@
 
 					<div class="col-sm-10">
 						<input type="file" placeholder="Image"
-							name="image" class="form-control">
+							name="multipartFile" class="form-control">
 					</div>
 				</div>
 				
