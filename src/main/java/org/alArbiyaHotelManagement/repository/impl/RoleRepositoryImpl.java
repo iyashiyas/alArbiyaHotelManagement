@@ -9,7 +9,12 @@ import javax.transaction.Transactional;
 
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.Role;
+import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.repository.RoleRepository;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -17,6 +22,13 @@ import org.springframework.stereotype.Repository;
 public class RoleRepositoryImpl implements RoleRepository{
 	@PersistenceContext
 	EntityManager entityManager;
+	
+	 @Autowired
+	    private SessionFactory sessionFactory;
+	     
+	    private Session getCurrentSession() {
+	        return sessionFactory.getCurrentSession();
+	    }
 	
 	@Override
 	public Role addRole(Role role) {
@@ -30,4 +42,12 @@ public class RoleRepositoryImpl implements RoleRepository{
 		Query query = entityManager.createQuery("SELECT role from Role role", Role.class);
 		return query.getResultList();
 	}
+
+	@Override
+	public Role getRole(int id) {
+		// TODO Auto-generated method stub
+		Role role = (Role) getCurrentSession().load(Role.class, id);
+        return role;
+	}
+	 
 }

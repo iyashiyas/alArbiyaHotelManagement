@@ -10,6 +10,8 @@ public interface UserManagementRepository {
 
 	public User addUser(User user);
 
+	public User getUser(String userName);
+
  
 	 
 

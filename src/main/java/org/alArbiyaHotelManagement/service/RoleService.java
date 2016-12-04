@@ -9,5 +9,5 @@ public interface RoleService {
 	public Role addRole(Role role);
 
 	public List<Role> getAllRole();
-
+	 public Role getRole(int id);
 }

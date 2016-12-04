@@ -26,4 +26,10 @@ public class UserManagementServiceImpl implements UserManagementService{
 		return userManagementRepository.addUser(user);
 	}
 
+	@Override
+	public User getUser(String userName) {
+		// TODO Auto-generated method stub
+		return userManagementRepository.getUser(userName);
+	}
+
 }

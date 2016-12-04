@@ -20,10 +20,10 @@
 			<label class="col-sm-4 control-label"><spring:message
 					code="label.role.roleName" /></label>
 
-			<div class="col-sm-8">
+			<%-- <div class="col-sm-8">
 				<form:input type="text" path="roleName" placeholder="Role Name" name="roleName"
 					class="form-control" />
-			</div>
+			</div> --%>
 		</div> 
 		</div>
 		   
