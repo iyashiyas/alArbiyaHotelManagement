@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="BRANCH")
@@ -42,8 +42,8 @@ public class Branch {
 	@Column(name="BRANCH_CODE", unique=true) 
 	private String branchCode;
 
-	@JsonManagedReference
 	@OneToMany(mappedBy="branch", cascade=CascadeType.MERGE, fetch=FetchType.EAGER) 
+	@JsonManagedReference
 	private List<Building> buildings;
 	
 	public long getId() {

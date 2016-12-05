@@ -30,13 +30,6 @@ public class UserManagementRepositoryImpl implements UserManagementRepository{
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	@Autowired
-    private SessionFactory sessionFactory;
-     
-    private Session openSession() {
-        return sessionFactory.getCurrentSession();
-    }
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllusers() {
@@ -55,13 +48,13 @@ public class UserManagementRepositoryImpl implements UserManagementRepository{
 	@Override
 	public User getUser(String userName) {
 		// TODO Auto-generated method stub
-		 List<User> userList = new ArrayList<User>();
+		 /*List<User> userList = new ArrayList<User>();
 	        Query query = (Query) openSession().createQuery("from User u where u.userName = :userName");
 	        query.setParameter("login", userName);
 	        userList = ((org.hibernate.Query) query).list();
 	        if (userList.size() > 0)
 	            return userList.get(0);
-	        else
+	        else*/
 	            return null;    
 	}
 	

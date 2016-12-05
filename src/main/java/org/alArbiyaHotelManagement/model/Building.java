@@ -13,7 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="BUILDING")
@@ -45,12 +46,13 @@ public class Building {
 	@Column(name="BUILDING_STATUS") 
 	private String buildingStatus;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BRANCH_ID")
+	@JsonBackReference
 	private Branch branch;
 	
-	@OneToMany(mappedBy="building",cascade={CascadeType.MERGE}, fetch=FetchType.EAGER) 
+	@OneToMany(mappedBy="building",cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@JsonManagedReference
 	private List<Floor> floors;
 
 	public long getId() {
