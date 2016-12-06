@@ -37,22 +37,22 @@
 				<!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
 			</p>
 			<p>Login in. To see it in action.</p>
-			<form:form class="m-t" role="form" modelAttribute="userForm" method="POST"
+			<form class="m-t" role="form"   method="POST"
 				action="${pageContext.request.contextPath}/validateUser">
 				<div class="form-group">
-					<form:input type="text" name="username" class="form-control"
+					<input type="text" name="username" class="form-control"
 						placeholder="<spring:message code="label.UserName" />"
-						required="required" path="userName" />
+						required="required" >
 				</div>
 				<div class="form-group">
-					<form:input type="password" name="password" class="form-control"
+					<input type="password" name="password" class="form-control"
 						placeholder="<spring:message code="label.Password" />"
-						required="required" path="password" />
+						required="required" >
 				</div>
 				<button class="btn btn-primary block full-width m-b" type="submit"><spring:message
 						code="label.Login" /></button> <a href="#"><small><spring:message
 							code="label.forgotPassword" /></small></a>
-			</form:form>
+			</form>
 			<p class="m-t">
 				<small> <spring:message
 						code="label.AlArabiyaDepthForAdvancedProjectLtd" /> &copy; <spring:message

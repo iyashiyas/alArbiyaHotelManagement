@@ -12,9 +12,7 @@
 </head>
 <body>
 
-	<form:form class="form-horizontal"
-		action="${pageContext.request.contextPath}/player/assignToRoom"
-		modelAttribute="newPlayer" method="post">
+	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/player/assignToRoom" modelAttribute="newPlayers" method="post">
 
 		<div class="modal-header">
 			<spring:message code="label.player.assignToRoom" />
@@ -26,12 +24,11 @@
 				<label class="col-sm-2 control-label"><spring:message
 						code="label.SelectBranchCode" /></label>
 				<div class="col-sm-10">
-					<form:select class="form-control m-b branchDetail"
-						required="required" path="" name="branch.id">
-						<form:option value="0">Select branch</form:option>
-						<form:options items="${branches}" itemValue="id"
-							itemLabel="branchCode"></form:options>
-					</form:select>
+					<select class="form-control m-b branchDetail"  name="branch.id">
+						<option value="0">Select branch</option>
+						<c:forEach items="${branches}" var="branches">
+						<option value="${branches.id}">${branches.branchCode}</option></c:forEach>
+					</select>
 				</div>
 			</div>
 
@@ -39,10 +36,10 @@
 				<label class="col-sm-2 control-label"><spring:message
 						code="label.SelectBuildingCode" /> </label>
 				<div class="col-sm-10">
-					<form:select class="form-control m-b buildingId"
-						required="required" name="building.id" path="">
+					<select class="form-control m-b buildingId"
+						required="required" name="building.id" >
 
-					</form:select>
+					</select>
 				</div>
 			</div>
 
@@ -51,10 +48,10 @@
 				<label class="col-sm-2 control-label"><spring:message
 						code="label.SelectFloorCode" /></label>
 				<div class="col-sm-10">
-					<form:select class="form-control m-b FloorId" required="required"
-						name="floor.id" path="">
+					<select class="form-control m-b FloorId" required="required"
+						name="floor.id" >
 
-					</form:select>
+					</select>
 				</div>
 			</div>
 
@@ -75,10 +72,9 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Select Room Code</label>
 				<div class="col-sm-10">
-					<form:select class="form-control m-b roomId" required="required"
-						name="room.id" path="">
+					<select class="form-control m-b roomId" required="required" name="room.id">
 
-					</form:select>
+					</select>
 				</div>
 			</div>
 
@@ -88,8 +84,8 @@
 			<button type="button" class="btn btn-default" data-dismiss="modal">
 				<spring:message code="label.Cancel" />
 			</button>
-			<a href="#" id="submit" class="btn btn-success success"><spring:message
-					code="label.Update" /></a>
+			<button type="submit" id="submit" class="btn btn-success success"><spring:message
+					code="label.Update" /></button>
 		</div>
 	</form:form>
 </body>

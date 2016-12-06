@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/player")
 public class PlayerController {
-	
+
 	@Autowired
 	BranchService branchService;
 
@@ -50,33 +50,35 @@ public class PlayerController {
 	public String showPlayer(Model model) {
 		List<Player> players = playerService.getAllPlayer();
 		List<Branch> branches = branchService.getAllBranch();
-	     Map<String, Object> attributes = new HashMap<String, Object>();
+		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("branches", branches);
-		 attributes.put("players", players);
-		attributes.put("newPlayer", new Player());
+		attributes.put("players", players);
+		attributes.put("newPlayers", new Player());
 		model.addAllAttributes(attributes);
 		return "player/player";
 	}
 
 	@RequestMapping(value = "/getAllBuilding", method = RequestMethod.GET)
-	public @ResponseBody List<Building> getAllBuilding(@RequestParam(required = false) String branchId) {
+	public @ResponseBody List<Building> getAllBuilding(
+			@RequestParam(required = false) String branchId) {
 		return buildingService.getAllBuilding(branchId);
 	}
 
 	@RequestMapping(value = "/getAllFloor", method = RequestMethod.GET)
-	public @ResponseBody List<Floor> getAllFloor(@RequestParam(required = false) String buildingId) {
+	public @ResponseBody List<Floor> getAllFloor(
+			@RequestParam(required = false) String buildingId) {
 		return floorService.getAllFloorByBuildingId(buildingId);
 	}
-	 
- 
+
 	@RequestMapping(value = "/getAllRoomsByFloor", method = RequestMethod.GET)
-	public @ResponseBody List<Room> getAllRoom(@RequestParam(required = false) String floorId) {
+	public @ResponseBody List<Room> getAllRoom(
+			@RequestParam(required = false) String floorId) {
 		return roomService.getAllRoomsByFloor(floorId);
 	}
- 
+
 	@RequestMapping(value = "/assignToRoom", method = RequestMethod.POST)
-	public String assignToRoom(@ModelAttribute Player player) {
-		playerService.assignToRoom(player);
+	public String assignToRoom(@ModelAttribute Player players) {
+		playerService.assignToRoom(players);
 		return "player/player";
 	}
 

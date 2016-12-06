@@ -8,10 +8,7 @@ public interface UserManagementService {
 
 	List<User> getAllusers();
 
-	public User addUser(User user);
-
-	User findByUsername(String userName);
-
+	public User addUser(User user); 
 	/* public User getUser(String userName);*/
 
 }

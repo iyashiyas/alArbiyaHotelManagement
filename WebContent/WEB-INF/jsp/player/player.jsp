@@ -76,7 +76,7 @@
 														class=" label ${players.playerStatus == 'NOTCONFIGURED' ? 'label-primary' : 'label-danger'}">
 															<c:out value="${players.playerStatus}" />
 													</label></td>
-													<td class="center playerRoomNumber">Room Not Assigned</td>
+													<td class="center playerRoomNumber">${players.room.roomCode}</td>
 													<td class="center assigntoRoom"><a>Assign To Room</a></td>
 												 
 												</tr>

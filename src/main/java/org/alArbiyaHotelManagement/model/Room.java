@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+  
 @Entity
 @Table(name="ROOM")
 public class Room {
@@ -37,7 +39,8 @@ public class Room {
 	@Column(name="ROOM_STATUS") 
 	private String roomStatus;
 	
-	@ManyToOne
+	@JsonBackReference
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="FLOOR_ID")
 	private Floor floor;
 	
@@ -46,7 +49,6 @@ public class Room {
 	
 	@OneToMany(mappedBy="room", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Booking> bookings;
-	
 	 
 	
 	public long getId() {

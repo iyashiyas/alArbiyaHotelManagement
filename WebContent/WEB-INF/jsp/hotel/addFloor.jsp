@@ -1,4 +1,4 @@
-\<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<title>Add Floor</title>
 </head>
 <body>
 <div class="ibox-content">
@@ -14,7 +14,6 @@
 				  
 					<div class="form-group">
 						<label class="col-sm-2 control-label"><spring:message code="label.FloorName" /></label>
-
 						<div class="col-sm-10">
 							<form:input type="text"  required="required" placeholder="Floor Name" name="floorName"
 								class="form-control" path="floorName" />

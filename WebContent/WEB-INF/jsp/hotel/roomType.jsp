@@ -35,7 +35,7 @@
 
        <div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5><spring:message code="label.RoomtypeOverView" />/h5>
+								<h5><spring:message code="label.RoomtypeOverView" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>

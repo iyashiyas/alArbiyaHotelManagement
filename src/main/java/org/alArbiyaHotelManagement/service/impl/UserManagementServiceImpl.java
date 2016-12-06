@@ -7,6 +7,7 @@ import org.alArbiyaHotelManagement.repository.UserManagementRepository;
 import org.alArbiyaHotelManagement.service.UserManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+ 
 
 @Service
 public class UserManagementServiceImpl implements UserManagementService{
@@ -23,18 +24,9 @@ public class UserManagementServiceImpl implements UserManagementService{
 	@Override
 	public User addUser(User user) {
 		// TODO Auto-generated method stub
+ 
 		return userManagementRepository.addUser(user);
 	}
 
-	/*@Override
-	public User getUser(String userName) {
-		// TODO Auto-generated method stub
-		return userManagementRepository.getUser(userName);
-	}*/
-
-	 @Override
-	    public User findByUsername(String userName) 
-	    {
-	        return userManagementRepository.findByUsername(userName);
-	    }
+	 
 }

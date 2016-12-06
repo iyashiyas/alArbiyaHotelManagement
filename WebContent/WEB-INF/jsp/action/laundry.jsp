@@ -242,8 +242,7 @@
  
 </div>
 </div>
-</div>
-</div>
+</div> 
 
  <script type="text/javascript" src="<c:url value="/resources/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"/>"></script>
  <script type="text/javascript" src="<c:url value="/resources/js/action/laundry.js"/>"></script>

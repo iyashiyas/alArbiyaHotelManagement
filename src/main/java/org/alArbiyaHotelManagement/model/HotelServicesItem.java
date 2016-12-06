@@ -1,6 +1,5 @@
 package org.alArbiyaHotelManagement.model;
-
-import java.io.File;
+ 
 import java.util.List;
 
 import javax.persistence.CascadeType;
