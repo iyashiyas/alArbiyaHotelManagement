@@ -10,6 +10,8 @@ public interface UserManagementService {
 
 	public User addUser(User user);
 
-	 public User getUser(String userName);
+	User findByUsername(String userName);
+
+	/* public User getUser(String userName);*/
 
 }

@@ -72,7 +72,7 @@
                     <thead>
                     <tr>
                     <th >User Id</th>
-                        <th>Role Name</th>
+                       <!--  <th>Role Name</th> -->
                           <th>Role </th>
                           <th>Edit</th>
                          
@@ -83,9 +83,9 @@
   <c:forEach items="${roles}" var="roles">
 						<tr class="read">
                             <td class="check-mail">${roles.id} </td>
-							<td class="mail-ontact ">${roles.roleName}  </td>
+							<%-- <td class="mail-ontact ">${roles.roleName}  </td> --%>
 							<td class="mail-subject"> ${roles.role}  </td>
-						   <td class=""><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit" class="disable">Edit</a></i></td>
+						   <td class=""><i class="fa fa-pencil"><a class="disable">Edit</a></i></td>
 							  
 						</tr>
 						</c:forEach>

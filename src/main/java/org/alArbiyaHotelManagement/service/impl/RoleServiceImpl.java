@@ -25,13 +25,13 @@ public class RoleServiceImpl implements RoleService{
 		// TODO Auto-generated method stub
 		return roleRepository.getAllRole();
 	}
-
+/*
 	@Override
 	public Role getRole(int id) {
 		// TODO Auto-generated method stub
 		return roleRepository.getRole(id);
 	}
-	
+	*/
  
 
 }

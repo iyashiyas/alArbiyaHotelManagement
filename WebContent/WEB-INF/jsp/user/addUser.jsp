@@ -24,7 +24,7 @@
 			<div class="col-sm-10">
 				<form:select class="form-control m-b" path="roles[0].id" name="roles[0].id" >
 				<c:forEach items="${roles}" var="roles">
-					<form:option value="${roles.id}">${roles.roleName}</form:option>
+					<form:option value="${roles.id}">${roles.role}</form:option>
 				 
                 </c:forEach>
 				</form:select>
