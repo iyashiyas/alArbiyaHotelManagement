@@ -26,10 +26,8 @@
 
 	<div class="middle-box text-center loginscreen animated fadeInDown">
 		<div>
-			<div>
-
-				<h1 class="logo-name">SHMS</h1>
-
+			<div> 
+				<h1 class="logo-name">SHMS</h1> 
 			</div>
 			<h3>Welcome to SHMS 1.0</h3>
 			<p>
@@ -37,8 +35,7 @@
 				<!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
 			</p>
 			<p>Login in. To see it in action.</p>
-			<form class="m-t" role="form"   method="POST"
-				action="${pageContext.request.contextPath}/validateUser">
+			<form class="m-t" role="form"   method="POST" >
 				<div class="form-group">
 					<input type="text" name="username" class="form-control"
 						placeholder="<spring:message code="label.UserName" />"
@@ -49,8 +46,8 @@
 						placeholder="<spring:message code="label.Password" />"
 						required="required" >
 				</div>
-				<button class="btn btn-primary block full-width m-b" type="submit"><spring:message
-						code="label.Login" /></button> <a href="#"><small><spring:message
+				<a href="${pageContext.request.contextPath}/SHMS" class="btn btn-primary block full-width m-b" type="submit"><spring:message
+						code="label.Login" /></a> <a href="#"><small><spring:message
 							code="label.forgotPassword" /></small></a>
 			</form>
 			<p class="m-t">
@@ -60,11 +57,8 @@
 			</p>
 		</div>
 	</div>
-	<a href="?lang=en" class="btn btn-sm btn-success"><spring:message
-			code="label.english" /></a>
-	<a href="?lang=ar" class="btn btn-sm btn-success"><spring:message
-			code="label.arabic" /></a>
-
+	<a href="?lang=en" class="btn btn-sm btn-success">English</a>
+	<a href="?lang=ar" class="btn btn-sm btn-success"><spring:message code="label.arabic" /></a>
 
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>

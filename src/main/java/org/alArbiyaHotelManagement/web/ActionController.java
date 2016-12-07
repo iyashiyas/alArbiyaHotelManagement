@@ -118,13 +118,13 @@ public class ActionController {
 
 				// Creating the directory to store file
 				String rootPath = System.getProperty("user.home");
-				File dir = new File(rootPath + File.separator + "coffeeShop");
+				File dir = new File(rootPath+File.separator+"coffeeShop");
 				if (!dir.exists())
 					dir.mkdirs();
 
 				// Create the file on server
 				serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date())+".jpeg");
+						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
 				stream.write(bytes);
@@ -190,7 +190,32 @@ public class ActionController {
 
 	@RequestMapping(value = "/addRestaurantItems", method = RequestMethod.POST)
 	public String addRestaurantItems(@ModelAttribute Restaurant restaurant) {
-		actionService.addRestaurantItems(restaurant);
+		
+		File serverFile = null;
+		if (!restaurant.getMultipartFile().isEmpty()) {
+			try {
+				byte[] bytes = restaurant.getMultipartFile().getBytes();
+
+				// Creating the directory to store file
+				String rootPath = System.getProperty("user.home");
+				File dir = new File(rootPath+File.separator+"restaurant");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				serverFile = new File(dir.getAbsolutePath()
+						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		actionService.addRestaurantItems(restaurant,serverFile);
 		return "redirect:/action/showRestaurant";
 	}
 

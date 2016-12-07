@@ -14,7 +14,7 @@
 </head>
 <body> 
 	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems"
-		modelAttribute="restaurant" method="post">
+		modelAttribute="restaurant" method="post" 	enctype="multipart/form-data">
 		<p><spring:message code="label.AddRestaurantItemsHere" /></p>
 		<input type="hidden" name="hotelServiceCategoryId" value="6" />
 		<div class="form-group">
@@ -133,11 +133,11 @@
 
 		<div class="form-group">
 			<label class="col-sm-2 control-label"> <spring:message code="label.Image" /></label>
-
-			<div class="col-sm-10">
-				<input type="file" placeholder="Image" name="image"
-					class="form-control">
-			</div>
+ 
+					<div class="col-sm-10">
+						<input type="file" placeholder="Image"
+							name="multipartFile" class="form-control">
+					</div>
 		</div>
 
 		<div class="form-group">

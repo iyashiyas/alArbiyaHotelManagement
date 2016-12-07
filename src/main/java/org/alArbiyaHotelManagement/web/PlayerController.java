@@ -79,7 +79,7 @@ public class PlayerController {
 	@RequestMapping(value = "/assignToRoom", method = RequestMethod.POST)
 	public String assignToRoom(@ModelAttribute Player players) {
 		playerService.assignToRoom(players);
-		return "player/player";
+		return "redirect:/player/showPlayer";
 	}
 
 }

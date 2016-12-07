@@ -15,7 +15,7 @@ public interface ActionService {
 	public Action addCoffeeShop(CoffeeShop coffeeShop, File serverFile);
 	public Action editAction();
 	public List<HotelServicesItem> getAllCoffeShopItems();
-	public void addRestaurantItems(Restaurant restaurant);
+	public void addRestaurantItems(Restaurant restaurant,File serverFile);
 	public List<HotelServicesItem> getAllRestaurantItems();
 	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
 	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory);

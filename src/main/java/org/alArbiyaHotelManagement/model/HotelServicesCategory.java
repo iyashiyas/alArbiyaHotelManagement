@@ -25,6 +25,12 @@ public class HotelServicesCategory {
 	@Column(name="SERVICE_CATEGORY_NAME")
 	private String serviceCategoryName;
 	
+	@Column(name="SERVICE_CATEGORY_DESCRIPTION")
+	private String serviceCategoryDescription;
+	
+	@Column(name="SERVICE_CATEGORY_ICON_NAME")
+	private String serviceCategoryIconName;
+	
 	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
  
@@ -50,6 +56,22 @@ public class HotelServicesCategory {
 
 	public void setServiceCategoryName(String serviceCategoryName) {
 		this.serviceCategoryName = serviceCategoryName;
+	}
+
+	public String getServiceCategoryDescription() {
+		return serviceCategoryDescription;
+	}
+
+	public void setServiceCategoryDescription(String serviceCategoryDescription) {
+		this.serviceCategoryDescription = serviceCategoryDescription;
+	}
+
+	public String getServiceCategoryIconName() {
+		return serviceCategoryIconName;
+	}
+
+	public void setServiceCategoryIconName(String serviceCategoryIconName) {
+		this.serviceCategoryIconName = serviceCategoryIconName;
 	}
 
 	public List<HotelServicesItem> getHotelServicesItems() {

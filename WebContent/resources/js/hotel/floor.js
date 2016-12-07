@@ -12,7 +12,7 @@ $( document ).ready(function() {
 	        success: function(data){ 
 	        	$.each(data, function (i, building) {
 	        		console.log(building.id);
-	        		$('.buildingId').append('<option value="'+building.id+'">'+building.buildingCode+'</option>')
+	        		$('.buildingId').append('<option>Select</option> <option value="'+building.id+'">'+building.buildingCode+'</option>')
 	        	});
 	        },
 	        error:function(xmlHttpRequest, textStatus, errorThrown){
