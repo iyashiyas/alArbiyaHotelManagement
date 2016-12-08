@@ -61,26 +61,29 @@
 								<div class="mail-box">
 									<table
 									class="table table-striped table-bordered table-hover dataTables-example">
-	<thead>
-											<tr>
-												<th class="check-mail"><spring:message code="label.ItemsID" /></th>
-												<th><spring:message code="label.ItemsName" /></th>
-												<th><spring:message code="label.Description" /></th>
-												<th><spring:message code="label.Edit" /></th> 
-											</tr>
-										</thead>
 
-										<tbody>
-											<tr class="read">
-												<td class="check-mail">1</td>
-												<td class="mail-ontact ">Item Name</td>
-												<td class="mail-subject">Item Description</td>
-												<td class=""><i class="fa fa-pencil"><a
-														data-toggle="modal" data-target="#confirm-Edit">Edit</a></i></td>
+									<thead>
+										<tr>
+											<th><spring:message code="label.ItemID" /></th>
+											<th><spring:message code="label.ItemName" /></th>
+											<th><spring:message code="label.Description" /></th>
+											<th><spring:message code="label.Edit" /></th>
 
-											</tr> 
-										</tbody>
-									</table>
+										</tr>
+									</thead>
+
+									<tbody>
+									<c:forEach items="${getAllCarRentalItems}" var="getAllCarRentalItems">
+										<tr class="">
+											<td></td>
+											<td><c:out value="${getAllCarRentalItems.serviceItemName}" /></td>
+											<td>${getAllCarRentalItems.serviceItemDescription}</td>
+											<td><i class="fa fa-pencil"><a>Edit</a></i></td>
+
+										</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 								</div>
 							</div>
 						</div>

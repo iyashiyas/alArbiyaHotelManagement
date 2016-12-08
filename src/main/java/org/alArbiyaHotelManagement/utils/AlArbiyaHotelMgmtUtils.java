@@ -8,10 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
+import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.enums.HotelServicesChildCategory;
 import org.alArbiyaHotelManagement.enums.HotelServicesValues;
@@ -186,6 +188,125 @@ public class AlArbiyaHotelMgmtUtils {
 		List<ServiceLanguage> serviceLanguages = new ArrayList<ServiceLanguage>();
 		i=0;
 		for(CoffeeeShopLanguageHelper languageHelper: restaurant.getLanguageHelper()) {
+			ServiceLanguage serviceLanguage = new ServiceLanguage();
+			serviceLanguage.setHotelServicesItem(hotelServicesItem);
+			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
+			serviceLanguage.setLanguage(null);
+			serviceLanguages.add(serviceLanguage);
+			i++;
+		}
+		hotelServicesItem.setServiceLanguages(serviceLanguages);
+		
+		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
+		hotelServiceParentGroups.add(parentServicesGroup);
+		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
+		return hotelServicesItem;
+	}
+	  
+	public static HotelServicesItem toHotelServiceCareRental(CarRental carRental, HotelServicesCategory hotelServicesCategory) {
+		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		hotelServicesItem.setServiceItemName(carRental.getItemName());
+		hotelServicesItem.setServiceItemDescription(carRental.getDescription());
+		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+		hotelServicesItem.setServiceItemStatus(carRental.getStatus());
+	 
+		
+		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
+		parentServicesGroup.setServiceGroupName(carRental.getCategory());
+		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		
+		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
+		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
+		childServicesGroup.setHotelServicesItem(hotelServicesItem);
+		
+		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
+		int i=0; 
+		for(CoffeeeShopUnitHelper unitHelper: carRental.getUnitHelper()) {
+			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
+			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
+			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
+			
+			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
+			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
+			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
+			hotelServicesValueTwo.setFieldValue(carRental.getUnitPrice().get(i).toString());
+			
+			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValueOne);
+			hotelServicesValues.add(hotelServicesValueTwo);
+			
+			i++;
+		}
+		childServicesGroup.setHotelServicesValues(hotelServicesValues);
+		
+		List<HotelServicesGroup> childHotelServicesGroups = new ArrayList<HotelServicesGroup>();
+		childHotelServicesGroups.add(childServicesGroup);
+		parentServicesGroup.setHotelServiceChildGroups(childHotelServicesGroups);
+		childServicesGroup.setHotelServicesParentGroup(parentServicesGroup);
+		
+		List<ServiceLanguage> serviceLanguages = new ArrayList<ServiceLanguage>();
+		i=0;
+		for(CoffeeeShopLanguageHelper languageHelper: carRental.getLanguageHelper()) {
+			ServiceLanguage serviceLanguage = new ServiceLanguage();
+			serviceLanguage.setHotelServicesItem(hotelServicesItem);
+			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
+			serviceLanguage.setLanguage(null);
+			serviceLanguages.add(serviceLanguage);
+			i++;
+		}
+		hotelServicesItem.setServiceLanguages(serviceLanguages);
+		
+		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
+		hotelServiceParentGroups.add(parentServicesGroup);
+		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
+		return hotelServicesItem;
+	}
+	
+	public static HotelServicesItem toHotelServiceLaundry(Laundry laundry, HotelServicesCategory hotelServicesCategory) {
+		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		hotelServicesItem.setServiceItemName(laundry.getItemName());
+		hotelServicesItem.setServiceItemDescription(laundry.getDescription());
+		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+		hotelServicesItem.setServiceItemStatus(laundry.getStatus());
+	 
+		
+		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
+		parentServicesGroup.setServiceGroupName(laundry.getCategory());
+		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		
+		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
+		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
+		childServicesGroup.setHotelServicesItem(hotelServicesItem);
+		
+		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
+		int i=0; 
+		for(CoffeeeShopUnitHelper unitHelper: laundry.getUnitHelper()) {
+			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
+			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
+			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
+			
+			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
+			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
+			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
+			hotelServicesValueTwo.setFieldValue(laundry.getUnitPrice().get(i).toString());
+			
+			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValueOne);
+			hotelServicesValues.add(hotelServicesValueTwo); 
+			i++;
+		}
+		childServicesGroup.setHotelServicesValues(hotelServicesValues);
+		
+		List<HotelServicesGroup> childHotelServicesGroups = new ArrayList<HotelServicesGroup>();
+		childHotelServicesGroups.add(childServicesGroup);
+		parentServicesGroup.setHotelServiceChildGroups(childHotelServicesGroups);
+		childServicesGroup.setHotelServicesParentGroup(parentServicesGroup);
+		
+		List<ServiceLanguage> serviceLanguages = new ArrayList<ServiceLanguage>();
+		i=0;
+		for(CoffeeeShopLanguageHelper languageHelper: laundry.getLanguageHelper()) {
 			ServiceLanguage serviceLanguage = new ServiceLanguage();
 			serviceLanguage.setHotelServicesItem(hotelServicesItem);
 			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());

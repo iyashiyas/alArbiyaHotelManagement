@@ -9,17 +9,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
+import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
-import org.alArbiyaHotelManagement.model.CarRental;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
-import org.alArbiyaHotelManagement.model.Laundry;
 import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.service.BranchService;
@@ -213,13 +213,10 @@ public class ActionController {
 			} catch (Exception e) {
 				
 			}
-		}
-		
+		} 
 		actionService.addRestaurantItems(restaurant,serverFile);
 		return "redirect:/action/showRestaurant";
-	}
-
-	
+	} 
 	@RequestMapping(value = "/showCheckoutAction", method = RequestMethod.GET)
 	public String showCheckoutAction(Model model) {
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -227,8 +224,7 @@ public class ActionController {
 		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
 
 		attributes.put("hotelServiceCategory", hotelServiceCategory);
-		model.addAllAttributes(attributes);
-
+		model.addAllAttributes(attributes); 
 		return "action/checkout";
 	}
     
@@ -249,16 +245,13 @@ public class ActionController {
 		attributes.put("hotelServiceCategory", hotelServiceCategory);
 		model.addAllAttributes(attributes);
         return "action/parking";
-	}
-	
+	} 
 	@RequestMapping(value = "/updateParkingStatus", method = RequestMethod.POST)
 	public String updateParkingStatus(
 			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
 		actionService.updateParkingStatus(hotelServicesCategory);
 		return "redirect:/action/showParkingAction";
-	}
-	
-	
+	}  
 	
 	@RequestMapping(value = "/showHouseKeepingAction", method = RequestMethod.GET)
 	public String showHouseKeepingAction(Model model) {
@@ -275,38 +268,143 @@ public class ActionController {
 			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
 		actionService.updateHouseKeepingStatus(hotelServicesCategory);
 		return "redirect:/action/showHouseKeepingAction";
-	}
-	
+	} 
 	
 	@RequestMapping(value = "/showCarRentalAction", method = RequestMethod.GET)
-	public String showCarRentalAction(Model model) {
-		List<Language> languages = languageService.getEnableLanguages();
-		Map<String, Object> attributes = new HashMap<String, Object>();
-		attributes.put("languages", languages);
+	public String showCarRentalAction(Model model) { 
+		
+        List<Language> languages = languageService.getEnableLanguages(); 
+        List<Unit> units = unitService.getAllUnits();
+    	List<HotelServicesItem> getAllCarRentalItems = actionService
+				.getAllCarRentalItems();
+
+		Map<String, Object> attributes = new HashMap<String, Object>(); 
+		CarRental carRental= new CarRental();
+		
+		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
+		for (Language language : languages) {
+			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
+			coffeeeShopLanguageHelper.setLanguageId(language.getId());
+			coffeeeShopLanguageHelper
+					.setLangageName(language.getLanguageName());
+			
+			carRental.getLanguageHelper().add(coffeeeShopLanguageHelper);
+		}
+		
+		for (Unit unit : units) {
+			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
+			coffeeeShopUnitHelper.setUnitId(unit.getId());
+			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
+			carRental.getUnitHelper().add(coffeeeShopUnitHelper);
+		}
+        
+		attributes.put("languageHelper", languages);
+		attributes.put("unitHelper", units);
+		attributes.put("getAllCarRentalItems", getAllCarRentalItems);
 		attributes.put("newCarRental", new CarRental());
 		model.addAllAttributes(attributes);
-        return "action/carRental";
+	    return "action/carRental";
 	}
-	
-	@RequestMapping(value="/addCarRentalItem", method=RequestMethod.POST)
-	public String addCarRentalItem(@ModelAttribute CarRental carRental) {
-		actionService.addCarRentalItem(carRental);
-		return "redirect:/action/showCarRentalAction";
-	}
+	 
 
 	@RequestMapping(value = "/showLaundryAction", method = RequestMethod.GET)
 	public String showLaundryAction(Model model) {
-		List<Language> languages = languageService.getEnableLanguages();
-		Map<String, Object> attributes = new HashMap<String, Object>();
-		attributes.put("languages", languages);
-		attributes.put("newLaundry", new Laundry());
-		model.addAllAttributes(attributes);
+		  List<Language> languages = languageService.getEnableLanguages(); 
+	        List<Unit> units = unitService.getAllUnits();
+	      	List<HotelServicesItem> getAllLaundryItems = actionService
+					.getAllLaundryItems();
+			Map<String, Object> attributes = new HashMap<String, Object>(); 
+		  Laundry laundry= new Laundry();
+			
+			CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+			CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
+			for (Language language : languages) {
+				coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
+				coffeeeShopLanguageHelper.setLanguageId(language.getId());
+				coffeeeShopLanguageHelper
+						.setLangageName(language.getLanguageName());
+				
+				laundry.getLanguageHelper().add(coffeeeShopLanguageHelper);
+			}
+			
+			for (Unit unit : units) {
+				coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
+				coffeeeShopUnitHelper.setUnitId(unit.getId());
+				coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
+				laundry.getUnitHelper().add(coffeeeShopUnitHelper);
+			}
+	        
+			attributes.put("languageHelper", languages);
+			attributes.put("unitHelper", units);
+			attributes.put("getAllLaundryItems", getAllLaundryItems);
+			attributes.put("newLaundry", new Laundry());
+			model.addAllAttributes(attributes);
         return "action/laundry";
 	}
 	
-	@RequestMapping(value="/addLaundryItem", method=RequestMethod.POST)
+	
+	
+	@RequestMapping(value = "/addCarRentalItem", method = RequestMethod.POST)
+	public String addCarRentalItem(@ModelAttribute CarRental carRental) {
+		
+		File serverFile = null;
+		if (!carRental.getMultipartFile().isEmpty()) {
+			try {
+				byte[] bytes = carRental.getMultipartFile().getBytes();
+
+				// Creating the directory to store file
+				String rootPath = System.getProperty("user.home");
+				File dir = new File(rootPath+File.separator+"CareRental");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				serverFile = new File(dir.getAbsolutePath()
+						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+			} catch (Exception e) {
+				
+			}
+		} 
+		actionService.addCarRentalItem(carRental,serverFile);
+		return "redirect:/action/showCarRentalAction";
+	}
+
+	
+
+	@RequestMapping(value = "/addLaundryItem", method = RequestMethod.POST)
 	public String addLaundryItem(@ModelAttribute Laundry laundry) {
-		actionService.addLaundryItem(laundry);
+		
+		File serverFile = null;
+		if (!laundry.getMultipartFile().isEmpty()) {
+			try {
+				byte[] bytes = laundry.getMultipartFile().getBytes();
+
+				// Creating the directory to store file
+				String rootPath = System.getProperty("user.home");
+				File dir = new File(rootPath+File.separator+"Laundry");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				serverFile = new File(dir.getAbsolutePath()
+						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+			} catch (Exception e) {
+				
+			}
+		} 
+		actionService.addLaundryItem(laundry,serverFile);
 		return "redirect:/action/showLaundryAction";
 	}
+ 
 }

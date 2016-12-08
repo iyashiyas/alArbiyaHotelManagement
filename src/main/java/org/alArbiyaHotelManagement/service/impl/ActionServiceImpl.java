@@ -3,13 +3,13 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.io.File;
 import java.util.List;
 
+import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
+import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
-import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.CarRental;
+import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
-import org.alArbiyaHotelManagement.model.HotelServicesItem;
-import org.alArbiyaHotelManagement.model.Laundry;
+import org.alArbiyaHotelManagement.model.HotelServicesItem; 
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -58,8 +58,7 @@ public class ActionServiceImpl implements ActionService {
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
-		actionRepository.updateCheckOutStatus(hotelServicesCategory);
-		
+		actionRepository.updateCheckOutStatus(hotelServicesCategory); 
 	}
 	@Override
 	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
@@ -67,8 +66,7 @@ public class ActionServiceImpl implements ActionService {
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
-		actionRepository.updateParkingStatus(hotelServicesCategory);
-		
+		actionRepository.updateParkingStatus(hotelServicesCategory); 
 	}
 	@Override
 	public void updateHouseKeepingStatus(
@@ -76,26 +74,33 @@ public class ActionServiceImpl implements ActionService {
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
-		actionRepository.updateHouseKeepingStatus(hotelServicesCategory);
-		
-		
+		actionRepository.updateHouseKeepingStatus(hotelServicesCategory); 
+	}
+	 
+	@Override
+	public void addCarRentalItem(CarRental carRental, File file) {
+		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(carRental.getHotelServiceCategoryId()));
+		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceCareRental(carRental, hotelServicesCategory);
+		hotelServices.setImageUrlName(file.getAbsolutePath());
+		actionRepository.hotelService(hotelServices); 
 	}
 	@Override
-	public CarRental addCarRentalItem(CarRental carRental) {
+	public void addLaundryItem(Laundry laundry, File file) {
 		// TODO Auto-generated method stub
-		if(carRental.getCarRentalStatus()==null)
-		{
-			carRental.setCarRentalStatus("DISABLED");
-		}
-		return actionRepository.addCarRentalItem(carRental);
+		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(laundry.getHotelServiceCategoryId()));
+		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceLaundry(laundry, hotelServicesCategory);
+		hotelServices.setImageUrlName(file.getAbsolutePath());
+		actionRepository.hotelService(hotelServices);
 	}
 	@Override
-	public Laundry addLaundryItem(Laundry laundry) {
+	public List<HotelServicesItem> getAllCarRentalItems() {
 		// TODO Auto-generated method stub
-		if(laundry.getLaundryItemName()==null)
-		{
-			laundry.setLaundryItemName("DISABLED");
-		}
-		return actionRepository.addLaundryItem(laundry);
+		return actionRepository.getAllCarRentalItems();
 	}
+	@Override
+	public List<HotelServicesItem> getAllLaundryItems() {
+		// TODO Auto-generated method stub
+		return actionRepository.getAllLaundryItems();
+	}
+	 
 }

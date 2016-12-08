@@ -8,16 +8,11 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.CarRental;
-import org.alArbiyaHotelManagement.model.CarRentalLanguage;
+import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
-import org.alArbiyaHotelManagement.model.HotelServicesValue;
-import org.alArbiyaHotelManagement.model.Language;
-import org.alArbiyaHotelManagement.model.Laundry;
-import org.alArbiyaHotelManagement.model.LaundryLanguage;
+import org.alArbiyaHotelManagement.model.HotelServicesValue; 
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -92,37 +87,20 @@ public class ActionRepositoryImpl implements ActionRepository{
 		entityManager.merge(hotelServicesCategory);
 		
 	}
-	@Override
-	public CarRental addCarRentalItem(CarRental carRental) {
-		// TODO Auto-generated method stub
-		  
-		this.entityManager.persist(carRental);
-		for(CarRentalLanguage carRentalLanguage: carRental.getCarRentalLanguages()) {
-			if(!carRentalLanguage.isEmpty()) {
-				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-				Language language = query.setParameter("languageId", carRentalLanguage.getLanguage().getId()).getSingleResult();
-				carRentalLanguage.setLanguage(language);
-				carRentalLanguage.setCarRental(carRental);
-				this.entityManager.merge(carRentalLanguage);
-			}
-		} 
-		
-		return carRental;
-	}
-	@Override
-	public Laundry addLaundryItem(Laundry laundry) {
-		// TODO Auto-generated method stub
-		this.entityManager.persist(laundry);
-		for(LaundryLanguage laundryLanguage: laundry.getLaundryLanguages()) {
-			if(!laundryLanguage.isEmpty()) {
-				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
-				Language language = query.setParameter("languageId", laundryLanguage.getLanguage().getId()).getSingleResult();
-				laundryLanguage.setLanguage(language);
-				laundryLanguage.setLaundry(laundry);
-				this.entityManager.merge(laundryLanguage);
-			}
-		}  
-		return laundry;
-	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<HotelServicesItem> getAllCarRentalItems() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='7' order by id", HotelServicesItem.class);
+		return query.getResultList();
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<HotelServicesItem> getAllLaundryItems() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='5' order by id", HotelServicesItem.class);
+		return query.getResultList();
+	}
+	  
 }

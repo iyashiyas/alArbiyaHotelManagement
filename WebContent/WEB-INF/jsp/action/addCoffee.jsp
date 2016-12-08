@@ -7,14 +7,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>SHMS-addCoffee</title>
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<title>SHMS-addCoffee</title> 
 </head>
-<body>
-
-
+<body> 
 	<div class="ibox float-e-margins">
 		<div class="ibox-title">
 			<h5><spring:message code="label.AddNewCoffeeItems" /></h5>
@@ -27,16 +23,13 @@
 			<form:form class="form-horizontal"
 				action="${pageContext.request.contextPath}/action/addCoffeShop"
 				method="POST" modelAttribute="coffeShop"
-				enctype="multipart/form-data">
-				
-				<input type="hidden" name="hotelServiceCategoryId" value="1"/>
-				
-				<p><spring:message code="label.AddCoffeeItemsHere" /></p>
-
+				enctype="multipart/form-data"> 
+				<input type="hidden" name="hotelServiceCategoryId" value="1"/> 
+				<p><spring:message code="label.AddCoffeeItemsHere" /></p> 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.Categories" /></label>
-
-					<div class="col-sm-10">
+                     
+                     <div class="col-sm-10">
 						<form:select class="form-control m-b" name="category"
 							path="category">
 							<form:option value="HOTDRINKS"><spring:message code="label.HotDrinks" /></form:option>
@@ -45,8 +38,7 @@
 							<form:option value="PIESANDPASTRIES"><spring:message code="label.Pies" /></form:option>
 						</form:select>
 					</div>
-				</div>
-
+				</div> 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.ItemName" /></label>
 
@@ -55,15 +47,13 @@
 							path="itemName" class="form-control" />
 					</div>
 				</div>
-
-
+ 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeLanguage">
 
-
-							<div class="entry-coffeeLanguage input-group ">
+                     	<div class="entry-coffeeLanguage input-group ">
 								
 								<form:select class="form-control m-b select" id="drp"
 									path="languageHelper[0].languageId" name="languageHelper[0].languageId" style="width:30%;">
@@ -85,8 +75,7 @@
 						</div>
 					</div>
 				</div>
- 
-
+  
   <div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectIngredientAndPrice" /></label>
 					<div class="col-sm-10">
@@ -94,8 +83,7 @@
 							<div class="entry-coffeeIngredients input-group ">
 								<form:select class="form-control" name="ingredientHelper[0].ingredientId"
 									path="ingredientHelper[0].ingredientId" style="width: 30%;">
-
-
+ 
 									<form:options items="${ingredientHelper}" itemValue="id"
 										itemLabel="ingredientName"></form:options>
 								</form:select>
@@ -113,9 +101,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-
+				</div> 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /></label>
 					<div class="col-sm-10">
@@ -140,8 +126,7 @@
 						</div>
 					</div>
 				</div>  
-
-
+ 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
@@ -149,8 +134,7 @@
 						<form:input type="text" placeholder="Description"
 							name="description" path="description" class="form-control" />
 					</div>
-				</div>
-				
+				</div> 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"> <spring:message code="label.Image" /></label>
 
@@ -158,16 +142,13 @@
 						<input type="file" placeholder="Image"
 							name="multipartFile" class="form-control">
 					</div>
-				</div>
-				
-				
-				
+				</div>  
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 					<div class="col-sm-10">
 					 <form:checkbox id="checkbox1"  value="ACTIVE"  name="status" path="status" />  
-						<label for="checkbox1"> <spring:message code="label.Disable" /> </label>
+						<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
 					</div>
 				</div>
 
@@ -175,8 +156,7 @@
 					<div class="col-lg-offset-2 col-lg-8">
 						<button class="btn btn-primary" type="submit"><spring:message code="label.CreateNewItem" /></button>
 					</div>
-				</div>
-
+				</div> 
 			</form:form>
 		</div>
 	</div>

@@ -1,18 +1,11 @@
 package org.alArbiyaHotelManagement.repository;
 
 import java.util.List;
-
- 
-
- 
-
-
-import org.alArbiyaHotelManagement.model.Action;
-import org.alArbiyaHotelManagement.model.CarRental;
+  
+import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
-import org.alArbiyaHotelManagement.model.Laundry;
-
+  
 public interface ActionRepository {
 	public Action addAction();
 	public Action editAction();
@@ -24,6 +17,7 @@ public interface ActionRepository {
 	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory);
 	public void updateHouseKeepingStatus(
 			HotelServicesCategory hotelServicesCategory);
-	public CarRental addCarRentalItem(CarRental carRental);
-	public Laundry addLaundryItem(Laundry laundry);
+	public List<HotelServicesItem> getAllCarRentalItems();
+	public List<HotelServicesItem> getAllLaundryItems();
+	 
 }
