@@ -8,8 +8,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
-	rel="stylesheet">
+<c:set var="lang" value="${pageContext.response.locale}" />
+<c:choose>
+	<c:when test="$lang == 'ar' }">
+		<link href="<c:url value="/resources/css/bootstrap-rtl.css"/>"
+			rel="stylesheet">
+	</c:when> 
+	<c:otherwise>
+		<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
+			rel="stylesheet">
+	</c:otherwise>
+</c:choose>
+
+
 <link href="<c:url value="/resources/css/font-awesome.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/animate.css" />"
@@ -18,10 +29,10 @@
 	rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
 	rel="stylesheet">
-
 <title>SHMS-Header</title>
 </head>
 <body>
+
 	<!-- Header left side -->
 	<nav class="navbar-default navbar-static-side" role="navigation">
 		<div class="sidebar-collapse">
@@ -75,10 +86,8 @@
 						<li><a
 							href="${pageContext.request.contextPath}/hotel/showFloor"><spring:message
 									code="label.Floor" /></a></li>
-						<li><a><i class="fa fa-bar-chart-o"></i>
-							<spring:message code="label.Rooms" /> <span class="fa arrow">
-							</span></a>
-
+						<li><a><i class="fa fa-bar-chart-o"></i> <spring:message
+									code="label.Rooms" /> <span class="fa arrow"> </span></a>
 							<ul class="nav nav-third-level collapse">
 								<li><a
 									href="${pageContext.request.contextPath}/hotel/showRoom"><spring:message
@@ -86,9 +95,7 @@
 								<li><a
 									href="${pageContext.request.contextPath}/hotel/showRoomTypes"><spring:message
 											code="label.RoomTypes" /></a></li>
-
 							</ul></li>
-
 					</ul></li>
 				<li><a href="${pageContext.request.contextPath}/reservation"><i
 						class="fa fa-credit-card"></i> <span class="nav-label"><spring:message
@@ -127,7 +134,7 @@
 							href="${pageContext.request.contextPath}/action/showCarRentalAction"><spring:message
 									code="label.CarRental" /></a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/action?actionCode=RECEPTION"><spring:message
+							href="${pageContext.request.contextPath}/action/showReception"><spring:message
 									code="label.Reception" /></a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/action?actionCode=ENTERTAINMENT"><spring:message
@@ -137,12 +144,15 @@
 						class="nav-label"><spring:message
 								code="label.UserManagement" /></span><span class="fa arrow"></span> </a>
 					<ul class="nav nav-second-level collapse">
-						<li><a href="${pageContext.request.contextPath}/role/showRole"><spring:message code="label.Roles" /></a></li>
-						<li><a href="${pageContext.request.contextPath}/usermanagement/showUser"><spring:message
+						<li><a
+							href="${pageContext.request.contextPath}/role/showRole"><spring:message
+									code="label.Roles" /></a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/usermanagement/showUser"><spring:message
 									code="label.Users" /></a></li>
 					</ul></li>
-
-				<li><a href="${pageContext.request.contextPath}/player/showPlayer"><i
+				<li><a
+					href="${pageContext.request.contextPath}/player/showPlayer"><i
 						class="fa fa-desktop"></i> <span class="nav-label"><spring:message
 								code="label.Player" /></span> </a></li>
 
@@ -154,13 +164,9 @@
 		</div>
 	</nav>
 
-
 	<!-- Header Up -->
 
-
 	<!-- Page Header UP Including logout  -->
-
-
 	<div class="row border-bottom">
 		<nav class="navbar navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
@@ -205,9 +211,7 @@
 		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
 	<script
 		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
-
 	<!-- Full Screen Mode js -->
-
 	<!-- Jvectormap -->
 	<%-- <script
 				src="<c:url value="/resources/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"/>"></script>

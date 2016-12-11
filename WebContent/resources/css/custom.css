@@ -1,3 +1,7 @@
+ 
+    *:lang(ar) { direction:rtl }
+    *:lang(en) { direction:ltr }
+ 
 /* iCheck plugin Square skin, green
 ----------------------------------- */
 .icheckbox_square-green,

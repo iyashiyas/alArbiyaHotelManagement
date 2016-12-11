@@ -19,5 +19,7 @@ public interface ActionRepository {
 			HotelServicesCategory hotelServicesCategory);
 	public List<HotelServicesItem> getAllCarRentalItems();
 	public List<HotelServicesItem> getAllLaundryItems();
+	public void UpdateReceptionServiceStatus(
+			HotelServicesCategory hotelServicesCategory);
 	 
 }

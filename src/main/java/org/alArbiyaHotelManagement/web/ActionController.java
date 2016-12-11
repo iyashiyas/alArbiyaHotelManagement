@@ -269,7 +269,7 @@ public class ActionController {
 		actionService.updateHouseKeepingStatus(hotelServicesCategory);
 		return "redirect:/action/showHouseKeepingAction";
 	} 
-	
+	 
 	@RequestMapping(value = "/showCarRentalAction", method = RequestMethod.GET)
 	public String showCarRentalAction(Model model) { 
 		
@@ -406,5 +406,24 @@ public class ActionController {
 		actionService.addLaundryItem(laundry,serverFile);
 		return "redirect:/action/showLaundryAction";
 	}
- 
+  
+	
+	@RequestMapping(value = "/showReception", method = RequestMethod.GET)
+	public String showReception(Model model) {
+		Map<String, Object> attributes = new HashMap<String, Object>();
+
+		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
+
+		attributes.put("hotelServiceCategory", hotelServiceCategory);
+		model.addAllAttributes(attributes); 
+		return "action/reception";
+	}
+	
+	@RequestMapping(value = "/UpdateReceptionServiceStatus", method = RequestMethod.POST)
+	public String UpdateReceptionServiceStatus(
+			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
+		actionService.UpdateReceptionServiceStatus(hotelServicesCategory);
+		return "redirect:/action/showReception";
+	} 
+	
 }

@@ -102,5 +102,14 @@ public class ActionServiceImpl implements ActionService {
 		// TODO Auto-generated method stub
 		return actionRepository.getAllLaundryItems();
 	}
+	@Override
+	public void UpdateReceptionServiceStatus(
+			HotelServicesCategory hotelServicesCategory) {
+
+		if(hotelServicesCategory.getCategoryStatus()==null) {
+			hotelServicesCategory.setCategoryStatus("DISABLED");
+		} 
+		actionRepository.UpdateReceptionServiceStatus(hotelServicesCategory); 
+	}
 	 
 }

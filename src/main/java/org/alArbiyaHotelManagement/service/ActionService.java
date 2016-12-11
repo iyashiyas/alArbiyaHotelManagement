@@ -36,4 +36,7 @@ public interface ActionService {
 
 	public List<HotelServicesItem> getAllLaundryItems();
 
+	public void UpdateReceptionServiceStatus(
+			HotelServicesCategory hotelServicesCategory);
+
 }

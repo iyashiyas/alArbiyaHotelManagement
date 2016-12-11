@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+ 
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.css" />"
@@ -18,12 +18,10 @@
 <link id="loadBefore" href="<c:url value="/resources/css/style.css" />"
 	rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
-	rel="stylesheet">
-
+	rel="stylesheet"> 
 <title><spring:message code="label.shms.login" /></title>
 </head>
-<body class="gray-bg">
-
+<body class="gray-bg"> 
 	<div class="middle-box text-center loginscreen animated fadeInDown">
 		<div>
 			<div> 
@@ -55,16 +53,14 @@
 			<p class="m-t">
 				<small> <spring:message
 						code="label.AlArabiyaDepthForAdvancedProjectLtd" /> &copy; <spring:message
-						code="label.2016" /></small>
+						code="label.2016" /></small> 
 			</p>
 		</div>
 	</div>
 
-
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
-
-	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+   <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
 </body>
 </html>

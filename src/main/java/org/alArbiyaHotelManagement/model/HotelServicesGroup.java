@@ -102,8 +102,5 @@ public class HotelServicesGroup {
 			hotelServicesParentGroup.getHotelServiceChildGroups().add(hotelServicesParentGroup);
 		}
 	}
-	
-	
-	
-	
+	  
 }

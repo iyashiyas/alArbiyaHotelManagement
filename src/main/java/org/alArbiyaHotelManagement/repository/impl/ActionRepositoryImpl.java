@@ -102,5 +102,10 @@ public class ActionRepositoryImpl implements ActionRepository{
 		Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID='5' order by id", HotelServicesItem.class);
 		return query.getResultList();
 	}
+	@Override
+	public void UpdateReceptionServiceStatus(
+			HotelServicesCategory hotelServicesCategory) {
+		entityManager.merge(hotelServicesCategory);
+	}
 	  
 }
