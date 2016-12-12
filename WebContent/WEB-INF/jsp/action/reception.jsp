@@ -36,10 +36,10 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content text-center p-md">
 
-                    <h2><span class="text-navy"><spring:message code="label.Service" /> - <spring:message code="label.ReservationService" /></span>
+                    <h2><span class="text-navy"><spring:message code="label.Service" /> - <spring:message code="label.receptionService" /></span>
                     <spring:message code="label.IsHelpsTheCustomer" />  <br/><spring:message code="label.ToAskAnyKindOfInformation" /></h2>
                      <p>
-                      <spring:message code="label.Herehaveoptionsyoucanturnon/offReservationHelpDesk" />
+                      <spring:message code="label.Herehaveoptionsyoucanturnon/offReceptionHelpDesk" />
                        </p> 
                 </div>
             </div>
