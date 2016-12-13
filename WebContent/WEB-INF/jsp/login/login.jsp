@@ -33,20 +33,22 @@
 				 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
 			</p>
 			<p><spring:message code="label.Login.logininToseeitinaction." /></p>
-			<form class="m-t" role="form"   method="POST" >
+			<form class="m-t" name="loginForm" action="<c:url value='j_spring_security_check' />"  method="POST" >
 				<div class="form-group">
-					<input type="text" name="username" class="form-control"
+					<input type="text" name="j_username" class="form-control"
 						placeholder="<spring:message code="label.UserName" />"
 						required="required" >
 				</div>
 				<div class="form-group">
-					<input type="password" name="password" class="form-control"
+					<input type="password" name="j_password" class="form-control"
 						placeholder="<spring:message code="label.Password" />"
 						required="required" >
 				</div>
-				<a href="${pageContext.request.contextPath}/SHMS" class="btn btn-primary block full-width m-b" type="submit"><spring:message
+				<%-- <a href="${pageContext.request.contextPath}/SHMS" class="btn btn-primary block full-width m-b" type="submit"><spring:message
 						code="label.Login" /></a> <a href="#"><small><spring:message
-							code="label.forgotPassword" /></small></a>
+							code="label.forgotPassword" /></small></a> --%>
+							<input name="submit" type="submit"
+     value="submit" />
 			</form>
 				<a href="?lang=en" class="btn btn-sm btn-success">English</a>
 	   <a href="?lang=ar" class="btn btn-sm btn-success"><spring:message code="label.arabic" /></a>

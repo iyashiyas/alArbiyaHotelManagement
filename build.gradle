@@ -51,7 +51,8 @@ dependencies {
 	
 	compile "org.springframework.security:spring-security-web:${securityVersion}",
 	        "org.springframework.security:spring-security-config:${securityVersion}",
-	        "org.springframework.security:spring-security-core:${securityVersion}"
+	        "org.springframework.security:spring-security-core:${securityVersion}",
+	        "org.springframework.security:spring-security-taglibs:${securityVersion}"
 	        
 	compile "org.springframework.data:spring-data-jpa:${springDataJpaVersion}"
 

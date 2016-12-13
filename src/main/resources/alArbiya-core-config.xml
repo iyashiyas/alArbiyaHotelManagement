@@ -14,6 +14,7 @@
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
     
  
+ <context:component-scan base-package="org.alArbiyaHotelManagement.authProvider"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.web"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.model"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.service"/>
