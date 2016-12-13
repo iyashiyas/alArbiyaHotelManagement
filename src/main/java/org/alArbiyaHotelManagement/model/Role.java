@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table(name="ROLES")
-public class Role {
+public class Role implements GrantedAuthority{
      
     @Id
     @GeneratedValue
@@ -47,6 +49,12 @@ public class Role {
     public void setUserRoles(Set<User> userRoles) {
         this.userRoles = userRoles;
     }
+
+	@Override
+	public String getAuthority() {
+		// TODO Auto-generated method stub
+		return role;
+	}
 
 	 
 }

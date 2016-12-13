@@ -34,6 +34,7 @@
 			</p>
 			<p><spring:message code="label.Login.logininToseeitinaction." /></p>
 			<form class="m-t" name="loginForm" action="<c:url value='j_spring_security_check' />"  method="POST" >
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				<div class="form-group">
 					<input type="text" name="j_username" class="form-control"
 						placeholder="<spring:message code="label.UserName" />"

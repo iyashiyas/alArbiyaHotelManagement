@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,9 +12,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table(name = "USERS")
-public class User {
+public class User implements org.springframework.security.core.userdetails.UserDetails {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -21,7 +26,7 @@ public class User {
 	private long id;
 
 	@Column(name = "USER_NAME")
-	private String userName;
+	private String username;
 
 	@Column(name = "PASSWORD")
 	private String password;
@@ -38,16 +43,17 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	@Override
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return userName;
+		return password;
 	}
 
 	public void setPassword(String password) {
@@ -60,6 +66,36 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return roles;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

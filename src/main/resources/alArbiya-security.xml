@@ -9,7 +9,11 @@
                            http://www.springframework.org/schema/security/spring-security.xsd">
                            
 	<security:http auto-config="true" >
-		<security:form-login login-page="/login" />
+	
+		<security:form-login login-processing-url="/j_spring_security_check" login-page="/login" default-target-url="/"
+            authentication-failure-url="/login?error" username-parameter="j_username"
+            password-parameter="j_password" />
+	
 		<security:logout logout-success-url="/logout" />
 	</security:http>
 	

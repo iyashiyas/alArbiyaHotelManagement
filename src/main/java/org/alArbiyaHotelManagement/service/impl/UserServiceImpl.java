@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.UserRepository;
 import org.alArbiyaHotelManagement.service.UserService;
@@ -20,6 +21,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDetails getUserDetails(String memberId) {
 		return userRepositoty.getUserDetails(memberId);
+	}
+
+	@Override
+	public User loadUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userRepositoty.loadUserByUsername(username);
 	}
 	
 }
