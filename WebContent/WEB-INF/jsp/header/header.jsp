@@ -6,33 +6,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 
-<c:set var="lang" value="${pageContext.response.locale}" />
-<c:choose>
-	<c:when test="$lang == 'ar' }">
-		<link href="<c:url value="/resources/css/bootstrap-rtl.css"/>"
-			rel="stylesheet">
-	</c:when> 
-	<c:otherwise>
-		<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
-			rel="stylesheet">
-	</c:otherwise>
-</c:choose>
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">  
+<c:if test="${pageContext.response.locale=='ar'}">   
+<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.css"/>" rel="stylesheet">  
+<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.min.css"/>" rel="stylesheet">  
+ </c:if>  
+<link id="loadBefore" href="<c:url value="/resources/css/common.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">  
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">  
 
-
-<link href="<c:url value="/resources/css/font-awesome.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/animate.css" />"
-	rel="stylesheet">
-<link id="loadBefore" href="<c:url value="/resources/css/style.css" />"
-	rel="stylesheet">
-<link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
-	rel="stylesheet">
 <title>SHMS-Header</title>
 </head>
-<body>
-
+<body> 
 	<!-- Header left side -->
 	<nav class="navbar-default navbar-static-side" role="navigation">
 		<div class="sidebar-collapse">

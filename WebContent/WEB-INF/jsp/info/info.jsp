@@ -87,7 +87,7 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-4 control-label"><spring:message code="label.OfficeFax" /> :</label>
+													<label class="col-sm-4 control-label"><spring:message code="label.officeFax" /> :</label>
 
 													<div class="">
 														<label class="control-label">
