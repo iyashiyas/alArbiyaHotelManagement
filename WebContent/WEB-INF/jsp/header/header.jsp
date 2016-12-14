@@ -6,21 +6,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">  
-<c:if test="${pageContext.response.locale=='ar'}">   
-<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.css"/>" rel="stylesheet">  
-<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.min.css"/>" rel="stylesheet">  
- </c:if>  
-<link id="loadBefore" href="<c:url value="/resources/css/common.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/font-awesome.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">  
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">  
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
+	rel="stylesheet">
+<c:if test="${pageContext.response.locale=='ar'}">
+	<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.css"/>"
+		rel="stylesheet">
+	<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.min.css"/>"
+		rel="stylesheet">
+		 	<link href="<c:url value="/resources/css/rtl/style-rtl.css"/>"
+		rel="stylesheet">
+</c:if>
+<link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/animate.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 
 <title>SHMS-Header</title>
 </head>
-<body> 
+<body>
 	<!-- Header left side -->
 	<nav class="navbar-default navbar-static-side" role="navigation">
 		<div class="sidebar-collapse">
@@ -163,8 +171,12 @@
 					href="#"><i class="fa fa-bars"></i> </a>
 
 			</div>
+			<c:if test="${pageContext.response.locale=='ar'}">
+			<ul class="nav navbar-top-links navbar-left">
+            </c:if>
+            <c:if test="${pageContext.response.locale=='en'}">
 			<ul class="nav navbar-top-links navbar-right">
-
+            </c:if>
 				<li><span class="m-r-sm   welcome-message"><spring:message
 							code="label.Welcome" /> Admin</span></li>
 				<li><a href="${pageContext.request.contextPath}/login"> <i

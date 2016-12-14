@@ -13,10 +13,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "USERS")
-public class User implements org.springframework.security.core.userdetails.UserDetails {
+public class User implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 
@@ -48,7 +49,7 @@ public class User implements org.springframework.security.core.userdetails.UserD
 		return username;
 	}
 
-	public void setUserName(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 

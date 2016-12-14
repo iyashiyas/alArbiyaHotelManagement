@@ -37,7 +37,7 @@
 
 			<div class="col-sm-10">
 				<form:input type="text" disabled="disabled" placeholder="User Name"
-					name="userName" path="userName" class="form-control" />
+					name="username" path="username" class="form-control" />
 			</div>
 		</div>
 

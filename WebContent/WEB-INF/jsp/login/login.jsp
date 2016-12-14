@@ -8,6 +8,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+<c:if test="${pageContext.response.locale=='ar'}">
+<style type="text/css">
+body {
+	direction: rtl;
+}
+</style>
+</c:if>
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.css" />"
@@ -29,9 +36,9 @@
 			<h3><spring:message code="label.login.welcometoshsms1.0" /> </h3>
 			<p>
 			<spring:message code="label.login.TheCompleteHotelManagementSolutionAndScreenControl" />
-				 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+				 
 			</p>
-			<p><spring:message code="label.Login.logininToseeitinaction." /></p>
+			<p><spring:message code="label.Login.logininToseeitinaction" /></p>
 			<form class="m-t" name="loginForm" action="<c:url value='j_spring_security_check' />"  method="POST" >
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				<div class="form-group">

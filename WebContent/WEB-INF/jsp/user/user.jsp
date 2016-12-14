@@ -90,7 +90,7 @@
 												<c:forEach items="${users}" var="users">
 													<tr class="read">
 														<td class="check-mail">${users.id}</td>
-														<td class="mail-ontact ">${users.userName}</td>
+														<td class="mail-ontact ">${users.username}</td>
 														<td class="mail-subject">${role}</td>
 														<td class=""><i class="fa fa-pencil"><a href="#"
 																data-toggle="modal" data-target="#confirm-Edit">ChangePassword</a></i></td>

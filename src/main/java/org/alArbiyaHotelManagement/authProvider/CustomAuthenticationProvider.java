@@ -3,7 +3,7 @@ package org.alArbiyaHotelManagement.authProvider;
 import java.util.Collection;
 
 import org.alArbiyaHotelManagement.model.User;
-import org.alArbiyaHotelManagement.service.UserService;
+import org.alArbiyaHotelManagement.service.impl.CustomUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,19 +11,19 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-
+  
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
 	@Autowired
-	UserService userService;
+	CustomUserService userService;
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String username = authentication.getName();
-		String password = (String) authentication.getCredentials();
-   
-		User user = userService.loadUserByUsername(username);
-   
+		String password = authentication.getCredentials().toString();
+        
+		User user =  userService.loadUserByUsername(username);
+        
         if (user == null || !user.getUsername().equalsIgnoreCase(username)) {
         	throw new BadCredentialsException("Username not found.");
         }

@@ -25,7 +25,7 @@ public class UnitController {
 	@Autowired LanguageService languageService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_UNITADMIN')")
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		List<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
 		List<Language> languages = languageService.getEnableLanguages();
