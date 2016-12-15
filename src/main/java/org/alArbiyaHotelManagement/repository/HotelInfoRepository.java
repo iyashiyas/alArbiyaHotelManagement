@@ -9,4 +9,6 @@ public interface HotelInfoRepository {
 	public HotelInfo editInfo(HotelInfo info);
 
 	public List<HotelInfo> getHotelInfo();
+ 
+	public void UploadLogo(HotelInfo info);
 }

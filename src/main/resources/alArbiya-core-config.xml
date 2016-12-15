@@ -11,14 +11,13 @@
     http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
     
- 
- <context:component-scan base-package="org.alArbiyaHotelManagement.authProvider"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.authProvider"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.web"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.model"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.service"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.repository"/>
    <context:component-scan base-package="org.alArbiyaHotelManagement.security"/>
-  
+     
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/WEB-INF/jsp/" />
       <property name="suffix" value=".jsp" />
@@ -26,8 +25,7 @@
    
    <mvc:resources mapping="/resources/**" location="/resources/**" />
      <mvc:annotation-driven/>
-     
-     
+      
     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 			<property name="messageConverters">
@@ -52,7 +50,8 @@
 			<property name="paramName" value="lang" />
 		</bean>
 	</mvc:interceptors>
-	<!-- end internationaliazation -->
+	<!-- end internationaliazation --> 
+	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000" />

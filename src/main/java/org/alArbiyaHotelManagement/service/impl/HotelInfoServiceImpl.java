@@ -1,6 +1,7 @@
 package org.alArbiyaHotelManagement.service.impl;
 
  
+import java.io.File;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.HotelInfo;
@@ -24,5 +25,11 @@ public class HotelInfoServiceImpl implements HotelInfoService {
 	public List<HotelInfo> getHotelInfo() {
 		// TODO Auto-generated method stub
 		return infoRepository.getHotelInfo();
+	}
+
+	@Override
+	public void UploadLogo(HotelInfo info,File file) {
+		info.setHotelLogoUrl(file.getAbsolutePath());
+		 infoRepository.UploadLogo(info); 
 	}
 }

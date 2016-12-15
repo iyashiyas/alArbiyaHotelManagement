@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 @Entity
 @Table(name="HOTEL_INFO")
 public class HotelInfo {
@@ -46,8 +48,14 @@ public class HotelInfo {
 	@Column(name="HOTEL_NATION")
 	private String hotelNation;
 	
+	
+	@Column(name="HOTEL_LOGO_URL")
+	private String hotelLogoUrl;
+	
 	@Column(name="HOTEL_TOTAL_BRANCH")
 	private int hotelTotalBranch;
+	
+	private CommonsMultipartFile multipartFile;
 
 	public long getId() {
 		return id;
@@ -144,5 +152,21 @@ public class HotelInfo {
 	public void setHotelTotalBranch(int hotelTotalBranch) {
 		this.hotelTotalBranch = hotelTotalBranch;
 	}
+
+	public String getHotelLogoUrl() {
+		return hotelLogoUrl;
+	}
+
+	public void setHotelLogoUrl(String hotelLogoUrl) {
+		this.hotelLogoUrl = hotelLogoUrl;
+	}
+	 
+	public CommonsMultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(CommonsMultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	} 
 	
 }

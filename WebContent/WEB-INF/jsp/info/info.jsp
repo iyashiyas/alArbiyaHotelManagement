@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
@@ -24,8 +25,7 @@
 						<li class="active"><strong><spring:message code="label.Info" /></strong></li>
 					</ol>
 				</div>
-			</div>
-
+			</div> 
 			<div class="wrapper wrapper-content">
 				<div class="col-lg-12">
 					<div class="row">
@@ -34,11 +34,11 @@
                       	<div class="ibox-tools">
 									 <a  class="btn btn-primary" href="#editBuildingModal" data-toggle="modal"><i class="fa fa-pencil"> </i><spring:message code="label.EditInformation" /></a>
 								</div>
-						 
+						 <c:forEach items="${hotelInfo}" var="hotelInfo">
 							  <div class="panel panel-primary row">
 							  <div class="col-sm-8">
 										<form class="form-horizontal">
-											<c:forEach items="${hotelInfo}" var="hotelInfo">
+											
 												<div class="form-group">
 													<label class="col-sm-4 control-label"><spring:message code="label.HotelName" /> :</label>
 
@@ -136,24 +136,31 @@
 															${hotelInfo.hotelTotalBranch} </label>
 													</div>
 												</div>
-											</c:forEach>
-										</form>
- 
-									</div>
-								  
+										 
+										</form> 
+									</div> 
 									  <div class="col-lg-4">
                 <div class="widget style1 navy-bg">
                     <div class="row">
                         <div class="col-xs-4">
-                     	<img src="<c:url value="/resources/css/patterns/logonly.png"/>"  class="img-circle" alt="profile"> 
+                     	<img src="<c:out value='${hotelInfo.hotelLogoUrl}' />"  class="img-circle" alt="profile"> 
                         </div>
+                        		
+                        <form:form action="${pageContext.request.contextPath}/info/uploadLogo" method="post" modelAttribute="newInfo" enctype="multipart/form-data">
                         <div class="col-xs-8 text-right">
-                      <input type="file"> 
+                      <div class="col-sm-10">
+                      <form:input type="hidden" name="id" value="${hotelInfo.id}" path="id" />
+						<form:input type="file" placeholder="Image" name="multipartFile" path="multipartFile" class="form-control" />
+					   </div> 
                         </div>
+                        <div>
+                        <button type="submit" class="btn btn-success" >Upload New Logo </button>
+                        </div>
+                        </form:form> 
                     </div>
                 </div>
             </div> 
-									
+							    </c:forEach>		
 									</div>
 									</div>
 									</div>

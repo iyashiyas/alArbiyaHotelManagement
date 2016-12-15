@@ -7,9 +7,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
 	rel="stylesheet">
+<link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/animate.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <c:if test="${pageContext.response.locale=='ar'}">
 	<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.css"/>"
 		rel="stylesheet">
@@ -18,14 +24,6 @@
 		 	<link href="<c:url value="/resources/css/rtl/style-rtl.css"/>"
 		rel="stylesheet">
 </c:if>
-<link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/font-awesome.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/animate.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-
 <title>SHMS-Header</title>
 </head>
 <body>
@@ -41,8 +39,7 @@
 						</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
 							class="clear"> <span class="block m-t-xs"> <strong
 									class="font-bold">Hotel Name</strong>
-							</span> <span class=" text-xs block"><spring:message
-										code="label.Info" /> <b class="caret"></b></span>
+							</span> <span class=" text-xs block"><spring:message code="label.Info" /> <b class="caret"></b></span>
 						</span>
 						</a>
 						<ul class="dropdown-menu animated fadeInRight m-t-xs">

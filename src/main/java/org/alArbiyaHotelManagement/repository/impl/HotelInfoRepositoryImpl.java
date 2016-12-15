@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
  
 
+
 import org.alArbiyaHotelManagement.model.HotelInfo;
 import org.alArbiyaHotelManagement.repository.HotelInfoRepository;
 import org.springframework.stereotype.Repository;
@@ -35,4 +36,14 @@ public class HotelInfoRepositoryImpl implements HotelInfoRepository {
 		return query.getResultList();
 	}
 
+	@Override
+	public void UploadLogo(HotelInfo info) {
+		Query updateQuery = entityManager.createQuery("UPDATE HotelInfo SET hotelLogoUrl = :imageUrl where id = :id ");
+		updateQuery.setParameter("ImageUrl", info.getHotelLogoUrl());
+		updateQuery.setParameter("id", info.getId());
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate(); 
+	}
+
+	 
 }
