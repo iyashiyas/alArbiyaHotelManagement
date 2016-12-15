@@ -30,21 +30,10 @@ public class UserRepositoryImpl implements UserRepository{
 		return userDetails.isEmpty() ? null : userDetails.get(0);
 	}
 
-	/*@Override
-	public User loadUserByUsername(String username) {
-		System.out.println("service repository Coming her");
-		TypedQuery<User> query = this.entityManager.createQuery("SELECT users from USERS users WHERE users.username=:username", User.class);
-		query.setParameter("username", username);
-	   	return (User) query.getResultList();
- 
-	}*/
-	
-	
 	
  	@Override
 	public User loadUserByUsername(String username) {
-		System.out.println("service repository Coming her");
-		TypedQuery<User> query = this.entityManager.createQuery("SELECT users from USERS users WHERE users.username=:username", User.class);
+		TypedQuery<User> query = this.entityManager.createQuery("SELECT users from User users WHERE users.username=:username", User.class);
 		List<User> users = query.setParameter("username", username).getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	} 

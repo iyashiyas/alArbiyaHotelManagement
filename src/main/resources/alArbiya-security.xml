@@ -2,9 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p" 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+    						http://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security.xsd">
       
@@ -18,12 +21,15 @@
 
 	<security:global-method-security pre-post-annotations="enabled"/>
 
-	  <bean id="customAuthenticationProvider" class="org.alArbiyaHotelManagement.authProvider.CustomAuthenticationProvider"></bean>
-  <!--   <bean id="customUserService" class="org.alArbiyaHotelManagement.service.impl.CustomUserServiceImpl"></bean> -->
+<context:component-scan base-package="org.alArbiyaHotelManagement.web"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.model"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.service"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.repository"/>
+   <context:component-scan base-package="org.alArbiyaHotelManagement.security"/>
+
  
     <security:authentication-manager>
    <security:authentication-provider ref="customAuthenticationProvider"/> 
-<!--   <security:authentication-provider user-service-ref="customUserService" /> -->
  </security:authentication-manager>
  
 </beans>

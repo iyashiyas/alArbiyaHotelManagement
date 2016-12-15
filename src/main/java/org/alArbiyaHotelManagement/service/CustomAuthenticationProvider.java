@@ -1,9 +1,8 @@
-package org.alArbiyaHotelManagement.authProvider;
+package org.alArbiyaHotelManagement.service;
 
 import java.util.Collection; 
 
 import org.alArbiyaHotelManagement.model.User;
-import org.alArbiyaHotelManagement.service.impl.CustomUserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 
 	@Autowired
-	CustomUserServiceImpl customUserService;
+	CustomUserService customUserService;
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
