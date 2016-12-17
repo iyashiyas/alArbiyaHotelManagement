@@ -21,7 +21,7 @@
 		rel="stylesheet">
 	<link href="<c:url value="/resources/css/rtl/bootstrap-rtl.min.css"/>"
 		rel="stylesheet">
-		 	<link href="<c:url value="/resources/css/rtl/style-rtl.css"/>"
+	<link href="<c:url value="/resources/css/rtl/style-rtl.css"/>"
 		rel="stylesheet">
 </c:if>
 <title>SHMS-Header</title>
@@ -39,7 +39,8 @@
 						</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
 							class="clear"> <span class="block m-t-xs"> <strong
 									class="font-bold">Hotel Name</strong>
-							</span> <span class=" text-xs block"><spring:message code="label.Info" /> <b class="caret"></b></span>
+							</span> <span class=" text-xs block"><spring:message
+										code="label.Info" /> <b class="caret"></b></span>
 						</span>
 						</a>
 						<ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -169,16 +170,22 @@
 
 			</div>
 			<c:if test="${pageContext.response.locale=='ar'}">
-			<ul class="nav navbar-top-links navbar-left">
-            </c:if>
-            <c:if test="${pageContext.response.locale=='en'}">
-			<ul class="nav navbar-top-links navbar-right">
-            </c:if>
-				<li><span class="m-r-sm   welcome-message"><spring:message
-							code="label.Welcome" /> Admin</span></li>
-				<li><a href="${pageContext.request.contextPath}/login"> <i
-						class="fa fa-sign-out"></i> <spring:message code="label.Logout" />
-				</a></li>
+				<ul class="nav navbar-top-links navbar-left">
+			</c:if>
+			<c:if test="${pageContext.response.locale=='en'}">
+				<ul class="nav navbar-top-links navbar-right">
+			</c:if>
+			<li><span class="m-r-sm welcome-message"><spring:message
+						code="label.Welcome" />   ${username} </span></li>
+
+			<li><form action="<c:url value="j_spring_security_logout" />"
+					method="post">
+					<button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i>
+						<spring:message code="label.Logout" />
+					</button>
+					 <input type="hidden"
+						name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form></li>
 			</ul>
 
 		</nav>

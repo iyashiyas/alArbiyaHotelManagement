@@ -10,5 +10,10 @@ public class LoginController {
 	public String showLoginPage() {
 		return "login/login";
 	}
+	
+	@RequestMapping(value = "/logout")
+	public String showLogout() {
+		return "login/login";
+	}
 
 }
