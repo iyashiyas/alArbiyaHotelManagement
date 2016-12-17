@@ -21,7 +21,7 @@
 		</div>
 		<div class="ibox-content">
 			<form:form class="form-horizontal"
-				action="${pageContext.request.contextPath}/action/addCoffeShop"
+				action="${pageContext.request.contextPath}/action/addCoffeShop?${_csrf.parameterName}=${_csrf.token}"
 				method="POST" modelAttribute="coffeShop"
 				enctype="multipart/form-data"> 
 				<input type="hidden" name="hotelServiceCategoryId" value="1"/> 
