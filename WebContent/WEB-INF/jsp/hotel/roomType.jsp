@@ -7,32 +7,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>SHMS-roomType</title>
-
+<title>SHMS-roomType</title> 
 </head>
-<body>
-
+<body> 
 	<!-- Include Page Header-->
 	<div id="wrapper">
-		<jsp:include page="../header/header.jsp"></jsp:include>
-
+		<jsp:include page="../header/header.jsp"></jsp:include> 
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
 					<h2><spring:message code="label.RoomType" /></h2>
 					<ol class="breadcrumb">
-						<li><a href="${pageContext.request.contextPath}/">Profile</a></li>
-						<li class="active"><strong>Room</strong></li>
+						<li><a href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+						<li class="active"><strong><spring:message code="label.RoomType" /></strong></li>
 					</ol>
 				</div>
 			  </div>
 			<div class="wrapper wrapper-content">
-				<div class="row">
-				 
-					<div class="col-lg-10 animated fadeInRight">
-
-						<jsp:include page="../hotel/addRoomType.jsp"></jsp:include>
-
+				<div class="row"> 
+					<div class="col-lg-10 animated fadeInRight"> 
+						<jsp:include page="../hotel/addRoomType.jsp"></jsp:include> 
        <div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5><spring:message code="label.RoomtypeOverView" /></h5>
@@ -44,8 +38,7 @@
 							<div class="ibox-content">
 								<div class="table-responsive">
 									<table
-										class="table table-striped table-bordered table-hover dataTables-example">
-
+										class="table table-striped table-bordered table-hover dataTables-example"> 
 										<thead>
 											<tr>
 												<th class="check-mail"><spring:message code="label.ID" /></th>

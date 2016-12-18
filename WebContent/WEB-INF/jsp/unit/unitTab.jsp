@@ -20,8 +20,7 @@
                                 <li><a href="${pageContext.request.contextPath}/unit?categoryCode=LNT">Length</a></li>
                                 <li><a href="${pageContext.request.contextPath}/unit?categoryCode=VAC">Volume and Capacity</a></li>
                                 <li><a href="${pageContext.request.contextPath}/unit?categoryCode=WGT">Weight</a></li>
-                                
-                                
+                                 
                                  </ul>
                              <div class="clearfix"></div>
                         </div>

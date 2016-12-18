@@ -20,7 +20,7 @@
 		</p>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Select Role</label>
+			<label class="col-sm-2 control-label"><spring:message code="SelectRole"></spring:message></label>
 			<div class="col-sm-10">
 				<form:select class="form-control m-b" path="roles[0].id" name="roles[0].id" >
 				<c:forEach items="${roles}" var="roles">

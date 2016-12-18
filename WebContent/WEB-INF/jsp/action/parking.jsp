@@ -38,9 +38,8 @@
                 <div class="ibox-content text-center p-md">
 
                     <h2><span class="text-navy"><spring:message code="label.ParkingService" /></span>
-                    <spring:message code="label.IsHelpsTheCustomer" />  <br/>For Getting Vehicle From Parking Area By Vehicle Number</h2>
-
-                    <p>
+                    <spring:message code="label.IsHelpsTheCustomer" />  <br/> <spring:message code="label.ForGettingVehicleFromParkingAreaByVehicleNumber" /></h2>
+                      <p>
                        <spring:message code="label.Herehaveoptionsyoucanturnon/offParkingServiceFromServiceScreens" />
                     </p>
 

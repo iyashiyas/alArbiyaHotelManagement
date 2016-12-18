@@ -25,7 +25,7 @@
 			<form:form class="form-horizontal" action="${pageContext.request.contextPath}/ingredient/addIngredient" modelAttribute="newIngredient" 
 				method="post">
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Ingredient Category</label>
+					<label class="col-sm-2 control-label"><spring:message code="label.IngredientCategory" /></label>
                     	<div class="col-sm-10">
 						<form:select class="form-control m-b" path="ingredientCategory" >
 							<form:option value="SAUCE">SAUCE</form:option>

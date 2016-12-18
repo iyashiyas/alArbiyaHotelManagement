@@ -146,7 +146,7 @@
                      	<img src="<c:out value='${hotelInfo.hotelLogoUrl}' />"  class="img-circle" alt="profile"> 
                         </div>
                         		
-                        <form:form action="${pageContext.request.contextPath}/info/uploadLogo" method="post" modelAttribute="newInfo" enctype="multipart/form-data">
+                        <form:form action="${pageContext.request.contextPath}/info/uploadLogo?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="newInfo" enctype="multipart/form-data">
                         <div class="col-xs-8 text-right">
                       <div class="col-sm-10">
                       <form:input type="hidden" name="id" value="${hotelInfo.id}" path="id" />
@@ -154,7 +154,7 @@
 					   </div> 
                         </div>
                         <div>
-                        <button type="submit" class="btn btn-success" >Upload New Logo </button>
+                        <button type="submit" class="btn btn-success" ><spring:message code="label.UploadNewLogo" /></button>
                         </div>
                         </form:form> 
                     </div>
@@ -163,8 +163,7 @@
 							    </c:forEach>		
 									</div>
 									</div>
-									</div>
-
+									</div> 
 								</div>
 							</div>
 

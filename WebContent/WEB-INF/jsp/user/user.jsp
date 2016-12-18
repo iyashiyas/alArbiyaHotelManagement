@@ -78,10 +78,10 @@
 
 											<thead>
 												<tr>
-													<th>User Id</th>
-													<th>User Name</th>
-													<th>Role Name</th>
-													<th>ChangePassword</th>
+													<th><spring:message code="label.UserId"></spring:message></th>
+													<th><spring:message code="label.UserName" /></th>
+													<th><spring:message code="label.RoleName" /></th>
+													<th><spring:message code="label.ChangePassword" /></th>
 
 												</tr>
 											</thead>

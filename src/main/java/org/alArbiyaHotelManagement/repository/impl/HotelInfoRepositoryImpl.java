@@ -39,7 +39,7 @@ public class HotelInfoRepositoryImpl implements HotelInfoRepository {
 	@Override
 	public void UploadLogo(HotelInfo info) {
 		Query updateQuery = entityManager.createQuery("UPDATE HotelInfo SET hotelLogoUrl = :imageUrl where id = :id ");
-		updateQuery.setParameter("ImageUrl", info.getHotelLogoUrl());
+		updateQuery.setParameter("imageUrl", info.getHotelLogoUrl());
 		updateQuery.setParameter("id", info.getId());
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate(); 

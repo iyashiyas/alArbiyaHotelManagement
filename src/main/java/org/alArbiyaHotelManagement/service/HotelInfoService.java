@@ -11,5 +11,5 @@ public interface HotelInfoService {
 
 	public List<HotelInfo> getHotelInfo();
 
-	public void UploadLogo(HotelInfo info,File imageUrl);
+	public void UploadLogo(HotelInfo info,File file);
 }

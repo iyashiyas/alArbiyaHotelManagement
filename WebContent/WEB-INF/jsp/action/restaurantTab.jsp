@@ -12,7 +12,7 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Categories - <a href="#addnewrestaurentcategory" data-toggle="modal" >  <spring:message code="label.NewCategory" /></a></h5>
+				<h5><spring:message code="label.Categories" /> - <a href="#addnewrestaurentcategory" data-toggle="modal" >  <spring:message code="label.NewCategory" /></a></h5>
 				 
 			</div> 
 			<div class="ibox-content ">

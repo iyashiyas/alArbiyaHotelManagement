@@ -56,7 +56,7 @@
 	   <div class="col-lg-12">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5>Roles</h5>
+				<h5><spring:message code="label.Roles"></spring:message></h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
@@ -71,10 +71,10 @@
 				       
                     <thead>
                     <tr>
-                    <th >User Id</th>
+                    <th ><spring:message code="label.UserId"></spring:message></th>
                        <!--  <th>Role Name</th> -->
-                          <th>Role </th>
-                          <th>Edit</th>
+                          <th><spring:message code="label.Role"> </spring:message></th>
+                        
                          
                     </tr>
                     </thead>
@@ -85,8 +85,7 @@
                             <td class="check-mail">${roles.id} </td>
 							<%-- <td class="mail-ontact ">${roles.roleName}  </td> --%>
 							<td class="mail-subject"> ${roles.role}  </td>
-						   <td class=""><i class="fa fa-pencil"><a class="disable">Edit</a></i></td>
-							  
+					  
 						</tr>
 						</c:forEach>
  
@@ -103,21 +102,7 @@
 		</div>
 		</div>
 		</div>
-		
-			<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">Confirm Delete</div>
-				<div class="modal-body">Are you sure you want to delete this
-					item</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a href="#" id="submit" class="btn btn-success success">Delete</a>
-				</div>
-			</div>
-		</div>
-	</div>
+		 
 	
 	
 		<div class="modal fade" id="confirm-Edit" tabindex="-1" role="dialog"
