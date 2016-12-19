@@ -39,8 +39,7 @@ public class HotelInfoController {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("hotelInfo", hotelInfos);
 		attributes.put("newInfo", new HotelInfo());
-		model.addAllAttributes(attributes);
-		 
+		model.addAllAttributes(attributes); 
 		return "info/info";
 	}
 	

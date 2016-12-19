@@ -56,7 +56,7 @@
 	   <div class="col-lg-12">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5><spring:message code="label.Roles"></spring:message></h5>
+				<h5><spring:message code="label.role.roleName"></spring:message></h5>
 				<div class="ibox-tools">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a>
@@ -73,7 +73,7 @@
                     <tr>
                     <th ><spring:message code="label.UserId"></spring:message></th>
                        <!--  <th>Role Name</th> -->
-                          <th><spring:message code="label.Role"> </spring:message></th>
+                          <th><spring:message code="label.role.roleName"> </spring:message></th>
                         
                          
                     </tr>

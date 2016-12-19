@@ -2,6 +2,7 @@ package org.alArbiyaHotelManagement.repository.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -30,8 +31,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		booking.setRoom(room);
 		entityManager.persist(booking);
 		return booking;
-	}
-
+	} 
 	@Override
 	public String getBookingId() {
 		String randomString = ""; 
@@ -44,8 +44,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 			}
 		}
 		return randomString;
-	}
-	
+	} 
 	@Override
 	public String getMemberShipId(String firstName, String email) {
 		String randomString = ""; 
@@ -55,8 +54,17 @@ public class BookingRepositoryImpl implements BookingRepository{
 			query.setParameter("memberId", randomString);
 			if(query.getResultList().isEmpty()) {
 				break;
-			}
+		 }
 		}
 		return randomString;
+	} 
+	@Override
+	public Booking createCheckIn(String bookingId) {
+		// TODO Auto-generated method stub
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' where bookingReferenceId = :bookingReferenceId ");
+		updateQuery.setParameter("bookingReferenceId", bookingId); 
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		return null ;
 	}
 }

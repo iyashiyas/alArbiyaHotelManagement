@@ -9,4 +9,6 @@ public interface BookingService {
 
 	public Booking createBooking(String roomId, String startDate, String endDate, UserDetails user) throws ParseException;
 
+	public Booking createCheckIn(String bookingId);
+
 }

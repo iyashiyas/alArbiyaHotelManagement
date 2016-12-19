@@ -31,10 +31,10 @@
 				       
                     <thead>
                     <tr>
-                    <th class="check-mail"><spring:message code="select"></spring:message></th>
-                    <th><spring:message code="Item"></spring:message></th>
-                    <th class="disable"><spring:message code="Read"></spring:message></th>
-                    <th class="disabled"><spring:message code="Write"></spring:message></th>
+                    <th class="check-mail"><spring:message code="label.select"></spring:message></th>
+                    <th><spring:message code="label.ItemName"></spring:message></th>
+                    <th class="disable"><spring:message code="label.Read"></spring:message></th>
+                    <th class="disabled"><spring:message code="label.Write"></spring:message></th>
                     </tr>
                     </thead>
                     
@@ -42,55 +42,55 @@
  
 						<tr>
 						<td><form:radiobutton name="role" value="LANGUAGES" path="role"/></td>
-						 <td><label><spring:message code="Language" /></label></td>
+						 <td><label><spring:message code="label.Languages" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 						<tr>
 						<td><form:radiobutton  value="PROFILE" path="role" name="role"  /></td>
-						 <td><label><spring:message code="Profile" /></label></td>
+						 <td><label><spring:message code="label.Profile" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 						<tr>
 						<td><form:radiobutton path="role" name="role" value="RESERVATION" /></td>
-						 <td><label><spring:message code="Reservation" /></label></td>
+						 <td><label><spring:message code="label.Reservation" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 						<tr>
 						<td><form:radiobutton path="role" name="role" value="UNIT" /></td>
-						 <td><label><spring:message code="Unit" /></label></td>
+						 <td><label><spring:message code="label.Unit" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 							<tr>
 						<td><form:radiobutton path="role" name="role" value="INGREDIENTS" /></td>
-						 <td><label><spring:message code="Ingredients" /></label></td>
+						 <td><label><spring:message code="label.Ingredients" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 							<tr>
 						<td><form:radiobutton path="role" name="role" value="SERVICE" /></td>
-						 <td><label><spring:message code="Service" /></label></td>
+						 <td><label><spring:message code="label.Service" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 							<tr>
 						<td><form:radiobutton path="role" name="role" value="USERMANAGEMENT"  /></td>
-						 <td><label><spring:message code="UserManagement" /></label></td>
+						 <td><label><spring:message code="label.UserManagement" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 							<tr>
 						<td><form:radiobutton path="role" name="role" value="PLAYER" /></td>
-						 <td><label><spring:message code="Player" /></label></td>
+						 <td><label><spring:message code="label.Player" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>
 							<tr>
 						<td><form:radiobutton  path="role" name="role" value="Order" /></td>
-						 <td><label><spring:message code="Order" /></label></td>
+						 <td><label><spring:message code="label.Order" /></label></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						 <td><input type="checkbox" disabled="disabled"></td>
 						</tr>

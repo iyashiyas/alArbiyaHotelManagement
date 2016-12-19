@@ -1,3 +1,4 @@
+
 --country
 INSERT INTO `country` (`COUNTRY_ID`,`COUNTRY_CODE`, `COUNTRY_IMAGE_URL`,`COUNTRY_NAME`) VALUES ('1', 'IND','', 'India');
 INSERT INTO `country` (`COUNTRY_ID`,`COUNTRY_CODE`, `COUNTRY_IMAGE_URL`,`COUNTRY_NAME`) VALUES ('2', 'AF', '','Afghanistan');

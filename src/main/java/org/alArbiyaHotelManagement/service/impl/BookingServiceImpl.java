@@ -45,4 +45,10 @@ public class BookingServiceImpl implements BookingService{
 		return bookingRepository.createBooking(booking, roomId);
 	}
 
+	@Override
+	public Booking createCheckIn(String bookingId) {
+		// TODO Auto-generated method stub
+		return bookingRepository.createCheckIn(bookingId);
+	}
+
 }

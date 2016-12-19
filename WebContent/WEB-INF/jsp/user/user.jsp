@@ -80,7 +80,7 @@
 												<tr>
 													<th><spring:message code="label.UserId"></spring:message></th>
 													<th><spring:message code="label.UserName" /></th>
-													<th><spring:message code="label.RoleName" /></th>
+													<th><spring:message code="label.role.roleName" /></th>
 													<th><spring:message code="label.ChangePassword" /></th>
 
 												</tr>

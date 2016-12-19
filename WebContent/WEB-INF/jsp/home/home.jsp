@@ -38,30 +38,30 @@
 	        
 	          <div class="col-lg-4">
                     <div class="widget lazur-bg p-xl">
-
+                        <c:forEach items="${hotelInfo}" var="hotelInfo">
                                 <h2>
                                   <a href="#"><small><spring:message code="label.Home" /></small></a>
              
-                                    Hotel Name
+                                    ${hotelInfo.hotelName}
                                 </h2>
                         <ul class="list-unstyled m-t-md">
                             <li>
                                 <span class="fa fa-envelope m-r-xs"></span>
                                 <label><spring:message code="label.Email" />:</label>
-                                hotel@mail.com
+                                ${hotelInfo.hotelEmail}
                             </li>
                             <li>
                                 <span class="fa fa-home m-r-xs"></span>
                                 <label><spring:message code="label.Address" />:</label>
-                                Street 200, Avenue 10
+                                ${hotelInfo.hotelAddress1} , ${hotelInfo.hotelAddress2}
                             </li>
                             <li>
                                 <span class="fa fa-phone m-r-xs"></span>
                                 <label><spring:message code="label.Contact" />:</label>
-                                (+121) 678 3462
+                               ${hotelInfo.hotelPhone}
                             </li>
                         </ul>
-
+                   </c:forEach>
                     </div>
                     </div>
 	        

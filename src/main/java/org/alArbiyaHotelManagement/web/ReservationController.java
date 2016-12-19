@@ -42,7 +42,7 @@ public class ReservationController {
 	public String Reservation(Model model) {
 		List<RoomType> roomType = roomTypeService.getAllRoomType();
 		Map<String, Object> attributes = new HashMap<String, Object>();
-		attributes.put("roomType", roomType);
+		attributes.put("roomType", roomType); 
 		model.addAllAttributes(attributes);
 		return "reservation/reservation";
 	}
@@ -81,6 +81,13 @@ public class ReservationController {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("bookingDetails", booking);
 		model.addAllAttributes(attributes);
+		return "reservation/reservationDetails";
+	}
+	
+	@RequestMapping(value="/checkIn", method=RequestMethod.POST) 
+	public String checkIn(@RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
+		
+		Booking booking = bookingService.createCheckIn(bookingrefernceId); 
 		return "reservation/reservationDetails";
 	}
 }
