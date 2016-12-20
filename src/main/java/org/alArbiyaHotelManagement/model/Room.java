@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
   
 @Entity
 @Table(name="ROOM")
@@ -47,6 +48,7 @@ public class Room {
 	@OneToOne
 	private RoomType roomType;
 	
+	@JsonIgnore 
 	@OneToMany(mappedBy="room", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Booking> bookings;
 	 

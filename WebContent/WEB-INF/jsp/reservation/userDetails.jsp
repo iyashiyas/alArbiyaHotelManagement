@@ -22,7 +22,7 @@
 }
 </style>
 
-<title><spring:message code="UserDetails" /></title>
+<title><spring:message code="label.UserDetails" /></title>
 </head>
 <body>
 	<div id="wrapper">
@@ -30,11 +30,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2><spring:message code="AddNewMember" /></h2>
+					<h2><spring:message code="label.AddNewMember" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message code="Reservation" /></a></li>
-						<li class="active"><strong><spring:message code="AddNewMember" /></strong></li>
+							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message code="label.Reservation" /></a></li>
+						<li class="active"><strong><spring:message code="label.AddNewMember" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 							action="${pageContext.request.contextPath}/user/getUserDetails">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="panel-title"><spring:message code="AllReadyAMember" /></h3>
+									<h3 class="panel-title"><spring:message code="label.AllReadyAMember" /></h3>
 								</div>
 								<div class="panel-body">
 									<div class="col-xs-4 form-group">
@@ -70,7 +70,7 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-								 	<spring:message code="CheckInToRoomNumber" /> <label class="label-primary">"${ roomId}"</label>
+								 	<spring:message code="label.CheckInToRoomNumber" /> <label class="label-primary">"${ roomId}"</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -107,7 +107,7 @@
 															placeholder="Full Name" type="text" />
 													</div>
 													<div class="col-xs-14 form-group">
-														<label><spring:message code="label.Phone" /></label>
+														<label><spring:message code="label.PhoneNumber" /></label>
 														<form:input class="form-control" id="mobile-number"
 															path="phoneNumber" placeholder="phone" type="text" />
 													</div>
@@ -168,10 +168,10 @@
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
-													<label><spring:message code="IdentityType" /></label>
+													<label><spring:message code="label.IdentityType" /></label>
 													<form:select class="form-control" path="identityType">
-														<form:option value="Passport"><spring:message code="label.Passport" /></form:option>
-														<form:option value="NIC"><spring:message code="label.NationalIdCard" /></form:option>
+														<form:option value="Passport"><spring:message code="label.passport" /></form:option>
+														<form:option value="NIC"><spring:message code="label.NationalIDCard" /></form:option>
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">

@@ -17,6 +17,7 @@ import org.alArbiyaHotelManagement.service.RoomService;
 import org.alArbiyaHotelManagement.service.RoomTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -134,7 +135,7 @@ public class HotelController {
 		model.addAllAttributes(attributes);
 		return "hotel/room";
 	}
-
+    
 	@RequestMapping(value = "/showRoomTypes", method = RequestMethod.GET)
 	public String showRoomType(Model model) {
 		List<RoomType> roomTypes = roomTypeService.getAllRoomType();
@@ -144,13 +145,13 @@ public class HotelController {
 		model.addAllAttributes(attributes);
 		return "hotel/roomType";
 	}
-	
+	@Transactional
 	@RequestMapping(value="/getAllBuilding", method=RequestMethod.GET)
 	public @ResponseBody List<Building> getAllBuilding(@RequestParam(required=false) String branchId) {
 		return buildingService.getAllBuilding(branchId);
 	}
 	 
-	
+	@Transactional
 	@RequestMapping(value="/getAllFloor", method=RequestMethod.GET)
 	public @ResponseBody List<Floor> getAllFloor(@RequestParam(required=false) String buildingId) {
 		return floorService.getAllFloorByBuildingId(buildingId);

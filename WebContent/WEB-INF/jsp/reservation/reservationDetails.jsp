@@ -21,11 +21,11 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2><spring:message code="BookingDetails" /></h2>
+					<h2><spring:message code="label.BookingDetails" /></h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation"><spring:message code="Reservation" /></a></li>
-						<li class="active"><strong><spring:message code="BookingDetails" /></strong></li>
+							href="${pageContext.request.contextPath}/reservation"><spring:message code="label.Reservation" /></a></li>
+						<li class="active"><strong><spring:message code="label.BookingDetails" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5><spring:message code="BookingDetails" /></h5>
+								<h5><spring:message code="label.BookingDetails" /></h5>
 								<div class="ibox-tools">
 
 									<!-- <a class="btn btn-primary " data-toggle="modal"
@@ -48,43 +48,43 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-		<div class="table-responsive">
+		<div class="table-responsive" id="printdiv">
 										<table
-											class="table table-striped table-bordered table-hover dataTables-example">
+											class="table table-striped table-bordered table-hover dataTables-example printtable">
 			<thead>
 				 
 			</thead>
 			<tbody>
 				<tr>
-					<td><spring:message code="ReferenceID" /></td>
+					<td><spring:message code="label.ReferenceID" /></td>
 					<td>${bookingDetails.bookingReferenceId}</td>
 				</tr>
 				<tr>
-					<td><spring:message code="RoomNumber" /></td>
+					<td><spring:message code="label.RoomNumber" /></td>
 					<td>${bookingDetails.room.roomCode}</td>
 				</tr>
 				
 				<tr>
-					<td><spring:message code="MemberID" /></td>
+					<td><spring:message code="label.MemberId" /></td>
 					<td>${bookingDetails.userDetails.memberId}</td>
 				</tr>
 				<tr>
-					<td><spring:message code="MemberName" /></td>
+					<td><spring:message code="label.MemberName" /></td>
 					<td>${bookingDetails.userDetails.firstName}  ${bookingDetails.userDetails.lastName}</td>
 				</tr>
 				<tr>
-					<td><spring:message code="BookedFrom" /></td>
+					<td><spring:message code="label.BookedFrom" /></td>
 					<td>${bookingDetails.startDate}</td>
 				</tr>
 				<tr>
-					<td><spring:message code="BookedTill" /></td>
+					<td><spring:message code="label.BookedTill" /></td>
 					<td>${bookingDetails.endDate}</td>
 				</tr>
 			</tbody>
 		</table>
 		
-			<button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary center-block"> ${bookingDetails.PrintOut}</button>
-		<a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/reservation">${bookingDetails.DoAnotherBooking}</a>
+			<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
+		<a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/reservation"><spring:message code="label.DoAnotherBooking"/></a>
 	</div>
 	
 	</div>
@@ -93,6 +93,23 @@
 	</div>
 	</div>
 	</div>
-	
+<script type="text/javascript">
+function printDiv() 
+{
+
+  var divToPrint=document.getElementById('printdiv');
+
+  var newWin=window.open('','Print-Window');
+
+  newWin.document.open();
+
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+  newWin.document.close();
+
+  setTimeout(function(){newWin.close();},10);
+
+}
+</script>
 </body>
 </html>

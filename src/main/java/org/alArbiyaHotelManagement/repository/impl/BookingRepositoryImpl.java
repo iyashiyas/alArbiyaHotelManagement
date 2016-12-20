@@ -1,5 +1,7 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -7,6 +9,7 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.alArbiyaHotelManagement.model.Booking;
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.BookingRepository;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -59,12 +62,18 @@ public class BookingRepositoryImpl implements BookingRepository{
 		return randomString;
 	} 
 	@Override
-	public Booking createCheckIn(String bookingId) {
+	public Booking createCheckIn(String bookingId,Booking booking) {
 		// TODO Auto-generated method stub
-		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' where bookingReferenceId = :bookingReferenceId ");
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' AND checkedInTime=:checkedinDate where bookingReferenceId = :bookingReferenceId ");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
+		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 		return null ;
+	}
+	@Override
+	public List<Booking> CheckedInRooms() {
+		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='CHECKEDIN' order by id", Booking.class);
+		return query.getResultList();
 	}
 }

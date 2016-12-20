@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -46,13 +47,14 @@ public class Building {
 	@Column(name="BUILDING_STATUS") 
 	private String buildingStatus;
 	
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BRANCH_ID")
-	@JsonBackReference
 	private Branch branch;
 	
-	@OneToMany(mappedBy="building",cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@JsonIgnore 
 	@JsonManagedReference
+	@OneToMany(mappedBy="building",cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Floor> floors;
 
 	public long getId() {

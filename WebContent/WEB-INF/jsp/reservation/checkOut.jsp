@@ -1,5 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -8,80 +8,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link id=""
-	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
-	rel="stylesheet">
 
-<title>SHMS-CheckedRooms</title>
+<link id="" href="<c:url value="/resources/css/dataTables/datatables.min.css"/>" rel="stylesheet">
+
+
+<title>SHMS-Checked In Rooms</title>
+
 </head>
 <body>
 
 	<!-- Include Page Header-->
-	<div class="modal-header">Occupied Rooms</div>
-	<div class="modal-body">
+ <div id="wrapper">
+	<jsp:include page="../header/header.jsp"></jsp:include>
+<div id="page-wrapper" class="gray-bg">
+	<!-- Page Contents -->
+	<!-- Page Heading -->
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-9">
+			<h2><spring:message code="label.OccupiedRooms" /></h2>
+			<ol class="breadcrumb">
+				<li><a
+					href="${pageContext.request.contextPath}/"><spring:message code="label.Reservation" /></a></li>
+				<li class="active"><strong><spring:message code="label.OccupiedRooms" /></strong></li>
+			</ol>
+		</div>
+	</div>
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+				 
+					<div class="ibox-content">
 
-		<div class="ibox-content">
-
-			<div class="table-responsive">
-				<table
+						<div class="table-responsive">
+							<table
 					class="table table-striped table-bordered table-hover dataTables-example">
 					<thead>
 						<tr>
-							<th>Bill Id</th>
-							<th>Category</th>
-							<th>Price</th>
-						    <th>Discount</th>
-						    <th>total</th>
+							<th><spring:message code="label.ReferenceID" /></th>
+							<th><spring:message code="label.Status" /></th>
+							<th><spring:message code="label.CheckedinTime" /></th>
+						    <th><spring:message code="label.checkOutDate" /> </th> 
+						    <th><spring:message code="label.RoomNumber" /></th>
+						    <th><spring:message code="label.MemberName" /></th>
+						     <th><spring:message code="label.CheckOut" /></th>
 							  
 						</tr>
 					</thead>
 					<tbody>
 
 						<!-- Fetching Language Table-->
-
+                        <c:forEach items="${chekedInRooms}" var="chekedInRooms">
 						<tr class="gradeX">
-							<td class="center">1</td>
-							<td class="center">asd</td>
-							<td class="center">500 sar/-</td>
-				            <td class="center">10%</td>
-							<td class="center">500 sar/-</td>
+							<td class="center">${chekedInRooms.bookingReferenceId}</td>
+							<td class="center">${chekedInRooms.bookingStatus}</td>
+							<td class="center">${chekedInRooms.checkedInTime}</td>
+				            <td class="center">${chekedInRooms.endDate}</td>
+							<td class="center">${chekedInRooms.room.roomCode}</td>
+							<td class="center">${chekedInRooms.userDetails.firstName}</td>
+							<td class="center"><button type="button" class="btn btn-primary"> <spring:message code="label.CheckOut" /></button>  </td>
 						</tr>
-						<tr>
-						<td>Grand Total</td>
-						 <td>Grand Total</td>
-						</tr>
+						</c:forEach>
+						 
 						</tbody>
 
 						<!-- Demo -->
 						<!--End Action -->
 				</table>
+						</div>
+
+					</div>
+				</div>
 			</div>
-
 		</div>
-
-		<!-- Modal Popup Box -->
-		<div class="modal-footer">
-			<a class="btn btn-primary" href="#Checked-Rooms" data-toggle="modal"  data-dismiss="modal">Back</a>
-			<a class="btn btn-primary" href=""  >Print Bill And Checkout</a>
-		</div>
-	</div>
-
-
-
-
-	<script
-		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
-
-	<!-- Page-Level Scripts -->
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
-		
-	</script>
-	<script type='text/javascript'
+ 
+</div>
+</div>
+</div> 
+ 
+          <script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
+		 
+		<!-- Page-Level Scripts -->
+		<script src="<c:url value="/resources/js/datatablecustom.js" />"
+			type="text/javascript">
+			
+		</script>
+	 <script type='text/javascript'
 		src="<c:url value="/resources/js/modal_language.js" />">
 		
-	</script>
+	</script>  
 
-
+ 
 </body>
 </html>

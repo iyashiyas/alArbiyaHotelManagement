@@ -50,10 +50,12 @@ public class ReservationController {
 	@RequestMapping(value="/availableRooms", method = RequestMethod.POST)
 	public String getAvailableRooms(String startDate, String endDate, String roomType, Model model) throws ParseException {
 		List<Room> rooms = reservationService.getAvailableRoooms(startDate, endDate, roomType);
+		List<RoomType> roomTypes = roomTypeService.getAllRoomType();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("availableRoooms", rooms);
 		attributes.put("startDate", startDate);
 		attributes.put("endDate", endDate);
+		attributes.put("roomType", roomTypes); 
 		model.addAllAttributes(attributes);
 		return "reservation/reservation";
 	}
@@ -88,6 +90,17 @@ public class ReservationController {
 	public String checkIn(@RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
 		
 		Booking booking = bookingService.createCheckIn(bookingrefernceId); 
-		return "reservation/reservationDetails";
+		return "/reservation";
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,value="/checkOut")
+	public String ChekedInRooms(Model model) {
+		List<Booking> chekedInRooms = bookingService.CheckedInRooms();
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("chekedInRooms", chekedInRooms); 
+		model.addAllAttributes(attributes);
+		return "reservation/checkOut";
+	}
+	
+	
 }

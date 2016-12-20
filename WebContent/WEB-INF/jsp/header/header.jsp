@@ -91,9 +91,23 @@
 											code="label.RoomTypes" /></a></li>
 							</ul></li>
 					</ul></li>
-				<li><a href="${pageContext.request.contextPath}/reservation"><i
-						class="fa fa-credit-card"></i> <span class="nav-label"><spring:message
-								code="label.Reservation" /></span></a></li>
+				<li><a><i class="fa fa-credit-card"></i> <span class="nav-label"><spring:message
+								code="label.Reservation" /></span></a>
+								 
+								<ul class="nav nav-third-level collapse">
+								<li><a
+									href="${pageContext.request.contextPath}/reservation"><spring:message
+											code="label.Reservation" /></a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/reservation/checkOut"><spring:message
+											code="label.CheckOut" /></a></li>
+							</ul>
+								
+								
+								</li>
+								
+								
+								
 				<li><a href="${pageContext.request.contextPath}/unit"><i
 						class="fa fa-pie-chart"></i> <span class="nav-label"><spring:message
 								code="label.Unit" /></span> </a></li>
@@ -104,8 +118,8 @@
 						class="nav-label"><spring:message code="label.Service" /></span><span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
-						<li><a href="${pageContext.request.contextPath}/action"><spring:message
-									code="label.AllServices" /></a></li>
+						<%-- <li><a href="${pageContext.request.contextPath}/action"><spring:message
+									code="label.AllServices" /></a></li> --%>
 						<li><a
 							href="${pageContext.request.contextPath}/action/showCheckoutAction"><spring:message
 									code="label.CheckOut" /></a></li>

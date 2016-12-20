@@ -66,7 +66,7 @@
 							<div class="ibox-content">
 								<form class="form-horizontal" method="POST"
 									action="${pageContext.request.contextPath}/reservation/availableRooms">
-
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="panel panel-default">
@@ -94,7 +94,7 @@
 														<label><spring:message code="label.CheckIn" /></label>
 														<div class='input-group date' id='datetimepicker1'>
 															<input type='text' class="form-control "
-																name="startDate" /> <span class="input-group-addon">
+																name="startDate" required="required" /> <span class="input-group-addon">
 																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
@@ -105,7 +105,7 @@
 														<label><spring:message code="label.CheckOut" /></label>
 														<div class='input-group date' id='datetimepicker2'>
 															<input type='text' class="form-control "
-																name="endDate" /> <span class="input-group-addon">
+																name="endDate" required="required" /> <span class="input-group-addon">
 																<span class="glyphicon glyphicon-calendar"></span>
 															</span>
 														</div>
@@ -114,12 +114,13 @@
 
 													<div class="col-lg-1 form-group"></div>
 													<div class="col-lg-3 form-group">
-														<label><spring:message code="label.Roomtype" /></label> <select class="form-control"
+														<label><spring:message code="label.Roomtype" /></label> <select required="required" class="form-control"
 															name="roomType">
-															<option value="Single">Single</option>
-															<option value="Double">Double</option>
-															<option value="Suite">Suite</option>
-															<option value="Dormitory">Dormitory</option>
+															<c:forEach items="${roomType}" var="roomType">
+															
+															<option value="${roomType.roomType}">${roomType.roomTypeCode}</option>
+														 
+															</c:forEach>
 														</select>
 													</div>
 													<!-- <div class="col-sm-1 form-group"></div>

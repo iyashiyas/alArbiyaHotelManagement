@@ -1,10 +1,11 @@
 package org.alArbiyaHotelManagement.service.impl;
 
+ 
 import java.text.ParseException;
+ 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.alArbiyaHotelManagement.enums.BookingStatus;
 import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.UserDetails;
@@ -47,8 +48,17 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public Booking createCheckIn(String bookingId) {
+		// TODO Auto-generated method stub 
+		Booking booking = new Booking();
+		Date date = new Date();
+	  booking.setCheckedInTime(date);
+		return bookingRepository.createCheckIn(bookingId,booking);
+	}
+
+	@Override
+	public List<Booking> CheckedInRooms() {
 		// TODO Auto-generated method stub
-		return bookingRepository.createCheckIn(bookingId);
+		return bookingRepository.CheckedInRooms();
 	}
 
 }
