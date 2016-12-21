@@ -1,3 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `alarbiyahotelmanagement` useUnicode=true&characterEncoding=utf8"    /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS alarbiyahotelmanagement?useUnicode=true&amp;characterEncoding=utf8;
 USE alarbiyahotelmanagement;
 

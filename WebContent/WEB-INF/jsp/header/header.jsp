@@ -38,7 +38,7 @@
 							src="<c:url value="/resources/css/patterns/logonly.png"/>" />
 						</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
 							class="clear"> <span class="block m-t-xs"> <strong
-									class="font-bold">Hotel Name</strong>
+									class="font-bold"><label id="hotelName"></label></strong>
 							</span> <span class=" text-xs block"><spring:message
 										code="label.Info" /> <b class="caret"></b></span>
 						</span>
@@ -102,12 +102,9 @@
 									href="${pageContext.request.contextPath}/reservation/checkOut"><spring:message
 											code="label.CheckOut" /></a></li>
 							</ul>
-								
-								
+								 
 								</li>
-								
-								
-								
+								 
 				<li><a href="${pageContext.request.contextPath}/unit"><i
 						class="fa fa-pie-chart"></i> <span class="nav-label"><spring:message
 								code="label.Unit" /></span> </a></li>
@@ -190,9 +187,18 @@
 				<ul class="nav navbar-top-links navbar-right">
 			</c:if>
 			<li><span class="m-r-sm welcome-message"><spring:message
-						code="label.Welcome" />   ${username} </span></li>
+						code="label.Welcome" /> <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-			<li><form action="<c:url value="j_spring_security_logout" />"
+<sec:authorize var="loggedIn" access="isAuthenticated()" />
+<c:choose>
+    <c:when test="${loggedIn}">
+            <%= request.getUserPrincipal().getName() %>        
+    </c:when>
+    <c:otherwise>
+    </c:otherwise>
+</c:choose> </span></li>
+
+			<li><form action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
 					method="post">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i>
 						<spring:message code="label.Logout" />
@@ -229,6 +235,8 @@
 		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
 	<script
 		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
+		<script
+		src="<c:url value="/resources/js/header/header.js"/>"></script>
 	<!-- Full Screen Mode js -->
 	<!-- Jvectormap -->
 	<%-- <script

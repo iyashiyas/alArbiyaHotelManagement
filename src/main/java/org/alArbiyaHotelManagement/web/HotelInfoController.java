@@ -60,7 +60,7 @@ public class HotelInfoController {
 				byte[] bytes = info.getMultipartFile().getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("user.home");
+				String rootPath = System.getProperty("catalina.home");
 				File dir = new File(rootPath+File.separator+"Hotel");
 				if (!dir.exists())
 					dir.mkdirs(); 
