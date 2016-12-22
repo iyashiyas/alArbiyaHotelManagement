@@ -10,6 +10,6 @@ public interface BookingRepository {
 	public String getBookingId();
 	public String getMemberShipId(String firstName, String email);
 	public Booking createCheckIn(String bookingId,Booking booking);
-	public List<Booking> CheckedInRooms();
+	public List<Booking> bookedRooms();
 
 }

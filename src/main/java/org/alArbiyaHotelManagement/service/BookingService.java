@@ -12,6 +12,6 @@ public interface BookingService {
 
 	public Booking createCheckIn(String bookingId);
 
-	public List<Booking> CheckedInRooms();
+	public List<Booking> bookedRooms();
 
 }

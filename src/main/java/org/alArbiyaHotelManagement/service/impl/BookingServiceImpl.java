@@ -56,9 +56,9 @@ public class BookingServiceImpl implements BookingService{
 	}
 
 	@Override
-	public List<Booking> CheckedInRooms() {
+	public List<Booking> bookedRooms() {
 		// TODO Auto-generated method stub
-		return bookingRepository.CheckedInRooms();
+		return bookingRepository.bookedRooms();
 	}
 
 }

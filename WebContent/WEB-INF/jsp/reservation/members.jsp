@@ -27,12 +27,12 @@
 					class="table table-striped table-bordered table-hover dataTables-example">
 					<thead>
 						<tr>
-							<th>Member ID</th>
-							<th>Name</th>
-							<th>Status</th>
-							<th>Phone</th>
-							<th>Id Type</th>
-							<th>Id Number</th>
+							<th><spring:message code="label.MemberId" /></th>
+							<th><spring:message code="label.Name" /></th>
+							<th><spring:message code="label.Status" /></th>
+							<th><spring:message code="label.Phone" /></th>
+							<th><spring:message code="label.IdentityType" /></th>
+							<th><spring:message code="label.IdentityNumber" /> </th>
 							<th>action</th>
 						</tr>
 					</thead>
@@ -41,17 +41,14 @@
 						<!-- Fetching Language Table-->
 
 						<tr class="gradeX">
-
+          
 							<td class="center">1</td>
 							<td class="center">Muhammed</td>
 							<td class="center">Active</td>
 							<td class="center">9447662119</td>
 							<td class="center">Passport</td>
 							<td class="center">12548525</td>
-
-							<td class="center"><button disabled="disabled" type="button"
-									class="btn btn-default">Add to Block List</button></td>
-
+ 
 						</tr>
 
 						<!-- Demo -->

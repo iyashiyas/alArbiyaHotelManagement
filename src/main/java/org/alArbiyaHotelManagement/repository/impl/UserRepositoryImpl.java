@@ -29,8 +29,8 @@ public class UserRepositoryImpl implements UserRepository{
 		List<UserDetails> userDetails = query.setParameter("memberId", memberId).getResultList();
 		return userDetails.isEmpty() ? null : userDetails.get(0);
 	}
-
-	
+ 
+  
  	@Override
 	public User loadUserByUsername(String username) {
 		TypedQuery<User> query = this.entityManager.createQuery("SELECT users from User users WHERE users.username=:username", User.class);

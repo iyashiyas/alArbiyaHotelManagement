@@ -30,11 +30,15 @@
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-9">
-					<h2><spring:message code="label.AddNewMember" /></h2>
+					<h2>
+						<spring:message code="label.AddNewMember" />
+					</h2>
 					<ol class="breadcrumb">
 						<li><a
-							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message code="label.Reservation" /></a></li>
-						<li class="active"><strong><spring:message code="label.AddNewMember" /></strong></li>
+							href="${pageContext.request.contextPath}/reservation/reservation"><spring:message
+									code="label.Reservation" /></a></li>
+						<li class="active"><strong><spring:message
+									code="label.AddNewMember" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -46,16 +50,26 @@
 							action="${pageContext.request.contextPath}/user/getUserDetails">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="panel-title"><spring:message code="label.AllReadyAMember" /></h3>
+									<h3 class="panel-title">
+										<spring:message code="label.AllReadyAMember" />
+									</h3>
 								</div>
 								<div class="panel-body">
 									<div class="col-xs-4 form-group">
 										<input type="hidden" name="roomId" value="${roomId }" /> <input
 											type="hidden" name="startDate" value="${ startDate}" /> <input
-											type="hidden" name="endDate" value="${endDate}" /> <label>Member
-											ID * </label> <input class="form-control" placeholder="Member ID"
-											type="text" name="memberId" value="" />
+											type="hidden" name="endDate" value="${endDate}" /> <label><spring:message
+												code="label.MemberId" /> </label> <input class="form-control"
+											placeholder="Member ID" type="text" name="memberId"
+											required="required" value="" />
 									</div>
+									
+									<%-- <div class="col-xs-4 form-group">
+										<label></label> <a href="#members" data-toggle="model"
+											class="form-control btn btn-link" style="border: none;"><spring:message
+												code="label.GetMemberList" /> </a>
+									</div> --%>
+									
 									<div style="clear: both;"></div>
 									<div class="col-xs-4 form-group">
 										<input class="form-control btn btn-success " type="submit"
@@ -70,7 +84,8 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>
-								 	<spring:message code="label.CheckInToRoomNumber" /> <label class="label-primary">"${ roomId}"</label>
+									<spring:message code="label.CheckInToRoomNumber" />
+									<label class="label-primary">"${ roomId}"</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""
@@ -88,7 +103,9 @@
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
-													<h3 class="panel-title"><spring:message code="label.BasicDetails" /></h3>
+													<h3 class="panel-title">
+														<spring:message code="label.BasicDetails" />
+													</h3>
 													<input type="hidden" name="id" value="${userDetails.id }" />
 												</div>
 												<div class="panel-body">
@@ -125,7 +142,9 @@
 										<div class="col-lg-6">
 											<div class="panel panel-default">
 												<div class="panel-heading">
-													<h3 class="panel-title"><spring:message code="label.ContactDetails" /></h3>
+													<h3 class="panel-title">
+														<spring:message code="label.ContactDetails" />
+													</h3>
 												</div>
 												<div class="panel-body">
 													<div class="col-xs-7 form-group">
@@ -164,14 +183,20 @@
 
 										<div class="panel panel-default">
 											<div class="panel-heading">
-												<h3 class="panel-title"><spring:message code="label.IdentityDetails" /></h3>
+												<h3 class="panel-title">
+													<spring:message code="label.IdentityDetails" />
+												</h3>
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
 													<label><spring:message code="label.IdentityType" /></label>
 													<form:select class="form-control" path="identityType">
-														<form:option value="Passport"><spring:message code="label.passport" /></form:option>
-														<form:option value="NIC"><spring:message code="label.NationalIDCard" /></form:option>
+														<form:option value="Passport">
+															<spring:message code="label.passport" />
+														</form:option>
+														<form:option value="NIC">
+															<spring:message code="label.NationalIDCard" />
+														</form:option>
 													</form:select>
 												</div>
 												<div class="col-xs-5 form-group">
@@ -181,9 +206,9 @@
 												</div>
 												<div class="col-xs-5 form-group">
 													<label><spring:message code="label.Country" /></label>
-								 
+
 													<form:select class="form-control" path="country">
-													    <form:option value="KSA">KSA</form:option>
+														<form:option value="KSA">KSA</form:option>
 														<form:option value="India">India</form:option>
 														<form:option value="USA">USA</form:option>
 														<form:option value="UAE">UAE</form:option>
@@ -195,7 +220,9 @@
 												</div>
 												<div class="col-xs-2 form-group">
 													<label><spring:message code="label.FingerPrint" /></label>
-													<button class="btn btn-primary" disabled="disabled"><spring:message code="label.ScanFingerPrint" /></button>
+													<button class="btn btn-primary" disabled="disabled">
+														<spring:message code="label.ScanFingerPrint" />
+													</button>
 												</div>
 
 											</div>
@@ -203,7 +230,9 @@
 
 										<div class="panel panel-default">
 											<div class="panel-heading">
-												<h3 class="panel-title"><spring:message code="label.OfficeUse" /></h3>
+												<h3 class="panel-title">
+													<spring:message code="label.OfficeUse" />
+												</h3>
 											</div>
 											<div class="panel-body">
 												<div class="col-xs-5 form-group">
@@ -217,7 +246,9 @@
 										<div class="col-md-12 center-block">
 
 											<button id="singlebutton" type="submit" name="singlebutton"
-												class="btn btn-primary center-block"><spring:message code="label.CreateBooking" /></button>
+												class="btn btn-primary center-block">
+												<spring:message code="label.CreateBooking" />
+											</button>
 										</div>
 									</div>
 
@@ -230,6 +261,17 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="members" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<jsp:include page="../reservation/members.jsp"></jsp:include>
+			</div>
+		</div>
+	</div>
+
+
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/plugins/phoneCode/intlTelInput.min.js"/>">
 		

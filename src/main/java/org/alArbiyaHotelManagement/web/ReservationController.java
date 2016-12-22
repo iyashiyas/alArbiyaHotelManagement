@@ -87,19 +87,19 @@ public class ReservationController {
 	}
 	
 	@RequestMapping(value="/checkIn", method=RequestMethod.POST) 
-	public String checkIn(@RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
-	   Booking booking = bookingService.createCheckIn(bookingrefernceId); 
+	public String checkIn(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
+	     booking = bookingService.createCheckIn(bookingrefernceId); 
 		return "/reservation";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET,value="/checkOut")
+	@RequestMapping(method = RequestMethod.GET,value="/bookedRooms")
 	public String ChekedInRooms(Model model) {
-		List<Booking> chekedInRooms = bookingService.CheckedInRooms();
+		List<Booking> bookedRooms = bookingService.bookedRooms();
 		Map<String, Object> attributes = new HashMap<String, Object>();
-		attributes.put("chekedInRooms", chekedInRooms); 
+		attributes.put("bookedRooms", bookedRooms); 
 		model.addAllAttributes(attributes);
-		return "reservation/checkOut";
+		return "reservation/bookedRooms";
 	}
-	
+	  
 	
 }

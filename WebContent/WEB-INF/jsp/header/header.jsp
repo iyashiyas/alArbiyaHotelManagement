@@ -98,9 +98,10 @@
 								<li><a
 									href="${pageContext.request.contextPath}/reservation"><spring:message
 											code="label.Reservation" /></a></li>
-								<li><a
-									href="${pageContext.request.contextPath}/reservation/checkOut"><spring:message
-											code="label.CheckOut" /></a></li>
+												<li><a
+									href="${pageContext.request.contextPath}/reservation/bookedRooms"><spring:message
+											code="label.BookedRooms" /></a></li>
+								 
 							</ul>
 								 
 								</li>

@@ -59,7 +59,7 @@
 										<th><spring:message code="label.OrderRoom" /></th>
 										<th><spring:message code="label.Details" /></th>
 										<th><spring:message code="label.RequestTime" /></th>
-											<th><spring:message code="label.AcceptRequest" /></th>
+										<th><spring:message code="label.AcceptRequest" /></th>
 										<th><spring:message code="label.ReadyForDelivery" /> </th>
 										<th><spring:message code="label.Delivered" /> </th>
 									</tr>

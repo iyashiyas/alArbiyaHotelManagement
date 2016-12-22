@@ -64,16 +64,18 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@Override
 	public Booking createCheckIn(String bookingId,Booking booking) {
 		// TODO Auto-generated method stub
-		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' AND checkedInTime=:checkedinDate where bookingReferenceId = :bookingReferenceId ");
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' AND checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
-		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
+		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime());  
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 		return null ;
 	}
+	
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Booking> CheckedInRooms() {
-		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='CHECKEDIN' order by id", Booking.class);
+	public List<Booking> bookedRooms() {
+		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms order by id", Booking.class);
 		return query.getResultList();
 	}
 }

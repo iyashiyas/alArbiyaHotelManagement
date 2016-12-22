@@ -34,7 +34,7 @@ public class UserController {
 		attributes.put("endDate", endDate);
 		attributes.put("userDetails", userDetails != null ? userDetails : new UserDetails() );
 		model.addAllAttributes(attributes);
-		return "reservation/userDetails";
-		
+		return "reservation/userDetails"; 
 	}
+	
 }
