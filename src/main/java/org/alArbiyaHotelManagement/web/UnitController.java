@@ -39,7 +39,7 @@ public class UnitController {
 
 	@RequestMapping(value="/addUnit", method=RequestMethod.POST)
 	public String addUnit(@ModelAttribute Unit unit) {
-		unitService.addUnit(unit);
+		 unitService.addUnit(unit);
 		return "redirect:/unit";
 	}
 	

@@ -2,6 +2,7 @@ package org.alArbiyaHotelManagement.web;
 
  
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,5 +16,10 @@ public class LoginController {
 	public String showLogout() {
 		return "login/login";
 	}
-
+	@RequestMapping(value = "/errorLogin")
+	public String errorLogin(Model model) {
+		String message="error";
+		model.addAttribute("message",message);
+		return "login/login";
+	}
 }

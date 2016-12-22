@@ -38,11 +38,10 @@
 	        
 	          <div class="col-lg-4">
                     <div class="widget lazur-bg p-xl">
-                        <c:forEach items="${hotelInfo}" var="hotelInfo">
+                        <c:forEach items="${hotelInfos}" var="hotelInfo">
                                 <h2>
-                                  <a href="#"><small><spring:message code="label.Home" /></small></a>
-             
-                                    ${hotelInfo.hotelName}
+                                  <a href="#"><small><spring:message code="label.Name" /></small></a>
+                                   ${hotelInfo.hotelName}
                                 </h2>
                         <ul class="list-unstyled m-t-md">
                             <li>

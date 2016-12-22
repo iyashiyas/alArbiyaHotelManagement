@@ -12,13 +12,15 @@
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/login*"
 			access="permitAll" />
+			<security:intercept-url pattern="/errorLogin*"
+			access="permitAll" />
 		<security:intercept-url pattern="/resources/**"
 			access="permitAll" />
 		<security:intercept-url pattern="/**"
 			access="isFullyAuthenticated()" />
 		<security:form-login login-processing-url="/j_spring_security_check"
 			login-page="/login" default-target-url="/SHMS"
-			authentication-failure-url="/login?error" username-parameter="j_username"
+			authentication-failure-url="/errorLogin" username-parameter="j_username"
 			password-parameter="j_password" />
 		<security:logout logout-success-url="/logout"
 			invalidate-session="true" logout-url="/j_spring_security_logout" />

@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <link id=""
 	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
 	rel="stylesheet">
@@ -89,6 +89,7 @@
 														<form class="editLanguageForm"
 															action="${pageContext.request.contextPath}/language/editLanguage"
 															method="POST" id="language_edit">
+															<input type="hidden" name="${_csrf.parameterName}" id="secuirtyId" value="${_csrf.token}"/>
 															<input type="hidden" name="id" id="id"
 																value="${language.id}" /> <input type="hidden"
 																name="languageName" id="languagename"
@@ -98,7 +99,7 @@
 																value="${language.status == 'ACTIVE' ? 'INACTIVE' : 'ACTIVE'}">
 															<spring:message code='label.Disable' var="Disable" />
 															 <spring:message code='label.Enable' var="Enable" />
-															<button type="button" name="btn" value=" id=" submitBtn1" data-toggle="modal"
+															<button type="button" name="btn" value=" id="submitBtn1" data-toggle="modal"
 																data-target="#confirm-submit"
 																class="btn btn-default submitBtn">
 																${language.status == 'ACTIVE' ? Disable : Enable}</button>

@@ -88,8 +88,7 @@ public class ReservationController {
 	
 	@RequestMapping(value="/checkIn", method=RequestMethod.POST) 
 	public String checkIn(@RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
-		
-		Booking booking = bookingService.createCheckIn(bookingrefernceId); 
+	   Booking booking = bookingService.createCheckIn(bookingrefernceId); 
 		return "/reservation";
 	}
 	
