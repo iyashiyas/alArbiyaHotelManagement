@@ -58,11 +58,11 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(coffeeShop.getCategory());
-		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		parentServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServicesItem(hotelServicesItem);
+		/*childServicesGroup.setHotelServicesItem(hotelServicesItem);*/
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
