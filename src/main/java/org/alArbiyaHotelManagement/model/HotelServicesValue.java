@@ -24,8 +24,12 @@ public class HotelServicesValue {
 	@Column(name="FIELD_VALUE")
 	private String fieldValue;
 	
+	@Column(name="ITEM_PRICE")
+	private String itemPrice;
+	
 	@ManyToOne
 	private HotelServicesGroup hotelServicesGroup;
+
 
 	public long getId() {
 		return id;
@@ -43,7 +47,14 @@ public class HotelServicesValue {
 		this.fieldName = fieldName;
 	}
 	
-	
+
+	public String getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice = itemPrice;
+	}
 
 	public String getExternalId() {
 		return externalId;
