@@ -98,7 +98,7 @@
 							<div class="ibox-content">
 								<form:form class="form-horizontal" method="POST"
 									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }"
-									modelAttribute="userDetails">
+									modelAttribute="userDetails" enctype="multipart/form-data">
 									<div class="row ">
 										<div class="col-lg-6">
 											<div class="panel panel-default">
@@ -216,7 +216,7 @@
 												</div>
 												<div class="col-xs-5 form-group">
 													<label><spring:message code="label.ScanId" /></label>
-													<form:input class="form-control" path="scannedId" value="" />
+													<input type="file" placeholder="Image" name="multipartFile" class="form-control">
 												</div>
 												<div class="col-xs-2 form-group">
 													<label><spring:message code="label.FingerPrint" /></label>

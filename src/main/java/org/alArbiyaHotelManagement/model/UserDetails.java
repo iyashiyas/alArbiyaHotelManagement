@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 @Entity
 @Table(name="USER_DETAILS")
 public class UserDetails {
@@ -66,6 +68,12 @@ public class UserDetails {
 	
 	@Column(name="HOTELMEMBER")
 	private String hotelMember;
+	
+	@Column(name="DOCUMENTURL")
+	private String documentUrl;
+	
+	
+	private CommonsMultipartFile multipartFile;
 	
 	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE})
 	private List<Booking> bookings;
@@ -212,6 +220,23 @@ public class UserDetails {
 
 	public void setHotelMember(String hotelMember) {
 		this.hotelMember = hotelMember;
+	}
+	
+	public CommonsMultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(CommonsMultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	} 
+	
+
+	public String getDocumentUrl() {
+		return documentUrl;
+	}
+
+	public void setDocumentUrl(String documentUrl) {
+		this.documentUrl = documentUrl;
 	}
 
 	public List<Booking> getBooking() {
