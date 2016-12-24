@@ -64,9 +64,9 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@Override
 	public Booking createCheckIn(String bookingId,Booking booking) {
 		// TODO Auto-generated method stub
-		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' AND checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId");
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
-		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime());  
+		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 		return null ;

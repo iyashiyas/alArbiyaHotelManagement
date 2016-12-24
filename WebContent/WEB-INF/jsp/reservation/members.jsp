@@ -30,7 +30,7 @@
 							<th><spring:message code="label.MemberId" /></th>
 							<th><spring:message code="label.Name" /></th>
 							<th><spring:message code="label.Status" /></th>
-							<th><spring:message code="label.Phone" /></th>
+							<th><spring:message code="label.PhoneNumber" /></th>
 							<th><spring:message code="label.IdentityType" /></th>
 							<th><spring:message code="label.IdentityNumber" /> </th>
 							<th>action</th>

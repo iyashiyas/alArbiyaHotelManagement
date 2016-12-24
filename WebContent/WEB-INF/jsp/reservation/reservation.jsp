@@ -118,7 +118,7 @@
 															name="roomType">
 															<c:forEach items="${roomType}" var="roomType">
 															
-															<option value="${roomType.roomType}">${roomType.roomTypeCode}</option>
+															<option value="${roomType.id}">${roomType.roomTypeCode}</option>
 														 
 															</c:forEach>
 														</select>

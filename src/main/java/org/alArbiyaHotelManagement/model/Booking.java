@@ -34,7 +34,7 @@ public class Booking {
 	private String bookingStatus;
 	
 	@Column(name="CHECKED_IN_TIME")
-	private Date checkedInTime;
+	private String checkedInTime;
 	
 	@Column(name="CHECKED_OUT_TIME")
 	private Date checkedOutTime;
@@ -75,11 +75,11 @@ public class Booking {
 		return bookingStatus;
 	}
 
-	public Date getCheckedInTime() {
+	public String getCheckedInTime() {
 		return checkedInTime;
 	}
 
-	public void setCheckedInTime(Date checkedInTime) {
+	public void setCheckedInTime(String checkedInTime) {
 		this.checkedInTime = checkedInTime;
 	}
 

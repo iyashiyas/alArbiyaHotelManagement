@@ -8,6 +8,6 @@ import org.alArbiyaHotelManagement.model.Room;
 
 public interface ReservationRepository {
 
-	List<Room> getAllAvailableRoooms(Date startDate, Date endDate, RoomType roomtype);
+	List<Room> getAllAvailableRoooms(Date startDate, Date endDate, String type);
 
 }

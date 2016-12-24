@@ -25,7 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDt);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDt);
 		org.alArbiyaHotelManagement.enums.RoomType roomtype = org.alArbiyaHotelManagement.enums.RoomType.getRoomType(type);
-		List<Room> allAvailableRooms = reservationRepository.getAllAvailableRoooms(startDate, endDate, roomtype);
+		List<Room> allAvailableRooms = reservationRepository.getAllAvailableRoooms(startDate, endDate, type);
 		List<Room> notAvailableRoomForBooking = new ArrayList<Room>();
 		
 		Interval bookingInterval = new Interval(startDate.getTime(), endDate.getTime());

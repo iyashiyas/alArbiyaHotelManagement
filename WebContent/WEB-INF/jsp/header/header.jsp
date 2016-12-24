@@ -91,10 +91,12 @@
 											code="label.RoomTypes" /></a></li>
 							</ul></li>
 					</ul></li>
-				<li><a><i class="fa fa-credit-card"></i> <span class="nav-label"><spring:message
-								code="label.Reservation" /></span></a>
-								 
-								<ul class="nav nav-third-level collapse">
+					
+									<li><a ><i class="fa fa-credit-card"></i> <span
+						class="nav-label"><spring:message code="label.Reservation" /></span><span
+						class="fa arrow"></span></a>
+				  
+							<ul class="nav nav-second-level collapse">
 								<li><a
 									href="${pageContext.request.contextPath}/reservation"><spring:message
 											code="label.Reservation" /></a></li>
@@ -102,9 +104,8 @@
 									href="${pageContext.request.contextPath}/reservation/bookedRooms"><spring:message
 											code="label.BookedRooms" /></a></li>
 								 
-							</ul>
-								 
-								</li>
+							</ul></li>
+								  
 								 
 				<li><a href="${pageContext.request.contextPath}/unit"><i
 						class="fa fa-pie-chart"></i> <span class="nav-label"><spring:message

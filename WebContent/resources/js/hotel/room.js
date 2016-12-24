@@ -4,6 +4,7 @@ $( document ).ready(function() {
 	 $( ".branchDetail" ).change(function() {
 			var branchId=$(this).val();
 			 $('.buildingId').empty();
+				$('.buildingId').append('<option>Select</option>');
 			    $.ajax({
 			        type:'GET',
 			        contentType: "application/json",
@@ -27,6 +28,7 @@ $( document ).ready(function() {
 	 // Get Floor By Building ID
 	 $( ".buildingId" ).change(function() {
 		 $('.FloorId').empty();
+			$('.FloorId').append('<option>Select</option>');
 			var buildingId=$(this).val();
 			 
 			    $.ajax({

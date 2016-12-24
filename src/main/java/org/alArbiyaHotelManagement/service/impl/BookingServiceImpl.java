@@ -1,11 +1,14 @@
 package org.alArbiyaHotelManagement.service.impl;
 
  
+import java.text.DateFormat;
 import java.text.ParseException;
  
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import org.alArbiyaHotelManagement.enums.BookingStatus;
 import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.UserDetails;
@@ -50,8 +53,10 @@ public class BookingServiceImpl implements BookingService{
 	public Booking createCheckIn(String bookingId) {
 		// TODO Auto-generated method stub 
 		Booking booking = new Booking();
-		Date date = new Date();
-	  booking.setCheckedInTime(date);
+  
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date(); 
+	  booking.setCheckedInTime(dateFormat.format(date));
 		return bookingRepository.createCheckIn(bookingId,booking);
 	}
 

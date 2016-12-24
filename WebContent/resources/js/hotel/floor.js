@@ -3,6 +3,7 @@ $( document ).ready(function() {
  $( ".branchDetail" ).change(function() {
 	var branchId=$(this).val();
 	 $('.buildingId').empty();
+		$('.buildingId').append('<option>Select</option>');
 	    $.ajax({
 	        type:'GET',
 	        contentType: "application/json",
@@ -11,8 +12,8 @@ $( document ).ready(function() {
 	        dataType: "json",
 	        success: function(data){ 
 	        	$.each(data, function (i, building) {
-	        		console.log(building.id);
-	        		$('.buildingId').append('<option>Select</option> <option value="'+building.id+'">'+building.buildingCode+'</option>')
+	        		console.log(building.id); 
+	        		$('.buildingId').append('<option value="'+building.id+'">'+building.buildingCode+'</option>')
 	        	});
 	        },
 	        error:function(xmlHttpRequest, textStatus, errorThrown){
