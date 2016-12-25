@@ -70,7 +70,7 @@ public class AlArbiyaHotelMgmtUtils {
 			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
 			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
 			hotelServicesValuOne.setItemPrice(coffeeShop.getIngredientPrice().get(i).toString());
-			
+			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
 			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValuOne);
 			i++;
@@ -82,7 +82,7 @@ public class AlArbiyaHotelMgmtUtils {
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
 			hotelServicesValueOne.setItemPrice(coffeeShop.getUnitPrice().get(i).toString());
-			
+			hotelServicesValueOne.setExternalId(unitHelper.getUnitId().toString());
 			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValueOne);
 			
@@ -136,7 +136,6 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
 			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
 			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
-			
 			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
 			hotelServicesValuOne.setItemPrice(restaurant.getIngredientPrice().get(i).toString());
 			
