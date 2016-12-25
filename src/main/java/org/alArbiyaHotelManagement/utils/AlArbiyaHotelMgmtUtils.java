@@ -136,15 +136,12 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
 			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
 			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
-			HotelServicesValue hotelServicesValuTwo = new HotelServicesValue();
-			hotelServicesValuTwo.setExternalId(ingredientHelper.getIngredientId().toString());
-			hotelServicesValuTwo.setFieldName(HotelServicesValues.INGREDIENTPRICE.name());
-			hotelServicesValuTwo.setFieldValue(restaurant.getIngredientPrice().get(i).toString());
+			
+			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
+			hotelServicesValuOne.setItemPrice(restaurant.getIngredientPrice().get(i).toString());
 			
 			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValuTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValuOne);
-			hotelServicesValues.add(hotelServicesValuTwo); 
 			i++;
 		}
 		
@@ -153,16 +150,11 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
-			
-			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
-			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
-			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
-			hotelServicesValueTwo.setFieldValue(restaurant.getUnitPrice().get(i).toString());
+			hotelServicesValueOne.setExternalId(unitHelper.getUnitId().toString());
+			hotelServicesValueOne.setItemPrice(restaurant.getUnitPrice().get(i).toString());
 			
 			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValueOne);
-			hotelServicesValues.add(hotelServicesValueTwo);
 			
 			i++;
 		}
@@ -213,16 +205,11 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
-			
-			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
-			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
-			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
-			hotelServicesValueTwo.setFieldValue(carRental.getUnitPrice().get(i).toString());
+			hotelServicesValueOne.setExternalId(unitHelper.getUnitId().toString());
+			hotelServicesValueOne.setItemPrice(carRental.getUnitPrice().get(i).toString());
 			
 			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValueOne);
-			hotelServicesValues.add(hotelServicesValueTwo);
 			
 			i++;
 		}
@@ -273,16 +260,11 @@ public class AlArbiyaHotelMgmtUtils {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
-			
-			HotelServicesValue hotelServicesValueTwo = new HotelServicesValue();
-			hotelServicesValueTwo.setExternalId(unitHelper.getUnitId().toString());
-			hotelServicesValueTwo.setFieldName(HotelServicesValues.UNITPRICE.name());
-			hotelServicesValueTwo.setFieldValue(laundry.getUnitPrice().get(i).toString());
+			hotelServicesValueOne.setExternalId(unitHelper.getUnitId().toString());
+			hotelServicesValueOne.setFieldValue(laundry.getUnitPrice().get(i).toString());
 			
 			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValueTwo.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValueOne);
-			hotelServicesValues.add(hotelServicesValueTwo); 
 			i++;
 		}
 		childServicesGroup.setHotelServicesValues(hotelServicesValues);
