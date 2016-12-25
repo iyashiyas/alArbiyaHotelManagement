@@ -62,7 +62,6 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		/*childServicesGroup.setHotelServicesItem(hotelServicesItem);*/
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
