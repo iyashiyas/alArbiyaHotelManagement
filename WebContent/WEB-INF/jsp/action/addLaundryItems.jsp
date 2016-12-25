@@ -13,7 +13,7 @@
 </head>
 <body>
 	<form:form class="form-horizontal"
-		action="${pageContext.request.contextPath}/action/addLaundryItem"
+		action="${pageContext.request.contextPath}/action/addLaundryItem?${_csrf.parameterName}=${_csrf.token}"
 		modelAttribute="newLaundry" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="hotelServiceCategoryId" value="5"/> 
 		<p>

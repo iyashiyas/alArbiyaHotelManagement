@@ -13,7 +13,7 @@
 
 </head>
 <body> 
-	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems"
+	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems?${_csrf.parameterName}=${_csrf.token}"
 		modelAttribute="restaurant" method="post" 	enctype="multipart/form-data">
 		<p><spring:message code="label.AddRestaurantItemsHere" /></p>
 		<input type="hidden" name="hotelServiceCategoryId" value="6" />
