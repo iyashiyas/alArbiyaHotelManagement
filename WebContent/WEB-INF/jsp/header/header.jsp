@@ -68,7 +68,7 @@
 						class="nav-label"><spring:message code="label.Profile" /></span><span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
-						<li><a
+						<li><a class="btn btn-link disabled"
 							href="${pageContext.request.contextPath}/hotel/showCurrency"><spring:message
 									code="label.Currency" /></a></li>
 						<li><a

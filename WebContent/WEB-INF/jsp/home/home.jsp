@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -13,17 +14,13 @@
 	<title>SHMS-Home</title>
 </head>
 <body>
-	
 	<!-- Include Page Header-->
 		   <div id="wrapper">
 		<jsp:include page="../header/header.jsp"></jsp:include>
-		<div id="page-wrapper" class="gray-bg">
-		
-		<!-- End --> 
-	
+		<div id="page-wrapper" class="gray-bg"> 
+		<!-- End -->  
 		<!-- Page Contents -->
-		
-		
+		 
 		<!-- Page Heading -->
 		<div class="row wrapper border-bottom white-bg page-heading">
 			<div class="col-lg-9">
@@ -31,6 +28,7 @@
 				<ol class="breadcrumb">
 					<li><a href="${pageContext.request.contextPath}/SHMS"><spring:message code="label.Home" /></a></li>
 					<li class="active"><strong><spring:message code="label.Home" /></strong></li>
+					<marquee>In Screen URL include Server IP and port (EX: http://192.168.100.111:8008/alArabiyaScreen/home)</marquee>
 				</ol>
 			</div>
 		</div>
@@ -70,51 +68,43 @@
                     <table class="table">
                         <tbody>
                         <tr>
+                            
                             <td>
-                                <button type="button" class="btn btn-danger m-r-sm">12</button>
-                              <spring:message code="label.TotalServices" />
-                            </td>
-                             
-                            <td>
-                                <button type="button" class="btn btn-info m-r-sm">15</button>
+                                <button type="button" class="btn btn-info m-r-sm">${fn:length(rooms)}</button>
                             <spring:message code="label.TotalRooms" />
                             </td>
-                            
-                        </tr>
-                        <tr>
                             <td>
-                                <button type="button" class="btn btn-info m-r-sm">20</button>
+                                <button type="button" class="btn btn-info m-r-sm">${fn:length(players)}</button>
                                  <spring:message code="label.TotalScreens" />
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-success m-r-sm">40</button>
-                                <spring:message code="label.TotalActiveScreens" />
-                            </td>
+                        </tr>
+                        <tr>
+                            
                             
                         </tr>
                         <tr>
                             <td>
-                                <button type="button" class="btn btn-success m-r-sm">20</button>
+                                <button type="button" class="btn btn-success m-r-sm">${fn:length(bookedRooms)}</button>
                                   <spring:message code="label.CheckInRooms" />
                             </td>
                             <td>
-                                <button type="button" class="btn btn-default m-r-sm">40</button>
+                                <button type="button" class="btn btn-default m-r-sm">${fn:length(users)}</button>
                                 <spring:message code="label.Totalusers" />
                             </td>
                             
                         </tr>
                               <tr>
                               <td>
-                                <button type="button" class="btn btn-warning m-r-sm">30</button>
+                                <button type="button" class="btn btn-warning m-r-sm">${fn:length(branches)}</button>
                                    <spring:message code="label.TotalBranch" />
                             </td>
                            
                             <td>
-                                <button type="button" class="btn btn-danger m-r-sm">40</button>
+                                <button type="button" class="btn btn-danger m-r-sm">${fn:length(buildings)}</button>
                                     <spring:message code="label.Totalbuilding" />
                             </td>
                              <td>
-                                <button type="button" class="btn btn-info m-r-sm">20</button>
+                                <button type="button" class="btn btn-info m-r-sm">${fn:length(floors)}</button>
                                           <spring:message code="label.TotalFloor" />
                             </td>
                             
