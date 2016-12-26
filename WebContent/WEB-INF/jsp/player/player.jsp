@@ -73,7 +73,7 @@
 															<c:out value="${players.playerStatus}" />
 													</label></td>
 													<td class="center playerRoomNumber">${players.room.roomCode}</td>
-													<td class="center assigntoRoom"><a>Assign To Room</a></td>
+													<td class="center assigntoRoom"><a class ="btn btn-danger">${players.playerStatus == 'ASSIGNED' ? 'Change Room' : 'Assign To Room'}</a></td>
 												 
 												</tr>
 											</c:forEach>

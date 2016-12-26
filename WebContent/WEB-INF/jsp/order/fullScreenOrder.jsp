@@ -16,8 +16,7 @@
 </head>
 <body> 
 	<!-- Include Page Header-->
-	<div id="wrapper">
-		<jsp:include page="../header/header.jsp"></jsp:include>
+	<div id="wrapper"> 
 		<div id="page-wrapper" class="gray-bg">
 			<!-- Page Contents -->
 			<!-- Page Heading -->

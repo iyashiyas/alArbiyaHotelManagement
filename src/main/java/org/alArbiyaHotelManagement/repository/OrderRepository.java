@@ -2,10 +2,13 @@ package org.alArbiyaHotelManagement.repository;
 
 import java.util.List;
 
-import org.alArbiyaHotelManagement.model.Order;
+import org.alArbiyaHotelManagement.model.Orders;
 
 public interface OrderRepository {
-	public Order addOrder();
-	public Order editOrder();
-	public List<Order> GetAllOrder();
+	public Orders addOrder();
+	public Orders editOrder();
+	public List<Orders> GetAllOrder();
+	public void acceptOrder(Orders order);
+	public void readyForDelivery(Orders order);
+	public void delivered(Orders order);
 }
