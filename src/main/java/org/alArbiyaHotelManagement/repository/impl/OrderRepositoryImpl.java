@@ -25,7 +25,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 	}
 	@Override
 	public List<Orders> GetAllOrder() {
-		Query query = entityManager.createQuery("SELECT order from Orders order order by id", Orders.class);
+		Query query = entityManager.createQuery("SELECT order from Orders order order by id desc", Orders.class);
 		return query.getResultList();
 	}
 	@Override

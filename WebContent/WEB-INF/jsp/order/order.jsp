@@ -163,7 +163,7 @@
 								<div class="modal-body">
 
 									<div class="table-responsive">
-										<table
+										<table id="datatab"
 											class="table table-striped table-bordered table-hover dataTables-example">
 											<thead>
 												<tr>
@@ -211,18 +211,18 @@
 	</div> 
 
 	<script
-		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
-
+		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script> 
 	<!-- Page-Level Scripts -->
 	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
-		
+		type="text/javascript"> 
 	</script>
 	<script type='text/javascript'
-		src="<c:url value="/resources/js/modal_language.js" />">
-		
+		src="<c:url value="/resources/js/modal_language.js" />"> 
 	</script>
-
+$(document).ready(function() {
+ $('.dataTables-example').dataTable( {
+    "order": [[0, 'desc' ]
+    });
 
 </body>
 </html>
