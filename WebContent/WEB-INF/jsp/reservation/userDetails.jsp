@@ -47,7 +47,7 @@
 
 					<div class="col-lg-12">
 						<form
-							action="${pageContext.request.contextPath}/user/getUserDetails">
+							action="${pageContext.request.contextPath}/user/getUserDetails?${_csrf.parameterName}=${_csrf.token}">
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h3 class="panel-title">
@@ -97,7 +97,7 @@
 							</div>
 							<div class="ibox-content">
 								<form:form class="form-horizontal" method="POST"
-									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }"
+									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }&${_csrf.parameterName}=${_csrf.token}"
 									modelAttribute="userDetails" enctype="multipart/form-data">
 									<div class="row ">
 										<div class="col-lg-6">
@@ -214,10 +214,10 @@
 														<form:option value="UAE">UAE</form:option>
 													</form:select>
 												</div>
-												<div class="col-xs-5 form-group">
+												<%-- <div class="col-xs-5 form-group">
 													<label><spring:message code="label.ScanId" /></label>
 													<input type="file" placeholder="Image" name="multipartFile" class="form-control">
-												</div>
+												</div> --%>
 												<div class="col-xs-2 form-group">
 													<label><spring:message code="label.FingerPrint" /></label>
 													<button class="btn btn-primary" disabled="disabled">

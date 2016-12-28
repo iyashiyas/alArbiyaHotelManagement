@@ -27,14 +27,12 @@
 	</security:http>
 
 	<security:global-method-security
-		pre-post-annotations="enabled" />
-
+		pre-post-annotations="enabled" /> 
 	<context:component-scan base-package="org.alArbiyaHotelManagement.web" />
 	<context:component-scan base-package="org.alArbiyaHotelManagement.model" />
 	<context:component-scan base-package="org.alArbiyaHotelManagement.service" />
 	<context:component-scan base-package="org.alArbiyaHotelManagement.repository" />
-	<context:component-scan base-package="org.alArbiyaHotelManagement.security" />
-
+	<context:component-scan base-package="org.alArbiyaHotelManagement.security" /> 
 	<security:authentication-manager>
 		<security:authentication-provider
 			ref="customAuthenticationProvider" />

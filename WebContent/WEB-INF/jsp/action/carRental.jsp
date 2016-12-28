@@ -75,7 +75,7 @@
 									<tbody>
 									<c:forEach items="${getAllCarRentalItems}" var="getAllCarRentalItems">
 										<tr class="">
-											<td></td>
+											<td>${getAllCarRentalItems.id}</td>
 											<td><c:out value="${getAllCarRentalItems.serviceItemName}" /></td>
 											<td>${getAllCarRentalItems.serviceItemDescription}</td>
 											<td><i class="fa fa-pencil"><a>Edit</a></i></td>

@@ -22,9 +22,7 @@
       <property name="suffix" value=".jsp" />
    </bean>
    
-   <mvc:resources mapping="/resources/**" location="/resources/**" />
-     <mvc:annotation-driven/>
-      
+   <mvc:resources mapping="/resources/**" location="/resources/**" />  
     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 			<property name="messageConverters">
@@ -55,6 +53,9 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000" />
 	</bean>
+	
+	 <mvc:annotation-driven/>
+	
 	<!-- Use @Transaction annotations for managing transactions -->
 	<tx:annotation-driven transaction-manager="myTxManager" />
 	<context:annotation-config />

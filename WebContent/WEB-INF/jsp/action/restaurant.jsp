@@ -73,7 +73,7 @@
 									<tbody>
 										<c:forEach items="${getAllRestaurantItems}" var="getAllRestaurantItems">
 										<tr class="">
-											<td> </td>
+											<td>${getAllRestaurantItems.id}</td>
 											<td><c:out value="${getAllRestaurantItems.serviceItemName}" /></td>
 											<td>${getAllRestaurantItems.serviceItemDescription}</td>
 											<td><i class="fa fa-pencil"><a>Edit</a></i></td> 

@@ -23,8 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UnitRepositoryImpl implements UnitRepository{
 	@PersistenceContext
-	EntityManager entityManager;
-	
+	EntityManager entityManager; 
 	public Unit addUnit(Unit unit) {
 		this.entityManager.persist(unit);
 		for(UnitLanguage unitLanguage: unit.getUnitLanguages()) {

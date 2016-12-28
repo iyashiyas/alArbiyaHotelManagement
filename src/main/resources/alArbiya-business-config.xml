@@ -24,8 +24,8 @@
          <property name="jpaProperties">
 	        <props>
 	            <prop key="hibernate.hbm2ddl.auto">update</prop> 
-	            <prop key="hibernate.connection.characterEncoding">UTF-8</prop>
-	            <prop key="hibernate.connection.CharSet">UTF-8</prop>
+	            <prop key="hibernate.connection.characterEncoding">utf-8</prop>
+	            <prop key="hibernate.connection.CharSet">utf-8</prop>
                 <prop key="hibernate.connection.useUnicode">true</prop>
 	        </props> 
     	</property>
