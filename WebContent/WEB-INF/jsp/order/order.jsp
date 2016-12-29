@@ -58,7 +58,9 @@
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th>
-												<th><spring:message code="label.Details" /></th>
+												<th><spring:message code="label.Unit" /></th>
+												<th><spring:message code="label.Ingredient" /></th>
+												<th><spring:message code="label.Quantity" /></th>
 												<th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
 												<th><spring:message code="label.ReadyForDelivery" /></th>
@@ -74,8 +76,21 @@
 												
 													<td class="center">${orders.id}</td>
 													<td class="center">${orders.room.roomName}</td>
-													<td class="center"><a href="#" data-toggle="modal"
-														data-target="#assign_to_room">More Info</a></td>
+													<td class="center">
+													 
+													<c:forEach items="${orders.unit}" var="units">
+													${units.unitName}
+													</c:forEach> 
+													</td>
+													
+													<td>
+													<c:forEach items="${orders.ingredients}" var="ingredients">
+													${ingredients.ingredientName}
+													</c:forEach>
+													
+													</td> 
+													<td class="center">${orders.quantity}</td>
+													
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
 													<c:choose>

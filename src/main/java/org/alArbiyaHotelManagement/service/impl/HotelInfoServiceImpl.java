@@ -29,7 +29,7 @@ public class HotelInfoServiceImpl implements HotelInfoService {
 
 	@Override
 	public void UploadLogo(HotelInfo info,File file) {
-		info.setHotelLogoUrl(file.getAbsolutePath());
+		info.setHotelLogoUrl(file.getName());
 		 infoRepository.UploadLogo(info); 
 	}
 }

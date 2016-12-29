@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<title>SHMS</title>
 </head>
 <body>
 
@@ -143,7 +143,7 @@
                 <div class="widget style1 navy-bg">
                     <div class="row">
                         <div class="col-xs-4">
-                     	<img src="<c:out value='${hotelInfo.hotelLogoUrl}' />"  class="img-circle" alt="profile"> 
+                     	<img src="hoteluploadImage/${hotelInfo.hotelLogoUrl}"  class="img-circle" alt="profile"> 
                         </div>
                         		
                         <form:form action="${pageContext.request.contextPath}/info/uploadLogo?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="newInfo" enctype="multipart/form-data">

@@ -58,6 +58,7 @@
                                ${hotelInfo.hotelPhone}
                             </li>
                         </ul>
+                         	<img src="hoteluploadImage/${hotelInfo.hotelLogoUrl}"  class="img-circle" alt="profile"> 
                    </c:forEach>
                     </div>
                     </div>

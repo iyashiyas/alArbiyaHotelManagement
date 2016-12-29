@@ -17,11 +17,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Transactional
-public class BookingRepositoryImpl implements BookingRepository{
-	
+public class BookingRepositoryImpl implements BookingRepository{ 
 	@PersistenceContext
-	EntityManager entityManager;
-	
+	EntityManager entityManager; 
 	@Override
 	public Booking createBooking(Booking booking, long roomId) {
 		TypedQuery<Room> query = this.entityManager.createQuery("SELECT room from Room room WHERE room.id=:roomId", Room.class);

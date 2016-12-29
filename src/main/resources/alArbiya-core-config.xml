@@ -23,6 +23,7 @@
    </bean>
    
    <mvc:resources mapping="/resources/**" location="/resources/**" />  
+   <mvc:resources mapping="/picture/**" location="file:///catalina.home" />
     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 			<property name="messageConverters">
