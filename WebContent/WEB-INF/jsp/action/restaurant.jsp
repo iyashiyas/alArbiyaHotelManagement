@@ -85,21 +85,17 @@
 							</div>
 						</div>
 					</div>
-
-
-
+ 
 				</div>
 			</div>
-
-
-
+ 
 		</div>
 	</div>
 
 
 
 	<script type="text/javascript"
-		src="<c:url value="/resources/js/dynamic_TextFields.js"/>"></script>
+		src="<c:url value="/resources/js/action/restaurant.js"/>"></script>
 
 
 </body>

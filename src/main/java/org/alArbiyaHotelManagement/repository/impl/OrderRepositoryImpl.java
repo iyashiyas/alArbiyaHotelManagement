@@ -58,4 +58,28 @@ public class OrderRepositoryImpl implements OrderRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 	}
+	@Override
+	public List<Orders> getRestaurantOrder() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' order by id desc", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> getLaundry() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' order by id desc", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> coffeeShopScreen() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' order by id desc", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> carRentalScreen() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='7' order by id desc", Orders.class);
+		return query.getResultList();
+	}
 }

@@ -11,11 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.alArbiyaHotelManagement.model.HotelInfo;
  
 import org.alArbiyaHotelManagement.service.HotelInfoService;
+import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
  
 import org.springframework.ui.Model;
@@ -54,7 +58,7 @@ public class HotelInfoController {
 	}
 	
 	@RequestMapping(value="/uploadLogo", method=RequestMethod.POST)
-	public String UploadLogo(@ModelAttribute HotelInfo info){
+	public String UploadLogo(@ModelAttribute HotelInfo info ,HttpServletRequest  request,HttpSession sess){
 		
 		File serverFile = null;
 		if (!info.getMultipartFile().isEmpty()) {
@@ -63,16 +67,18 @@ public class HotelInfoController {
 
 				// Creating the directory to store file
 
-				String rootPath =System.getProperty("catalina.home");
-				File dir = new File(rootPath+File.separator+"Hotel");
+				String rootPath= AlArbiyaHotelMgmtUtils.getFolderStoreImage(request.getSession().getServletContext().getRealPath("/"));
+				File dir = new File(rootPath);/*+File.separator+"Hotel"*/
 			
 				if (!dir.exists())
 					dir.mkdirs(); 
 				// Create the file on server
-				serverFile = new File(dir.getAbsolutePath()
+				serverFile = new File(AlArbiyaHotelMgmtUtils.getFolderStoreImage(sess.getServletContext().getRealPath("/"))
 						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
+				System.out.println(serverFile);
+			 
 				stream.write(bytes);
 				stream.close();
 

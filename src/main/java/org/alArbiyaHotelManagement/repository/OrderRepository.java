@@ -11,4 +11,8 @@ public interface OrderRepository {
 	public void acceptOrder(Orders order);
 	public void readyForDelivery(Orders order);
 	public void delivered(Orders order);
+	public List<Orders> getRestaurantOrder();
+	public List<Orders> getLaundry();
+	public List<Orders> coffeeShopScreen();
+	public List<Orders> carRentalScreen();
 }

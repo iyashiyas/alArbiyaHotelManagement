@@ -24,7 +24,7 @@
 				<label class="col-sm-2 control-label"><spring:message
 						code="label.SelectBranchCode" /></label>
 				<div class="col-sm-10">
-					<select class="form-control m-b branchDetail"  name="branch.id">
+					<select class="form-control m-b branchDetail" name="branch.id">
 						<option value="0">Select branch</option>
 						<c:forEach items="${branches}" var="branches">
 						<option value="${branches.id}">${branches.branchCode}</option></c:forEach>
@@ -37,8 +37,7 @@
 						code="label.SelectBuildingCode" /> </label>
 				<div class="col-sm-10">
 					<select class="form-control m-b buildingId"
-						required="required" name="building.id" >
-
+						required="required" name="building.id" > 
 					</select>
 				</div>
 			</div>
@@ -49,8 +48,7 @@
 						code="label.SelectFloorCode" /></label>
 				<div class="col-sm-10">
 					<select class="form-control m-b FloorId" required="required"
-						name="floor.id" >
-
+						name="floor.id" > 
 					</select>
 				</div>
 			</div>
@@ -67,8 +65,7 @@
 					</select>
 				</div>
 			</div>
-
-
+ 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Select Room Code</label>
 				<div class="col-sm-10">
@@ -77,8 +74,7 @@
 					</select>
 				</div>
 			</div>
-
-
+ 
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">

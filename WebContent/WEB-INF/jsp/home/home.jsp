@@ -8,9 +8,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
-<!-- Bootstrap -->
- 
+ <link id="loadBefore" href="<c:url value="/resources/css/chartist/chartist.min.css" />"
+	rel="stylesheet">
+<!-- Bootstrap --> 
 	<title>SHMS-Home</title>
 </head>
 <body>
@@ -34,7 +34,7 @@
 		</div>
 	        <div class="raw  animated fadeInRight">
 	        
-	          <div class="col-lg-4">
+	         <%--  <div class="col-lg-4">
                     <div class="widget lazur-bg p-xl">
                         <c:forEach items="${hotelInfos}" var="hotelInfo">
                                 <h2>
@@ -58,12 +58,14 @@
                                ${hotelInfo.hotelPhone}
                             </li>
                         </ul>
-                         	<img src="hoteluploadImage/${hotelInfo.hotelLogoUrl}"  class="img-circle" alt="profile"> 
+                         	
                    </c:forEach>
                     </div>
-                    </div>
-	        
-	        
+                    </div> --%>
+     <%--  <c:forEach items="${hotelInfos}" var="hotelInfo">
+	    ${hotelInfo.hotelLogoUrl}
+	    <img src="<c:url value="/resources/upload/${hotelInfo.hotelLogoUrl}" />" class="img-circle" alt="profile"> 
+	    </c:forEach> --%>
 	    <div class="col-lg-7">
                 <div>
                     <table class="table">
@@ -113,14 +115,24 @@
                         </tr>
                         </tbody>
                     </table>
+                </div> 
+            </div>
+      <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Pie </h5>
+
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <canvas id="canvas" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-              
+            </div>
                 </div>
                 </div>
-                </div>
-                 
-	     </div>
-	    
+               
  </body>
  </html>

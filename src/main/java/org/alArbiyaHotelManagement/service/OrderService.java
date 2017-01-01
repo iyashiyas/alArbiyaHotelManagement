@@ -11,4 +11,8 @@ public interface OrderService {
 	public void acceptOrder(Orders order,long id);
 	public void readyForDelivery(Orders order,long id);
 	public void delivered(Orders order,long id);
+	public List<Orders> getRestaurantOrder();
+	public List<Orders> getLaundry();
+	public List<Orders> coffeeShopScreen();
+	public List<Orders> carRentalScreen();
 }

@@ -71,6 +71,30 @@ public class OrderServiceImpl implements OrderService {
 	  order.setDeliveredTime(dateFormat.format(date));
 	 orderRepository.delivered(order);
 	}
+
+	@Override
+	public List<Orders> getRestaurantOrder() {
+		// TODO Auto-generated method stub
+		return orderRepository.getRestaurantOrder();
+	}
+
+	@Override
+	public List<Orders> getLaundry() {
+		// TODO Auto-generated method stub
+		return orderRepository.getLaundry();
+	}
+
+	@Override
+	public List<Orders> coffeeShopScreen() {
+		// TODO Auto-generated method stub
+		return orderRepository.coffeeShopScreen();
+	}
+
+	@Override
+	public List<Orders> carRentalScreen() {
+		// TODO Auto-generated method stub
+		return orderRepository.carRentalScreen();
+	}
 	
  
 	

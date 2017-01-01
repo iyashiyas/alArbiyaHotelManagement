@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.utils;
 
+import java.io.File;
 import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -289,5 +290,13 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServiceParentGroups.add(parentServicesGroup);
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
 		return hotelServicesItem;
+	}
+	// Image Upload
+	public static String getFolderStoreImage(String webContentRoot) {
+	    if (webContentRoot.endsWith("\\")){
+	        webContentRoot = webContentRoot.substring(0,webContentRoot.length() - 1);
+	        }
+	    String folder = webContentRoot.substring(0, webContentRoot.lastIndexOf("\\") + 1) + "alArbiyaHotelManagement" +File.separator+"resources"+File.separator+"upload\\";
+	    return folder;
 	}
 }

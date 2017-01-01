@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+ 
 
 @Entity
 @Table(name="HOTEL_SERVICES_CATEGORY")
@@ -33,6 +36,7 @@ public class HotelServicesCategory {
 	
 	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
+	 
  
 	public long getHotelServicesCategoryId() {
 		return hotelServicesCategoryId;

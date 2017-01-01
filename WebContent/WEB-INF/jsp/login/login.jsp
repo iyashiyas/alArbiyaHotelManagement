@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,7 +21,7 @@
 	rel="stylesheet">
 <title><spring:message code="label.shms.login" /></title>
 </head>
-<body class="gray-bg">
+<body class="gray-bg" onload="Captcha();">
 	<c:if test="${pageContext.response.locale=='ar'}">
 		<style type="text/css">
 body {
@@ -41,21 +42,22 @@ body {
 			<p>
 				<spring:message
 					code="label.login.TheCompleteHotelManagementSolutionAndScreenControl" />
+			</p>
+			<p>
+				<spring:message code="label.Login" />
+			</p>
+			<p>
+				<c:forEach items="${message}" var="message">
+					<c:if test="${message=='error'}">
+						<label class="label label-danger"><spring:message
+								code="label.Login.errorLogin" /></label>
+					</c:if>
+				</c:forEach>
+			</p>
 
-			</p>
-			<p>
-				<spring:message code="label.Login.logininToseeitinaction" />
-			</p>
-			<p>
-			<c:forEach items="${message}" var="message">
-			<c:if test="${message=='error'}">
-				<label class="label label-danger"><spring:message code="label.Login.errorLogin" /></label>
-				</c:if>
-				 </c:forEach>
-			</p>
-			
 			<form class="m-t" name="loginForm"
-				action="<c:url value='j_spring_security_check' />" method="POST">
+				action="<c:url value='j_spring_security_check' />" id="loginform"
+				method="POST">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" />
 				<div class="form-group">
@@ -68,9 +70,30 @@ body {
 						placeholder="<spring:message code="label.Password" />"
 						required="required">
 				</div>
-				<button class="btn btn-primary block full-width m-b" type="submit">
+
+				<!-- Captcha -->
+
+				<div class="form-group">
+					<input type="text"  class="panel-heading" style="border: none; background: transparent; font-size: 20px;"  readonly="readonly" id="mainCaptcha">
+					<button id="refresh" type="button" class="btn btn-danger"
+						onclick="Captcha();">
+						<span class="fa fa-refresh"></span>
+					</button>
+				</div>
+				<div class="form-group">
+					<input type="text" id="txtInput" placeholder="Enter Captcha Code"
+						class="form-control">
+				</div>
+
+				<!-- Enda Captcha -->
+
+				<button class="btn btn-primary block full-width m-b" onclick="ValidCaptcha(event)" type="submit">
 					<spring:message code="label.Login" />
 				</button>
+
+
+
+
 				<a href="#forgotPassword" data-toggle="modal"><small><spring:message
 							code="label.forgotPassword" /></small></a>
 
@@ -86,6 +109,7 @@ body {
 		</div>
 	</div>
 
+	<!-- end captcha -->
 	<div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -98,6 +122,6 @@ body {
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
+	<script type="text/javascript" src="<c:url value="/resources/js/login/login.js" />"> </script>
 </body>
 </html>

@@ -50,6 +50,9 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener> 
+	
+	<!-- Captcha Generate -->
+ 
 	<!-- Spring Security filter -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>

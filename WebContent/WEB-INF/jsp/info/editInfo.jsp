@@ -18,7 +18,7 @@
 			<c:forEach items="${hotelInfo}" var="hotelInfo">
 			<input type="hidden" name="id" value="${hotelInfo.id}">
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Name</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.HotelName" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelName}"
 							name="hotelName" path="hotelName" class="form-control" />
@@ -26,7 +26,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Address1</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.Address1" /></label>
 
 					<div class="col-sm-8">
 
@@ -37,7 +37,7 @@
 
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Address2</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.Address2" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelAddress2}"
 							name="hotelAddress2" path="hotelAddress2" class="form-control" />
@@ -46,7 +46,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Head Office</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.HeadBranch" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelHeadOffice}"
 							name="hotelHeadOffice" path="hotelHeadOffice"
@@ -56,7 +56,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Phone</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.OfficePhone" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelPhone}"
 							name="hotelPhone" path="hotelPhone" class="form-control" />
@@ -65,7 +65,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Fax</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.officeFax" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelFax}"
 							name="hotelFax" path="hotelFax" class="form-control" />
@@ -74,7 +74,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Hotel Email</label>
+					<label class="col-sm-4 control-label"><spring:message code="label.OfficeEmail" /></label>
 					<div class="col-sm-8">
 						<form:input type="text" value="${hotelInfo.hotelEmail}"
 							name="hotelEmail" path="hotelEmail" class="form-control" />
@@ -83,7 +83,7 @@
 	 
 
 		<div class="form-group">
-			<label class="col-sm-4 control-label">Hotel City</label>
+			<label class="col-sm-4 control-label"><spring:message code="label.OfficeCity" /></label>
 
 			<div class="col-sm-8">
 
@@ -94,7 +94,7 @@
 		</div>
  
 		<div class="form-group">
-			<label class="col-sm-4 control-label">Hotel State</label>
+			<label class="col-sm-4 control-label"><spring:message code="label.State" /></label>
 
 			<div class="col-sm-8">
 				<form:input type="text" value="${hotelInfo.hotelState}"
@@ -104,7 +104,7 @@
 		 
 
 		<div class="form-group">
-			<label class="col-sm-4 control-label">Hotel Nation</label>
+			<label class="col-sm-4 control-label"><spring:message code="label.Nation" /></label>
              <div class="col-sm-8">
 				<form:input type="text" value="${hotelInfo.hotelNation}"
 					name="hotelNation" path="hotelNation" class="form-control" />
@@ -113,7 +113,7 @@
 		</div>
 
 		<div class="form-group ">
-			<label class="col-sm-4 control-label">Total Branch</label>
+			<label class="col-sm-4 control-label"><spring:message code="label.TotalBranch" /></label>
 			<div class="col-sm-8">
 				<form:input type="text" value="${hotelInfo.hotelTotalBranch}"
 					name="hotelTotalBranch" path="hotelTotalBranch"
@@ -126,8 +126,8 @@
 		</div>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			<button type="submit" class="btn btn-success success">Update</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+			<button type="submit" class="btn btn-success success"><spring:message code="label.Submit" /></button>
 		</div>
 	</form:form>
 </body>

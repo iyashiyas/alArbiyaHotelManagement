@@ -3,27 +3,84 @@ $(document).ready(function() {
 })
 
 $(function() {
-	var restaurantLangugaeCount = 0;
-	$(document).on('click','.restaurantLanguage-btn-add',function(e) {
-		restaurantLangugaeCount++
+	var coffeeLangugaeCount = 0;
+	$(document).on('click','.coffeShopLanguage-btn-add',function(e) {
+		coffeeLangugaeCount++
 				e.preventDefault();
 
-				var controlForm = $('.controls-restaurantLanguage:first'), currentEntry = $(this)
-						.parents('.entry-restaurantLanguage:first'), newEntry = $(
+				var controlForm = $('.controls-coffeeLanguage:first'), currentEntry = $(this)
+						.parents('.entry-coffeeLanguage:first'), newEntry = $(
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"languageName[" + restaurantLangugaeCount+ "]")
-				newEntry.find('select').attr('name',"languageHelper[" + restaurantLangugaeCount + "].languageId")
-				controlForm.find('.entry-restaurantLanguage:not(:last) .restaurantLanguage-btn-add')
-					.removeClass('restaurantLanguage-btn-add')
-					.addClass('crestaurantLanguage-btn-remove')
+				newEntry.find('input').attr('name',"languageName[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"languageHelper[" + coffeeLangugaeCount + "].languageId")
+				controlForm.find('.entry-coffeeLanguage:not(:last) .coffeShopLanguage-btn-add')
+					.removeClass('coffeShopLanguage-btn-add')
+					.addClass('coffeShopLanguage-btn-remove')
 					.removeClass('btn-success')
 					.addClass('btn-danger')
 					.html('<span class="glyphicon glyphicon-minus"></span>');
-			}).on('click', '.restaurantLanguage-btn-remove', function(e) {
-		$(this).parents('.entry-restaurantLanguage:first').remove();
+			}).on('click', '.coffeShopLanguage-btn-remove', function(e) {
+		$(this).parents('.entry-coffeeLanguage:first').remove();
 		e.preventDefault();
 		return false;
 	});
 });
+
+
+
+$(function() {
+	var coffeeLangugaeCount = 0;
+	$(document).on('click','.coffeShopIngredients-btn-add',function(e) {
+		coffeeLangugaeCount++
+				e.preventDefault();
+
+				var controlForm = $('.controls-coffeeIngredients:first'), currentEntry = $(this)
+						.parents('.entry-coffeeIngredients:first'), newEntry = $(
+						currentEntry.clone()).appendTo(controlForm);
+
+				newEntry.find('input').val('');
+				newEntry.find('input').attr('name',"ingredientPrice[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"ingredientHelper[" + coffeeLangugaeCount + "].ingredientId")
+				controlForm.find('.entry-coffeeIngredients:not(:last) .coffeShopIngredients-btn-add')
+					.removeClass('coffeShopIngredients-btn-add')
+					.addClass('coffeShopIngredients-btn-remove')
+					.removeClass('btn-success')
+					.addClass('btn-danger')
+					.html('<span class="glyphicon glyphicon-minus"></span>');
+			}).on('click', '.coffeShopIngredients-btn-remove', function(e) {
+		$(this).parents('.entry-coffeeIngredients:first').remove();
+		e.preventDefault();
+		return false;
+	});
+});
+
+
+$(function() {
+	var coffeeLangugaeCount = 0;
+	$(document).on('click','.coffeShopUnits-btn-add',function(e) {
+		coffeeLangugaeCount++
+				e.preventDefault();
+
+				var controlForm = $('.controls-coffeeShopUnits:first'), currentEntry = $(this)
+						.parents('.entry-coffeeShopUnits:first'), newEntry = $(
+						currentEntry.clone()).appendTo(controlForm);
+
+				newEntry.find('input').val('');
+				newEntry.find('input').attr('name',"unitPrice[" + coffeeLangugaeCount+ "]")
+				newEntry.find('select').attr('name',"unitHelper[" + coffeeLangugaeCount + "].unitId")
+				controlForm.find('.entry-coffeeShopUnits:not(:last) .coffeShopUnits-btn-add')
+					.removeClass('coffeShopUnits-btn-add')
+					.addClass('coffeShopUnits-btn-remove')
+					.removeClass('btn-success')
+					.addClass('btn-danger')
+					.html('<span class="glyphicon glyphicon-minus"></span>');
+			}).on('click', '.coffeShopUnits-btn-remove', function(e) {
+		$(this).parents('.entry-coffeeShopUnits:first').remove();
+		e.preventDefault();
+		return false;
+	});
+});
+
+

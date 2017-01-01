@@ -305,8 +305,7 @@ public class ActionController {
 		attributes.put("newCarRental", new CarRental());
 		model.addAllAttributes(attributes);
 	    return "action/carRental";
-	}
-	 
+	} 
 
 	@RequestMapping(value = "/showLaundryAction", method = RequestMethod.GET)
 	public String showLaundryAction(Model model) {

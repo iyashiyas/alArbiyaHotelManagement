@@ -279,5 +279,6 @@
 	<script type="text/javascript">
 		$("#mobile-number").intlTelInput();
 	</script>
+	
 </body>
 </html>
