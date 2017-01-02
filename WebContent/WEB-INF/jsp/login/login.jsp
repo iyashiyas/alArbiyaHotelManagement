@@ -72,19 +72,21 @@ body {
 				</div>
 
 				<!-- Captcha -->
-
+                <div class="panel-primary" style="border: 1px solid red;">
 				<div class="form-group">
-					<input type="text"  class="panel-heading" style="border: none; background: transparent; font-size: 20px;"  readonly="readonly" id="mainCaptcha">
+					<input type="text"  class="panel-heading" style="border: none; background: transparent; font-size: 17px;"  readonly="readonly" id="mainCaptcha">
 					<button id="refresh" type="button" class="btn btn-danger"
 						onclick="Captcha();">
 						<span class="fa fa-refresh"></span>
 					</button>
 				</div>
+				</div>
 				<div class="form-group">
+				<label></label>
 					<input type="text" id="txtInput" placeholder="Enter Captcha Code"
 						class="form-control">
 				</div>
-
+                
 				<!-- Enda Captcha -->
 
 				<button class="btn btn-primary block full-width m-b" onclick="ValidCaptcha(event)" type="submit">

@@ -39,12 +39,12 @@ public class ActionServiceImpl implements ActionService {
 		return actionRepository.getAllCoffeShopItems();
 	}
 	@Override
-	public void addRestaurantItems(Restaurant restaurant, File file) {
+	public Action addRestaurantItems(Restaurant restaurant, File file) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(restaurant.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceRestaurant(restaurant, hotelServicesCategory);
 		hotelServices.setImageUrlName(file.getAbsolutePath());
 		actionRepository.hotelService(hotelServices);
-		
+		return null;
 	}
 	@Override
 	public List<HotelServicesItem> getAllRestaurantItems() {

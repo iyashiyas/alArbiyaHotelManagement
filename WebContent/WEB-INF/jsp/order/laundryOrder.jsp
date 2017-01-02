@@ -92,7 +92,7 @@
 													<td class="center"> 
 													<c:choose>
 													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
+					                                  <a href="${pageContext.request.contextPath}/order/laundryacceptOrder?id=${orders.id}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
 													 </c:when>
 													 <c:otherwise>
 													 <label class="label label-primary">
@@ -104,7 +104,7 @@
 													<c:choose>
 													<c:when test="${orders.readyForDeliveryTime == null}">
 					                             
-													<a href="${pageContext.request.contextPath}/order/readyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
+													<a href="${pageContext.request.contextPath}/order/laundryreadyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
 													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">
@@ -116,7 +116,7 @@
 															
 													<c:choose>
 													<c:when test="${orders.deliveredTime == null}">
-													<a href="${pageContext.request.contextPath}/order/delivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
+													<a href="${pageContext.request.contextPath}/order/laundrydelivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
 													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">

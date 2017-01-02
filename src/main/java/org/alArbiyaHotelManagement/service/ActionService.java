@@ -18,7 +18,7 @@ public interface ActionService {
 
 	public List<HotelServicesItem> getAllCoffeShopItems();
 
-	public void addRestaurantItems(Restaurant restaurant, File serverFile);
+	public Action addRestaurantItems(Restaurant restaurant, File serverFile);
 
 	public List<HotelServicesItem> getAllRestaurantItems();
 

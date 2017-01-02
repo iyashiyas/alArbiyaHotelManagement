@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'war' 
+apply plugin: 'war'
 repositories {
 	mavenCentral()
 } 
@@ -21,7 +21,7 @@ dependencies {
 			"org.springframework:spring-webmvc:${springVersion}",
 			"org.springframework:spring-tx:${springVersion}",
 			"org.springframework:spring-orm:${springVersion}"
-			   
+		   
 	compile "org.hibernate:hibernate-core:${hibernateVersion}",
 			"org.hibernate:hibernate-entitymanager:${hibernateVersion}"
 			

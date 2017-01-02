@@ -21,10 +21,12 @@
       <property name="prefix" value="/WEB-INF/jsp/" />
       <property name="suffix" value=".jsp" />
    </bean> 
-   <mvc:resources mapping="/resources/**" location="/resources/**" />  
- 
-    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+   
+   <mvc:annotation-driven/>
+   <mvc:resources mapping="/resources/**" location="/resources/**" />
+   <mvc:resources mapping="/images/**" location="${sys:user.home}/" />
+   <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 			<property name="messageConverters">
 			  <list>
 				<ref bean="jsonConverter"/>
@@ -47,15 +49,11 @@
 			<property name="paramName" value="lang" />
 		</bean>
 	</mvc:interceptors>
-	<!-- end internationaliazation --> 
-	
+	<!-- end Internationaliazation -->  
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000" />
-	</bean>
-	
-	 <mvc:annotation-driven/>
-	
+	</bean> 
 	<!-- Use @Transaction annotations for managing transactions -->
 	<tx:annotation-driven transaction-manager="myTxManager" />
 	<context:annotation-config />

@@ -62,11 +62,7 @@
                    </c:forEach>
                     </div>
                     </div> --%>
-     <%--  <c:forEach items="${hotelInfos}" var="hotelInfo">
-	    ${hotelInfo.hotelLogoUrl}
-	    <img src="<c:url value="/resources/upload/${hotelInfo.hotelLogoUrl}" />" class="img-circle" alt="profile"> 
-	    </c:forEach> --%>
-	    <div class="col-lg-7">
+   	    <div class="col-lg-7">
                 <div>
                     <table class="table">
                         <tbody>
@@ -109,18 +105,21 @@
                              <td>
                                 <button type="button" class="btn btn-info m-r-sm">${fn:length(floors)}</button>
                                           <spring:message code="label.TotalFloor" />
-                            </td>
-                            
-                             
+                            </td> 
                         </tr>
                         </tbody>
                     </table>
                 </div> 
             </div>
-      <div class="col-lg-6">
+            
+        <c:forEach items="${hotelInfos}" var="hotelInfo">
+	    ${hotelInfo.hotelLogoUrl}
+	    <img src="<c:url value='/images/hotelInfo/${hotelInfo.hotelLogoUrl}' />" alt="profile"> 
+	    </c:forEach>  
+        <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Pie </h5>
+                            <h5>Pie</h5>
 
                         </div>
                         <div class="ibox-content">
@@ -131,8 +130,7 @@
                     </div>
                 </div>
             </div>
-                </div>
-                </div>
-               
+           </div>
+             
  </body>
  </html>

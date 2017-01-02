@@ -292,11 +292,5 @@ public class AlArbiyaHotelMgmtUtils {
 		return hotelServicesItem;
 	}
 	// Image Upload
-	public static String getFolderStoreImage(String webContentRoot) {
-	    if (webContentRoot.endsWith("\\")){
-	        webContentRoot = webContentRoot.substring(0,webContentRoot.length() - 1);
-	        }
-	    String folder = webContentRoot.substring(0, webContentRoot.lastIndexOf("\\") + 1) + "alArbiyaHotelManagement" +File.separator+"resources"+File.separator+"upload\\";
-	    return folder;
-	}
+	 
 }
