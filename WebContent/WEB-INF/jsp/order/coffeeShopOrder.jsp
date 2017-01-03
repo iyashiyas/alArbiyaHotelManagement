@@ -68,7 +68,8 @@
 										<thead>
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
-												<th><spring:message code="label.OrderRoom" /></th>
+												<th><spring:message code="label.OrderRoom" /></th>  
+												<th><spring:message code="label.ItemName" /></th>  
 												<th><spring:message code="label.Unit" /></th>
 												<th><spring:message code="label.Ingredient" /></th>
 												<th><spring:message code="label.Quantity" /></th>
@@ -80,27 +81,22 @@
 										</thead>
 										<tbody class="animated fadeInRight"> 
 											<!-- Fetching Language Table--> 
-											 <c:forEach items="${orders}" var="orders">
-											
-												<tr class="gradeX" id="printdiv">
-												
+											<%--  <c:forEach items="${orders}" var="orders"> 
+												<tr class="gradeX" id="${orders.id}"> 
 													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomName}</td>
-													<td class="center">
-													 
+													<td class="center">${orders.room.roomName}</td> 
+													<td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
+													<td class="center"> 
 													<c:forEach items="${orders.unit}" var="units">
 													${units.unitName}
 													</c:forEach> 
-													</td>
-													
+													</td> 
 													<td>
 													<c:forEach items="${orders.ingredients}" var="ingredients">
 													${ingredients.ingredientName}
-													</c:forEach>
-													
+													</c:forEach> 
 													</td> 
-													<td class="center">${orders.quantity}</td>
-													
+													<td class="center">${orders.quantity}</td> 
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
 													<c:choose>
@@ -112,38 +108,36 @@
 													 ${orders.acceptTime}</label>
 													 </c:otherwise>
 													  </c:choose>
-														 </td> 
+													 </td> 
 													<td class="center">
 													<c:choose>
-													<c:when test="${orders.readyForDeliveryTime == null}">
-					                             
+													<c:when test="${orders.readyForDeliveryTime == null}"> 
 													<a href="${pageContext.request.contextPath}/order/coffeeShopreadyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
 													</c:when>
 													<c:otherwise>
-														 <label class="label label-primary">
+													 <label class="label label-primary">
 													${orders.readyForDeliveryTime}</label>
 													</c:otherwise>
 													</c:choose>
 													</td> 
-													<td class="center">
-															
+													<td class="center"> 
 													<c:choose>
 													<c:when test="${orders.deliveredTime == null}">
 													<a href="${pageContext.request.contextPath}/order/coffeeShopdelivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
 													</c:when>
 													<c:otherwise>
-														 <label class="label label-primary">
+												    <label class="label label-primary">
 													${orders.deliveredTime}</label>
 													</c:otherwise>
 													</c:choose>
 													</td>
-												<%-- 	<td>
+													<td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
-													</td> --%>
+													</td>
 
 												</tr>
 
-											</c:forEach>  
+											</c:forEach> --%>  
 											
 											
 											<!-- Demo -->
@@ -218,8 +212,7 @@
 													<td class="center">1</td>
 													<td class="center">100sar/-</td>
  
-												</tr>
-
+												</tr> 
 												<!-- Demo -->
 												<!--End Action -->
 										</table>
@@ -255,8 +248,7 @@
 	<script src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
 	<!-- iCheck -->
 	<script
-		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
-
+		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script> 
 	<!-- Date Time Picker -->
 	<script
 		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
@@ -268,10 +260,9 @@
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
-		
-	</script>
+	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript"> 
+	</script>  
  
 <script type="text/javascript">
 function printDiv() 

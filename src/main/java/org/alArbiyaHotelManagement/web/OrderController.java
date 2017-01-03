@@ -91,18 +91,14 @@ public class OrderController {
 			return "redirect:/order/restaurantScreen";
 		}
 	 //end Restaurant Order
-		
-	
-    
+		 
 		// Coffee Shop
 		@RequestMapping(value="/coffeeShopScreenOrder", method=RequestMethod.GET)
-		public @ResponseBody List<Orders> coffeeShopScreen() {
-			Map<String, Object> attributes = new HashMap<String, Object>();
-			attributes.put("order", new Orders());
+		public @ResponseBody List<Orders> coffeeShopScreenOrder() { 
 			return orderService.coffeeShopScreen();
 		}
 		
-		 @RequestMapping(value="coffeeShopScreen",method = RequestMethod.GET)
+	    @RequestMapping(value="coffeeShopScreen",method = RequestMethod.GET)
 		public String coffeeShop(Model model) {
 			List<Orders> orders = orderService.coffeeShopScreen();
 			Map<String, Object> attributes = new HashMap<String, Object>();

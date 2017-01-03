@@ -11,14 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.Table; 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
   
 @Entity
 @Table(name="ORDERS")
 public class Orders {
- 
+    
 	@Id 
 	@GeneratedValue
 	@Column(name="ORDER_ID")
@@ -56,16 +56,20 @@ public class Orders {
 	@OneToOne
 	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
 	private HotelServicesCategory hotelServiceCategories;
-	 
-	 @ManyToMany(fetch=FetchType.EAGER)
+	
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name="SERVICE_ITEM_ID", nullable=false)
+	private HotelServicesItem hotelServicesItem;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "ORDER_INGREDIENT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID",nullable=true), inverseJoinColumns = @JoinColumn(name = "INGREDIENT_ID", referencedColumnName = "INGREDIENT_ID",nullable=true))
 	private List<Ingredient> ingredients;
     
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "ORDER_UNIT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID",nullable=true), inverseJoinColumns = @JoinColumn(name = "UNIT_ID", referencedColumnName = "UNIT_ID",nullable=true))
 	private List<Unit> unit;
-		 
-
+	 
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
@@ -145,8 +149,7 @@ public class Orders {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-	  
-
+	   
 	public String getTotalPrice() {
 		return totalPrice;
 	}
@@ -170,5 +173,13 @@ public class Orders {
 	public void setHotelServiceCategories(
 			HotelServicesCategory hotelServiceCategories) {
 		this.hotelServiceCategories = hotelServiceCategories;
+	}
+
+	public HotelServicesItem getHotelServicesItem() {
+		return hotelServicesItem;
+	}
+
+	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
+		this.hotelServicesItem = hotelServicesItem;
 	}
 }

@@ -3,6 +3,7 @@
 						function() {
 							$('.dataTables-example').DataTable(
 											{
+											    order : [[1, 'dsc']],
 												pageLength : 25,
 												responsive : true, 
 												dom : '<"html5buttons"B>lTfgitp',

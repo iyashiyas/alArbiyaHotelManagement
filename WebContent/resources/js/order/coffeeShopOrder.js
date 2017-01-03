@@ -4,27 +4,23 @@ $(document)
 					setInterval(
 							function() {
 								$('#orderTable > tbody > tr').empty();
-								$
-										.ajax({
+								$ .ajax({
 											type : 'GET',
 											contentType : "application/json",
 											url : "/alArbiyaHotelManagement/order/coffeeShopScreenOrder",
 											dataType : "json",
 											success : function(data) {
 
-												$
-														.each(
-																data,
+												$.each( data,
 																function(i,
 																		Orders) {
-																	$(
-																			'#orderTable > tbody')
-																			.append(
-																					'<tr><td>'
+																	$('#orderTable > tbody').append( '<tr><td>'
 																							+ Orders.id
 																							+ '</td><td>'
-																							+ Orders.room.roomName
+																							+ Orders.room.roomName 
 																							+ '</td><td>'
+																							+ Orders.hotelServicesItem
+																							+ '</td><td>'  
 																							+ (Orders.unit.length === 0 ? "-"
 																									: Orders.unit[0].unitName)
 																							+ '</td><td>'
@@ -72,8 +68,5 @@ $(document)
 
 										});
 							}, 10000);
-
-					/*
-					 * setInterval( function () { worker(); }, 30000 );
-					 */
+ 
 				});

@@ -56,16 +56,13 @@ public class HotelInfoController {
 
 	@RequestMapping(value = "/uploadLogo", method = RequestMethod.POST)
 	public String UploadLogo(@ModelAttribute HotelInfo info,
-			HttpServletRequest request, HttpSession sess) {
-
+			HttpServletRequest request, HttpSession sess) { 
 		File serverFile = null;
 		if (!info.getMultipartFile().isEmpty()) {
 			try {
-				byte[] bytes = info.getMultipartFile().getBytes();
-
-				// Creating the directory to store file
-
-				String rootPath = System.getProperty("user.home");
+				byte[] bytes = info.getMultipartFile().getBytes(); 
+				// Creating the directory to store file 
+				String rootPath =System.getProperty("user.home");
 				File dir = new File(rootPath + File.separator + "hotelInfo");
 
 				if (!dir.exists())
@@ -78,11 +75,9 @@ public class HotelInfoController {
 										.format(new Date()) + ".jpeg");
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
-				System.out.println(serverFile);
-
+				System.out.println(serverFile); 
 				stream.write(bytes);
-				stream.close();
-
+				stream.close(); 
 			} catch (Exception e) {
 
 			}
