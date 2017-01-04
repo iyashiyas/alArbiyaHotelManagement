@@ -39,36 +39,34 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
-			<div class="col-sm-10">
-				<div class="controls-restaurantLanguage">
+		
+				<div class="form-group">
+					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
+					<div class="col-sm-10">
+						<div class="controls-coffeeLanguage">
 
-
-					<div class="entry-restaurantLanguage input-group ">
-
-						<form:select class="form-control m-b select" id="drp"
-							path="languageHelper[0].languageId"
-							name="languageHelper[0].languageId" style="width:30%;">
-
-							<form:options items="${languageHelper}" itemValue="id"
-								itemLabel="languageName"></form:options>
-						</form:select>
-
-						<form:input class="form-control" type="text"
-							name="languageName[0]" path="languageName[0]"
-							placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
-						<span class="input-group-btn">
-							<button class="btn btn-primary restaurantLanguage-btn-add"
-								type="button">
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-						</span>
+                     	<div class="entry-coffeeLanguage input-group ">
+								
+								<form:select class="form-control m-b select" id="drp"
+									path="languageHelper[0].languageId" name="languageHelper[0].languageId" style="width:30%;">
+								 
+									<form:options items="${languageHelper}" itemValue="id"
+										itemLabel="languageName"></form:options>
+								</form:select>
+								
+								<form:input class="form-control" type="text"
+									name="languageName[0]" path="languageName[0]"
+									placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
+								<span class="input-group-btn">
+									<button class="btn btn-primary coffeShopLanguage-btn-add"
+										type="button">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-						
 						 <div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectIngredientAndPrice" /></label>
 					<div class="col-sm-10">
@@ -76,8 +74,7 @@
 							<div class="entry-coffeeIngredients input-group ">
 								<form:select class="form-control" name="ingredientHelper[0].ingredientId"
 									path="ingredientHelper[0].ingredientId" style="width: 30%;">
-
-
+ 
 									<form:options items="${ingredientHelper}" itemValue="id"
 										itemLabel="ingredientName"></form:options>
 								</form:select>
@@ -95,18 +92,17 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> 
 					 
-							<div class="form-group">
-					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /> </label>
+						<div class="form-group">
+					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeShopUnits">
 							<div class="entry-coffeeShopUnits input-group ">
 								  <form:select class="form-control" style="width: 30%;" name="unitHelper[0].unitId" path="unitHelper[0].unitId">
 								<form:options items="${unitHelper}" itemValue="id"
 										itemLabel="unitName"></form:options>
-								</form:select>
-								 
+								</form:select> 
 								<form:input class="form-control" type="number"
 									placeholder="Enter Price"
 									style="width: 40%; margin-left: 10px;" name="unitPrice[0]"
@@ -120,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-				</div>  
+				</div> 
 						 
 					<div class="form-group">
 			<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>

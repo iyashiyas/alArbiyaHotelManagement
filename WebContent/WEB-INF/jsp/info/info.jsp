@@ -143,7 +143,7 @@
                 <div class="widget style1 navy-bg">
                     <div class="row">
                         <div class="col-xs-4">
-                     	<img src="hoteluploadImage/${hotelInfo.hotelLogoUrl}"  class="img-circle" alt="profile"> 
+                     	<img src="${pageContext.request.contextPath}/alArbiyaHotelManagement/images/hotelInfo/${hotelInfo.hotelLogoUrl}"  class="img-circle"  > 
                         </div>
                         		
                         <form:form action="${pageContext.request.contextPath}/info/uploadLogo?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="newInfo" enctype="multipart/form-data">

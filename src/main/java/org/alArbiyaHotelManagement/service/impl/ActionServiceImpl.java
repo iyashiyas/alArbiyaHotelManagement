@@ -73,7 +73,7 @@ public class ActionServiceImpl implements ActionService {
 			HotelServicesCategory hotelServicesCategory) {
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
-		} 
+		}
 		actionRepository.updateHouseKeepingStatus(hotelServicesCategory); 
 	}
 	 

@@ -110,12 +110,7 @@
                         </tbody>
                     </table>
                 </div> 
-            </div>
-            
-        <c:forEach items="${hotelInfos}" var="hotelInfo">
-	    ${hotelInfo.hotelLogoUrl}
-	    <img src="<c:url value='/images/hotelInfo/${hotelInfo.hotelLogoUrl}' />" alt="profile"> 
-	    </c:forEach>  
+            </div> 
         <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">

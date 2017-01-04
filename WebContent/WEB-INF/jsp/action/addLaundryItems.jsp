@@ -77,31 +77,31 @@
 			</div>
 		</div>
 		
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><spring:message
-					code="label.SelectUnitAndPrice" /></label>
-			<div class="col-sm-10">
-				<div class="controls-coffeeShopUnits">
-					<div class="entry-coffeeShopUnits input-group ">
-						<form:select class="form-control" style="width: 30%;"
-							name="unitHelper[0].unitId" path="unitHelper[0].unitId">
-							<form:options items="${unitHelper}" itemValue="id"
-								itemLabel="unitName"></form:options>
-						</form:select>
-
-						<form:input class="form-control" type="number"
-							placeholder="Enter Price" style="width: 40%; margin-left: 10px;"
-							name="unitPrice[0]" path="unitPrice[0]" />
-						<span class="input-group-btn">
-							<button class="btn btn-primary coffeShopUnits-btn-add"
-								type="button">
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-						</span>
+			<div class="form-group">
+					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /></label>
+					<div class="col-sm-10">
+						<div class="controls-coffeeShopUnits">
+							<div class="entry-coffeeShopUnits input-group ">
+								  <form:select class="form-control" style="width: 30%;" name="unitHelper[0].unitId" path="unitHelper[0].unitId">
+								<form:options items="${unitHelper}" itemValue="id"
+										itemLabel="unitName"></form:options>
+								</form:select>
+								 
+								<form:input class="form-control" type="number"
+									placeholder="Enter Price"
+									style="width: 40%; margin-left: 10px;" name="unitPrice[0]"
+									path="unitPrice[0]" />
+								<span class="input-group-btn">
+									<button class="btn btn-primary coffeShopUnits-btn-add"
+										type="button">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</div>  
+ 
 		
 		<div class="form-group">
 					<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>

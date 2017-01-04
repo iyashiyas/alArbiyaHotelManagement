@@ -1,6 +1,5 @@
 package org.alArbiyaHotelManagement.utils;
 
-import java.io.File;
 import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -200,7 +199,20 @@ public class AlArbiyaHotelMgmtUtils {
 		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
-		int i=0; 
+		int i=0;
+	/*	for(CoffeeeShopIngredientHelper ingredientHelper: laundry.getIngredientHelper()) {
+			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
+			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
+			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
+			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
+			hotelServicesValuOne.setItemPrice(laundry.getIngredientPrice().get(i).toString());
+			
+			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValuOne);
+			i++;
+		}*/
+		
+		i=0;
 		for(CoffeeeShopUnitHelper unitHelper: carRental.getUnitHelper()) {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
@@ -237,6 +249,7 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
 		return hotelServicesItem;
 	}
+ 
 	
 	public static HotelServicesItem toHotelServiceLaundry(Laundry laundry, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
@@ -255,16 +268,30 @@ public class AlArbiyaHotelMgmtUtils {
 		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
-		int i=0; 
+		int i=0;
+	/*	for(CoffeeeShopIngredientHelper ingredientHelper: laundry.getIngredientHelper()) {
+			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
+			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
+			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
+			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
+			hotelServicesValuOne.setItemPrice(laundry.getIngredientPrice().get(i).toString());
+			
+			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
+			hotelServicesValues.add(hotelServicesValuOne);
+			i++;
+		}*/
+		
+		i=0;
 		for(CoffeeeShopUnitHelper unitHelper: laundry.getUnitHelper()) {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
 			hotelServicesValueOne.setFieldValue(unitHelper.getUnitId().toString());
 			hotelServicesValueOne.setExternalId(unitHelper.getUnitId().toString());
-			hotelServicesValueOne.setFieldValue(laundry.getUnitPrice().get(i).toString());
+			hotelServicesValueOne.setItemPrice(laundry.getUnitPrice().get(i).toString());
 			
 			hotelServicesValueOne.setHotelServicesGroup(childServicesGroup);
 			hotelServicesValues.add(hotelServicesValueOne);
+			
 			i++;
 		}
 		childServicesGroup.setHotelServicesValues(hotelServicesValues);

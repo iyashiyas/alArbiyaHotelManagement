@@ -64,4 +64,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
  
+ <!--  image Servlet -->
+ 
+   
 </web-app>
