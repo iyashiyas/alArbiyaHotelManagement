@@ -28,8 +28,7 @@ public class ActionServiceImpl implements ActionService {
 	public Action addCoffeeShop(CoffeeShop coffeeShop, File file) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(coffeeShop.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop, hotelServicesCategory);
-		hotelServices.setImageUrlName(file.getAbsolutePath());
-		System.out.println("file.getAbsolutePath() "+file.getAbsolutePath());
+		hotelServices.setImageUrlName(file.getName()); 
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}
@@ -42,7 +41,7 @@ public class ActionServiceImpl implements ActionService {
 	public Action addRestaurantItems(Restaurant restaurant, File file) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(restaurant.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceRestaurant(restaurant, hotelServicesCategory);
-		hotelServices.setImageUrlName(file.getAbsolutePath());
+		hotelServices.setImageUrlName(file.getName());
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}
@@ -81,7 +80,7 @@ public class ActionServiceImpl implements ActionService {
 	public void addCarRentalItem(CarRental carRental, File file) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(carRental.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceCareRental(carRental, hotelServicesCategory);
-		hotelServices.setImageUrlName(file.getAbsolutePath());
+		hotelServices.setImageUrlName(file.getName());
 		actionRepository.hotelService(hotelServices); 
 	}
 	@Override
@@ -89,7 +88,7 @@ public class ActionServiceImpl implements ActionService {
 		// TODO Auto-generated method stub
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(laundry.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceLaundry(laundry, hotelServicesCategory);
-		hotelServices.setImageUrlName(file.getAbsolutePath());
+		hotelServices.setImageUrlName(file.getName());
 		actionRepository.hotelService(hotelServices);
 	}
 	@Override

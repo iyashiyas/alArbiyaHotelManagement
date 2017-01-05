@@ -54,6 +54,10 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setServiceItemName(coffeeShop.getItemName());
 		hotelServicesItem.setServiceItemDescription(coffeeShop.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+		if(coffeeShop.getStatus()==null)
+		{
+		coffeeShop.setStatus("DISABLED");
+		}
 		hotelServicesItem.setServiceItemStatus(coffeeShop.getStatus());
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
@@ -119,6 +123,12 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setServiceItemName(restaurant.getItemName());
 		hotelServicesItem.setServiceItemDescription(restaurant.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+	 
+		if(restaurant.getStatus()==null)
+		{
+			restaurant.setStatus("DISABLED");
+		}
+		
 		hotelServicesItem.setServiceItemStatus(restaurant.getStatus());
 	 
 		
@@ -187,6 +197,10 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setServiceItemName(carRental.getItemName());
 		hotelServicesItem.setServiceItemDescription(carRental.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+		if(carRental.getStatus()==null)
+		{
+			carRental.setStatus("DISABLED");
+		}
 		hotelServicesItem.setServiceItemStatus(carRental.getStatus());
 	 
 		
@@ -256,6 +270,10 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setServiceItemName(laundry.getItemName());
 		hotelServicesItem.setServiceItemDescription(laundry.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
+		if(laundry.getStatus()==null)
+		{
+			laundry.setStatus("DISABLED");
+		}
 		hotelServicesItem.setServiceItemStatus(laundry.getStatus());
 	 
 		

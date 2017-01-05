@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	    	$.each(data, function (i, HotelInfo) { 
         	  $("#hotelName").html(HotelInfo.hotelName); 
         	  
-        	  $(".img-circle").attr("src","images/hotelInfo/"+HotelInfo.hotelLogoUrl);
+        	  $("#headerImg").attr("src","/alArbiyaHotelManagement/images/hotelInfo/"+HotelInfo.hotelLogoUrl);
         	});
         },
         error:function(xmlHttpRequest, textStatus, errorThrown){

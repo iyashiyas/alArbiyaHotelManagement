@@ -9,8 +9,7 @@
 	content="text/html; charset=windows-1256">
 <title>SHMS</title>
 </head>
-<body>
-
+<body> 
 	<!-- Include Page Header-->
 	<div id="wrapper">
 		<jsp:include page="../header/header.jsp"></jsp:include>
@@ -135,15 +134,14 @@
 														<label class="control-label">
 															${hotelInfo.hotelTotalBranch} </label>
 													</div>
-												</div>
-										 
+												</div> 
 										</form> 
 									</div> 
 									  <div class="col-lg-4">
                 <div class="widget style1 navy-bg">
                     <div class="row">
                         <div class="col-xs-4">
-                     	<img src="${pageContext.request.contextPath}/alArbiyaHotelManagement/images/hotelInfo/${hotelInfo.hotelLogoUrl}"  class="img-circle"  > 
+                     	<img width="50%" src="/alArbiyaHotelManagement/images/hotelInfo/${hotelInfo.hotelLogoUrl}"  class="img-circle"  > 
                         </div>
                         		
                         <form:form action="${pageContext.request.contextPath}/info/uploadLogo?${_csrf.parameterName}=${_csrf.token}" method="post" modelAttribute="newInfo" enctype="multipart/form-data">

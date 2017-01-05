@@ -39,7 +39,7 @@
 						<label class="col-sm-2 control-label"><spring:message code="label.CoastPerDay" /></label>
 
 						<div class="col-sm-10">
-							<form:input type="email" required="required" id="roomPrice" placeholder="Sr" name="roomPrice"
+							<form:input type="number" required="required" id="roomPrice" placeholder="Sr" name="roomPrice"
 								class="form-control" path="roomPrice" />
 						</div>
 					</div>

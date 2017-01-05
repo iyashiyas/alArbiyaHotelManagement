@@ -127,7 +127,7 @@
 					<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
 					<div class="col-sm-10">
-					 <form:checkbox id="checkbox1"  value="ACTIVE"  name="status" path="status" />  
+					 <form:checkbox id="checkbox1"  value="ENABLED" checked="checked"  name="status" path="status" />  
 						<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
 					</div>
 				</div>

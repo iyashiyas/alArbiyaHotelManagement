@@ -34,7 +34,7 @@
 				<!-- Profile Menu -->
 				<li class="nav-header">
 					<div class="dropdown profile-element">
-						<span> <img alt="image" class="img-circle"
+						<span> <img style="width: 50%;" alt="image" class="img-circle" id="headerImg"
 							src="<c:url value="/resources/css/patterns/logonly.png"/>" />
 						</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
 							class="clear"> <span class="block m-t-xs"> <strong

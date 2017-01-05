@@ -117,7 +117,7 @@ public class ActionController {
 				byte[] bytes = coffeeShop.getMultipartFile().getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
+				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"coffeeShop");
 				if (!dir.exists())
 					dir.mkdirs();
@@ -197,7 +197,7 @@ public class ActionController {
 				byte[] bytes = restaurant.getMultipartFile().getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
+				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"restaurant");
 				if (!dir.exists())
 					dir.mkdirs();
@@ -353,7 +353,7 @@ public class ActionController {
 				byte[] bytes = carRental.getMultipartFile().getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
+				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"CareRental");
 				if (!dir.exists())
 					dir.mkdirs();
@@ -385,7 +385,7 @@ public class ActionController {
 				byte[] bytes = laundry.getMultipartFile().getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
+				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"Laundry");
 				if (!dir.exists())
 					dir.mkdirs();
