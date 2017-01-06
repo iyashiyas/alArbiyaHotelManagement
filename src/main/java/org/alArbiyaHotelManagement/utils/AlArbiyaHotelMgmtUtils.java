@@ -134,11 +134,10 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(restaurant.getCategory());
-		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		parentServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
@@ -206,27 +205,13 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(carRental.getCategory());
-		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		parentServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
-	/*	for(CoffeeeShopIngredientHelper ingredientHelper: laundry.getIngredientHelper()) {
-			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
-			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
-			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
-			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
-			hotelServicesValuOne.setItemPrice(laundry.getIngredientPrice().get(i).toString());
-			
-			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValues.add(hotelServicesValuOne);
-			i++;
-		}*/
-		
-		i=0;
 		for(CoffeeeShopUnitHelper unitHelper: carRental.getUnitHelper()) {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
@@ -279,27 +264,14 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(laundry.getCategory());
-		/*parentServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		parentServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		childServicesGroup.setHotelServicesItem(hotelServicesItem);
+		/*childServicesGroup.setHotelServicesItem(hotelServicesItem);*/
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
-	/*	for(CoffeeeShopIngredientHelper ingredientHelper: laundry.getIngredientHelper()) {
-			HotelServicesValue hotelServicesValuOne = new HotelServicesValue();
-			hotelServicesValuOne.setFieldName(HotelServicesValues.INGREDIENTID.name());
-			hotelServicesValuOne.setFieldValue(ingredientHelper.getIngredientId().toString());
-			hotelServicesValuOne.setExternalId(ingredientHelper.getIngredientId().toString());
-			hotelServicesValuOne.setItemPrice(laundry.getIngredientPrice().get(i).toString());
-			
-			hotelServicesValuOne.setHotelServicesGroup(childServicesGroup);
-			hotelServicesValues.add(hotelServicesValuOne);
-			i++;
-		}*/
-		
-		i=0;
 		for(CoffeeeShopUnitHelper unitHelper: laundry.getUnitHelper()) {
 			HotelServicesValue hotelServicesValueOne = new HotelServicesValue();
 			hotelServicesValueOne.setFieldName(HotelServicesValues.UNITID.name());
