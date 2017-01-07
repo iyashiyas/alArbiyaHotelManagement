@@ -40,14 +40,14 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void acceptOrder(Orders order,long id) {
+	public void acceptOrder(Orders order,long id, long roomId, String serviceItemName) {
 		// TODO Auto-generated method stub
 		order.setId(id);
 		order.setOrderStatus("ORDER ACCEPT");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
 	  order.setAcceptTime(dateFormat.format(date));
-	 orderRepository.acceptOrder(order);
+	 orderRepository.acceptOrder(order, roomId, serviceItemName);
 	}
 
 	@Override

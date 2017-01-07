@@ -8,7 +8,7 @@ public interface OrderRepository {
 	public Orders addOrder();
 	public Orders editOrder();
 	public List<Orders> GetAllOrder();
-	public void acceptOrder(Orders order);
+	public void acceptOrder(Orders order, long roomId, String serviceItemName);
 	public void readyForDelivery(Orders order);
 	public void delivered(Orders order);
 	public List<Orders> getRestaurantOrder();

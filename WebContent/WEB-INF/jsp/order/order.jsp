@@ -95,7 +95,7 @@
 													<td class="center"> 
 													<c:choose>
 													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}" class="btn btn-success">Accept Request</a>
+					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success">Accept Request</a>
 													 </c:when>
 													 <c:otherwise>
 													 <label class="label label-primary">

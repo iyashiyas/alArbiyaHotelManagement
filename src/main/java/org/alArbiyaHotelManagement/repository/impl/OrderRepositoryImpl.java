@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
  
+
+
+import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.springframework.stereotype.Repository;
@@ -14,6 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class OrderRepositoryImpl implements OrderRepository{
+	
+	enum ReadStatus {
+		READ, UNREAD;
+	}
 	
 	@PersistenceContext EntityManager entityManager; 
 	
@@ -29,7 +36,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 		return query.getResultList();
 	}
 	@Override
-	public void acceptOrder(Orders order) {
+	public void acceptOrder(Orders order, long roomId, String serviceItemName) {
 		// TODO Auto-generated method stub
 		Query updateQuery = entityManager.createQuery("UPDATE Orders SET orderStatus = :status,acceptTime=:acceptTime where id = :id ");
 		updateQuery.setParameter("status", order.getOrderStatus()); 
@@ -37,6 +44,13 @@ public class OrderRepositoryImpl implements OrderRepository{
 		updateQuery.setParameter("acceptTime", order.getAcceptTime()); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
+		
+		Notification notification = new Notification();
+		notification.setOrderId(order.getId());
+		notification.setRoomId(roomId);
+		notification.setServiceItemName(serviceItemName);
+		notification.setReadStatus(ReadStatus.UNREAD.name());
+		this.entityManager.persist(notification);
 	}
 	@Override
 	public void readyForDelivery(Orders order) {

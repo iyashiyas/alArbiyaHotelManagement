@@ -40,8 +40,11 @@ public class OrderController {
 		return null;
 	}
 	@RequestMapping(value = "acceptOrder",  method = RequestMethod.GET)
-	public String acceptOrder(@RequestParam(required=false) long id,@ModelAttribute Orders order) {
-		orderService.acceptOrder(order,id);
+	public String acceptOrder(@RequestParam(required=true) long id,
+			@RequestParam(required=true) long roomId,
+			@RequestParam(required=true) String serviceItemName,
+			@ModelAttribute Orders order) {
+		orderService.acceptOrder(order,id, roomId, serviceItemName);
 		return "redirect:/order";
 	}
 	@RequestMapping(value = "readyForDelivery", method = RequestMethod.GET)
@@ -76,8 +79,10 @@ public class OrderController {
 	} 
 	 
 	 @RequestMapping(value = "restaurantacceptOrder",  method = RequestMethod.GET)
-		public String restaurantacceptOrder(@RequestParam(required=false) long id,@ModelAttribute Orders order) {
-			orderService.acceptOrder(order,id);
+		public String restaurantacceptOrder(@RequestParam(required=false) long id,
+				@RequestParam(required=true) long roomId,
+				@RequestParam(required=true) String serviceItemName,@ModelAttribute Orders order) {
+			orderService.acceptOrder(order,id, roomId, serviceItemName);
 			return "redirect:/order/restaurantScreen";
 		}
 		@RequestMapping(value = "restaurantreadyForDelivery", method = RequestMethod.GET)
@@ -109,8 +114,9 @@ public class OrderController {
 		} 
 		 
 		 @RequestMapping(value = "coffeeShopacceptOrder",  method = RequestMethod.GET)
-			public String coffeeShopacceptOrder(@RequestParam(required=false) long id,@ModelAttribute Orders order) {
-				orderService.acceptOrder(order,id);
+			public String coffeeShopacceptOrder(@RequestParam(required=false) long id,@RequestParam(required=true) long roomId,
+					@RequestParam(required=true) String serviceItemName,@ModelAttribute Orders order) {
+				orderService.acceptOrder(order,id, roomId, serviceItemName);
 				return "redirect:/order/coffeeShopScreen";
 			}
 			@RequestMapping(value = "coffeeShopreadyForDelivery", method = RequestMethod.GET)
@@ -143,8 +149,9 @@ public class OrderController {
 				return "order/laundryOrder";
 			}  
 			 @RequestMapping(value = "laundryacceptOrder",  method = RequestMethod.GET)
-				public String laundryacceptOrder(@RequestParam(required=false) long id,@ModelAttribute Orders order) {
-					orderService.acceptOrder(order,id);
+				public String laundryacceptOrder(@RequestParam(required=false) long id,@RequestParam(required=true) long roomId,
+						@RequestParam(required=true) String serviceItemName,@ModelAttribute Orders order) {
+					orderService.acceptOrder(order,id, roomId, serviceItemName);
 					return "redirect:/order/laundryScreen";
 				}
 				@RequestMapping(value = "laundryreadyForDelivery", method = RequestMethod.GET)
