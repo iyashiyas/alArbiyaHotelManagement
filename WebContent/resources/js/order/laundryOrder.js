@@ -32,7 +32,7 @@ $(document)
 																							+ Orders.requestedTime
 																							+ '</td><td>'
 																							+ (Orders.acceptTime == null ? '<a href="laundryacceptOrder?id='
-																									+ Orders.id
+																									+ Orders.id+'&roomId='+Orders.room.id+'&serviceItemName='+Orders.hotelServicesItem.serviceItemName
 																									+ '" class="btn btn-success">AcceptRequest</a>'
 																									: ' <label class="label label-primary">'
 																											+ Orders.acceptTime

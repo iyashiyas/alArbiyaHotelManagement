@@ -98,40 +98,40 @@
 													<td class="center">${orders.quantity}</td>
 													
 													<td class="center">${orders.requestedTime}</td>
-													<td class="center"> 
-													<c:choose><sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+													<td class="center"> <sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+													<c:choose>
 													<c:when test="${orders.acceptTime == null}">
 					                                  <a href="${pageContext.request.contextPath}/order/laundryacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
-													 </c:when></sec:authorize>
+													 </c:when>
 													 <c:otherwise>
 													 <label class="label label-primary">
 													 ${orders.acceptTime}</label>
 													 </c:otherwise>
-													  </c:choose>
+													  </c:choose></sec:authorize>
 														 </td> 
-													<td class="center">
-													<c:choose><sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+													<td class="center"><sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+													<c:choose>
 													<c:when test="${orders.readyForDeliveryTime == null}">
 					                             
 													<a href="${pageContext.request.contextPath}/order/laundryreadyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
-													</c:when></sec:authorize>
+													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.readyForDeliveryTime}</label>
 													</c:otherwise>
-													</c:choose>
+													</c:choose></sec:authorize>
 													</td> 
 													<td class="center">
-															
-													<c:choose><sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+															<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+													<c:choose>
 													<c:when test="${orders.deliveredTime == null}">
 													<a href="${pageContext.request.contextPath}/order/laundrydelivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
-													</c:when></sec:authorize>
+													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.deliveredTime}</label>
 													</c:otherwise>
-													</c:choose>
+													</c:choose></sec:authorize>
 													</td>
 												<%-- 	<td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>

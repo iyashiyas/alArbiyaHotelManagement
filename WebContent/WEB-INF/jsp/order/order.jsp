@@ -97,38 +97,38 @@
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
 													
-													<c:choose><sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+													<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')"><c:choose>
 													<c:when test="${orders.acceptTime == null}">
 					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success">Accept Request</a>
-													 </c:when></sec:authorize>
+													 </c:when>
 													 <c:otherwise>
 													 <label class="label label-primary">
 													 ${orders.acceptTime}</label>
 													 </c:otherwise>
-													  </c:choose>
+													  </c:choose></sec:authorize>
 														 </td> 
 													<td class="center">
-													<c:choose> <sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+													<sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')"><c:choose> 
 													<c:when test="${orders.readyForDeliveryTime == null}"> 
 													<a href="${pageContext.request.contextPath}/order/readyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } ">Request for delivery</a>
-													</c:when></sec:authorize>
+													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.readyForDeliveryTime}</label>
 													</c:otherwise>
-													</c:choose>
+													</c:choose></sec:authorize>
 													</td> 
 													<td class="center">
-															
-													<c:choose><sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+															<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+													<c:choose>
 													<c:when test="${orders.deliveredTime == null}">
 													<a href="${pageContext.request.contextPath}/order/delivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }">Delivered</a>
-													</c:when></sec:authorize>
+													</c:when>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.deliveredTime}</label>
 													</c:otherwise>
-													</c:choose>
+													</c:choose></sec:authorize>
 													</td>
 
 												</tr>
