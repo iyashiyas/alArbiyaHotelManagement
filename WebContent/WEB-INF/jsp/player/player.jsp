@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +74,8 @@
 															<c:out value="${players.playerStatus}" />
 													</label></td>
 													<td class="center playerRoomNumber">${players.room.roomCode}</td>
-													<td class="center assigntoRoom"><a class ="btn btn-danger">${players.playerStatus == 'ASSIGNED' ? 'Change Room' : 'Assign To Room'}</a></td>
+													<td class="center assigntoRoom">
+													 <sec:authorize access="hasAnyRole('ROLE_ASSIGNROOM','ROLE_ADMIN')"><a class ="btn btn-danger">${players.playerStatus == 'ASSIGNED' ? 'Change Room' : 'Assign To Room'}</a></sec:authorize></td>
 												 
 												</tr>
 											</c:forEach>

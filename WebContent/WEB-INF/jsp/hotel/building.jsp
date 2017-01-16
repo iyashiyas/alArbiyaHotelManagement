@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,9 @@
 									</a>
 								</div>
 							</div>
+							<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
 							<jsp:include page="../hotel/addBuilding.jsp"></jsp:include>
+							</sec:authorize>
 						</div>
 
 						<div class="ibox float-e-margins">
@@ -87,7 +90,7 @@
 															value="${building.buildingDescription}" /></td>
 													<td class="buildingStatus"><c:out
 															value="${building.buildingStatus}" /></td>
-													<td class="buildingEditbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td>
+													<td class="buildingEditbtn"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></sec:authorize></td>
 												</tr>
 											</c:forEach>
 										</tbody>

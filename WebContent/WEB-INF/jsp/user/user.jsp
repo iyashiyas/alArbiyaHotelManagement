@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,9 @@
 								</div>
 							</div>
 							<div class="ibox-content">
+							<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
 								<jsp:include page="../user/addUser.jsp"></jsp:include>
+							 </sec:authorize>
 							</div>
 						</div>
 
@@ -91,10 +94,8 @@
 													<tr class="read">
 														<td class="check-mail">${users.id}</td>
 														<td class="mail-ontact ">${users.username}</td> 
-														<td class=""><i class="fa fa-pencil"><a href="#"
-																data-toggle="modal" data-target="#confirm-Edit">ChangePassword</a></i></td>
- 
-													</tr>
+														<td class=""><sec:authorize access="hasAnyRole('ROLE_CHANGEPASSWORD','ROLE_ADMIN')"><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">ChangePassword</a></i></sec:authorize></td>
+                                                    </tr>
 												</c:forEach>
 
 											</tbody>

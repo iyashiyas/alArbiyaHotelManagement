@@ -165,6 +165,16 @@
 				 <sec:authorize access="hasAnyRole('ROLE_ORDER','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
 								code="label.Order" /></span> </a></li></sec:authorize>
+								
+									 <sec:authorize access="hasAnyRole('ROLE_COFFESHOPSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/coffeeShopScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.coffeeShopScreeen" /></span> </a></li></sec:authorize>
+										 <sec:authorize access="hasAnyRole('ROLE_RESTAURANTSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/restaurantScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.restaurantScreen" /></span> </a></li></sec:authorize>
+										 <sec:authorize access="hasAnyRole('ROLE_LAUNDRYSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/laundryScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.laundryScreen" /></span> </a></li></sec:authorize>
 
 			</ul>
 		</div>

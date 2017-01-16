@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +38,9 @@
 					<jsp:include page="../action/coffeeTab.jsp"></jsp:include>
 
 					<div class="col-lg-8 animated fadeInRight">
-
+	<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
 						<jsp:include page="../action/addCoffee.jsp"></jsp:include>
-
+ </sec:authorize>
 
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
@@ -70,7 +71,7 @@
 											<td>${coffeeShop.id}</td>
 											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
 											<td>${coffeeShop.serviceItemDescription}</td>
-											<td><i class="fa fa-pencil"><a>Edit</a></i></td>
+											<td> <sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
 										</c:forEach>

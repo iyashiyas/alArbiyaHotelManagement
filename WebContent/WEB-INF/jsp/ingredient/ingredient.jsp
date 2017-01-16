@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,13 +28,11 @@
 				 
 			</div>
 			<div class="wrapper wrapper-content">
-				<div class="row">
+				<div class="row"> 
 					<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include> 
-					<div class="col-lg-8 animated fadeInRight">
-
-						<jsp:include page="../ingredient/addIngredient.jsp"></jsp:include>
-
-
+					<div class="col-lg-8 animated fadeInRight"> 
+					<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+						<jsp:include page="../ingredient/addIngredient.jsp"></jsp:include> </sec:authorize>
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5><spring:message code="label.IngredientItems" /></h5>
@@ -73,8 +72,8 @@
 														<td class="ingredientLanguageId${loop.index} hide" value="${language.id }"></td>
 														<td class="ingredientLanguageName${loop.index} hide" value="${language.ingredientLanguageName }"></td>
 													</c:forEach>
-													<td class="ingredientEdit"><i class="fa fa-pencil"><a class=""
-															data-toggle="modal"  ><spring:message code="label.Edit" /></a></i></td>
+													<td class="ingredientEdit"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a class=""
+															data-toggle="modal"  ><spring:message code="label.Edit" /></a></i></sec:authorize></td>
 												</tr>
 											</c:forEach>
 										</tbody>

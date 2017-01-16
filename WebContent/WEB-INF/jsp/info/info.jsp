@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +31,9 @@
 					<div class="row">
 						<div class="col-lg-12 animated fadeInRight">
 							 <div class="ibox float-e-margins">
-                      	<div class="ibox-tools">
+                      	<div class="ibox-tools"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')">
 									 <a  class="btn btn-primary" href="#editBuildingModal" data-toggle="modal"><i class="fa fa-pencil"> </i><spring:message code="label.EditInformation" /></a>
+								</sec:authorize>
 								</div>
 						 <c:forEach items="${hotelInfo}" var="hotelInfo">
 							  <div class="panel panel-primary row">

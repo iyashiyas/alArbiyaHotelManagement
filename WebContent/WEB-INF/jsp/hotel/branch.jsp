@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,8 +43,8 @@
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
 								</div>
-							</div>
-							<jsp:include page="../hotel/addBranch.jsp"></jsp:include>
+							</div><sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+							<jsp:include page="../hotel/addBranch.jsp"></jsp:include></sec:authorize>
 						</div>
 
 						<div class="ibox float-e-margins">
@@ -93,7 +94,7 @@
 															value="${branch.branchDescription}" /></td>
 													<td class="center branchStatus"><c:out
 															value="${branch.branchStatus}" /></td>		
-													<td class="branchEdit"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td>
+													<td class="branchEdit"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></sec:authorize></td>
 												</tr>
 
 											</c:forEach>

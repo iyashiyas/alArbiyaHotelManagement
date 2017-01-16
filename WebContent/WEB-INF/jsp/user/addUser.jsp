@@ -58,153 +58,167 @@
         <div id="treeview-checkbox-demo">
       
             <ul>
-            
-            
-            
-            <li data-value="24"><label class="label label-primary">HotelInfo</label>
-                <ul>	 
-                      <li >Read</li>  
-                     <li >Edit</li>    
+             
+            <li data-value="24"><label class="label label-primary">HOTELINFO</label>
+                <ul>  
+                     <li data-value="31">EDIT</li>    
                         
                  </ul>
                 </li>
             
-                <li data-value="2"><label class="label label-primary">Languages</label>
-                <ul>	 
-                      <li data-value="16">Read</li>  
-                     <li data-value="17">Edit</li>     
+                <li data-value="2"><label class="label label-primary">LANGUAGES</label>
+                <ul>  
+                     <li data-value="31">EDIT</li>     
                  </ul>
                 </li>
-            <li data-value="23" ><label class="label label-primary">Profile</label>
+            <li data-value="23" ><label class="label label-primary">PROFILE</label>
                     <ul> 
-                        <li data-value="3">Branch
+                        <li data-value="3">BRANCH
                             <ul>
-                                <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                        <li data-value="33">ADD</li>
+                        <li data-value="31">EDIT</li>
+                        <li data-value="32">DELETE</li>
                             </ul>
                         </li>
-                        <li data-value="4">Building
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                        <li data-value="4">BUILDING
+                          <ul>  <li data-value="33">ADD</li>
+                        <li data-value="31">EDIT</li>
+                        <li data-value="32">DELETE</li>
                             </ul>
                         </li>
-                        <li data-value="5">Floor
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                        <li data-value="5">FLOOR
+                          <ul>  <li data-value="33">ADD</li>
+                        <li data-value="31">EDIT</li>
+                        <li data-value="32">DELETE</li>
                             </ul>
                         </li>
-                        <li data-value="6">Room
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                        <li data-value="6">ROOM
+                          <ul>  <li data-value="33">ADD</li>
+                        <li data-value="31">EDIT</li>
+                        <li data-value="32">DELETE</li>
                             </ul>
                         </li>
-                        <li data-value="7">RoomType
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                        <li data-value="7">ROOMTYPE
+                          <ul>  <li data-value="33">ADD</li>
+                        <li data-value="31">EDIT</li>
+                        <li data-value="32">DELETE</li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li data-value="8"><label class="label label-primary">Reservation</label>
+                <li data-value="8"><label class="label label-primary">RESERVATIONS</label>
                     <ul>
-                        <li data-value="jQuery append">Booking</li>
-                        <li data-value="jQuery prepend">BookedRooms</li>
+                        <li data-value="36">BOOKING</li>
+                        <li data-value="37">BOOKEDROOMS</li>
+                        <li data-value="38">CHECKIN</li>
+                        <li data-value="39">CHECKOUT</li>
                     </ul>
                 </li>
-                <li data-value="10"><label class="label label-primary">Unit</label>
-                    <ul>
-                    <li data-value=" ">Add</li>
-                        <li data-value=" ">edit</li>
-                        <li data-value=" ">Delete</li>
+                <li data-value="10"><label class="label label-primary">UNIT</label>
+                    <ul> 
+                               <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                     </ul>
                 </li>
-                 <li data-value="11"><label class="label label-primary">Ingredients</label>
+                 <li data-value="11"><label class="label label-primary">INGREDIENTS</label>
                     <ul>
-                    <li data-value="jQuery append">Add</li>
-                        <li data-value="jQuery append">Edit</li>
-                        <li data-value="jQuery prepend">Delete</li>
+                          <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                     </ul>
                 </li>
                    
-                 <li><label class="label label-primary">Services</label>
+                 <li><label class="label label-primary">SERVICES</label>
                     <ul> 
                         <li data-value="12">CHECK-OUT
                             <ul>
-                                <li data-value="For loop">ENABLE/DISABLE</li>
-                                 
+                                <li data-value="31">ENABLE/DISABLE</li> 
                             </ul>
                         </li>
                         <li data-value="13">PARKING
-                          <ul> <li data-value="For loop">ADD</li>  
+                          <ul> <li data-value="33">ADD</li>  
                             </ul>
                         </li>
                         <li data-value="16">COFFEESHOP
                           <ul>  
-                                <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                                <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                             </ul>
                         </li>
                         <li data-value="17">RESTAURANT
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                          <ul>  <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                             </ul>
                         </li>
                         <li  data-value="15">LAUNDRY
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                          <ul>  <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                             </ul>
                         </li>
                          <li   data-value="18">CARRENTAL
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                          <ul>  <li data-value="31">EDIT</li>
+                                <li data-value="32">DELETE</li>
+                                <li data-value="33">ADD</li>
                             </ul>
                         </li>
-                         <li   data-value="19">RECEPTION
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                         <li  data-value="19">RECEPTION
+                          <ul> <!-- <li data-value="">EDIT</li>
+                                <li data-value="">DELETE</li>
+                                <li data-value="">ADD</li> -->
                             </ul>
                         </li>
                             <li data-value="14">HOUSEKEEPING
-                          <ul> <li data-value="For loop">EDIT</li>
-                                <li data-value="While loop">DELETE</li>
-                                <li data-value="Do WHile loop">ADD</li>
+                          <ul> <li data-value="31">CHANGE ROOM STATUS</li>
+                                
                             </ul>
                         </li>
                       
                         </ul>
                         </li>
-                         <li  data-value="20"><label class="label label-primary">USER MANAGEMENT</label>
+                    <li  data-value="20"><label class="label label-primary">USER MANAGEMENT</label>
                     <ul>
-                    <li data-value="jQuery append">Add USER</li>
-                        <li data-value="jQuery append">ADD ROLE</li>
-                        <li data-value="jQuery prepend">CHANGE PASSWORD</li>
-                       <li data-value="jQuery prepend">DELETE USER</li>
-                       <li data-value="jQuery prepend">DELETE ROLE</li>
+                    <li data-value="33">Add USER</li> 
+                      <li data-value="35">CHANGE PASSWORD</li>
+                      <li data-value="32">DELETE USER</li> 
                     </ul>
                 </li>
                  <li   data-value="21"><label class="label label-primary">PLAYER</label>
                     <ul>
-                    <li data-value="jQuery append">Read</li>
-                        <li data-value="jQuery append">ASSIGN ROOM</li>
+                      <li data-value="34">ASSIGN ROOM</li>
                     </ul>
                 </li>
                   <li data-value="22"><label class="label label-primary">ORDER</label>
                     <ul>
-                    <li data-value="jQuery append">ACCEPT ORDER</li>
-                     <li data-value="jQuery append">READY FOR DELIVERY</li>
-                     <li data-value="jQuery append">DELIVERD</li>
+                    <li data-value="28">ACCEPT ORDER</li>
+                     <li data-value="29">READY FOR DELIVERY</li>
+                     <li data-value="30">DELIVERD</li>
                     </ul>
                 </li> 
+                 <li data-value="25"><label class="label label-primary">COFFEESHOPSCREEN</label>
+                    <ul>
+                    <li data-value="28">ACCEPT ORDER</li>
+                     <li data-value="29">READY FOR DELIVERY</li>
+                     <li data-value="30">DELIVERD</li>
+                    </ul>
+                </li> 
+                 <li data-value="26"><label class="label label-primary">RESTAURANTSCREEN</label>
+                    <ul>
+                    <li data-value="28">ACCEPT ORDER</li>
+                     <li data-value="29">READY FOR DELIVERY</li>
+                     <li data-value="30">DELIVERD</li>
+                    </ul>
+                </li> 
+                <li data-value="27"><label class="label label-primary">LAUNDRYSCREEN</label>
+                    <ul>
+                   <li data-value="28">ACCEPT ORDER</li>
+                     <li data-value="29">READY FOR DELIVERY</li>
+                     <li data-value="30">DELIVERD</li>
+                    </ul>
+                </li>
                     </ul>
               
             </div>

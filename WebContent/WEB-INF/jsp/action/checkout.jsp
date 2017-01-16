@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
             </div>
         </div>
         </div>
-		 	    	<div class="col-lg-4">
+		 	    	<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><div class="col-lg-4">
 		<div class="ibox float-e-margins">
 
 	         <div class="ibox-content text-center p-md">
@@ -74,7 +75,7 @@
 					
 					
                       </div>
-                      </div>
+                      </div></sec:authorize>
 	  
 	  
 	</div>

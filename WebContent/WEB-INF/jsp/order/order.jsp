@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,10 +96,11 @@
 													
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
-													<c:choose>
+													
+													<c:choose><sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
 													<c:when test="${orders.acceptTime == null}">
 					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success">Accept Request</a>
-													 </c:when>
+													 </c:when></sec:authorize>
 													 <c:otherwise>
 													 <label class="label label-primary">
 													 ${orders.acceptTime}</label>
@@ -106,11 +108,10 @@
 													  </c:choose>
 														 </td> 
 													<td class="center">
-													<c:choose>
-													<c:when test="${orders.readyForDeliveryTime == null}">
-					                             
+													<c:choose> <sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+													<c:when test="${orders.readyForDeliveryTime == null}"> 
 													<a href="${pageContext.request.contextPath}/order/readyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } ">Request for delivery</a>
-													</c:when>
+													</c:when></sec:authorize>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.readyForDeliveryTime}</label>
@@ -119,10 +120,10 @@
 													</td> 
 													<td class="center">
 															
-													<c:choose>
+													<c:choose><sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
 													<c:when test="${orders.deliveredTime == null}">
 													<a href="${pageContext.request.contextPath}/order/delivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }">Delivered</a>
-													</c:when>
+													</c:when></sec:authorize>
 													<c:otherwise>
 														 <label class="label label-primary">
 													${orders.deliveredTime}</label>

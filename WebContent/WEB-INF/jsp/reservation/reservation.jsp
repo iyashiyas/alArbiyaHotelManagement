@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,10 +49,10 @@
 											Checked Rooms</i> </a> <a class="btn btn-primary" data-toggle="modal"
 										href="#membersList"><i class="fa fa-globe"> Members</i> </a> -->
 
-									<a class="dropdown-toggle btn btn-primary"
+									<sec:authorize access="hasAnyRole('ROLE_CHECKIN','ROLE_ADMIN')"><a class="dropdown-toggle btn btn-primary"
 										data-toggle="dropdown" href="#"> <i class="fa fa-th-list">
 											<spring:message code="label.CheckIn" /></i>
-									</a>
+									</a></sec:authorize>
 									<ul class="dropdown-menu dropdown-user">
 										<jsp:include page="../reservation/checkIn.jsp"></jsp:include>
 									</ul>
@@ -72,7 +73,7 @@
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h3 class="panel-title"><spring:message code="label.CheckIn" /></h3>
-												</div>
+												</div><sec:authorize access="hasAnyRole('ROLE_BOOKING','ROLE_ADMIN')">
 												<div class="panel-body">
 													<div class="col-lg-6 form-group">
 
@@ -156,8 +157,8 @@
 															name="singlebutton" class="btn btn-primary center-block">
 															<spring:message code="label.SearchAvailableRooms" /></button>
 													</div>
-
-												</div>
+                                                   
+												</div></sec:authorize>
 											</div>
 										</div>
 									</div>
@@ -169,9 +170,9 @@
 					</div>
 				</div>
 			</div>
-
+<sec:authorize access="hasAnyRole('ROLE_BOOKING','ROLE_ADMIN')">
 			<jsp:include page="../reservation/availableRooms.jsp"></jsp:include>
-
+</sec:authorize>
 		</div>
 	</div>
 

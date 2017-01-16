@@ -47,9 +47,9 @@
 					</a>
                </div>
 			</div>
-			<div class="ibox-content">
+			<%-- <div class="ibox-content">
 				<jsp:include page="../user/addRole.jsp"></jsp:include>
-			</div>
+			</div> --%>
 		</div>
 	  
 		  

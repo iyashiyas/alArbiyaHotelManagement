@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,12 +72,12 @@
 													<td class="center">${bookedRooms.room.roomCode}</td>
 													<td class="center">${bookedRooms.userDetails.firstName}</td>
 													<td class="center">${bookedRooms.accessPassword}</td>
-													<td class="center">
+													<td class="center"><sec:authorize access="hasAnyRole('ROLE_CHECKOUT','ROLE_ADMIN')">
 													<c:if test="${bookedRooms.bookingStatus=='CHECKEDIN'}">
 														<a href="${pageContext.request.contextPath}/reservation/checkOut?bookingrefernceId=${bookedRooms.bookingReferenceId}" class="btn btn-primary">
 															<spring:message code="label.CheckOut" />
 														</a>
-														</c:if>
+														</c:if></sec:authorize>
 													</td>
 												</tr>
 											</c:forEach>

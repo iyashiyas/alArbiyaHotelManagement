@@ -12,6 +12,11 @@ public class LoginController {
 		return "login/login";
 	}
 	
+	@RequestMapping(value = "/noPermission")
+	public String noPermission() {
+		return "login/noPermission";
+	}
+	
 	@RequestMapping(value = "/logout")
 	public String showLogout() {
 		return "login/login";

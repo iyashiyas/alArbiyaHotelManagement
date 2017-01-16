@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,12 +55,19 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
-					 	<div class="ibox-title">
+					 	<div class="ibox-title" >
 							<h3 class="text-center "><label class="label label-primary">
 									Coffee Shop Screen
 							</label>
 							</h3>
-								 
+								 <form action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
+					method="post">
+					<button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i>
+						<spring:message code="label.Logout" />
+					</button>
+					 <input type="hidden"
+						name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
 							</div>  
 						<div class="ibox-content"> 
 								<div class="table-responsive">
@@ -100,37 +108,42 @@
 													<td class="center">${orders.quantity}</td> 
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
-													<c:choose>
+													
+													<c:choose><sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
 													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
-													 </c:when>
+					                                  <a href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
+													 </c:when> </sec:authorize>
 													 <c:otherwise>
 													 <label class="label label-primary">
 													 ${orders.acceptTime}</label>
 													 </c:otherwise>
 													  </c:choose>
+													 
 													 </td> 
-													<td class="center">
-													<c:choose>
+													<td class="center"> 
+													<c:choose><sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
 													<c:when test="${orders.readyForDeliveryTime == null}"> 
 													<a href="${pageContext.request.contextPath}/order/coffeeShopreadyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
-													</c:when>
+													</c:when></sec:authorize>
 													<c:otherwise>
 													 <label class="label label-primary">
 													${orders.readyForDeliveryTime}</label>
 													</c:otherwise>
 													</c:choose>
+													
 													</td> 
 													<td class="center"> 
-													<c:choose>
+													
+													<c:choose><sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
 													<c:when test="${orders.deliveredTime == null}">
 													<a href="${pageContext.request.contextPath}/order/coffeeShopdelivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
-													</c:when>
+													</c:when></sec:authorize>
 													<c:otherwise>
 												    <label class="label label-primary">
 													${orders.deliveredTime}</label>
 													</c:otherwise>
 													</c:choose>
+													
 													</td>
 												 	<%-- <td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>

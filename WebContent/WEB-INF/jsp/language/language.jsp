@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,7 @@
 	rel="stylesheet">
 <link id="" href="<c:url value="/resources/css/bootstrap-notify.css"/>"
 	rel="stylesheet">
-
-
+ 
 <title>SHMS-Language</title>
 
 </head>
@@ -86,6 +86,7 @@
 															${language.status == 'ACTIVE' ? active : inactive}
 													</label></td>
 													<td class="center">
+													<sec:authorize access="hasAnyRole('ROLE_EDIT,'ROLE_ADMIN')">
 														<form class="editLanguageForm"
 															action="${pageContext.request.contextPath}/language/editLanguage"
 															method="POST" id="language_edit">
@@ -104,6 +105,7 @@
 																class="btn btn-default submitBtn">
 																${language.status == 'ACTIVE' ? Disable : Enable}</button>
 														</form>
+														</sec:authorize>
 													</td>
 												</tr>
 											</c:forEach>

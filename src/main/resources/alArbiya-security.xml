@@ -10,6 +10,7 @@
                            http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<security:http auto-config="true">
+	 	<security:access-denied-handler error-page="/noPermission"  />
 		<security:intercept-url pattern="/login*"
 			access="permitAll" />
 			<security:intercept-url pattern="/errorLogin*"
@@ -19,7 +20,7 @@
 			
 	<!-- 	<security:intercept-url pattern="/**"
 			access="isFullyAuthenticated()" /> -->
-			
+  
  <security:intercept-url pattern="/language/**" access="hasAnyRole('ROLE_LANGUAGES','ROLE_ADMIN')" />
  <security:intercept-url pattern="/hotel/showBranch/**" access="hasAnyRole('ROLE_BRANCH','ROLE_ADMIN')" />
  <security:intercept-url pattern="/hotel/showBuilding/**" access="hasAnyRole('ROLE_BUILDING','ROLE_ADMIN')" />
@@ -40,9 +41,12 @@
  <security:intercept-url pattern="/action/showReception/**" access="hasAnyRole('ROLE_SHOWRECEPTION','ROLE_ADMIN')" />
  <security:intercept-url pattern="/usermanagement/showUser/**" access="hasAnyRole('ROLE_SHOWUSER','ROLE_ADMIN')" />
  <security:intercept-url pattern="/player/showPlayer/**" access="hasAnyRole('ROLE_SHOWPLAYER','ROLE_ADMIN')" />
- <security:intercept-url pattern="/order/**" access="hasAnyRole('ROLE_ORDER','ROLE_ADMIN')" />
-  
-		    
+ <security:intercept-url pattern="/order" access="hasAnyRole('ROLE_ORDER','ROLE_ADMIN')" />
+ <security:intercept-url pattern="/order/coffeeShopScreen/**" access="hasAnyRole('ROLE_COFFESHOPSCREEN','ROLE_ADMIN')" />
+ <security:intercept-url pattern="/order/restaurantScreen/**" access="hasAnyRole('ROLE_RESTAURANTSCREEN','ROLE_ADMIN')" />
+ <security:intercept-url pattern="/order/laundryScreen/**" access="hasAnyRole('ROLE_LAUNDRYSCREEN','ROLE_ADMIN')"  />
+ 
+   
 		<security:form-login login-processing-url="/j_spring_security_check"
 			login-page="/login" default-target-url="/SHMS"
 			authentication-failure-url="/errorLogin" username-parameter="j_username"
