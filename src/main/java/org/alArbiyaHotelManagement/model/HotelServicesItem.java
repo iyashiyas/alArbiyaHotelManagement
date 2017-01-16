@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="HOTEL_SERVICES_ITEM")
 public class HotelServicesItem {
@@ -29,12 +31,15 @@ public class HotelServicesItem {
 	@Column(name="SERVICE_ITEM_DESCRIPTION")
 	private String serviceItemDescription;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
 	
+	 
 	@OneToMany(mappedBy="hotelServicesItem", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
 	
+	@JsonIgnore
 	@ManyToOne
 	private HotelServicesCategory hotelServicesCategory;
 

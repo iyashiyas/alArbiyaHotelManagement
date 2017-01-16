@@ -17,9 +17,9 @@ $(document)
 																	$('#orderTable > tbody').append( '<tr><td>'
 																							+ Orders.id
 																							+ '</td><td>'
-																							+ Orders.room.roomName 
-																							+ '</td><td>'
-																							+ Orders.hotelServicesItem
+																							+ Orders.room.roomCode 
+																							+ '</td><td>' 
+																							+ Orders.hotelServicesItem.serviceItemName
 																							+ '</td><td>'  
 																							+ (Orders.unit.length === 0 ? "-"
 																									: Orders.unit[0].unitName)
@@ -56,8 +56,8 @@ $(document)
 																											+ '" class="btn '
 																											+ (Orders.readyForDeliveryTime == null ? 'disabled'
 																													: 'btn-success')
-																											+ '">Delivered</a>')
-																							+ '</td></tr>');
+																											+ '">Delivered</a>') 
+																								    + '</td></tr>' );
 																});
 											},
 											error : function(xmlHttpRequest,
@@ -70,3 +70,10 @@ $(document)
 							}, 10000);
  
 				});
+
+function printDiv()
+{
+	 
+alert("hello print");
+	}
+ 

@@ -97,7 +97,7 @@
 							</div>
 							<div class="ibox-content">
 								<form:form class="form-horizontal" method="POST"
-									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }&${_csrf.parameterName}=${_csrf.token}"
+									action="${pageContext.request.contextPath}/reservation/doBooking/?roomId=${roomId}&startDate=${startDate }&endDate=${endDate }&${_csrf.parameterName}=${_csrf.token}&randomPassword=${randomPassword}"
 									modelAttribute="userDetails" enctype="multipart/form-data">
 									<div class="row ">
 										<div class="col-lg-6">

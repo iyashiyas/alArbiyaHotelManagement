@@ -15,89 +15,77 @@
 <body>
  
  <form:form class="form-horizontal" action="${pageContext.request.contextPath}/role/addRole" modelAttribute="newRole" method="post">
-    		<div class="col-sm-6">
-		<div class="form-group">
-			<label class="col-sm-4 control-label"><spring:message
-					code="label.role.roleName" /></label>
-
-			<%-- <div class="col-sm-8">
-				<form:input type="text" path="roleName" placeholder="Role Name" name="roleName"
-					class="form-control" />
-			</div> --%>
+    		<div class="col-sm-12">
+		 <div class="col-sm-4">
+		 <div class="form-group" >
+			<label class="col-sm-2 control-label"><spring:message code="label.Users"></spring:message></label>
+			<div class="col-sm-10"> 
+				<select  class="form-control m-b"  name="" >
+					<c:forEach items="${users}" var="users">
+			    <option value="${users.id}">${users.username}</option>
+		       </c:forEach>
+				</select>
+			</div>
 		</div> 
 		</div>
-		   
-	 <table class="table table-bordered table-hover  ">
-				       
-                    <thead>
-                    <tr>
-                    <th class="check-mail"><spring:message code="label.select"></spring:message></th>
-                    <th><spring:message code="label.ItemName"></spring:message></th>
-                    <th class="disable"><spring:message code="label.Read"></spring:message></th>
-                    <th class="disabled"><spring:message code="label.Write"></spring:message></th>
-                    </tr>
-                    </thead>
-                    
-					<tbody>
- 
-						<tr>
-						<td><form:radiobutton name="role" value="LANGUAGES" path="role"/></td>
-						 <td><label><spring:message code="label.Languages" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-						<tr>
-						<td><form:radiobutton  value="PROFILE" path="role" name="role"  /></td>
-						 <td><label><spring:message code="label.Profile" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-						<tr>
-						<td><form:radiobutton path="role" name="role" value="RESERVATION" /></td>
-						 <td><label><spring:message code="label.Reservation" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-						<tr>
-						<td><form:radiobutton path="role" name="role" value="UNIT" /></td>
-						 <td><label><spring:message code="label.Unit" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-							<tr>
-						<td><form:radiobutton path="role" name="role" value="INGREDIENTS" /></td>
-						 <td><label><spring:message code="label.Ingredients" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-							<tr>
-						<td><form:radiobutton path="role" name="role" value="SERVICE" /></td>
-						 <td><label><spring:message code="label.Service" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-							<tr>
-						<td><form:radiobutton path="role" name="role" value="USERMANAGEMENT"  /></td>
-						 <td><label><spring:message code="label.UserManagement" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-							<tr>
-						<td><form:radiobutton path="role" name="role" value="PLAYER" /></td>
-						 <td><label><spring:message code="label.Player" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
-							<tr>
-						<td><form:radiobutton  path="role" name="role" value="Order" /></td>
-						 <td><label><spring:message code="label.Order" /></label></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						 <td><input type="checkbox" disabled="disabled"></td>
-						</tr>
+		<%--  <div class="col-sm-4">
+		 	<div class="form-group" >
+			<label class="col-sm-2 control-label"><spring:message code="label.SelectRole"></spring:message></label>
+			<div class="col-sm-10"> 
+				<select id="roleGroup" class="form-control m-b"  name="" >
+				 <c:forEach items="${roles}" var="roles">
+			    <option value="${roles.role}">${roles.role}</option> 
+				</c:forEach>
+				</select>
+			</div>
+			</div>
+		</div>  --%>
+		</div>  
+			<div class="ibox-content">
+		<%-- <div id="COFFEESHOP" style="display: none;" class="services"> 
+		  <jsp:include page="../user/coffeeShopRole.jsp"></jsp:include>
+		  </div>
+						 <div  id="PLAYER" style="display: none;" class="services">
+						 <jsp:include page="../user/playerRole.jsp"></jsp:include>
+						 </div>
+						  <div id="LANGUAGES" style="display: none;" class="services">
+						 <jsp:include page="../user/languageRole.jsp"></jsp:include>
+						 </div>
+						   <div  id="ORDER" style="display: none;" class="services">
+						 <jsp:include page="../user/orderRole.jsp"></jsp:include>
+						 </div>
+						  <div  id="HOUSEKEEPING" style="display: none;" class="services">
+						 <jsp:include page="../user/houseKeepingRole.jsp"></jsp:include>
+						 </div>
+						 <div  id="RESERVATION" style="display: none;" class="services">
+						 <jsp:include page="../user/reservationRole.jsp"></jsp:include>
+						 </div>
+						 <div  id="CHECKOUT" style="display: none;" class="services">
+						 <jsp:include page="../user/checkoutRole.jsp"></jsp:include>
+						 </div>
+						 <div  id="PARKING" style="display: none;" class="services">
+						 <jsp:include page="../user/parkingRole.jsp"></jsp:include>
+						 </div>
+						  <div  id="LAUNDRY" style="display: none;" class="services">
+						 <jsp:include page="../user/laundryRole.jsp"></jsp:include>
+						 </div>
+						 <div  id="PROFILE" style="display: none;" class="services">
+						 <jsp:include page="../user/profileRole.jsp"></jsp:include>
+						 </div>
+						  <div  id="USERMANAGEMENT" style="display: none;" class="services">
+						 <jsp:include page="../user/userManagementRole.jsp"></jsp:include>
+						 </div>
+						   <div  id="RESTAURANT" style="display: none;" class="services">
+						 <jsp:include page="../user/restaurantRole.jsp"></jsp:include>
+						 </div>
+						 <div  id="COFFEESHOP" style="display: none;" class="services">
+						 <jsp:include page="../user/coffeeShopRole.jsp"></jsp:include>
+						 </div>
+						 </div> --%>
 						
-						</tbody>
-						</table>
-						 
+					
+ </div>
+						   
  <div class="form-group">
 			<div class="col-lg-offset-2 col-lg-8">
 				<button class="btn btn-primary" type="submit">
@@ -107,6 +95,14 @@
 		</div>
 	</form:form>
  
+	  <script type="text/javascript">
+	   $(function() { 
+        $('#roleGroup').change(function(){
+            $('.services').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+	 </script>
 	 
 </body>
 </html>

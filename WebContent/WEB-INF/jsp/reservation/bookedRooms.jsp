@@ -56,12 +56,11 @@
 												<th><spring:message code="label.checkOutDate" /></th>
 												<th><spring:message code="label.RoomNumber" /></th>
 												<th><spring:message code="label.MemberName" /></th>
+												 <th><spring:message code="label.Password" /></th>
 												<th><spring:message code="label.CheckOut" /></th>
-
-											</tr>
+                                             </tr>
 										</thead>
-										<tbody>
-
+										<tbody> 
 											<!-- Fetching Language Table-->
 											<c:forEach items="${bookedRooms}" var="bookedRooms">
 												<tr class="gradeX">
@@ -71,11 +70,12 @@
 													<td class="center">${bookedRooms.endDate}</td>
 													<td class="center">${bookedRooms.room.roomCode}</td>
 													<td class="center">${bookedRooms.userDetails.firstName}</td>
+													<td class="center">${bookedRooms.accessPassword}</td>
 													<td class="center">
 													<c:if test="${bookedRooms.bookingStatus=='CHECKEDIN'}">
-														<button type="button" class="btn btn-primary">
+														<a href="${pageContext.request.contextPath}/reservation/checkOut?bookingrefernceId=${bookedRooms.bookingReferenceId}" class="btn btn-primary">
 															<spring:message code="label.CheckOut" />
-														</button>
+														</a>
 														</c:if>
 													</td>
 												</tr>

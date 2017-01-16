@@ -13,6 +13,7 @@ import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.service.ReservationService;
 import org.alArbiyaHotelManagement.service.RoomTypeService;
 import org.alArbiyaHotelManagement.service.UserService;
+import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
  
@@ -65,11 +66,13 @@ public class ReservationController {
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate, 
 			Model model) {
+		int randomPassword= AlArbiyaHotelMgmtUtils.generatePassword();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("roomId", roomId);
 		attributes.put("startDate", startDate);
 		attributes.put("endDate", endDate);
 		attributes.put("userDetails", new UserDetails());
+		attributes.put("randomPassword", randomPassword);
 		model.addAllAttributes(attributes);
 		return "reservation/userDetails";
 	}
@@ -78,8 +81,9 @@ public class ReservationController {
 	public String doBooking(@ModelAttribute(value="userDetails") UserDetails userDetails, @RequestParam(required=true) String roomId,
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate,
-			Model model) throws ParseException {
-		Booking booking = bookingService.createBooking(roomId, startDate, endDate, userDetails);
+			@RequestParam(required=true) int randomPassword, 
+			Model model) throws ParseException { 
+		Booking booking = bookingService.createBooking(roomId, startDate, endDate,randomPassword, userDetails);
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("bookingDetails", booking);
 		model.addAllAttributes(attributes);
@@ -90,6 +94,11 @@ public class ReservationController {
 	public String checkIn(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
 	     booking = bookingService.createCheckIn(bookingrefernceId); 
 		return "redirect:/reservation";
+	}
+	@RequestMapping(value="/checkOut", method=RequestMethod.GET) 
+	public String checkOut(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
+	     booking = bookingService.checkOut(bookingrefernceId); 
+		return "redirect:/reservation/bookedRooms";
 	}
 	
 	@RequestMapping(method = RequestMethod.GET,value="/bookedRooms")

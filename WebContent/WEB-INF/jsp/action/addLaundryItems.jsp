@@ -46,36 +46,34 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><spring:message
-					code="label.OtherLanguages" /></label>
-			<div class="col-sm-10">
-				<div class="controls-coffeeLanguage">
+	<div class="form-group">
+					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
+					<div class="col-sm-10">
+						<div class="controls-coffeeLanguage">
 
-
-					<div class="entry-coffeeLanguage input-group ">
-
-						<form:select class="form-control m-b select" id="drp"
-							path="languageHelper[0].languageId"
-							name="languageHelper[0].languageId" style="width:30%;">
-
-							<form:options items="${languageHelper}" itemValue="id"
-								itemLabel="languageName"></form:options>
-						</form:select>
-
-						<form:input class="form-control" type="text"
-							name="languageName[0]" path="languageName[0]"
-							placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
-						<span class="input-group-btn">
-							<button class="btn btn-primary coffeShopLanguage-btn-add"
-								type="button">
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-						</span>
+                     	<div class="entry-coffeeLanguage input-group ">
+								
+								<form:select class="form-control m-b select" id="drp"
+									path="languageHelper[0].languageId" name="languageHelper[0].languageId" style="width:30%;">
+								 
+									<form:options items="${languageHelper}" itemValue="id"
+										itemLabel="languageName"></form:options>
+								</form:select>
+								
+								<form:input class="form-control" type="text"
+									name="languageName[0]" path="languageName[0]"
+									placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
+								<span class="input-group-btn">
+									<button class="btn btn-primary coffeShopLanguage-btn-add"
+										type="button">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+  
 		
 			<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /></label>

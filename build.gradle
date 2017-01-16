@@ -11,12 +11,13 @@ def aspectVersion = '1.7.4'
 def slfjVersion = '1.7.5'
 def securityVersion = '4.2.0.RELEASE'
 def springDataJpaVersion = '1.9.0.RELEASE' 
+def theversion = '2.1.2.RELEASE' 
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.6
 targetCompatibility = 1.7
-
+ 
 dependencies {
-
+ 
 	compile "org.springframework:spring-context:${springVersion}",
 			"org.springframework:spring-webmvc:${springVersion}",
 			"org.springframework:spring-tx:${springVersion}",
@@ -41,8 +42,7 @@ dependencies {
 	compile "log4j:log4j:1.2.15"
 	  
 	compile "javax.inject:javax.inject:1",
-			"javax.servlet:jstl:1.2",
-			"javax.servlet:servlet-api:2.3"
+			"javax.servlet:jstl:1.2" 
 						  
 	compile "com.fasterxml.jackson.core:jackson-databind:2.6.3"
 	 
@@ -52,7 +52,14 @@ dependencies {
 	        "org.springframework.security:spring-security-config:${securityVersion}",
 	        "org.springframework.security:spring-security-core:${securityVersion}",
 	        "org.springframework.security:spring-security-taglibs:${securityVersion}"
+	 
+	compile "org.thymeleaf:thymeleaf-spring4:3.0.3.RELEASE"
+	compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.1.RELEASE"
 	        
+	compile "org.springframework:spring-aop:1.2.6"       
+	
 	compile "org.springframework.data:spring-data-jpa:${springDataJpaVersion}"
-  
+    
+    providedCompile "javax.servlet:servlet-api:2.3"
+    
 }

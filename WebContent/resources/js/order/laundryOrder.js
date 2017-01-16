@@ -23,7 +23,9 @@ $(document)
 																					'<tr><td>'
 																							+ Orders.id
 																							+ '</td><td>'
-																							+ Orders.room.roomName
+																							+ Orders.room.roomCode
+																							+ '</td><td>'
+																							+ Orders.hotelServicesItem.serviceItemName
 																							+ '</td><td>'
 																							+ Orders.quantity
 																							+ '</td><td>'

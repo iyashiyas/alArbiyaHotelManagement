@@ -55,9 +55,10 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 					 	<div class="ibox-title">
-								<h5>
+							<h3 class="text-center "><label class="label label-primary">
 									Coffee Shop Screen
-								</h5>
+							</label>
+							</h3>
 								 
 							</div>  
 						<div class="ibox-content"> 
@@ -81,10 +82,10 @@
 										</thead>
 										<tbody class="animated fadeInRight"> 
 											<!-- Fetching Language Table--> 
-											<%--  <c:forEach items="${orders}" var="orders"> 
+											 <c:forEach items="${orders}" var="orders"> 
 												<tr class="gradeX" id="${orders.id}"> 
 													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomName}</td> 
+													<td class="center">${orders.room.roomCode}</td> 
 													<td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
 													<td class="center"> 
 													<c:forEach items="${orders.unit}" var="units">
@@ -131,15 +132,11 @@
 													</c:otherwise>
 													</c:choose>
 													</td>
-													<td>
+												 	<%-- <td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
-													</td>
-
-												</tr>
-
-											</c:forEach> --%>  
-											
-											
+													</td>  --%>  
+												</tr> 
+											</c:forEach>    
 											<!-- Demo -->
 											<!--End Action -->
 									</table>
@@ -261,9 +258,8 @@
 
 	<!-- Page-Level Scripts -->
 	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript"> 
-	</script>  
- 
+		type="text/javascript">  
+	</script>   
 <script type="text/javascript">
 function printDiv() 
 { 
@@ -284,8 +280,6 @@ function printDiv()
 
 <script
 		src="<c:url value="/resources/js/order/coffeeShopOrder.js" />"></script>
-
-
 <script type="text/javascript">
 
 function refresh()

@@ -55,7 +55,7 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Restaurant Screen</h5>
+								<h3 class="text-center "><label class="label label-primary">Restaurant Screen</label></h3>
 
 							</div>
 							<div class="ibox-content">
@@ -68,6 +68,7 @@
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th>
+														<th><spring:message code="label.ItemName" /></th>  
 												<th><spring:message code="label.Unit" /></th>
 												<th><spring:message code="label.Ingredient" /></th>
 												<th><spring:message code="label.Quantity" /></th>
@@ -79,25 +80,26 @@
 										</thead>
 										<tbody class="animated fadeInRight">
 											<!-- Fetching Language Table-->
-											<c:forEach items="${orders}" var="orders">
-
-												<tr class="gradeX" id="${orders.id}">
-
+											<!-- Fetching Language Table--> 
+											 <c:forEach items="${orders}" var="orders"> 
+												<tr class="gradeX" id="${orders.id}"> 
 													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomName}</td>
-													<td class="center"><c:forEach items="${orders.unit}"
-															var="units">
+													<td class="center">${orders.room.roomCode}</td> 
+													<td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
+													<td class="center"> 
+													<c:forEach items="${orders.unit}" var="units">
 													${units.unitName}
-													</c:forEach></td>
-
-													<td><c:forEach items="${orders.ingredients}"
-															var="ingredients">
+													</c:forEach> 
+													</td> 
+													<td>
+													<c:forEach items="${orders.ingredients}" var="ingredients">
 													${ingredients.ingredientName}
-													</c:forEach></td>
-													<td class="center">${orders.quantity}</td>
-
+													</c:forEach> 
+													</td> 
+													<td class="center">${orders.quantity}</td> 
 													<td class="center">${orders.requestedTime}</td>
-													<td class="center"><c:choose>
+													<td class="center"> 
+													<c:choose>
 															<c:when test="${orders.acceptTime == null}">
 																<a
 																	href="${pageContext.request.contextPath}/order/restaurantacceptOrder?id=${orders.id}"
@@ -129,11 +131,12 @@
 																	class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message
 																		code="label.Delivered" /></a>
 															</c:when>
-															<c:otherwise>
-																<label class="label label-primary">
-																	${orders.deliveredTime}</label>
-															</c:otherwise>
-														</c:choose></td>
+													<c:otherwise>
+												    <label class="label label-primary">
+													${orders.deliveredTime}</label>
+													</c:otherwise>
+													</c:choose>
+													</td>
 													<%-- 	<td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
 													</td> --%>
@@ -266,8 +269,8 @@
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
+	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript"> --%>
 		
 	</script>
 

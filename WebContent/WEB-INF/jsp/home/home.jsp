@@ -28,7 +28,7 @@
 				<ol class="breadcrumb">
 					<li><a href="${pageContext.request.contextPath}/SHMS"><spring:message code="label.Home" /></a></li>
 					<li class="active"><strong><spring:message code="label.Home" /></strong></li>
-					<marquee>In Screen URL include Server IP and port (EX: http://192.168.100.111:8008/alArabiyaScreen/home)</marquee>
+					<marquee>In Screen URL include Server IP and port (EX: http://192.168.100.111:9091/alArbiyaScreenManagement/home)</marquee>
 				</ol>
 			</div>
 		</div>

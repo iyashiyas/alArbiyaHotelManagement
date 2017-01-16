@@ -56,8 +56,9 @@
 										class="table table-striped table-bordered table-hover dataTables-example">
 										<thead>
 											<tr>
-												<th><spring:message code="label.OrderID" /></th>
+												<%-- <th><spring:message code="label.OrderID" /></th> --%>
 												<th><spring:message code="label.OrderRoom" /></th>
+											    <th><spring:message code="label.ItemName" /></th>
 												<th><spring:message code="label.Unit" /></th>
 												<th><spring:message code="label.Ingredient" /></th>
 												<th><spring:message code="label.Quantity" /></th>
@@ -74,8 +75,9 @@
 											
 												<tr class="gradeX">
 												
-													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomName}</td>
+												<%-- 	<td class="center">${orders.id}</td> --%>
+													<td class="center">${orders.room.roomCode}</td>
+													<td class="center">${orders.hotelServicesItem.serviceItemName}</td>
 													<td class="center">
 													 
 													<c:forEach items="${orders.unit}" var="units">

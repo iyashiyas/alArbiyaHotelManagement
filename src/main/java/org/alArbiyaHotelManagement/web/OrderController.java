@@ -118,6 +118,7 @@ public class OrderController {
 					@RequestParam(required=true) String serviceItemName,@ModelAttribute Orders order) {
 				orderService.acceptOrder(order,id, roomId, serviceItemName);
 				return "redirect:/order/coffeeShopScreen";
+				 
 			}
 			@RequestMapping(value = "coffeeShopreadyForDelivery", method = RequestMethod.GET)
 			public String coffeeShopreadyForDelivery(@RequestParam(required=false) long id, @ModelAttribute Orders order) {

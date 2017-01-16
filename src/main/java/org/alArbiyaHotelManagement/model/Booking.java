@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="BOOKING")
 public class Booking {
@@ -37,12 +39,21 @@ public class Booking {
 	private String checkedInTime;
 	
 	@Column(name="CHECKED_OUT_TIME")
-	private Date checkedOutTime;
+	private String checkedOutTime;
 	
+	@Column(name="ACCESS_PASSWORD")
+	private int accessPassword;
+	
+	@Column(name="PARKING_NUMBER")
+	private String parkingNumber; 
+	
+	
+	@JsonBackReference
 	@OneToOne(cascade={CascadeType.MERGE})
 	@JoinColumn(name="USER_ID")
 	private UserDetails userDetails;
 	
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="ROOM_ID")
 	private Room room;
@@ -83,11 +94,11 @@ public class Booking {
 		this.checkedInTime = checkedInTime;
 	}
 
-	public Date getCheckedOutTime() {
+	public String getCheckedOutTime() {
 		return checkedOutTime;
 	}
 
-	public void setCheckedOutTime(Date checkedOutTime) {
+	public void setCheckedOutTime(String checkedOutTime) {
 		this.checkedOutTime = checkedOutTime;
 	}
 
@@ -125,4 +136,22 @@ public class Booking {
 		}
 	}
 
+	
+ 
+
+	public String getParkingNumber() {
+		return parkingNumber;
+	}
+
+	public void setParkingNumber(String parkingNumber) {
+		this.parkingNumber = parkingNumber;
+	}
+
+	public int getAccessPassword() {
+		return accessPassword;
+	}
+
+	public void setAccessPassword(int accessPassword) {
+		this.accessPassword = accessPassword;
+	}
 }

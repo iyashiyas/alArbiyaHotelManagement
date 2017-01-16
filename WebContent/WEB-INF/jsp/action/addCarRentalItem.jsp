@@ -38,7 +38,7 @@
 							path="itemName" class="form-control" />
 					</div>
 				</div>
-	<div class="form-group">
+<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeLanguage">
@@ -90,7 +90,7 @@
 							</div>
 						</div>
 					</div>
-				</div>  
+				</div>   
  
 				<div class="form-group">
 					<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>

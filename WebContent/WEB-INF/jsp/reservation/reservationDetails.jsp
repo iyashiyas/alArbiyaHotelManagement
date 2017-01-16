@@ -80,6 +80,10 @@
 					<td><spring:message code="label.BookedTill" /></td>
 					<td>${bookingDetails.endDate}</td>
 				</tr>
+				<tr>
+					<td><spring:message code="label.Password" /></td>
+					<td>${bookingDetails.accessPassword}</td>
+				</tr>
 			</tbody>
 		</table>
 		

@@ -11,5 +11,6 @@ public interface BookingRepository {
 	public String getMemberShipId(String firstName, String email);
 	public Booking createCheckIn(String bookingId,Booking booking);
 	public List<Booking> bookedRooms();
+	public Booking checkOut(String bookingrefernceId, Booking booking);
 
 }

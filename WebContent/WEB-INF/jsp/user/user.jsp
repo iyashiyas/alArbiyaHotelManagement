@@ -80,7 +80,7 @@
 												<tr>
 													<th><spring:message code="label.UserId"></spring:message></th>
 													<th><spring:message code="label.UserName" /></th>
-													<th><spring:message code="label.role.roleName" /></th>
+								<%-- 					<th><spring:message code="label.role.roleName" /></th> --%>
 													<th><spring:message code="label.ChangePassword" /></th>
 
 												</tr>
@@ -90,8 +90,7 @@
 												<c:forEach items="${users}" var="users">
 													<tr class="read">
 														<td class="check-mail">${users.id}</td>
-														<td class="mail-ontact ">${users.username}</td>
-														<td class="mail-subject">${role}</td>
+														<td class="mail-ontact ">${users.username}</td> 
 														<td class=""><i class="fa fa-pencil"><a href="#"
 																data-toggle="modal" data-target="#confirm-Edit">ChangePassword</a></i></td>
  
@@ -135,5 +134,19 @@
 				</div>
 			</div>
 		</div>
+		<script src="<c:url value="/resources/js/treeview.js" />"></script>
+	  <script src="<c:url value="/resources/js/logger.js" />"></script>
+	 
+	 <script>
+            $('#treeview-checkbox-demo').treeview({
+              
+            });
+            $('#btnddas').on('click', function(){ 
+                $('#values').text(
+                    $('#treeview-checkbox-demo').treeview('selectedValues')
+                );
+            });
+             
+        </script>
 </body>
 </html>

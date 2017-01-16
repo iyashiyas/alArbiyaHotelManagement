@@ -200,8 +200,7 @@ public class ActionController {
 				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"restaurant");
 				if (!dir.exists())
-					dir.mkdirs();
-
+					dir.mkdirs(); 
 				// Create the file on server
 				serverFile = new File(dir.getAbsolutePath()
 						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");

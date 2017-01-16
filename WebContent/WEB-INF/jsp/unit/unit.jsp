@@ -19,8 +19,7 @@
 }
 </style>
 </head>
-<body>
-
+<body> 
 	<!-- Include Page Header-->
 	<div id="wrapper">
 		<jsp:include page="../header/header.jsp"></jsp:include>

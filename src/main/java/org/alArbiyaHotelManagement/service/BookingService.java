@@ -8,10 +8,12 @@ import org.alArbiyaHotelManagement.model.UserDetails;
 
 public interface BookingService {
 
-	public Booking createBooking(String roomId, String startDate, String endDate, UserDetails user) throws ParseException;
+	public Booking createBooking(String roomId, String startDate, String endDate,int randomPassword, UserDetails user) throws ParseException;
 
 	public Booking createCheckIn(String bookingId);
 
 	public List<Booking> bookedRooms();
+
+	public Booking checkOut(String bookingrefernceId);
 
 }

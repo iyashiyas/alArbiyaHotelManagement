@@ -12,6 +12,8 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="USER_DETAILS")
 public class UserDetails {
@@ -76,6 +78,7 @@ public class UserDetails {
 	private CommonsMultipartFile multipartFile;
 	
 	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE})
+	@JsonManagedReference
 	private List<Booking> bookings;
 
 	public long getId() {

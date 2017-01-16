@@ -18,14 +18,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+ 
 @RequestMapping(value = "/unit")
 public class UnitController {
 	
 	@Autowired UnitService unitService;
 	@Autowired LanguageService languageService;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ROLE_UNIT','ROLE_ADMIN')")
+
+	@RequestMapping(method = RequestMethod.GET)  
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		List<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
 		List<Language> languages = languageService.getEnableLanguages();

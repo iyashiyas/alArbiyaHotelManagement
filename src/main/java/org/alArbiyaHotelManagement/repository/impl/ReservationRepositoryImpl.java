@@ -25,8 +25,7 @@ import org.springframework.stereotype.Repository;
 public class ReservationRepositoryImpl implements ReservationRepository {
 
 	@PersistenceContext
-	EntityManager entityManager;
-	
+	EntityManager entityManager; 
 	@Override
 	public List<Room> getAllAvailableRoooms(Date startDate, Date endDate, String roomtype) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -34,7 +33,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 		Root<Room> roomRoot = query.from(Room.class);
 		Join<org.alArbiyaHotelManagement.model.RoomType, Room> joinRoomType = roomRoot.join("roomType");
 	// Join<Booking, Room> joinBooking = roomRoot.join("bookings"); 
-		List<Predicate> conditions = new ArrayList<Predicate>(); 
+		List<Predicate> conditions = new ArrayList<Predicate>();  
 		conditions.add(criteriaBuilder.equal(joinRoomType.get("id"), roomtype));
 	 //ToDO: PT
 		 //conditions.add(criteriaBuilder.lessThan(joinBooking.<Date>get("startDate"), endDate));

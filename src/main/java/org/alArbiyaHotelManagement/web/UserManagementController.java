@@ -1,6 +1,6 @@
 package org.alArbiyaHotelManagement.web;
 
- 
+  
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,7 @@ import java.util.Map;
 import org.alArbiyaHotelManagement.model.Role;
 import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.service.RoleService;
-import org.alArbiyaHotelManagement.service.UserManagementService;
+import org.alArbiyaHotelManagement.service.UserManagementService; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +41,7 @@ public class UserManagementController {
 	}
 	  
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
-	public String addUser(@ModelAttribute User user){
+	public String addUser(@ModelAttribute User user){ 
 		userManagementService.addUser(user);
 		return "redirect:/usermanagement/showUser";
 	}

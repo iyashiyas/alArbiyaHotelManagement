@@ -53,7 +53,7 @@
 		</div>
 	  
 		  
-	   <div class="col-lg-12">
+	<%--    <div class="col-lg-12">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
 				<h5><spring:message code="label.role.roleName"></spring:message></h5>
@@ -83,7 +83,7 @@
   <c:forEach items="${roles}" var="roles">
 						<tr class="read">
                             <td class="check-mail">${roles.id} </td>
-							<%-- <td class="mail-ontact ">${roles.roleName}  </td> --%>
+							<td class="mail-ontact ">${roles.roleName}  </td>
 							<td class="mail-subject"> ${roles.role}  </td>
 					  
 						</tr>
@@ -97,7 +97,7 @@
 		</div>
 		
 		</div>
-		</div>
+		</div> --%>
 		</div>
 		</div>
 		</div>
@@ -105,17 +105,17 @@
 		 
 	
 	
-		<div class="modal fade" id="confirm-Edit" tabindex="-1" role="dialog"
+	<%-- 	<div class="modal fade" id="confirm-Edit" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 			  <jsp:include page="../user/editUser.jsp"></jsp:include>
 			</div>
 		</div>
-	</div>
- 
+	</div> --%>
  
 
+ 
 
 </body>
 </html>

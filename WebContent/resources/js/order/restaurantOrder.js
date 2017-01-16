@@ -23,7 +23,9 @@ $(document)
 																					'<tr><td>'
 																							+ Orders.id
 																							+ '</td><td>'
-																							+ Orders.room.roomName
+																							+ Orders.room.roomCode
+																							+ '</td><td>'
+																							+ Orders.hotelServicesItem.serviceItemName
 																							+ '</td><td>'
 																							+ (Orders.unit.length === 0 ? "-"
 																									: Orders.unit[0].unitName)

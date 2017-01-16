@@ -57,4 +57,15 @@
 	<!-- Use @Transaction annotations for managing transactions -->
 	<tx:annotation-driven transaction-manager="myTxManager" />
 	<context:annotation-config />
+	
+ 
+
+ <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine"> 
+      <property name="additionalDialects">
+        <set> 
+          <bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect"/>
+        </set>
+      </property> 
+    </bean>
+    
 </beans>

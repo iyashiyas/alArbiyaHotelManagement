@@ -1,8 +1,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ page language="java" pageEncoding="UTF-8" session="false"%> 
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +43,7 @@
 							</span> <span class=" text-xs block"><spring:message
 										code="label.Info" /> <b class="caret"></b></span>
 						</span>
-						</a>
+						</a> <sec:authorize access="hasAnyRole('ROLE_HOTELINFO','ROLE_ADMIN')">
 						<ul class="dropdown-menu animated fadeInRight m-t-xs">
 							<li><a
 								href="${pageContext.request.contextPath}/info/showInfo"><spring:message
@@ -50,7 +51,7 @@
 							<li class="divider"></li>
 							<li><a href="${pageContext.request.contextPath}/login"><spring:message
 										code="label.Lock" /></a></li>
-						</ul>
+						</ul></sec:authorize>
 					</div>
 					<div class="logo-element">SHMS</div>
 				</li>
@@ -61,111 +62,109 @@
 				<li><a href="${pageContext.request.contextPath}/SHMS"><i
 						class="fa fa-th-large"></i> <span class="nav-label"><spring:message
 								code="label.Home" /></span> </a></li>
-				<li><a href="${pageContext.request.contextPath}/language"><i
+				<sec:authorize access="hasAnyRole('ROLE_LANGUAGES','ROLE_ADMIN')">
+				<li ><a href="${pageContext.request.contextPath}/language"><i
 						class="fa fa-diamond"></i> <span class="nav-label"><spring:message
-								code="label.Languages" /></span></a></li>
-				<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
+								code="label.Languages" /></span></a></li></sec:authorize>
+			<sec:authorize access="hasAnyRole('ROLE_CURRENCY','ROLE_ADMIN','ROLE_BRANCH','ROLE_BUILDING','ROLE_FLOOR','ROLE_ROOM','ROLE_ROOMTYPES')">	<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
 						class="nav-label"><spring:message code="label.Profile" /></span><span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
+						<sec:authorize access="hasAnyRole('ROLE_CURRENCY','ROLE_ADMIN')">
 						<li><a class="btn btn-link disabled"
 							href="${pageContext.request.contextPath}/hotel/showCurrency"><spring:message
-									code="label.Currency" /></a></li>
-						<li><a
+									code="label.Currency" /></a></li></sec:authorize>
+							<sec:authorize access="hasAnyRole('ROLE_BRANCH','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/hotel/showBranch"><spring:message
-									code="label.Branch" /></a></li>
-						<li><a
+									code="label.Branch" /></a></li></sec:authorize>
+							<sec:authorize access="hasAnyRole('ROLE_BUILDING','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/hotel/showBuilding"><spring:message
-									code="label.Building" /></a></li>
-						<li><a
+									code="label.Building" /></a></li></sec:authorize>
+						<sec:authorize access="hasAnyRole('ROLE_FLOOR','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/hotel/showFloor"><spring:message
-									code="label.Floor" /></a></li>
-						<li><a><i class="fa fa-bar-chart-o"></i> <spring:message
+									code="label.Floor" /></a></li></sec:authorize>
+					<sec:authorize access="hasAnyRole('ROLE_ROOM','ROLE_ADMIN','ROLE_ROOMTYPES')">	<li><a><i class="fa fa-bar-chart-o"></i> <spring:message
 									code="label.Rooms" /> <span class="fa arrow"> </span></a>
 							<ul class="nav nav-third-level collapse">
-								<li><a
+							<sec:authorize access="hasAnyRole('ROLE_ROOM','ROLE_ADMIN')">	<li><a
 									href="${pageContext.request.contextPath}/hotel/showRoom"><spring:message
-											code="label.Rooms" /></a></li>
-								<li><a
+											code="label.Rooms" /></a></li></sec:authorize>
+								<sec:authorize access="hasAnyRole('ROLE_ROOMTYPES','ROLE_ADMIN')"><li><a
 									href="${pageContext.request.contextPath}/hotel/showRoomTypes"><spring:message
-											code="label.RoomTypes" /></a></li>
-							</ul></li>
-					</ul></li>
-					
-									<li><a ><i class="fa fa-credit-card"></i> <span
+											code="label.RoomTypes" /></a></li></sec:authorize>
+							</ul></li></sec:authorize>
+					</ul></li></sec:authorize> 
+									<sec:authorize access="hasAnyRole('ROLE_RESERVATION','ROLE_ADMIN','ROLE_BOOKEDROOMS')">	<li><a ><i class="fa fa-credit-card"></i> <span
 						class="nav-label"><spring:message code="label.Reservation" /></span><span
 						class="fa arrow"></span></a>
 				  
 							<ul class="nav nav-second-level collapse">
-								<li><a
+							<sec:authorize access="hasAnyRole('ROLE_RESERVATION','ROLE_ADMIN')">	<li><a
 									href="${pageContext.request.contextPath}/reservation"><spring:message
-											code="label.Reservation" /></a></li>
-												<li><a
+											code="label.Reservation" /></a></li></sec:authorize>
+												<sec:authorize access="hasAnyRole('ROLE_BOOKEDROOMS','ROLE_ADMIN')">	<li><a
 									href="${pageContext.request.contextPath}/reservation/bookedRooms"><spring:message
-											code="label.BookedRooms" /></a></li>
-								 
-							</ul></li>
-								  
-								 
-				<li><a href="${pageContext.request.contextPath}/unit"><i
+											code="label.BookedRooms" /></a></li></sec:authorize> 
+							</ul></li> </sec:authorize>
+			<sec:authorize access="hasAnyRole('ROLE_UNIT','ROLE_ADMIN')">	<li><a href="${pageContext.request.contextPath}/unit"><i
 						class="fa fa-pie-chart"></i> <span class="nav-label"><spring:message
-								code="label.Unit" /></span> </a></li>
-				<li><a href="${pageContext.request.contextPath}/ingredient"><i
+								code="label.Unit" /></span> </a></li></sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_INGREDIENT','ROLE_ADMIN')">	<li><a href="${pageContext.request.contextPath}/ingredient"><i
 						class="fa fa-shopping-cart"></i> <span class="nav-label"><spring:message
-								code="label.Ingredients" /></span></a></li>
-				<li><a href="#"><i class="fa fa-picture-o"></i> <span
+								code="label.Ingredients" /></span></a></li></sec:authorize>
+				 <sec:authorize access="hasAnyRole('ROLE_SHOWCHECKOUT','ROLE_ADMIN','ROLE_SHOWPARKINGACTION','ROLE_SHOWHOUSEKEEPINGACTION','ROLE_SHOWLAUNDRYACTION','ROLE_SHOWCOFFEESHOP','ROLE_SHOWRESTAURANT','ROLE_SHOWCARRENTAL','ROLE_SHOWRECEPTION')"><li><a href="#"><i class="fa fa-picture-o"></i> <span
 						class="nav-label"><spring:message code="label.Service" /></span><span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 						<%-- <li><a href="${pageContext.request.contextPath}/action"><spring:message
 									code="label.AllServices" /></a></li> --%>
-						<li><a
+					 <sec:authorize access="hasAnyRole('ROLE_SHOWCHECKOUT','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showCheckoutAction"><spring:message
-									code="label.CheckOut" /></a></li>
-						<li><a
+									code="label.CheckOut" /></a></li></sec:authorize>
+					 <sec:authorize access="hasAnyRole('ROLE_SHOWPARKINGACTION','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showParkingAction"><spring:message
-									code="label.Parking" /></a></li>
-						<li><a
+									code="label.Parking" /></a></li></sec:authorize>
+						 <sec:authorize access="hasAnyRole('ROLE_SHOWHOUSEKEEPINGACTION','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showHouseKeepingAction"><spring:message
-									code="label.HouseKeeping" /></a></li>
-						<li><a
+									code="label.HouseKeeping" /></a></li></sec:authorize>
+					 <sec:authorize access="hasAnyRole('ROLE_SHOWLAUNDRYACTION','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showLaundryAction"><spring:message
-									code="label.Laundry" /></a></li>
-						<li><a
+									code="label.Laundry" /></a></li></sec:authorize>
+						 <sec:authorize access="hasAnyRole('ROLE_SHOWCOFFEESHOP','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/action/showCoffeeShop"><spring:message
-									code="label.CoffeeShop" /></a></li>
-						<li><a
+									code="label.CoffeeShop" /></a></li></sec:authorize>
+					 <sec:authorize access="hasAnyRole('ROLE_SHOWRESTAURANT','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showRestaurant"><spring:message
-									code="label.Restaurant" /></a></li>
-						<li><a
+									code="label.Restaurant" /></a></li></sec:authorize>
+						 <sec:authorize access="hasAnyRole('ROLE_SHOWCARRENTAL','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/action/showCarRentalAction"><spring:message
-									code="label.CarRental" /></a></li>
-						<li><a
+									code="label.CarRental" /></a></li></sec:authorize>
+						 <sec:authorize access="hasAnyRole('ROLE_SHOWRECEPTION','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/action/showReception"><spring:message
-									code="label.Reception" /></a></li>
-						<li><a
+									code="label.Reception" /></a></li></sec:authorize>
+				<%-- 	 <sec:authorize access="hasAnyRole('ROLE_SHOWRECEPTION','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action?actionCode=ENTERTAINMENT"><spring:message
-									code="label.Entertainment" /></a></li>
-					</ul></li>
-				<li><a href="#"><i class="fa fa-user"></i> <span
+									code="label.Entertainment" /></a></li></sec:authorize> --%>
+					</ul></li></sec:authorize>
+				 <sec:authorize access="hasAnyRole('ROLE_SHOWUSER','ROLE_ADMIN')"><li><a href="#"><i class="fa fa-user"></i> <span
 						class="nav-label"><spring:message
 								code="label.UserManagement" /></span><span class="fa arrow"></span> </a>
 					<ul class="nav nav-second-level collapse">
-						<li><a
+					 <sec:authorize access="hasAnyRole('ROLE_ROLE','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/role/showRole"><spring:message
-									code="label.Roles" /></a></li>
-						<li><a
+									code="label.Roles" /></a></li></sec:authorize>
+						 <sec:authorize access="hasAnyRole('ROLE_SHOWUSER','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/usermanagement/showUser"><spring:message
-									code="label.Users" /></a></li>
-					</ul></li>
-				<li><a
+									code="label.Users" /></a></li></sec:authorize>
+					</ul></li></sec:authorize>
+				 <sec:authorize access="hasAnyRole('ROLE_SHOWPLAYER','ROLE_ADMIN')"><li><a
 					href="${pageContext.request.contextPath}/player/showPlayer"><i
 						class="fa fa-desktop"></i> <span class="nav-label"><spring:message
-								code="label.Player" /></span> </a></li>
+								code="label.Player" /></span> </a></li></sec:authorize>
 
-				<li><a href="${pageContext.request.contextPath}/order"><i
+				 <sec:authorize access="hasAnyRole('ROLE_ORDER','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
-								code="label.Order" /></span> </a></li>
+								code="label.Order" /></span> </a></li></sec:authorize>
 
 			</ul>
 		</div>

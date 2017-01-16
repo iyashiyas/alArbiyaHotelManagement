@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.alArbiyaHotelManagement.model.Booking;
-import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.BookingRepository;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -32,7 +31,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		booking.setRoom(room);
 		entityManager.persist(booking);
 		return booking;
-	} 
+	}
 	@Override
 	public String getBookingId() {
 		String randomString = ""; 
@@ -75,5 +74,16 @@ public class BookingRepositoryImpl implements BookingRepository{
 	public List<Booking> bookedRooms() {
 		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms order by id", Booking.class);
 		return query.getResultList();
+	}
+	
+	@Override
+	public Booking checkOut(String bookingrefernceId, Booking booking) {
+		// TODO Auto-generated method stub
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDOUT' , checkedInTime=:checkedoutTime where bookingReferenceId=:bookingReferenceId");
+		updateQuery.setParameter("bookingReferenceId", bookingrefernceId); 
+		updateQuery.setParameter("checkedoutTime", booking.getCheckedOutTime()); 
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		return null ;
 	}
 }

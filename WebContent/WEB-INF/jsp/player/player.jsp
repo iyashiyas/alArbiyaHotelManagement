@@ -77,8 +77,7 @@
 												 
 												</tr>
 											</c:forEach>
-
-
+ 
 											<!-- Demo -->
 											<!--End Action -->
 									</table>

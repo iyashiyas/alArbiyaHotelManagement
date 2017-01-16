@@ -57,7 +57,7 @@ public class Orders {
 	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
 	private HotelServicesCategory hotelServiceCategories;
 	
-	@JsonBackReference
+	 
 	@OneToOne
 	@JoinColumn(name="SERVICE_ITEM_ID", nullable=false)
 	private HotelServicesItem hotelServicesItem;

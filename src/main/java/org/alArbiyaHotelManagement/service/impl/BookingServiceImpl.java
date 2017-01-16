@@ -25,7 +25,7 @@ public class BookingServiceImpl implements BookingService{
 	BookingRepository bookingRepository;
 	
 	@Override
-	public Booking createBooking(String id, String startDte, String endDte, UserDetails userDetails) throws ParseException {
+	public Booking createBooking(String id, String startDte, String endDte,int randomPassword, UserDetails userDetails) throws ParseException {
 		long roomId = Long.parseLong(id);
 		Date startDate = AlArbiyaHotelMgmtUtils.getDateForString(startDte);
 		Date endDate = AlArbiyaHotelMgmtUtils.getDateForString(endDte);
@@ -36,6 +36,7 @@ public class BookingServiceImpl implements BookingService{
 		booking.setBookingReferenceId(bookingId);
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
+		booking.setAccessPassword(randomPassword);
 		booking.setBookingStatus(BookingStatus.BOOKED.name());
 		if(userDetails.getId()<1) {
 			userDetails.setPhoneNumber("");
@@ -64,6 +65,16 @@ public class BookingServiceImpl implements BookingService{
 	public List<Booking> bookedRooms() {
 		// TODO Auto-generated method stub
 		return bookingRepository.bookedRooms();
+	}
+
+	@Override
+	public Booking checkOut(String bookingrefernceId) {
+		// TODO Auto-generated method stub
+		Booking booking = new Booking(); 
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date(); 
+	  booking.setCheckedOutTime(dateFormat.format(date));
+		return bookingRepository.checkOut(bookingrefernceId,booking);
 	}
 
 }

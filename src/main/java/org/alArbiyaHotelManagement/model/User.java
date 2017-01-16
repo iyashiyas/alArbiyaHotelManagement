@@ -2,7 +2,9 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,10 +35,11 @@ public class User implements UserDetails {
 	@Column(name = "PASSWORD")
 	private String password;
 
-	@ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "USERS_ROLES", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID"))
 	private List<Role> roles;
-
+	   
+ 
 	public long getId() {
 		return id;
 	}
@@ -62,14 +65,14 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-	public List<Role> getRoles() {
+	 public List<Role> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
-	}
-
+	} 
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

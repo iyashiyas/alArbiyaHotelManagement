@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
@@ -22,6 +23,7 @@ import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.model.ServiceLanguage;
+ 
 
 public class AlArbiyaHotelMgmtUtils {
 	
@@ -32,6 +34,11 @@ public class AlArbiyaHotelMgmtUtils {
 	public static Date getDateForString(String date) throws ParseException {
 		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		return sdf.parse(date);
+	}
+	
+	public static int generatePassword() {
+	    Random r = new Random( System.currentTimeMillis() );
+	    return ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
 	}
 	
 	public static String generateRandomString(){

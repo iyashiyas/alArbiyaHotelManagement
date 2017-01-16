@@ -1,33 +1,44 @@
 package org.alArbiyaHotelManagement.model;
 
-import java.util.Set;
-
+import java.util.List;
+ 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+ 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+ 
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+   
 
 import org.springframework.security.core.GrantedAuthority;
 
-@SuppressWarnings("serial")
+ 
 @Entity
 @Table(name="ROLES")
 public class Role implements GrantedAuthority{
      
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1595427597866726092L;
+
+	@Id
     @GeneratedValue
     @Column(name="ROLE_ID")
     private long id;
      
     @Column(name="ROLE")
     private String role;
-     
+      
     @ManyToMany(mappedBy = "roles")
-    private Set<User> userRoles;
- 
-    public long getId() {
+    private List<User> userRoles;
+ /*
+	@ManyToMany(mappedBy = "permission")
+   private Set<Role> roles; 
+*/
+	public long getId() {
         return id;
     }
  
@@ -43,20 +54,19 @@ public class Role implements GrantedAuthority{
         this.role = role;
     }
  
-    public Set<User> getUserRoles() {
+   public List<User> getUserRoles() {
         return userRoles;
     }
  
-    public void setUserRoles(Set<User> userRoles) {
+    public void setUserRoles(List<User> userRoles) {
         this.userRoles = userRoles;
-    }
-
-	@Override
+    } 
+    @Override
 	public String getAuthority() {
 		// TODO Auto-generated method stub
 		return role;
 	}
 
-	 
+ 
 }
      

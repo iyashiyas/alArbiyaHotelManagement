@@ -55,9 +55,9 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 					 	<div class="ibox-title">
-								<h5>
+							<h3 class="text-center "><label class="label label-primary">
 									Laundry  Screen
-								</h5>
+							</label></h3>
 								 
 							</div>  
 						<div class="ibox-content"> 
@@ -69,6 +69,7 @@
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th> 
+														<th><spring:message code="label.ItemName" /></th>  
 												<th><spring:message code="label.Quantity" /></th>
 												<th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
@@ -83,9 +84,9 @@
 												<tr class="gradeX" id="printdiv">
 												
 													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomName}</td>
-													<td class="center">
-													 </td> 
+													<td class="center">${orders.room.roomCode}</td>
+												 <td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
+												
 													<td class="center">${orders.quantity}</td>
 													
 													<td class="center">${orders.requestedTime}</td>
@@ -255,8 +256,8 @@
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">
+	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript"> --%>
 		
 	</script>
  
