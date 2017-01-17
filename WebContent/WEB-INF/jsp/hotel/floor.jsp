@@ -95,7 +95,7 @@
 															value="${floor.floorDescription}" /></td>
 													<td class="floorStatus"><c:out
 															value="${floor.floorStatus}" /></td>
-													<td class="editFloorbtn"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></sec:authorize></td>
+													<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><td class="editFloorbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
 
 												</tr>
 											</c:forEach>

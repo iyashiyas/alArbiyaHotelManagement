@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +64,7 @@
 										     <td class="roomTypeDescription"><c:out value="${roomType.roomTypeDescription}" /></td>
 											   <td class="roomTypeStatus"><c:out value="${roomType.roomTypeStatus}"/></td>
 											 
-											<td class="edit-roomType"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a >Edit</a></i></sec:authorize></td>
+										<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"> <td class="edit-roomType"><i class="fa fa-pencil"><a >Edit</a></i></td></sec:authorize>
 							                  </tr>
 											 </c:forEach>
 										</tbody>

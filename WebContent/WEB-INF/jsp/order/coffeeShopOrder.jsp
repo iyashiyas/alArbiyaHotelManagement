@@ -111,7 +111,7 @@
 													<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
 													<c:choose>
 													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
+					                                  <a href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
 													 </c:when> 
 													 <c:otherwise>
 													 <label class="label label-primary">

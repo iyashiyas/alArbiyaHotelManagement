@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +86,7 @@
 															value="${room.roomStatus}" /></td>
 															<td class="roomDescription hide"><c:out
 															value="${room.roomDescription}" /></td>
-													<td class="edit-roombtn"><i class="fa fa-pencil"><a>Edit</a></i></td>
+												<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"> <td class="edit-roombtn"><i class="fa fa-pencil"><a>Edit</a></i></td></sec:authorize>
 
 												</tr>
 											</c:forEach>

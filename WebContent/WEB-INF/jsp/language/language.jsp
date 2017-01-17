@@ -85,8 +85,9 @@
 															<spring:message code='label.inactive' var="inactive" />
 															${language.status == 'ACTIVE' ? active : inactive}
 													</label></td>
+													<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')">
 													<td class="center">
-													<sec:authorize access="hasAnyRole('ROLE_EDIT,'ROLE_ADMIN')">
+													
 														<form class="editLanguageForm"
 															action="${pageContext.request.contextPath}/language/editLanguage"
 															method="POST" id="language_edit">
@@ -105,8 +106,8 @@
 																class="btn btn-default submitBtn">
 																${language.status == 'ACTIVE' ? Disable : Enable}</button>
 														</form>
-														</sec:authorize>
-													</td>
+														
+													</td></sec:authorize>
 												</tr>
 											</c:forEach>
 
