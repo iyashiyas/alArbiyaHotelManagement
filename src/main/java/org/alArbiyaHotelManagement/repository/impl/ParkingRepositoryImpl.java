@@ -7,7 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
  
 
+
 import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.repository.ParkingRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -115,6 +117,13 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		entityManager.joinTransaction();
 		Updatequery.executeUpdate();
 	    
+	}
+
+	@Override
+	public List<ParkingOrder> getParkingRequests() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT parking from ParkingOrder parking where parking.orderStatus='ORDERED' ", ParkingOrder.class);
+		return query.getResultList();
 	} 
 
 }

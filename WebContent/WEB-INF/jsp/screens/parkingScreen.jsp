@@ -66,7 +66,7 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						No requests
+						<div id="newRequests"></div>
 					</div>
 				</div>
 
@@ -188,6 +188,9 @@
 		type="text/javascript">
 		
 	</script>
+	<script src="<c:url value="/resources/js/order/parkingOrder.js" />"
+		type="text/javascript"> </script>
+	
 	<script type="text/javascript">
 		function printDiv() {
 			var divToPrint = document.getElementById('printdiv'); 

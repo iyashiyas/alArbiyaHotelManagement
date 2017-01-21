@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.repository;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 
 public interface ParkingRepository {
 
@@ -33,5 +34,7 @@ public interface ParkingRepository {
 	List<Parking> NotAvailableParking();
 
 	void updateParkingStatus(long parkingId,String parkingStatus);
+ 
+	List<ParkingOrder> getParkingRequests();
 
 }

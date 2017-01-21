@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.repository.ParkingRepository;
 import org.alArbiyaHotelManagement.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +98,12 @@ public class ParkingServiceImpl implements ParkingService {
 	public void updateParkingStatus(long parkingId,String parkingStatus) {
 		// TODO Auto-generated method stub 
 	 parkingRepository.updateParkingStatus(parkingId,parkingStatus);
+	}
+
+	@Override
+	public List<ParkingOrder> getParkingRequests() {
+		// TODO Auto-generated method stub
+		return parkingRepository.getParkingRequests();
 	}
   
 }

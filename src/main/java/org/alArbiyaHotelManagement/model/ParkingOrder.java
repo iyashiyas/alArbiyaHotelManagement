@@ -21,7 +21,10 @@ public class ParkingOrder {
 	
 	@Column(name="REQUEST_TIME")
 	private String requestTime;
-
+	
+	@Column(name="ORDER_STATUS")
+	private String orderStatus;
+ 
 	@Column(name="DELIVERY_TIME")
 	private String deliveryTime;
 	 
@@ -35,41 +38,31 @@ public class ParkingOrder {
 
 	public long getId() {
 		return id;
-	}
-
+	} 
 	public void setId(long id) {
 		this.id = id;
-	}
-
+	} 
 	public String getTimeStatus() {
 		return timeStatus;
-	}
-
+	} 
 	public void setTimeStatus(String timeStatus) {
 		this.timeStatus = timeStatus;
-	}
- 
-
+	} 
 	public String getRequestTime() {
 		return requestTime;
-	}
-
+	} 
 	public void setRequestTime(String requestTime) {
 		this.requestTime = requestTime;
-	}
-
+	} 
 	public String getDelveryTime() {
 		return deliveryTime;
-	}
-
+	} 
 	public void setDelveryTime(String deliveryTime) {
 		this.deliveryTime = deliveryTime;
-	}
-
+	} 
 	public Parking getParking() {
 		return parking;
-	}
-
+	} 
 	public void setParking(Parking parking) {
 		this.parking = parking;
 	}
@@ -81,6 +74,20 @@ public class ParkingOrder {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
+	public String getOrderStatus() {
+		return orderStatus;
+	}
 
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public String getDeliveryTime() {
+		return deliveryTime;
+	}
+
+	public void setDeliveryTime(String deliveryTime) {
+		this.deliveryTime = deliveryTime;
+	}
 	
 }
