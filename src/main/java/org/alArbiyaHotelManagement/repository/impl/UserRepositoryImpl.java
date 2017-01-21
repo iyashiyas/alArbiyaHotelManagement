@@ -29,13 +29,28 @@ public class UserRepositoryImpl implements UserRepository{
 		List<UserDetails> userDetails = query.setParameter("memberId", memberId).getResultList();
 		return userDetails.isEmpty() ? null : userDetails.get(0);
 	}
- 
   
  	@Override
 	public User loadUserByUsername(String username) {
 		TypedQuery<User> query = this.entityManager.createQuery("SELECT users from User users WHERE users.username=:username", User.class);
 		List<User> users = query.setParameter("username", username).getResultList();
 		return users.isEmpty() ? null : users.get(0);
+	}
+
+	@Override
+	public UserDetails getUserDetailsByIdCard(String nationalId) {
+		// TODO Auto-generated method stub
+		TypedQuery<UserDetails> query = this.entityManager.createQuery("SELECT userDetails from UserDetails userDetails WHERE userDetails.identityNumber=:nationalId", UserDetails.class);
+		List<UserDetails> userDetails = query.setParameter("nationalId", nationalId).getResultList();
+		return userDetails.isEmpty() ? null : userDetails.get(0);
+	}
+
+	@Override
+	public UserDetails getUserDetailsByPhone(String phoneNumber) {
+		// TODO Auto-generated method stub
+		TypedQuery<UserDetails> query = this.entityManager.createQuery("SELECT userDetails from UserDetails userDetails WHERE userDetails.phoneNumber=:phoneNumber", UserDetails.class);
+		List<UserDetails> userDetails = query.setParameter("phoneNumber", phoneNumber).getResultList();
+		return userDetails.isEmpty() ? null : userDetails.get(0);
 	} 
  
 

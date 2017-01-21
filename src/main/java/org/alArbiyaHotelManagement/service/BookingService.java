@@ -10,7 +10,7 @@ public interface BookingService {
 
 	public Booking createBooking(String roomId, String startDate, String endDate,int randomPassword, UserDetails user) throws ParseException;
 
-	public Booking createCheckIn(String bookingId);
+	public Booking createCheckIn(String bookingId,long parkingId);
 
 	public List<Booking> bookedRooms();
 

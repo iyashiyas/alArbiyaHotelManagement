@@ -43,11 +43,7 @@ public class Booking {
 	
 	@Column(name="ACCESS_PASSWORD")
 	private int accessPassword;
-	
-	@Column(name="PARKING_NUMBER")
-	private String parkingNumber; 
-	
-	
+  
 	@JsonBackReference
 	@OneToOne(cascade={CascadeType.MERGE})
 	@JoinColumn(name="USER_ID")
@@ -57,6 +53,11 @@ public class Booking {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="ROOM_ID")
 	private Room room;
+	
+	@JsonBackReference
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="PARKING_ID")
+	private Parking parking;
 
 	public long getId() {
 		return id;
@@ -135,17 +136,8 @@ public class Booking {
 			this.userDetails.getBooking().add(this);
 		}
 	}
-
-	
  
-
-	public String getParkingNumber() {
-		return parkingNumber;
-	}
-
-	public void setParkingNumber(String parkingNumber) {
-		this.parkingNumber = parkingNumber;
-	}
+ 
 
 	public int getAccessPassword() {
 		return accessPassword;
@@ -153,5 +145,13 @@ public class Booking {
 
 	public void setAccessPassword(int accessPassword) {
 		this.accessPassword = accessPassword;
+	}
+
+	public Parking getParking() {
+		return parking;
+	}
+
+	public void setParking(Parking parking) {
+		this.parking = parking;
 	}
 }

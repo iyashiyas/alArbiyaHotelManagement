@@ -72,19 +72,34 @@ public class ActionRepositoryImpl implements ActionRepository{
 		return query.getResultList();
 	}
 	@Override
-	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
+	public HotelServicesCategory updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
 		// TODO Auto-generated method stub
-		entityManager.merge(hotelServicesCategory);
+		Query updateQuery = entityManager.createQuery("UPDATE HotelServicesCategory SET categoryStatus =:status where hotelServicesCategoryId=:categoryId");
+		updateQuery.setParameter("status", hotelServicesCategory.getCategoryStatus()); 
+		updateQuery.setParameter("categoryId", hotelServicesCategory.getHotelServicesCategoryId()); 
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		return null ;
 	}
 	@Override
-	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
+	public HotelServicesCategory updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
 		// TODO Auto-generated method stub
-		entityManager.merge(hotelServicesCategory);
+		Query updateQuery = entityManager.createQuery("UPDATE HotelServicesCategory SET categoryStatus =:status where hotelServicesCategoryId=:categoryId");
+		updateQuery.setParameter("status", hotelServicesCategory.getCategoryStatus()); 
+		updateQuery.setParameter("categoryId", hotelServicesCategory.getHotelServicesCategoryId()); 
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		return null ;
 	}   
 	@Override
-	public void updateHouseKeepingStatus(
+	public HotelServicesCategory updateHouseKeepingStatus(
 			HotelServicesCategory hotelServicesCategory) {
-		entityManager.merge(hotelServicesCategory);
+		Query updateQuery = entityManager.createQuery("UPDATE HotelServicesCategory SET categoryStatus =:status where hotelServicesCategoryId=:categoryId");
+		updateQuery.setParameter("status", hotelServicesCategory.getCategoryStatus()); 
+		updateQuery.setParameter("categoryId", hotelServicesCategory.getHotelServicesCategoryId()); 
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		return null ;
 		
 	}
 	

@@ -7,5 +7,7 @@ public interface UserService {
 	public UserDetails addUserDetails(UserDetails userDetail);
 	public UserDetails getUserDetails(String memberId);
 	public User loadUserByUsername(String username);
+	public UserDetails getUserDetailsByIdCard(String nationalId);
+	public UserDetails getUserDetailsByPhone(String phoneNumber);
 	
 }

@@ -37,4 +37,39 @@ public class UserController {
 		return "reservation/userDetails"; 
 	}
 	
+	@RequestMapping(value="/getUserDetailsByIdCard", method=RequestMethod.GET)
+	public String getUserDetailsByIdCard(@RequestParam(required=true) String roomId,
+			@RequestParam(required=true) String startDate, 
+			@RequestParam(required=true) String endDate, 
+			@RequestParam(required=true) String nationalId,
+			Model model) {
+		
+		UserDetails userDetails = userservice.getUserDetailsByIdCard(nationalId);
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("roomId", roomId);
+		attributes.put("startDate", startDate);
+		attributes.put("endDate", endDate);
+		attributes.put("userDetails", userDetails != null ? userDetails : new UserDetails() );
+		model.addAllAttributes(attributes);
+		return "reservation/userDetails"; 
+	}
+	
+	@RequestMapping(value="/getUserDetailsByPhone", method=RequestMethod.GET)
+	public String getUserDetailsByPhone(@RequestParam(required=true) String roomId,
+			@RequestParam(required=true) String startDate, 
+			@RequestParam(required=true) String endDate, 
+			@RequestParam(required=true) String phoneNumber,
+			Model model) {
+		
+		UserDetails userDetails = userservice.getUserDetailsByPhone(phoneNumber);
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("roomId", roomId);
+		attributes.put("startDate", startDate);
+		attributes.put("endDate", endDate);
+		attributes.put("userDetails", userDetails != null ? userDetails : new UserDetails() );
+		model.addAllAttributes(attributes);
+		return "reservation/userDetails"; 
+	}
+	
+	
 }

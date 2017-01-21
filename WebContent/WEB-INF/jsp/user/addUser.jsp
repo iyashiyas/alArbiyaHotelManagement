@@ -211,6 +211,13 @@
                      <li data-value="29">READY FOR DELIVERY</li>
                      <li data-value="30">DELIVERD</li>
                     </ul>
+                </li>  
+                 <li data-value="40"><label class="label label-primary">PARKINGSCREEN</label>
+                    <ul>
+                     <!-- <li data-value="28">ACCEPT ORDER</li>
+                     <li data-value="29">READY FOR DELIVERY</li>
+                     <li data-value="30">DELIVERD</li> -->
+                    </ul>
                 </li> 
                 <li data-value="27"><label class="label label-primary">LAUNDRYSCREEN</label>
                     <ul>

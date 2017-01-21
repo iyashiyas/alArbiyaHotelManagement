@@ -28,5 +28,17 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userRepositoty.loadUserByUsername(username);
 	}
+
+	@Override
+	public UserDetails getUserDetailsByIdCard(String nationalId) {
+		// TODO Auto-generated method stub
+		return userRepositoty.getUserDetailsByIdCard(nationalId);
+	}
+
+	@Override
+	public UserDetails getUserDetailsByPhone(String phoneNumber) {
+		// TODO Auto-generated method stub
+		return userRepositoty.getUserDetailsByPhone(phoneNumber);
+	}
 	
 }

@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.alArbiyaHotelManagement.model.Booking;
+import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.RoomType;
 import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.service.BookingService;
+import org.alArbiyaHotelManagement.service.ParkingService;
 import org.alArbiyaHotelManagement.service.ReservationService;
 import org.alArbiyaHotelManagement.service.RoomTypeService;
 import org.alArbiyaHotelManagement.service.UserService;
@@ -38,6 +40,9 @@ public class ReservationController {
 	
 	@Autowired
 	BookingService bookingService;
+	
+	@Autowired
+	ParkingService parkingService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String Reservation(Model model) {
@@ -90,10 +95,11 @@ public class ReservationController {
 		return "reservation/reservationDetails";
 	}
 	
-	@RequestMapping(value="/checkIn", method=RequestMethod.POST) 
-	public String checkIn(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
-	     booking = bookingService.createCheckIn(bookingrefernceId); 
-		return "redirect:/reservation";
+	@RequestMapping(value="/checkIn", method=RequestMethod.GET) 
+	public String checkIn(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId,@RequestParam(required=true) long parkingId, Model model) throws ParseException {
+	     booking = bookingService.createCheckIn(bookingrefernceId,parkingId); 
+	     System.out.println("parkingif0"+parkingId);
+		return "redirect:/reservation/bookedRooms";
 	}
 	@RequestMapping(value="/checkOut", method=RequestMethod.GET) 
 	public String checkOut(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId, Model model) throws ParseException {
@@ -104,8 +110,10 @@ public class ReservationController {
 	@RequestMapping(method = RequestMethod.GET,value="/bookedRooms")
 	public String ChekedInRooms(Model model) {
 		List<Booking> bookedRooms = bookingService.bookedRooms();
+		List<Parking> NotAvailableParking = parkingService.NotAvailableParking();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("bookedRooms", bookedRooms); 
+		attributes.put("NotAvailableParking", NotAvailableParking); 
 		model.addAllAttributes(attributes);
 		return "reservation/bookedRooms";
 	}

@@ -9,7 +9,7 @@ public interface BookingRepository {
 	public Booking createBooking(Booking booking, long roomId);
 	public String getBookingId();
 	public String getMemberShipId(String firstName, String email);
-	public Booking createCheckIn(String bookingId,Booking booking);
+	public Booking createCheckIn(String bookingId,Booking booking,long parkingId);
 	public List<Booking> bookedRooms();
 	public Booking checkOut(String bookingrefernceId, Booking booking);
 

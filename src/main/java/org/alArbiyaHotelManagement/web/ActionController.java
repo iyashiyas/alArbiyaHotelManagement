@@ -235,21 +235,16 @@ public class ActionController {
 	}
 	 
 	
-	@RequestMapping(value = "/showParkingAction", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/showParkingAction", method = RequestMethod.GET)
 	public String showParkingAction(Model model) {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
-
-		attributes.put("hotelServiceCategory", hotelServiceCategory);
-		model.addAllAttributes(attributes);
-        return "action/parking";
-	} 
+		Map<String, Object> attributes = new HashMap<String, Object>();  
+        return "redirect:/showParking";
+	}*/ 
 	@RequestMapping(value = "/updateParkingStatus", method = RequestMethod.POST)
 	public String updateParkingStatus(
 			@ModelAttribute HotelServicesCategory hotelServicesCategory) {
 		actionService.updateParkingStatus(hotelServicesCategory);
-		return "redirect:/action/showParkingAction";
+		return "redirect:/showParking";
 	}  
 	
 	@RequestMapping(value = "/showHouseKeepingAction", method = RequestMethod.GET)

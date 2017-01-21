@@ -122,7 +122,7 @@
 							href="${pageContext.request.contextPath}/action/showCheckoutAction"><spring:message
 									code="label.CheckOut" /></a></li></sec:authorize>
 					 <sec:authorize access="hasAnyRole('ROLE_SHOWPARKINGACTION','ROLE_ADMIN')">	<li><a
-							href="${pageContext.request.contextPath}/action/showParkingAction"><spring:message
+							href="${pageContext.request.contextPath}/showParking"><spring:message
 									code="label.Parking" /></a></li></sec:authorize>
 						 <sec:authorize access="hasAnyRole('ROLE_SHOWHOUSEKEEPINGACTION','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/action/showHouseKeepingAction"><spring:message
@@ -175,6 +175,9 @@
 										 <sec:authorize access="hasAnyRole('ROLE_LAUNDRYSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/laundryScreen"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
 								code="label.laundryScreen" /></span> </a></li></sec:authorize>
+								 <sec:authorize access="hasAnyRole('ROLE_PARKINGSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/ParkingScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.ParkingScreen" /></span> </a></li></sec:authorize>
 
 			</ul>
 		</div>

@@ -48,7 +48,7 @@
 										href="#Checked-Rooms"><i class="fa fa-th-list">
 											Checked Rooms</i> </a> <a class="btn btn-primary" data-toggle="modal"
 										href="#membersList"><i class="fa fa-globe"> Members</i> </a> -->
-
+<%-- 
 									<sec:authorize access="hasAnyRole('ROLE_CHECKIN','ROLE_ADMIN')"><a class="dropdown-toggle btn btn-primary"
 										data-toggle="dropdown" href="#"> <i class="fa fa-th-list">
 											<spring:message code="label.CheckIn" /></i>
@@ -58,7 +58,7 @@
 									</ul>
 
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-									</a>
+									</a> --%>
 
 
 

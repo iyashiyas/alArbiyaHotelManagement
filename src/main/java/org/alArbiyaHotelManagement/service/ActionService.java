@@ -22,11 +22,11 @@ public interface ActionService {
 
 	public List<HotelServicesItem> getAllRestaurantItems();
 
-	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
+	public HotelServicesCategory updateCheckOutStatus(HotelServicesCategory hotelServicesCategory);
 
-	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory);
+	public HotelServicesCategory updateParkingStatus(HotelServicesCategory hotelServicesCategory);
 
-	public void updateHouseKeepingStatus(HotelServicesCategory hotelServicesCategory);
+	public HotelServicesCategory updateHouseKeepingStatus(HotelServicesCategory hotelServicesCategory);
 
 	public void addCarRentalItem(CarRental carRental, File serverFile);
 

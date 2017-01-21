@@ -46,6 +46,7 @@
 				<div class="row">
 
 					<div class="col-lg-12">
+					<div class="col-lg-4">
 						<form
 							action="${pageContext.request.contextPath}/user/getUserDetails?${_csrf.parameterName}=${_csrf.token}">
 							<div class="panel panel-default">
@@ -55,15 +56,14 @@
 									</h3>
 								</div>
 								<div class="panel-body">
-									<div class="col-xs-4 form-group">
+									<div class="col-lg-12 form-group">
 										<input type="hidden" name="roomId" value="${roomId }" /> <input
 											type="hidden" name="startDate" value="${ startDate}" /> <input
 											type="hidden" name="endDate" value="${endDate}" /> <label><spring:message
 												code="label.MemberId" /> </label> <input class="form-control"
 											placeholder="Member ID" type="text" name="memberId"
 											required="required" value="" />
-									</div>
-									
+									</div> 
 									<%-- <div class="col-xs-4 form-group">
 										<label></label> <a href="#members" data-toggle="model"
 											class="form-control btn btn-link" style="border: none;"><spring:message
@@ -71,7 +71,42 @@
 									</div> --%>
 									
 									<div style="clear: both;"></div>
-									<div class="col-xs-4 form-group">
+									<div class="col-lg-12 form-group">
+										<input class="form-control btn btn-success " type="submit"
+											value="Search" />
+									</div>
+								</div>
+							</div>
+						</form>
+						</div>
+				 
+					
+					<div class="col-lg-4">
+						<form
+							action="${pageContext.request.contextPath}/user/getUserDetailsByIdCard?${_csrf.parameterName}=${_csrf.token}">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<spring:message code="label.AllReadyAMember" />
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="col-lg-12 form-group">
+										<input type="hidden" name="roomId" value="${roomId }" /> <input
+											type="hidden" name="startDate" value="${ startDate}" /> <input
+											type="hidden" name="endDate" value="${endDate}" /> <label><spring:message
+												code="label.NationalIDCard" /> </label> <input class="form-control"
+											placeholder="National ID Card" type="text" name="nationalId"
+											required="required" value="" />
+									</div> 
+									<%-- <div class="col-xs-4 form-group">
+										<label></label> <a href="#members" data-toggle="model"
+											class="form-control btn btn-link" style="border: none;"><spring:message
+												code="label.GetMemberList" /> </a>
+									</div> --%>
+									
+									<div style="clear: both;"></div>
+									<div class="col-lg-12 form-group">
 										<input class="form-control btn btn-success " type="submit"
 											value="Search" />
 									</div>
@@ -79,7 +114,42 @@
 							</div>
 						</form>
 					</div>
-
+					
+					<div class="col-lg-4">
+						<form
+							action="${pageContext.request.contextPath}/user/getUserDetailsByPhone?${_csrf.parameterName}=${_csrf.token}">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<spring:message code="label.AllReadyAMember" />
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="col-lg-12 form-group">
+										<input type="hidden" name="roomId" value="${roomId }" /> <input
+											type="hidden" name="startDate" value="${ startDate}" /> <input
+											type="hidden" name="endDate" value="${endDate}" /> <label><spring:message
+												code="label.PhoneNumber" /> </label> <input class="form-control"
+											placeholder="PhoneNumber" type="text" name="phoneNumber"
+											required="required" value="" />
+									</div> 
+									<%-- <div class="col-xs-4 form-group">
+										<label></label> <a href="#members" data-toggle="model"
+											class="form-control btn btn-link" style="border: none;"><spring:message
+												code="label.GetMemberList" /> </a>
+									</div> --%>
+									
+									<div style="clear: both;"></div>
+									<div class="col-lg-12 form-group">
+										<input class="form-control btn btn-success " type="submit"
+											value="Search" />
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+                    </div>
 					<div class="col-lg-12 animated fadeInRight">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">

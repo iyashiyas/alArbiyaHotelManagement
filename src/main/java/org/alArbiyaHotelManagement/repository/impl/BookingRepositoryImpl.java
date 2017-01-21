@@ -59,11 +59,12 @@ public class BookingRepositoryImpl implements BookingRepository{
 		return randomString;
 	} 
 	@Override
-	public Booking createCheckIn(String bookingId,Booking booking) {
+	public Booking createCheckIn(String bookingId,Booking booking,long parkingId) {
 		// TODO Auto-generated method stub
-		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId");
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate, parking.id=:parkingId where bookingReferenceId=:bookingReferenceId ");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
 		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
+		updateQuery.setParameter("parkingId", parkingId); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 		return null ;
@@ -79,7 +80,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@Override
 	public Booking checkOut(String bookingrefernceId, Booking booking) {
 		// TODO Auto-generated method stub
-		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDOUT' , checkedInTime=:checkedoutTime where bookingReferenceId=:bookingReferenceId");
+		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDOUT' , checkedOutTime=:checkedoutTime where bookingReferenceId=:bookingReferenceId");
 		updateQuery.setParameter("bookingReferenceId", bookingrefernceId); 
 		updateQuery.setParameter("checkedoutTime", booking.getCheckedOutTime()); 
 		entityManager.joinTransaction();

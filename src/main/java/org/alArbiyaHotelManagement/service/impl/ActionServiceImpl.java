@@ -51,29 +51,29 @@ public class ActionServiceImpl implements ActionService {
 		return actionRepository.getAllRestaurantItems();
 	}
 	@Override
-	public void updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
+	public HotelServicesCategory updateCheckOutStatus(HotelServicesCategory hotelServicesCategory) {
 		// TODO Auto-generated method stub
 		
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
-		actionRepository.updateCheckOutStatus(hotelServicesCategory); 
+		return actionRepository.updateCheckOutStatus(hotelServicesCategory); 
 	}
 	@Override
-	public void updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
+	public HotelServicesCategory updateParkingStatus(HotelServicesCategory hotelServicesCategory) {
 		// TODO Auto-generated method stub
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
-		actionRepository.updateParkingStatus(hotelServicesCategory); 
+		return actionRepository.updateParkingStatus(hotelServicesCategory); 
 	}
 	@Override
-	public void updateHouseKeepingStatus(
+	public HotelServicesCategory updateHouseKeepingStatus(
 			HotelServicesCategory hotelServicesCategory) {
 		if(hotelServicesCategory.getCategoryStatus()==null) {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		}
-		actionRepository.updateHouseKeepingStatus(hotelServicesCategory); 
+		return actionRepository.updateHouseKeepingStatus(hotelServicesCategory); 
 	}
 	 
 	@Override

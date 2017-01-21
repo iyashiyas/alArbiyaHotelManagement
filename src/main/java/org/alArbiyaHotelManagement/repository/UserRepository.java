@@ -7,6 +7,8 @@ public interface UserRepository {
 
 	UserDetails addUserDetails(UserDetails userDetail);
 	UserDetails getUserDetails(String memberId);
-	public User loadUserByUsername(String username); 
+	public User loadUserByUsername(String username);
+	UserDetails getUserDetailsByIdCard(String nationalId);
+	UserDetails getUserDetailsByPhone(String phoneNumber); 
 	 
 }
