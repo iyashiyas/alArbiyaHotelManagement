@@ -48,9 +48,7 @@
 							<li><a
 								href="${pageContext.request.contextPath}/info/showInfo"><spring:message
 										code="label.Profile" /></a></li>
-							<li class="divider"></li>
-							<li><a href="${pageContext.request.contextPath}/login"><spring:message
-										code="label.Lock" /></a></li>
+						<!-- 	<li class="divider"></li>  -->
 						</ul></sec:authorize>
 					</div>
 					<div class="logo-element">SHMS</div>
@@ -150,9 +148,9 @@
 						class="nav-label"><spring:message
 								code="label.UserManagement" /></span><span class="fa arrow"></span> </a>
 					<ul class="nav nav-second-level collapse">
-					 <sec:authorize access="hasAnyRole('ROLE_ROLE','ROLE_ADMIN')">	<li><a
+					<%--  <sec:authorize access="hasAnyRole('ROLE_ROLE','ROLE_ADMIN')">	<li><a
 							href="${pageContext.request.contextPath}/role/showRole"><spring:message
-									code="label.Roles" /></a></li></sec:authorize>
+									code="label.Roles" /></a></li></sec:authorize> --%>
 						 <sec:authorize access="hasAnyRole('ROLE_SHOWUSER','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/usermanagement/showUser"><spring:message
 									code="label.Users" /></a></li></sec:authorize>
