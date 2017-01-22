@@ -8,8 +8,12 @@ import javax.persistence.Query;
  
 
 
+
+
 import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -95,5 +99,29 @@ public class OrderRepositoryImpl implements OrderRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='7' order by id desc", Orders.class);
 		return query.getResultList();
+	}
+	
+	@Override
+	public void accpetParkingRequest(ParkingOrder parkingOrder, long roomId, String serviceItemName,long parkingId,Parking parking) {
+		// TODO Auto-generated method stub
+		Query updateQuery = entityManager.createQuery("UPDATE ParkingOrder SET order_status = :status,acceptTime=:acceptTime where id = :id ");
+		updateQuery.setParameter("status", parkingOrder.getOrderStatus()); 
+		updateQuery.setParameter("id", parkingOrder.getId());  
+		updateQuery.setParameter("acceptTime", parkingOrder.getAcceptTime());  
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();
+		
+		Notification notification = new Notification();
+		notification.setOrderId(parkingOrder.getId());
+		notification.setRoomId(roomId);
+		notification.setServiceItemName(serviceItemName);
+		notification.setReadStatus(ReadStatus.UNREAD.name());
+		this.entityManager.persist(notification);
+		 
+		Query updateparkingQuery = entityManager.createQuery("UPDATE Parking SET parkingStatus = :status where id = :parkingId ");
+		updateparkingQuery.setParameter("status", parking.getParkingStatus());  
+		updateparkingQuery.setParameter("parkingId", parkingId);   
+		entityManager.joinTransaction();
+		updateparkingQuery.executeUpdate();
 	}
 }

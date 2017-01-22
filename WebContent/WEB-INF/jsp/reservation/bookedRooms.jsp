@@ -69,7 +69,7 @@
 												<tr class="gradeX">
 													<td class="center">${bookedRooms.bookingReferenceId}</td>
 													<td class="center">${bookedRooms.userDetails.identityNumber}</td>
-													<td class="center"> <label class="'label label-primary">${bookedRooms.checkedInTime}</label></td>
+													<td class="center"> ${bookedRooms.checkedInTime} </td>
 													<td class="center">${bookedRooms.endDate}</td>
 													<td class="center">${bookedRooms.room.roomCode}</td>
 													<td class="center">${bookedRooms.userDetails.firstName}</td>
@@ -93,7 +93,7 @@
 														</a>
 														</c:if>
 														<c:if test="${bookedRooms.bookingStatus=='CHECKEDOUT'}">
-														 <label class="'label label-danger"> ${bookedRooms.checkedOutTime}</label>
+														  ${bookedRooms.checkedOutTime} 
 														</c:if>
 														</sec:authorize>
 														 

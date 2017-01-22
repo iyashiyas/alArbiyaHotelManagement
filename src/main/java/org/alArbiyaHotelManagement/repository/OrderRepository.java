@@ -3,6 +3,8 @@ package org.alArbiyaHotelManagement.repository;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 
 public interface OrderRepository {
 	public Orders addOrder();
@@ -15,4 +17,6 @@ public interface OrderRepository {
 	public List<Orders> getLaundry();
 	public List<Orders> coffeeShopScreen();
 	public List<Orders> carRentalScreen();
+	public void accpetParkingRequest(ParkingOrder parkingOrder, long roomId, String serviceItemName,long parkingId,Parking parking);
+	
 }

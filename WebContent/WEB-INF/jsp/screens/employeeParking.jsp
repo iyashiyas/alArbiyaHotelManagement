@@ -14,11 +14,22 @@
 <title>SHMS-customerParking</title>
 </head>
 <body>
- 
-<c:forEach items="${employeeparkings}" var="parkings" varStatus="loop">
-<%--  <c:if test="${not loop.first and loop.index % 9 == 0}">  --%>
-								<div class="col-lg-1">
-                    <div class="widget style1 ${employeeparkings.parkingStatus=='AVAILABLE'? 'navy-bg':'red-bg'} ">
+ <c:forEach items="${employeeparkings}" var="employeeparkings" >
+					 <%--  <c:if test="${not loop.first and (loop.index + 1) % 5 == 0}">    --%> 
+		 <c:if test="${employeeparkings.parkingStatus=='AVAILABLE'}"> 
+				 <button class="col-lg-1 widget style1 navy-bg"  data-href="${pageContext.request.contextPath}/updateParkingStatus?parkingId=${employeeparkings.id}&parkingStatus=NOTAVAILABLE" data-target="#confirmUpdate" data-toggle="modal"> 
+						 <div class="row vertical-align">
+                            <div class="col-lg-3">
+                               <!--  <i class="fa fa-user fa-3x"></i> --> 
+                            </div>
+                            <div class="col-lg-9 text-right">
+                                <h2 class="font-bold">${employeeparkings.parkingName}</h2>
+                            </div>
+                        </div> 
+                      </button> </c:if>
+                <c:if test="${employeeparkings.parkingStatus=='NOTAVAILABLE'}"> 
+					 <div class="col-lg-1">
+                    <div class="widget style1 red-bg ">
                         <div class="row vertical-align">
                             <div class="col-lg-3">
                                <!--  <i class="fa fa-user fa-3x"></i> -->
@@ -28,12 +39,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <%-- </c:if> 
-                <div id="moreemployee" class="collapse">
-                <div class="col-lg-1">
-                    <div class="widget style1 ${employeeparkings.parkingStatus=='AVAILABLE'? 'navy-bg':'red-bg'} ">
-                        <div class="row vertical-align">
+                </div> </c:if> 
+                <c:if test="${employeeparkings.parkingStatus=='OUT'}"> 
+							 <button class="col-lg-1 widget style1 bg-info " data-href="${pageContext.request.contextPath}/updateParkingStatus?parkingId=${employeeparkings.id}&parkingStatus=NOTAVAILABLE" data-target="#confirmUpdate" data-toggle="modal">
+						 <div class="row vertical-align">
                             <div class="col-lg-3">
                                <!--  <i class="fa fa-user fa-3x"></i> -->
                             </div>
@@ -41,9 +50,9 @@
                                 <h2 class="font-bold">${employeeparkings.parkingName}</h2>
                             </div>
                         </div>
-                    </div>
-                </div>
-                </div> --%>
-			    </c:forEach>
+                     
+  </button> 
+  </c:if>
+    </c:forEach>
 	  </body>
  </html>

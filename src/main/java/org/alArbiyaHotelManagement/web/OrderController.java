@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
  
+
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -166,4 +168,13 @@ public class OrderController {
 					return "redirect:/order/laundryScreen";
 				}
 				//End Laundry Order
+				
+				//parking request accept
+				
+				 @RequestMapping(value = "accpetParkingRequest",  method = RequestMethod.GET)
+					public String accpetParkingRequest(@RequestParam(required=false) long id,
+					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName, @RequestParam(required=false) long parkingId,@RequestParam(required=false) String requestType, @ModelAttribute ParkingOrder parkingOrder) {
+					 orderService.accpetParkingRequest(parkingOrder,id, roomId, serviceItemName,parkingId,requestType);
+					 return "redirect:/ParkingScreen";
+					}
 }

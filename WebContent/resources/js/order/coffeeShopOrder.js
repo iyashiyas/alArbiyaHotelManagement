@@ -76,8 +76,7 @@ $(document)
 				});
 
 function printDiv()
-{
-	 
+{ 
 alert("hello print");
 	}
  

@@ -9,6 +9,8 @@ import javax.persistence.Query;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.Parking;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +97,29 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return orderRepository.carRentalScreen();
 	}
-	
+
+	@Override
+	public void accpetParkingRequest(ParkingOrder parkingOrder,long id,long roomId, String serviceItemName,long parkingId,String requestType) {
+		parkingOrder.setId(id);
+		Parking parking= new Parking();
+		System.out.println(requestType);
+		if(requestType.equals("CHECKOUT"))
+		{
+			parking.setParkingStatus("AVAILABLE");
+		}
+		else if(requestType.equals("OUT"))
+		{
+			parking.setParkingStatus("OUT"); 
+		}
+		parkingOrder.setOrderStatus("ORDER ACCEPT");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		parkingOrder.setAcceptTime(dateFormat.format(date));
+	 orderRepository.accpetParkingRequest(parkingOrder, roomId, serviceItemName,parkingId,parking);
+		
+	}
+
+	 
  
 	
 }

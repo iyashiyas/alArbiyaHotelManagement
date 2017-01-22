@@ -7,13 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+ 
 
 @Entity
 @Table(name="PARKING_ORDER")
 public class ParkingOrder {
 
 	@Id @GeneratedValue 
-	@Column(name="PARKING_ID")
+	@Column(name="PARKING_ORDER_ID")
 	private long id;
 	
 	@Column(name="TIME_STATUS")
@@ -24,10 +25,16 @@ public class ParkingOrder {
 	
 	@Column(name="ORDER_STATUS")
 	private String orderStatus;
- 
+    
 	@Column(name="DELIVERY_TIME")
 	private String deliveryTime;
-	 
+	
+	@Column(name="ACCEPT_TIME")
+	private String acceptTime;
+	
+	@Column(name="REQUEST_TYPE")
+	private String requestType; 
+
 	@OneToOne
 	@JoinColumn(name="PARKING_ID", nullable=false)
 	private Parking parking;
@@ -35,7 +42,7 @@ public class ParkingOrder {
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
 	private Room room;
-
+    
 	public long getId() {
 		return id;
 	} 
@@ -89,5 +96,17 @@ public class ParkingOrder {
 	public void setDeliveryTime(String deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
+	public String getAcceptTime() {
+		return acceptTime;
+	}
+	public void setAcceptTime(String acceptTime) {
+		this.acceptTime = acceptTime;
+	}
 	
+	public String getRequestType() {
+		return requestType;
+	}
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
+	}
 }

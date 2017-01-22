@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.service;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.ParkingOrder;
 
 public interface OrderService {
 	public Orders addOrder();
@@ -15,4 +16,6 @@ public interface OrderService {
 	public List<Orders> getLaundry();
 	public List<Orders> coffeeShopScreen();
 	public List<Orders> carRentalScreen();
+	public void accpetParkingRequest(ParkingOrder parkingOrder, long id, long roomId, String serviceItemName,long parkingId,String requestType);
+	
 }

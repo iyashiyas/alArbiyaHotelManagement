@@ -60,7 +60,7 @@
 							Requests
 						</h3>
 						<div class="text-right">
-							<div class="btn btn-danger m-r-sm">0 
+							<div class="btn btn-danger m-r-sm" id="totalRequests">  
 							</div>
 							Requests   
 						</div>
@@ -158,6 +158,24 @@
 
 
 	</div>
+	
+	  <div class="modal fade" id="confirmUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><spring:message code="label.ConfirmSubmit" /></h4>
+                </div> 
+                <div class="modal-body"> 
+                 <spring:message code="label.ConfirmSubmit" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+                    <a class="btn btn-danger btn-oks"><spring:message code="label.ConfirmSubmit" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
  
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<%-- <script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script> --%>
@@ -211,5 +229,15 @@
 			window.location.reload();
 		}
 	</script>
+				 
+ <script>
+      $(document).ready(function() { 
+     
+      	 $('#confirmUpdate').on('show.bs.modal', function(e) { 
+             $(this).find('.btn-oks').attr('href', $(e.relatedTarget).data('href'));  
+         });
+      	  
+       }); 
+    </script>
 </body>
 </html>

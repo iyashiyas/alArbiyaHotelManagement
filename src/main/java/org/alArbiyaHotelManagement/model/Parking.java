@@ -24,14 +24,8 @@ public class Parking {
 	
 	@Column(name="PARKING_STATUS")
 	private String parkingStatus;
-	
-	@Column(name="PARKING_NUMBER")
-	private String parkingNumber;
 	 
-	@OneToOne
-	@JoinColumn(name="ROOM_ID", nullable=true)
-	private Room room;
-
+	 
 	public long getId() {
 		return id;
 	}
@@ -56,14 +50,7 @@ public class Parking {
 		this.parkingCategory = parkingCategory;
 	}
 
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room room) {
-		this.room = room;
-	}
-	
+	 
 	public String getParkingStatus() {
 		return parkingStatus;
 	}
@@ -72,11 +59,5 @@ public class Parking {
 		this.parkingStatus = parkingStatus;
 	}
 
-	public String getParkingNumber() {
-		return parkingNumber;
-	}
-
-	public void setParkingNumber(String parkingNumber) {
-		this.parkingNumber = parkingNumber;
-	}
+ 
 }

@@ -62,8 +62,7 @@ public class ParkingController {
 		List<Parking> customerNonAvailableParking = parkingService.customerNonAvailableParking();
 		List<Parking> vIPNonAvailableParking = parkingService.vIPNonAvailableParking();
 		List<Parking> employeeaNonAvailableParking = parkingService.employeeaNonAvailableParking();
-	
-		
+	 
 		List<Parking> cutomerparkings = parkingService.cutomerparkings();
 		List<Parking> employeeparkings = parkingService.employeeparkings();
 		List<Parking> VIPparkings = parkingService.VIPparkings();
