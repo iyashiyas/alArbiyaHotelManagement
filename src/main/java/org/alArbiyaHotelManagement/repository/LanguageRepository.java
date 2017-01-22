@@ -8,4 +8,5 @@ public interface LanguageRepository {
 	public List<Language> getAllLanguages();
 	public List<Language> getEnableLanguages();
 	public void editLanguage(Language language);
+	public List<Language> disabledLanguages();
 }

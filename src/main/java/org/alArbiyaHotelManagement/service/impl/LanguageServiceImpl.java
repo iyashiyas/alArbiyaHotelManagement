@@ -31,5 +31,12 @@ public class LanguageServiceImpl implements LanguageService {
 		languageRepository.editLanguage(language);
 	}
 
+
+	@Override
+	public List<Language> disabledLanguages() {
+		// TODO Auto-generated method stub
+		return languageRepository.disabledLanguages();
+	}
+
 	
 }

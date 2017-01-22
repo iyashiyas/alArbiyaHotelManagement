@@ -16,4 +16,6 @@ public interface BookingService {
 
 	public Booking checkOut(String bookingrefernceId);
 
+	public List<Booking> checkedInRooms();
+
 }

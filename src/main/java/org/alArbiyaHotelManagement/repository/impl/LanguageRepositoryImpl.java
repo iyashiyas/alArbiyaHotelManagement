@@ -39,6 +39,12 @@ public class LanguageRepositoryImpl implements LanguageRepository{
 		updateQuery.executeUpdate();
 	}
 
+	@Override
+	public List<Language> disabledLanguages() {
+		Query query = entityManager.createQuery("SELECT langs from Language langs where status='INACTIVE' order by id", Language.class);
+		return query.getResultList();
+	}
+
 	
 	
 }

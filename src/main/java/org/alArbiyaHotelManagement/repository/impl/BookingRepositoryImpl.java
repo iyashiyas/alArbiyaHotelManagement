@@ -73,7 +73,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Booking> bookedRooms() {
-		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms order by id", Booking.class);
+		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='BOOKED'", Booking.class);
 		return query.getResultList();
 	}
 	
@@ -86,5 +86,11 @@ public class BookingRepositoryImpl implements BookingRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 		return null ;
+	}
+	@Override
+	public List<Booking> checkedInRooms() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='CHECKEDIN'", Booking.class);
+		return query.getResultList();
 	}
 }

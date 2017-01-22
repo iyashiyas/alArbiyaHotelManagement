@@ -32,5 +32,19 @@ public class PlayerRepositoryImpl implements PlayerRepository{
 	entityManager.merge(player);
 		return player;
 	}
+
+	@Override
+	public List<Player> configuredplayer() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("select ply from Player ply where playerStatus='ASSIGNED'", Player.class);
+		return query.getResultList(); 
+	}
+
+	@Override
+	public List<Player> notConfiguredPlayer() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("select ply from Player ply where  playerStatus='NOT CONFIGURED' ", Player.class);
+		return query.getResultList(); 
+	}
 	 
 }

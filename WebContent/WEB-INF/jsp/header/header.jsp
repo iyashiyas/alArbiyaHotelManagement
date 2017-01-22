@@ -267,6 +267,7 @@
 			<script
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
 			--%>
+			
  
 </body>
 </html>

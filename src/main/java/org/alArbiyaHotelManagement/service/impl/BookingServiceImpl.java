@@ -80,4 +80,10 @@ public class BookingServiceImpl implements BookingService{
 		return bookingRepository.checkOut(bookingrefernceId,booking);
 	}
 
+	@Override
+	public List<Booking> checkedInRooms() {
+		// TODO Auto-generated method stub
+		return bookingRepository.checkedInRooms();
+	}
+
 }

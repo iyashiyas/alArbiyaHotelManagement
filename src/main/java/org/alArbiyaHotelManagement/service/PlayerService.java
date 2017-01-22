@@ -9,5 +9,9 @@ public interface PlayerService {
 	public List<Player> getAllPlayer();
 
 	public Player assignToRoom(Player player);
+
+	public List<Player> configuredplayer();
+
+	public List<Player> notConfiguredPlayer();
  
 }

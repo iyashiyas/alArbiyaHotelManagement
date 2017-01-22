@@ -12,5 +12,6 @@ public interface BookingRepository {
 	public Booking createCheckIn(String bookingId,Booking booking,long parkingId);
 	public List<Booking> bookedRooms();
 	public Booking checkOut(String bookingrefernceId, Booking booking);
+	public List<Booking> checkedInRooms();
 
 }

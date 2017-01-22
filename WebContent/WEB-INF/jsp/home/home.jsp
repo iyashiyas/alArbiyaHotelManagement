@@ -15,9 +15,9 @@
 </head>
 <body>
 	<!-- Include Page Header-->
-		   <div id="wrapper">
+		   <div id="wrapper" >
 		<jsp:include page="../header/header.jsp"></jsp:include>
-		<div id="page-wrapper" class="gray-bg"> 
+		<div id="page-wrapper" class="gray-bg animated fadeInRight"> 
 		<!-- End -->  
 		<!-- Page Contents -->
 		 
@@ -66,8 +66,11 @@
                        <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>ACCESS URL</h5>
-
+                            <h5>Access URL</h5>
+                                <div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
                         </div>
                         <div class="ibox-content">
                             <div>
@@ -80,72 +83,129 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                    
-   	    <div class="col-lg-7">
-                <div>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            
-                            <td>
-                                <button type="button" class="btn btn-info m-r-sm">${fn:length(rooms)}</button>
-                            <spring:message code="label.TotalRooms" />
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-info m-r-sm">${fn:length(players)}</button>
-                                 <spring:message code="label.TotalScreens" />
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                                <button type="button" class="btn btn-success m-r-sm">${fn:length(bookedRooms)}</button>
-                                  <spring:message code="label.CheckInRooms" />
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-default m-r-sm">${fn:length(users)}</button>
-                                <spring:message code="label.Totalusers" />
-                            </td>
-                            
-                        </tr>
-                              <tr>
-                              <td>
-                                <button type="button" class="btn btn-warning m-r-sm">${fn:length(branches)}</button>
-                                   <spring:message code="label.TotalBranch" />
-                            </td>
-                           
-                            <td>
-                                <button type="button" class="btn btn-danger m-r-sm">${fn:length(buildings)}</button>
-                                    <spring:message code="label.Totalbuilding" />
-                            </td>
-                             <td>
-                                <button type="button" class="btn btn-info m-r-sm">${fn:length(floors)}</button>
-                                          <spring:message code="label.TotalFloor" />
-                            </td> 
-                        </tr>
-                        </tbody>
-                    </table>
                 </div> 
-            </div> 
-        <div class="col-lg-6">
+<!-- Chart 000-->
+          
+                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Pie</h5>
-
+                  <a href="${pageContext.request.contextPath}/player/showPlayer">Players - (${fn:length(players)}) </a> 
+                            <div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+ <input type="hidden" name="players" value="${fn:length(configuredplayer)}" id="configuredPlayer">
+ <input type="hidden" name="players" value="${fn:length(notConfiguredPlayer)}" id="notConfiguredPlayer">
+                          
                         </div>
                         <div class="ibox-content">
                             <div>
-                                <canvas id="canvas" height="140"></canvas>
+                                <canvas id="doughnutChart" height="140"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <a href="${pageContext.request.contextPath}/hotel/showRoom">Rooms - (${fn:length(rooms)}) </a> 
+                            <div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+ <input type="hidden" name="bookedRooms" value="${fn:length(bookedRooms)}" id="bookedRooms"> 
+ <input type="hidden" name="checkInRooms" value="${fn:length(checkedInRoom)}" id="checkInRooms">                   
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <canvas id="doughnutChartRooms" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                  <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <a href="${pageContext.request.contextPath}/language">Languages - (${fn:length(languages)}) </a>
+                            <div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+ <input type="hidden" name="enabledLanguages" value="${fn:length(enabledLanguages)}" id="enabledLanguages"> 
+ <input type="hidden" name="disabledLanguages" value="${fn:length(disabledLanguages)}" id="disabledLanguages">                   
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <canvas id="doughnutChartLanguages" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                 <div class="col-lg-7">
+                <div>
+                    <table class="table">
+                        <tbody>
+                      <%--   <tr>
+                            
+                            <td>
+                            <button type="button" class="btn btn-info m-r-sm">${fn:length(rooms)}</button>
+                            <spring:message code="label.TotalRooms" />
+                            </td> 
+                        </tr>
+                        <tr>
+                            
+                            
+                        </tr> --%>
+                      <%--   <tr>  
+                            <td>
+                                <button type="button" class="btn btn-success m-r-sm">${fn:length(bookedRooms)}</button>
+                                  <spring:message code="label.CheckInRooms" />
+                            </td>
+                          <td>
+                                <button type="button" class="btn btn-default m-r-sm">${fn:length(users)}</button>
+                                <spring:message code="label.Totalusers" />
+                            </td>
+                            
+                        </tr> --%>
+                              <tr>
+                              <td>
+                                <a type="button" href="${pageContext.request.contextPath}/hotel/showBranch" class="btn btn-warning m-r-sm">${fn:length(branches)}</a>
+                                   <spring:message code="label.TotalBranch" />
+                            </td>
+                           
+                            <td>
+                                <a type="button" href="${pageContext.request.contextPath}/hotel/showBuilding" class="btn btn-danger m-r-sm">${fn:length(buildings)}</a>
+                                    <spring:message code="label.Totalbuilding" />
+                            </td>
+                             <td>
+                                <a type="button" href="${pageContext.request.contextPath}/hotel/showFloor" class="btn btn-info m-r-sm">${fn:length(floors)}</a>
+                                          <spring:message code="label.TotalFloor" />
+                            </td> 
+                               
+                        </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                 
+            </div> 
+                
+                
+                
+                
+   
+            </div>
             </div>
            </div>
-             
+             <script
+		src="<c:url value="/resources/js/plugins/chart/Chart.min.js" />"></script>
+      <script
+		src="<c:url value="/resources/js/plugins/chart/customChart.js" />"></script>  
+		 
  </body>
  </html>

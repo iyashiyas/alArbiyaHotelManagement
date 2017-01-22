@@ -9,4 +9,5 @@ public interface LanguageService {
 	public List<Language> getEnableLanguages();
 	
 	public void editLanguage(Language language);
+	public List<Language> disabledLanguages();
 }

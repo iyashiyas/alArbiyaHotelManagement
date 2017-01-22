@@ -9,6 +9,7 @@ import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.HotelInfo;
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Player;
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.model.User;
@@ -17,6 +18,7 @@ import org.alArbiyaHotelManagement.service.BranchService;
 import org.alArbiyaHotelManagement.service.BuildingService;
 import org.alArbiyaHotelManagement.service.FloorService;
 import org.alArbiyaHotelManagement.service.HotelInfoService;
+import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.PlayerService;
 import org.alArbiyaHotelManagement.service.RoomService;
 import org.alArbiyaHotelManagement.service.UserManagementService;
@@ -55,17 +57,33 @@ public class HomeController {
 	@Autowired 
 	FloorService floorService;
 	
+	@Autowired
+	LanguageService languageService;
+	
 	@RequestMapping(value = "/SHMS")
 	public String showHomePage(Model model) {
+		
+		List<Language> languages = languageService.getAllLanguages();
+		List<Language> enabledLanguages = languageService.getEnableLanguages();
+		List<Language> disabledLanguages = languageService.disabledLanguages();
 		List<Branch> branches = branchService.getAllBranch();
 		List<Player> player = playerService.getAllPlayer();
+		List<Player> configuredplayer = playerService.configuredplayer();
+		List<Player> notConfiguredPlayer = playerService.notConfiguredPlayer();
 		List<HotelInfo> hotelInfos = hotelinfoService.getHotelInfo();
 		List<Booking> bookedRooms = bookingService.bookedRooms();
+		List<Booking> checkedInRoom = bookingService.checkedInRooms();
 		List<User> users = userManagementService.getAllusers();
 		List<Room> rooms = roomService.getAllRoom();
 		List<Building> buildings = buildingService.getAllBuildings();
 		List<Floor> floors = floorService.getAllFloor();
 		Map<String, Object> attributes = new HashMap<String, Object>(); 
+		
+		attributes.put("languages", languages);
+		attributes.put("enabledLanguages", enabledLanguages);
+		attributes.put("disabledLanguages", disabledLanguages);
+		attributes.put("configuredplayer", configuredplayer);
+		attributes.put("notConfiguredPlayer", notConfiguredPlayer);
 		attributes.put("branches", branches);
 		attributes.put("newBranch", new Branch()); 
 		/*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -77,6 +95,7 @@ public class HomeController {
 		  model.addAttribute("rooms", rooms);
 		  model.addAttribute("users", users);
 		  model.addAttribute("bookedRooms", bookedRooms);
+		  model.addAttribute("checkedInRoom", checkedInRoom);
 		  model.addAttribute("players", player);
 	      model.addAttribute("hotelInfos" ,hotelInfos);
 		  model.addAllAttributes(attributes); 

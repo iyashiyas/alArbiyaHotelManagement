@@ -27,5 +27,17 @@ public class PlayerServiceImpl implements PlayerService {
 		player.setPlayerStatus("ASSIGNED");
 		return playerRepository.assignToRoom(player);
 	}
+
+	@Override
+	public List<Player> configuredplayer() {
+		// TODO Auto-generated method stub
+		return playerRepository.configuredplayer();
+	}
+
+	@Override
+	public List<Player> notConfiguredPlayer() {
+		// TODO Auto-generated method stub
+		return playerRepository.notConfiguredPlayer();
+	}
 	 
 }
