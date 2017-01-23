@@ -10,6 +10,9 @@ import javax.persistence.Query;
 
 
 
+
+
+import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
@@ -123,5 +126,28 @@ public class OrderRepositoryImpl implements OrderRepository{
 		updateparkingQuery.setParameter("parkingId", parkingId);   
 		entityManager.joinTransaction();
 		updateparkingQuery.executeUpdate();
+	}
+	@Override
+	public List<HouseKeeping> housekeepingScreenOrder() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT housekeeping from HouseKeeping housekeeping order by id desc", HouseKeeping.class);
+		return query.getResultList();
+	}
+	@Override
+	public void accpetParkingRequest(long id, long roomId,
+			String serviceItemName,HouseKeeping houseKeeping) { 
+		Query updateparkingQuery = entityManager.createQuery("UPDATE HouseKeeping SET status = :status where id = :id ");
+		updateparkingQuery.setParameter("status", "ACCEPT");  
+		updateparkingQuery.setParameter("id", id);  
+		entityManager.joinTransaction();
+		updateparkingQuery.executeUpdate();
+		
+		
+		Notification notification = new Notification();
+		notification.setOrderId(id);
+		notification.setRoomId(roomId);
+		notification.setServiceItemName(serviceItemName);
+		notification.setReadStatus(ReadStatus.UNREAD.name());
+		this.entityManager.persist(notification);
 	}
 }

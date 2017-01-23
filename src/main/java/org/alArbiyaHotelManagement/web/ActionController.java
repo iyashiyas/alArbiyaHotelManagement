@@ -249,10 +249,9 @@ public class ActionController {
 	
 	@RequestMapping(value = "/showHouseKeepingAction", method = RequestMethod.GET)
 	public String showHouseKeepingAction(Model model) {
-		Map<String, Object> attributes = new HashMap<String, Object>();
-
+		Map<String, Object> attributes = new HashMap<String, Object>(); 
 		HotelServicesCategory hotelServiceCategory = new HotelServicesCategory();
-        attributes.put("hotelServiceCategory", hotelServiceCategory);
+        attributes.put("hotelServiceCategory", hotelServiceCategory); 
 		model.addAllAttributes(attributes);
         return "action/houseKeeping";
 	}

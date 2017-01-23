@@ -6,9 +6,15 @@ import java.util.Map;
 
  
 
+
+
+
+import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.service.OrderService;
+import org.alArbiyaHotelManagement.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +30,9 @@ public class OrderController {
 	
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	ParkingService parkingService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showOrder(Model model) {
@@ -170,6 +179,41 @@ public class OrderController {
 				//End Laundry Order
 				
 				//parking request accept
+				 
+				@RequestMapping(value = "/ParkingScreen", method = RequestMethod.GET)
+				public String ParkingScreen(Model model) {
+					List<Parking> parkings = parkingService.getAllParking(); 
+					List<Parking> availableParking = parkingService.availableParking();
+					List<Parking> customerAvailableParking = parkingService.customerParkingAvailable();
+					List<Parking> vIPavailableParking = parkingService.vIPavailableParking();
+					List<Parking> employeeavailableParking = parkingService.employeeavailableParking(); 
+					List<Parking> customerNonAvailableParking = parkingService.customerNonAvailableParking();
+					List<Parking> vIPNonAvailableParking = parkingService.vIPNonAvailableParking();
+					List<Parking> employeeaNonAvailableParking = parkingService.employeeaNonAvailableParking();
+				 
+					List<Parking> cutomerparkings = parkingService.cutomerparkings();
+					List<Parking> employeeparkings = parkingService.employeeparkings();
+					List<Parking> VIPparkings = parkingService.VIPparkings();
+					
+					Map<String, Object> attributes = new HashMap<String, Object>();  
+					
+					attributes.put("parkings", parkings); 
+					
+					attributes.put("customerAvailableParking", customerAvailableParking); 
+					attributes.put("vIPavailableParking", vIPavailableParking); 
+					attributes.put("employeeavailableParking", employeeavailableParking); 
+					
+					attributes.put("customerNonAvailableParking", customerNonAvailableParking); 
+					attributes.put("vIPNonAvailableParking", vIPNonAvailableParking); 
+					attributes.put("employeeaNonAvailableParking", employeeaNonAvailableParking); 
+					 
+					attributes.put("cutomerparkings", cutomerparkings); 
+					attributes.put("availableParking", availableParking); 
+					attributes.put("employeeparkings", employeeparkings); 
+					attributes.put("VIPparkings", VIPparkings);  
+					model.addAllAttributes(attributes); 
+					return "screens/parkingScreen";
+				}
 				
 				 @RequestMapping(value = "accpetParkingRequest",  method = RequestMethod.GET)
 					public String accpetParkingRequest(@RequestParam(required=false) long id,
@@ -177,4 +221,30 @@ public class OrderController {
 					 orderService.accpetParkingRequest(parkingOrder,id, roomId, serviceItemName,parkingId,requestType);
 					 return "redirect:/ParkingScreen";
 					}
+				 
+				 //house keeping Requests
+				 
+				   @RequestMapping(value="housekeepingScreen",method = RequestMethod.GET)
+					public String housekeepingScreen(Model model) {
+						List<Orders> orders = orderService.coffeeShopScreen();
+						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("orders", orders);
+						attributes.put("order", new Orders());
+						model.addAllAttributes(attributes);
+						return "screens/housekeepingScreen";
+					} 
+				   
+				   @RequestMapping(value="/housekeepingScreenOrder", method=RequestMethod.GET)
+					public @ResponseBody List<HouseKeeping> housekeepingScreenOrder() { 
+						return orderService.housekeepingScreenOrder();
+					}
+				    
+				   @RequestMapping(value = "accpethouseKeepingRequest",  method = RequestMethod.GET)
+					public String accpethouseKeepingRequest(@RequestParam(required=false) long id,
+					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName,HouseKeeping houseKeeping)
+                      {
+					 orderService.accpethouseKeepingRequest(id, roomId, serviceItemName,houseKeeping);
+					 return "redirect:/order/housekeepingScreen";
+					  }
+				   
 }

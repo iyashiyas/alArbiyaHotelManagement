@@ -51,46 +51,11 @@ public class ParkingController {
 		model.addAllAttributes(attributes);
 		return "action/parking";
 	}
-	 
-	@RequestMapping(value = "/ParkingScreen", method = RequestMethod.GET)
-	public String ParkingScreen(Model model) {
-		List<Parking> parkings = parkingService.getAllParking(); 
-		List<Parking> availableParking = parkingService.availableParking();
-		List<Parking> customerAvailableParking = parkingService.customerParkingAvailable();
-		List<Parking> vIPavailableParking = parkingService.vIPavailableParking();
-		List<Parking> employeeavailableParking = parkingService.employeeavailableParking(); 
-		List<Parking> customerNonAvailableParking = parkingService.customerNonAvailableParking();
-		List<Parking> vIPNonAvailableParking = parkingService.vIPNonAvailableParking();
-		List<Parking> employeeaNonAvailableParking = parkingService.employeeaNonAvailableParking();
-	 
-		List<Parking> cutomerparkings = parkingService.cutomerparkings();
-		List<Parking> employeeparkings = parkingService.employeeparkings();
-		List<Parking> VIPparkings = parkingService.VIPparkings();
-		
-		Map<String, Object> attributes = new HashMap<String, Object>();  
-		
-		attributes.put("parkings", parkings); 
-		
-		attributes.put("customerAvailableParking", customerAvailableParking); 
-		attributes.put("vIPavailableParking", vIPavailableParking); 
-		attributes.put("employeeavailableParking", employeeavailableParking); 
-		
-		attributes.put("customerNonAvailableParking", customerNonAvailableParking); 
-		attributes.put("vIPNonAvailableParking", vIPNonAvailableParking); 
-		attributes.put("employeeaNonAvailableParking", employeeaNonAvailableParking); 
-		 
-		attributes.put("cutomerparkings", cutomerparkings); 
-		attributes.put("availableParking", availableParking); 
-		attributes.put("employeeparkings", employeeparkings); 
-		attributes.put("VIPparkings", VIPparkings);  
-		model.addAllAttributes(attributes); 
-		return "screens/parkingScreen";
-	}
-	
+	  
 	@RequestMapping(value = "/updateParkingStatus", method = RequestMethod.GET)
 	public String updateParkingStatus(@RequestParam(required=true) long parkingId,@RequestParam(required=true) String parkingStatus) {
 		parkingService.updateParkingStatus(parkingId,parkingStatus);
-		return "redirect:/ParkingScreen";
+		return "redirect:/order/ParkingScreen";
 	}
 	
 	@Transactional

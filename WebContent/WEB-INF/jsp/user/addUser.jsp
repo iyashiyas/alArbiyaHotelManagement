@@ -226,6 +226,11 @@
                      <li data-value="30">DELIVERD</li>
                     </ul>
                 </li>
+                 <li data-value="41"><label class="label label-primary">HOUSEKEEPINGSCREEN</label>
+                    <ul>
+                   <li data-value="28">ACCEPT ORDER</li>
+                    </ul>
+                </li>
                     </ul>
               
             </div>

@@ -63,27 +63,7 @@
                     </div>
                     </div> --%>
                     
-                       <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Access URL</h5>
-                                <div class="ibox-tools">
-									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-									</a>
-								</div>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                           ROOM-SCREEN-URL : <label>serverip(ex:192.168.100.1):9091(port)/alArbiyaScreenManagement/home</label>
-                           <p> COFFEESHOP-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/coffeeShopScreen</label>
-                           <p> RESTAURANT-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/restaurantScreen</label>
-                           <p> LAUNDRY-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/laundryScreen</label>
-                           <p> PARKING-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/ParkingScreen</label>
-                           
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+                      
 <!-- Chart 000-->
           
                  <div class="col-lg-4">
@@ -143,10 +123,7 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
+                 
                  <div class="col-lg-7">
                 <div>
                     <table class="table">
@@ -196,7 +173,27 @@
             </div> 
                 
                 
-                
+                 <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Access URL</h5>
+                                <div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                           ROOM-SCREEN-URL : <label>serverip(ex:192.168.100.1):9091(port)/alArbiyaScreenManagement/home</label>
+                           <p> COFFEESHOP-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/coffeeShopScreen</label>
+                           <p> RESTAURANT-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/restaurantScreen</label>
+                           <p> LAUNDRY-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/laundryScreen</label>
+                           <p> PARKING-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/ParkingScreen</label>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div> 
                 
    
             </div>

@@ -196,7 +196,7 @@
 													<div class="col-xs-14 form-group">
 														<label><spring:message code="label.PhoneNumber" /></label>
 														<form:input class="form-control" id="mobile-number"
-															path="phoneNumber" placeholder="phone" type="text" />
+															path="phoneNumber" name="phoneNumber" placeholder="phone" type="text" />
 													</div>
 
 													<div class="col-xs-12 form-group">

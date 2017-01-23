@@ -18,4 +18,6 @@ public interface BookingService {
 
 	public List<Booking> checkedInRooms();
 
+	public List<Booking> bookedRoomsCount();
+	
 }

@@ -39,11 +39,11 @@ public class BookingServiceImpl implements BookingService{
 		booking.setAccessPassword(randomPassword);
 		booking.setBookingStatus(BookingStatus.BOOKED.name());
 		if(userDetails.getId()<1) {
-			userDetails.setPhoneNumber("");
-			userDetails.setPhoneNumber(userDetails.getPhoneCode()+userDetails.getPhoneNumber());
+			/*userDetails.setPhoneNumber("");*/
+			userDetails.setPhoneNumber(userDetails.getPhoneNumber());
 			userDetails.setMemberId(memberShipId);
 		}
-		List<Booking> bookings = new ArrayList<Booking>();
+		List<Booking> bookings = new ArrayList<Booking>();  
 		bookings.add(booking);
 		userDetails.setBooking(bookings);
 		booking.setUserDetails(userDetails);
@@ -84,6 +84,12 @@ public class BookingServiceImpl implements BookingService{
 	public List<Booking> checkedInRooms() {
 		// TODO Auto-generated method stub
 		return bookingRepository.checkedInRooms();
+	}
+
+	@Override
+	public List<Booking> bookedRoomsCount() {
+		// TODO Auto-generated method stub
+		return bookingRepository.bookedRoomsCount();
 	}
 
 }

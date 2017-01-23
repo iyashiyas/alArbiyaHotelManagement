@@ -37,8 +37,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 		conditions.add(criteriaBuilder.equal(joinRoomType.get("id"), roomtype));
 	 //ToDO: PT
 		 //conditions.add(criteriaBuilder.lessThan(joinBooking.<Date>get("startDate"), endDate));
-		// conditions.add(criteriaBuilder.greaterThan(joinBooking.<Date>get("endDate"), startDate));
-		
+		// conditions.add(criteriaBuilder.greaterThan(joinBooking.<Date>get("endDate"), startDate)); 
 		query.orderBy(criteriaBuilder.asc(roomRoot.get("id")));
 		TypedQuery<Room> typedQuery = entityManager.createQuery(query
 		        .select(roomRoot)

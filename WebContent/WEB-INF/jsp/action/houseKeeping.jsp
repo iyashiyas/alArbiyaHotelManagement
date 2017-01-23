@@ -89,7 +89,7 @@
 					</div>
 
 
-					<div class="ibox float-e-margins">
+				<%-- 	<div class="ibox float-e-margins">
 						<div class="ibox-title">
 							<h5><spring:message code="label.HousekeepingTable" /></h5>
 							<div class="ibox-tools">
@@ -131,7 +131,7 @@
 
 						</div>
 					</div>
-
+ --%>
 
 				</div>
 

@@ -64,10 +64,10 @@
 					<td>${bookingDetails.room.roomCode}</td>
 				</tr>
 				
-				<tr>
+				<%-- <tr>
 					<td><spring:message code="label.MemberId" /></td>
 					<td>${bookingDetails.userDetails.memberId}</td>
-				</tr>
+				</tr> --%>
 				<tr>
 					<td><spring:message code="label.MemberName" /></td>
 					<td>${bookingDetails.userDetails.firstName}  ${bookingDetails.userDetails.lastName}</td>

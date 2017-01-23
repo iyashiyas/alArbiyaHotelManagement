@@ -13,5 +13,6 @@ public interface BookingRepository {
 	public List<Booking> bookedRooms();
 	public Booking checkOut(String bookingrefernceId, Booking booking);
 	public List<Booking> checkedInRooms();
-
+	public List<Booking> bookedRoomsCount();
+	
 }

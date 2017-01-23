@@ -173,9 +173,13 @@
 										 <sec:authorize access="hasAnyRole('ROLE_LAUNDRYSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/laundryScreen"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
 								code="label.laundryScreen" /></span> </a></li></sec:authorize>
-								 <sec:authorize access="hasAnyRole('ROLE_PARKINGSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/ParkingScreen"><i
+								 <sec:authorize access="hasAnyRole('ROLE_PARKINGSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/ParkingScreen"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
 								code="label.ParkingScreen" /></span> </a></li></sec:authorize>
+								
+										 <sec:authorize access="hasAnyRole('ROLE_HOUSEKEEPINGSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/housekeepingScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.HouseKeepingScreen" /></span> </a></li></sec:authorize>
 
 			</ul>
 		</div>

@@ -71,7 +71,7 @@ public class HomeController {
 		List<Player> configuredplayer = playerService.configuredplayer();
 		List<Player> notConfiguredPlayer = playerService.notConfiguredPlayer();
 		List<HotelInfo> hotelInfos = hotelinfoService.getHotelInfo();
-		List<Booking> bookedRooms = bookingService.bookedRooms();
+		List<Booking> bookedRooms = bookingService.bookedRoomsCount();
 		List<Booking> checkedInRoom = bookingService.checkedInRooms();
 		List<User> users = userManagementService.getAllusers();
 		List<Room> rooms = roomService.getAllRoom();

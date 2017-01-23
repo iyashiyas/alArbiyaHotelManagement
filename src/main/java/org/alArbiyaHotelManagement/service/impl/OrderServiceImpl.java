@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
@@ -116,7 +117,18 @@ public class OrderServiceImpl implements OrderService {
 		Date date = new Date();
 		parkingOrder.setAcceptTime(dateFormat.format(date));
 	 orderRepository.accpetParkingRequest(parkingOrder, roomId, serviceItemName,parkingId,parking);
-		
+		 }
+
+	@Override
+	public List<HouseKeeping> housekeepingScreenOrder() {
+		// TODO Auto-generated method stub
+		return orderRepository.housekeepingScreenOrder();
+	}
+
+	@Override
+	public void accpethouseKeepingRequest(long id, long roomId,
+			String serviceItemName,HouseKeeping houseKeeping) {
+		 orderRepository.accpetParkingRequest(id,roomId, serviceItemName,houseKeeping);
 	}
 
 	 

@@ -73,6 +73,13 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Booking> bookedRooms() {
+		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms ", Booking.class);
+		return query.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Booking> bookedRoomsCount() {
 		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='BOOKED'", Booking.class);
 		return query.getResultList();
 	}
