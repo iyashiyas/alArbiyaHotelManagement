@@ -37,8 +37,7 @@
 						<li class="active"><strong><spring:message
 									code="label.Languages" /></strong></li>
 					</ol>
-				</div>
-
+				</div> 
 			</div>
 			<div class="wrapper wrapper-content animated fadeInRight">
 				<div class="row">

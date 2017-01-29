@@ -14,9 +14,7 @@
 </head>
 <body>
 
-	<!-- Include Page Header-->
-
-
+	<!-- Include Page Header--> 
 	<div id="wrapper">
 		<jsp:include page="../header/header.jsp"></jsp:include>
 
@@ -83,7 +81,7 @@
 												<tr>
 													<th><spring:message code="label.UserId"></spring:message></th>
 													<th><spring:message code="label.UserName" /></th>
-								<%-- 					<th><spring:message code="label.role.roleName" /></th> --%>
+								<%--  <th><spring:message code="label.role.roleName" /></th> --%>
 													<th><spring:message code="label.ChangePassword" /></th>
 
 												</tr>
@@ -92,9 +90,9 @@
 											<tbody>
 												<c:forEach items="${users}" var="users">
 													<tr class="read">
-														<td class="check-mail">${users.id}</td>
+														<td class="check-mail userId" id="userId">${users.id}</td>
 														<td class="mail-ontact ">${users.username}</td> 
-														<td class=""><sec:authorize access="hasAnyRole('ROLE_CHANGEPASSWORD','ROLE_ADMIN')"><i class="fa fa-pencil"><a href="#" data-toggle="modal" data-target="#confirm-Edit">ChangePassword</a></i></sec:authorize></td>
+														<td class="changePassword"><sec:authorize access="hasAnyRole('ROLE_CHANGEPASSWORD','ROLE_ADMIN')"><i class="fa fa-pencil"><a href="#"  ><spring:message code="label.ChangePassword" /></a></i></sec:authorize></td>
                                                     </tr>
 												</c:forEach>
 
@@ -103,33 +101,16 @@
 									</div>
 								</div>
 							</div>
-							<div class="modal fade" id="confirm-submit" tabindex="-1"
+							 
+							<div class="modal fade" id="changePassword" tabindex="-1"
 								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<div class="modal-header">Confirm Delete</div>
-										<div class="modal-body">Are you sure you want to delete
-											this item</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default"
-												data-dismiss="modal">Cancel</button>
-											<a href="#" id="submit" class="btn btn-success success">Delete</a>
-										</div>
+										<jsp:include page="../user/changePassword.jsp"></jsp:include>
 									</div>
 								</div>
-							</div>
-
-
-							<div class="modal fade" id="confirm-Edit" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<jsp:include page="../user/editUser.jsp"></jsp:include>
-									</div>
-								</div>
-							</div>
-
-							<div></div>
+							</div> 
+							 
 						</div>
 					</div>
 				</div>
@@ -137,7 +118,7 @@
 		</div>
 		<script src="<c:url value="/resources/js/treeview.js" />"></script>
 	  <script src="<c:url value="/resources/js/logger.js" />"></script>
-	 
+	 <script src="<c:url value="/resources/js/user/changePassword.js" />"></script>
 	 <script>
             $('#treeview-checkbox-demo').treeview({
               
@@ -146,8 +127,7 @@
                 $('#values').text(
                     $('#treeview-checkbox-demo').treeview('selectedValues')
                 );
-            });
-             
+            }); 
         </script>
 </body>
 </html>

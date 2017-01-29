@@ -88,10 +88,7 @@
 														</div>
 													</div>
  -->
-
-
-
-												 		
+ 
 														<label><spring:message code="label.CheckIn" /></label>
 														<div class='input-group date' id='datetimepicker1'>
 															<input type='text' class="form-control "
@@ -175,8 +172,7 @@
 </sec:authorize>
 		</div>
 	</div>
-
-
+ 
 	<%-- 
 	<div class="modal fade" id="membersList" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
@@ -189,8 +185,7 @@
 
 		</div>
 	</div> --%>
-
-
+ 
 	<%-- <div class="modal fade" id="Checked-Rooms" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">

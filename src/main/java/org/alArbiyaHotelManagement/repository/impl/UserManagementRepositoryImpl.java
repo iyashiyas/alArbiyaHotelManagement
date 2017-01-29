@@ -47,6 +47,16 @@ public class UserManagementRepositoryImpl implements UserManagementRepository{
 	 
 	}
 
+	@Override
+	public User changePassword(User user) {
+		Query query = entityManager.createQuery("UPDATE User SET password= :password where id= :userId");
+		query.setParameter("password", user.getPassword());
+		query.setParameter("userId", user.getId());
+		entityManager.joinTransaction();
+		query.executeUpdate();
+     	return user;
+	}
+
  
 	 
 	}

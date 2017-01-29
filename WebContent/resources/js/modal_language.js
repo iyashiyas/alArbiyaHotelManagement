@@ -13,7 +13,7 @@ $('#submit').click(function() {
 	var status = $form.find('#status').val();
 	var csrf=$form.find("#secuirtyId").val();
 	$.ajax({
-	    type : 'POST',
+	    type : 'GET',
 	    url : '/alArbiyaHotelManagement/language/editLanguage',
 	    data : {id:id, status:status },
 	    beforeSend: function(xhr) {
@@ -30,7 +30,8 @@ function handleSuccess() {
 	$('#confirm-submit').modal('toggle');
 	
  $('.top-right').notify({
-	    message: { text: 'Language Status Updated Successfully' }
+
+ message: { text: 'Language Status Updated Successfully' }
 	  }).show(); 
 
 	location.reload();
@@ -38,8 +39,8 @@ function handleSuccess() {
 function handleError() {
 	$('#confirm-submit').modal('toggle');
 	
-	$('.top-right').notify({
-	    message: { text: 'Language Status Updation Failed' }
+	$('.top-right').notify({ 
+	 message: { text: 'Language Status Updation Failed' }
 	  }).show();
 	
 }  

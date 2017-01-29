@@ -35,7 +35,7 @@
                                <!--  <i class="fa fa-user fa-3x"></i> -->
                             </div>
                             <div class="col-lg-9 text-right">
-                                <h2 class="font-bold">${cutomerparkings.parkingName}</h2>
+                                <h2 class="font-bold">${VIPparkings.parkingName}</h2>
                             </div>
                         </div>
                     </div>
@@ -54,5 +54,5 @@
   </button> 
   </c:if>
     </c:forEach>
-								</body>
-								</html>
+	 </body>
+	 </html>

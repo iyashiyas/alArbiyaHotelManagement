@@ -28,5 +28,11 @@ public class UserManagementServiceImpl implements UserManagementService{
 		return userManagementRepository.addUser(user);
 	}
 
+	@Override
+	public User changePassword(User user) {
+		  return userManagementRepository.changePassword(user);
+		
+	}
+
 	 
 }

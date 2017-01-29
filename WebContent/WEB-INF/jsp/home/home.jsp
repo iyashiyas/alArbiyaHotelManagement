@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +66,7 @@
                     
                       
 <!-- Chart 000-->
-          
+          	<sec:authorize access="hasAnyRole('ROLE_PLAYEROVERVIEW','ROLE_ADMIN')">
                  <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -85,7 +86,8 @@
                         </div>
                     </div>
                 </div>
-                
+                </sec:authorize>
+               <sec:authorize access="hasAnyRole('ROLE_ROOMSOVERVIEW','ROLE_ADMIN')">
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -104,7 +106,9 @@
                         </div>
                     </div>
                 </div>
-                
+                </sec:authorize>
+                 
+                  <sec:authorize access="hasAnyRole('ROLE_LANGUAGEOVERVIEW','ROLE_ADMIN')">
                   <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -123,7 +127,9 @@
                         </div>
                     </div>
                 </div>
+                 </sec:authorize>
                  
+                  <sec:authorize access="hasAnyRole('ROLE_PROFILEOVERVIEW','ROLE_ADMIN')">
                  <div class="col-lg-7">
                 <div>
                     <table class="table">
@@ -171,8 +177,9 @@
                 </div> 
                  
             </div> 
+            </sec:authorize>
                 
-                
+                    <sec:authorize access="hasAnyRole('ROLE_URLPREVIEW','ROLE_ADMIN')">
                  <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -194,6 +201,7 @@
                         </div>
                     </div>
                 </div> 
+                </sec:authorize>
                 
    
             </div>

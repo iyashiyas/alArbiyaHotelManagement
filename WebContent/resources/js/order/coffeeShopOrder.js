@@ -35,19 +35,18 @@ $(document)
 																							
 																			 
 																							
-																							+ (Orders.acceptTime == null ? '<a href="coffeeShopacceptOrder?id='
+																							+ (Orders.acceptTime == null ? ('${RoleAcceptorAdmin}'==true ? '<a href="coffeeShopacceptOrder?id='
 																									+ Orders.id+'&roomId='+Orders.room.id+'&serviceItemName='+Orders.hotelServicesItem.serviceItemName
-																									+ '" class="btn btn-success">AcceptRequest</a>'
-																									: ' <label class="label label-primary">'
+																									+ '" class="btn btn-success">AcceptRequest</a>':'NoAccess'): ' <label class="label label-primary">'
 																											+ Orders.acceptTime
 																											+ '</label>')
 																							+ '</td><td>'
-																							+ (Orders.orderStatus == "ORDER ACCEPT" ? '<a href="coffeeShopreadyForDelivery?id='
+																							+ (Orders.orderStatus == "ORDER ACCEPT" ?  ('${RoleDeliveryorAdmin}'==true ?'<a href="coffeeShopreadyForDelivery?id='
 																									+ Orders.id
 																									+ '" class="btn '
 																									+ (Orders.acceptTime == null ? 'disabled'
 																											: 'btn-success')
-																									+ '">ReadyForDelivery</a>'
+																									+ '">ReadyForDelivery</a>':'NoAccess')
 																									: ' <label class="label label-primary">'
 																											+ Orders.readyForDeliveryTime
 																											+ '</label>')
@@ -55,12 +54,12 @@ $(document)
 																							+ (Orders.orderStatus == "DELIVERED" ? ' <label class="label label-primary">'
 																									+ Orders.deliveredTime
 																									+ '</label>'
-																									: '<a href="coffeeShopdelivered?id='
+																									: ('${RoledeliveredorAdmin}'==true ?'<a href="coffeeShopdelivered?id='
 																											+ Orders.id
 																											+ '" class="btn '
 																											+ (Orders.readyForDeliveryTime == null ? 'disabled'
 																													: 'btn-success')
-																											+ '">Delivered</a>') 
+																											+ '">Delivered</a>' :'NoAccess'))
 																								    + '</td></tr>' );
 																});
 											},

@@ -58,6 +58,16 @@
         <div id="treeview-checkbox-demo">
       
             <ul>
+            
+             <li data-value="42"><label class="label label-primary">HOME</label>
+                <ul>  
+                    <li data-value="43">PLAYER OVERVIEW</li>    
+                   <li data-value="44">ROOMS OVERVIEW</li>   
+                    <li data-value="45">LANGUAGE OVERVIEW</li> 
+                   <li data-value="46">PROFILE OVERVIEW</li>    
+                   <li data-value="47">URL PRIVEW</li>     
+                 </ul>
+                </li>
              
             <li data-value="24"><label class="label label-primary">HOTELINFO</label>
                 <ul>  

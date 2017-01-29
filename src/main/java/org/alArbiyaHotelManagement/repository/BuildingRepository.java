@@ -6,7 +6,7 @@ import org.alArbiyaHotelManagement.model.Building;
   
 public interface BuildingRepository {
 
-	public Building addBuilding(Building building);
+	public void addBuilding(Building building);
 	public List<Building> getAllBuildings();
 	public List<Building> getAllBuilding(String branchId);
 	public Building editBuilding(Building building);

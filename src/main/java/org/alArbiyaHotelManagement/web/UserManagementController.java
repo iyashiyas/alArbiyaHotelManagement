@@ -46,5 +46,11 @@ public class UserManagementController {
 		return "redirect:/usermanagement/showUser";
 	}
 	
+	@RequestMapping(value="/changePassword", method=RequestMethod.POST)
+	public String changePassword(@ModelAttribute User user) {
+		userManagementService.changePassword(user);
+		 return "redirect:/usermanagement/showUser";
+	}
+	
 	
 }

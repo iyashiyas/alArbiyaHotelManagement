@@ -8,5 +8,6 @@ public interface UserManagementRepository {
 
 	List<User> getAllusers(); 
 	public User addUser(User user);
+	public User changePassword(User user);
 	  
 }

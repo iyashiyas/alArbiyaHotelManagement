@@ -96,8 +96,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
+			</div> 
 			<input type="hidden" name="${_csrf.parameterName}" id="secuirtyId"
 				value="${_csrf.token}" /> 
 	</div>
@@ -129,9 +128,8 @@
 
 	<!-- Page-Level Scripts -->
 	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript"> --%>
-		
-	</script>
+		type="text/javascript"> 
+		 </script> --%>
 
 	<script type="text/javascript">
 function printDiv() 

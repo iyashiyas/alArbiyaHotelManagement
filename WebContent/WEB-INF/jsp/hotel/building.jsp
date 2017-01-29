@@ -7,7 +7,11 @@
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+	<link id="" href="<c:url value="/resources/css/bootstrap-notify.css"/>"
+	rel="stylesheet">
+	<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<title>SHMS-Building</title>
 </head>
 <body>
 
@@ -112,6 +116,10 @@
 				</div>
 			</div>
 		</div>
+			<div class='notifications top-right'></div>
 </body>
 <script src="<c:url value="/resources/js/hotel/building.js"/>"></script>
+	<script type='text/javascript'
+		src="<c:url value="/resources/js/bootstrap-notify.js" />"></script>
+
 </html>

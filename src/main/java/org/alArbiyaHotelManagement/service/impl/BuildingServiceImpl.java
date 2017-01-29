@@ -14,11 +14,11 @@ public class BuildingServiceImpl implements BuildingService{
 	@Autowired 
 	private BuildingRepository buildingRepository;
 	 
-	public Building addBuilding(Building building) {
+	public void addBuilding(Building building) {
 		if(building.getBuildingStatus()==null) {
 			building.setBuildingStatus("DISABLED");
 		}
-		return buildingRepository.addBuilding(building);
+	  buildingRepository.addBuilding(building);
 	}
 	
 	@Override

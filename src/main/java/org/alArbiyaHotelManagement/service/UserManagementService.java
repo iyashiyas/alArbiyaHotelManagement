@@ -11,4 +11,6 @@ public interface UserManagementService {
 	public User addUser(User user); 
 	/* public User getUser(String userName);*/
 
+	public User changePassword(User user);
+
 }

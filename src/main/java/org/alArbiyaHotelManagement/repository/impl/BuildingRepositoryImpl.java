@@ -25,9 +25,9 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 	}
 	
 	@Override
-	public Building addBuilding(Building building) {
+	public void addBuilding(Building building) {
 		entityManager.persist(building);
-		return building;
+	/*	return building;*/
 	 } 
 
 	@SuppressWarnings("unchecked")

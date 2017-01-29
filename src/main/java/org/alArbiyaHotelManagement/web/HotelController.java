@@ -91,7 +91,7 @@ public class HotelController {
 	@RequestMapping(value="/addBuilding", method=RequestMethod.POST)
 	public String addBuilding(@ModelAttribute Building building) {
 		buildingService.addBuilding(building);
-		return "redirect:/hotel/showBuilding";
+	  return "redirect:/hotel/showBuilding"; 
 	}
 	
 	@RequestMapping(value="/editBuilding", method=RequestMethod.POST)
@@ -168,8 +168,7 @@ public class HotelController {
 		roomService.addRoom(room);
 		return "redirect:/hotel/showRoom";
 	}
-
-	
+ 
 	@RequestMapping(value = "/addRoomType", method = RequestMethod.POST)
 	public String addRoomType(@ModelAttribute RoomType roomType) {
 		roomTypeService.addRoomType(roomType);
