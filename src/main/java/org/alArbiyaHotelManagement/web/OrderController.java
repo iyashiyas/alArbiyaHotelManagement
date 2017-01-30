@@ -9,10 +9,12 @@ import java.util.Map;
 
 
 
+
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.alArbiyaHotelManagement.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -250,5 +252,32 @@ public class OrderController {
 					 orderService.accpethouseKeepingRequest(id, roomId, serviceItemName,houseKeeping);
 					 return "redirect:/order/housekeepingScreen";
 					  }
+				   
+				   //Reception Order
+				   
+				   @RequestMapping(value="receptionScreen",method = RequestMethod.GET)
+					public String receptionScreen(Model model) {
+						List<ReceptionOrder> orders = orderService.receptionScreen();
+						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("orders", orders);
+						attributes.put("order", new ReceptionOrder());
+						model.addAllAttributes(attributes);
+						return "screens/receptionScreen";
+					} 
+				   
+				   @RequestMapping(value="/receptionScreenScreenOrder", method=RequestMethod.GET)
+					public @ResponseBody List<ReceptionOrder> receptionScreenScreenOrder() { 
+						return orderService.receptionScreen();
+					}
+				   
+				   @RequestMapping(value = "accpetreceptionRequest",  method = RequestMethod.GET)
+					public String accpetreceptionRequest(@RequestParam(required=false) long id,
+					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName,ReceptionOrder receptionOrder)
+                     {
+					 orderService.accpetreceptionRequest(id, roomId, serviceItemName,receptionOrder);
+					 return "redirect:/order/receptionScreen";
+					  }
+				   
+				  
 				   
 }

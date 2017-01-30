@@ -12,11 +12,14 @@ import javax.persistence.Query;
 
 
 
+
+
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -121,7 +124,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
 		 
-		Query updateparkingQuery = entityManager.createQuery("UPDATE Parking SET parkingStatus = :status where id = :parkingId ");
+		Query updateparkingQuery = entityManager.createQuery("UPDATE Parking SET parkingStatus=:status where id = :parkingId ");
 		updateparkingQuery.setParameter("status", parking.getParkingStatus());  
 		updateparkingQuery.setParameter("parkingId", parkingId);   
 		entityManager.joinTransaction();
@@ -147,6 +150,29 @@ public class OrderRepositoryImpl implements OrderRepository{
 		notification.setOrderId(id);
 		notification.setRoomId(roomId);
 		notification.setServiceItemName(serviceItemName);
+		notification.setReadStatus(ReadStatus.UNREAD.name());
+		this.entityManager.persist(notification);
+	}
+	
+	@Override
+	public List<ReceptionOrder> receptionScreen() { 
+		Query query = entityManager.createQuery("SELECT receptionOrder from ReceptionOrder receptionOrder order by id desc", ReceptionOrder.class);
+		return query.getResultList();
+	}
+	@Override
+	public void accpetreceptionRequest(long id, long roomId,
+			String serviceItemName, ReceptionOrder receptionOrder) {
+		Query updateparkingQuery = entityManager.createQuery("UPDATE ReceptionOrder SET orderStatus=:status,acceptTime=:acceptTime where id = :id ");
+		updateparkingQuery.setParameter("status", "ACCEPT");  
+		updateparkingQuery.setParameter("acceptTime",receptionOrder.getAcceptTime());  
+		updateparkingQuery.setParameter("id", id);  
+		entityManager.joinTransaction();
+		updateparkingQuery.executeUpdate();
+		 
+		Notification notification = new Notification();
+		notification.setOrderId(id);
+		notification.setRoomId(roomId);
+		notification.setServiceItemName(receptionOrder.getRequestType());
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
 	}

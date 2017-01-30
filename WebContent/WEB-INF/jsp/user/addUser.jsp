@@ -241,6 +241,11 @@
                    <li data-value="28">ACCEPT ORDER</li>
                     </ul>
                 </li>
+                  <li data-value="48"><label class="label label-primary">RECEPTIONSCREEN</label>
+                    <ul>
+                   <li data-value="28">ACCEPT ORDER</li>
+                    </ul>
+                </li>
                     </ul>
               
             </div>

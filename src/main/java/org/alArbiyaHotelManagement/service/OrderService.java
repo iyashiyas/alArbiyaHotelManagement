@@ -5,6 +5,7 @@ import java.util.List;
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 
 public interface OrderService {
 	public Orders addOrder();
@@ -21,5 +22,8 @@ public interface OrderService {
 	public List<HouseKeeping> housekeepingScreenOrder();
 	public void accpethouseKeepingRequest(long id, long roomId,
 			String serviceItemName,HouseKeeping houseKeeping);
+	public List<ReceptionOrder> receptionScreen();
+	public void accpetreceptionRequest(long id, long roomId,
+			String serviceItemName, ReceptionOrder receptionOrder);
 	
 }

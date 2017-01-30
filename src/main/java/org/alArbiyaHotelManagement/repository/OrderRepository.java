@@ -6,6 +6,7 @@ import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 
 public interface OrderRepository {
 	public Orders addOrder();
@@ -22,5 +23,8 @@ public interface OrderRepository {
 	public List<HouseKeeping> housekeepingScreenOrder();
 	public void accpetParkingRequest(long id, long roomId,
 			String serviceItemName,HouseKeeping houseKeeping);
+	public List<ReceptionOrder> receptionScreen();
+	public void accpetreceptionRequest(long id, long roomId,
+			String serviceItemName, ReceptionOrder receptionOrder);
 	
 }

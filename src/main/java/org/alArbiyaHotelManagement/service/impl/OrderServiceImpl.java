@@ -12,6 +12,7 @@ import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,6 +130,31 @@ public class OrderServiceImpl implements OrderService {
 	public void accpethouseKeepingRequest(long id, long roomId,
 			String serviceItemName,HouseKeeping houseKeeping) {
 		 orderRepository.accpetParkingRequest(id,roomId, serviceItemName,houseKeeping);
+	}
+
+	@Override
+	public List<ReceptionOrder> receptionScreen() {
+		// TODO Auto-generated method stub
+		return orderRepository.receptionScreen();
+	}
+
+	@Override
+	public void accpetreceptionRequest(long id, long roomId,
+			String serviceItemName, ReceptionOrder receptionOrder) {
+		
+		 if(serviceItemName.equals("CHECKOUT"))
+		 {
+			 receptionOrder.setRequestType("CHECKOUT");
+		 }
+		 else
+		 {
+			 receptionOrder.setRequestType("question");
+		 }
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Date date = new Date();
+			receptionOrder.setAcceptTime(dateFormat.format(date));
+		 orderRepository.accpetreceptionRequest(id,roomId, serviceItemName,receptionOrder);
+		
 	}
 
 	 
