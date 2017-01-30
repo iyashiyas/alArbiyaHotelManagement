@@ -153,6 +153,12 @@
 					</div>
 				</div>
 				
+		<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')" var="RoleAcceptorAdmin">
+				</sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')" var="RoleDeliveryorAdmin">
+				</sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')" var="RoledeliveredorAdmin">
+				</sec:authorize>
 		<input type="hidden" name="${_csrf.parameterName}" id="secuirtyId" value="${_csrf.token}"/>
 
 				<!-- Modal Popup Box -->

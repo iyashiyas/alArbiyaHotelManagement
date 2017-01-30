@@ -124,6 +124,20 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from ParkingOrder parking where parking.orderStatus='ORDERED' ", ParkingOrder.class);
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Parking> customerOutParking() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='OUT' AND parking.parkingCategory='CUSTOMER'", Parking.class);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Parking> vIPOutParking() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='OUT' AND parking.parkingCategory='VIP'", Parking.class);
+		return query.getResultList();
 	} 
 
 }

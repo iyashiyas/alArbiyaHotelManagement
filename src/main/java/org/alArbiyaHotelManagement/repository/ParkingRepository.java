@@ -37,4 +37,8 @@ public interface ParkingRepository {
  
 	List<ParkingOrder> getParkingRequests();
 
+	List<Parking> customerOutParking();
+
+	List<Parking> vIPOutParking();
+
 }

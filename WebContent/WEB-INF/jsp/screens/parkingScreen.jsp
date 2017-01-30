@@ -89,7 +89,9 @@
 							</div>
 							Available |
 							<div class="btn btn-primary m-r-sm">${fn:length(customerNonAvailableParking)}</div>
-							Not Available
+							Not Available |
+							<div class="btn btn-info m-r-sm">${fn:length(customerOutParking)}</div>
+							OUT
 							<button class="btn btn-success" data-toggle="collapse"
 								data-target="#moreCustomer">More</button>
 
@@ -116,8 +118,10 @@
 							<div class="btn btn-danger m-r-sm">${fn:length(vIPavailableParking)}</div>
 							Available |
 							<div class="btn btn-primary m-r-sm">${fn:length(vIPNonAvailableParking)}</div>
-							Not Available
-						
+							Not Available |
+							<div class="btn btn-info m-r-sm">${fn:length(vIPOutParking)}</div>
+							OUT
+						     
 						<button class="btn btn-success" data-toggle="collapse"
 								data-target="#moreVip">More</button></div>
 					</div>

@@ -25,7 +25,7 @@ $(document)
 																							+ Orders.houseKeepingType
 																							+ '</td><td>'
 																							+ Orders.requestTime
-																							+ '</td><td>'+(Orders.status == "ORDERED" ? ('${RoleAcceptorAdmin}'==true ? '<a class="btn btn-primary" href="accpethouseKeepingRequest?id='+Orders.id+'&roomId='+Orders.room.id+'&serviceItemName='+Orders.houseKeepingType+'">Accept</a>':'NoAccess'): Orders.status)+'</td></tr>')
+																							+ '</td><td>'+(Orders.status == "ORDERED" ?  '<a class="btn btn-primary" href="accpethouseKeepingRequest?id='+Orders.id+'&roomId='+Orders.room.id+'&serviceItemName='+Orders.houseKeepingType+'">Accept</a>' : Orders.status)+'</td></tr>')
 																});
 											},
 											error : function(xmlHttpRequest,

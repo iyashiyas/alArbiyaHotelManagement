@@ -22,7 +22,7 @@
                             <div class="col-lg-3">
                                <!--  <i class="fa fa-user fa-3x"></i> --> 
                             </div>
-                            <div class="col-lg-9 text-right">
+                            <div class="col-lg-9 ">
                                 <h2 class="font-bold">${employeeparkings.parkingName}</h2>
                             </div>
                         </div> 
@@ -34,7 +34,7 @@
                             <div class="col-lg-3">
                                <!--  <i class="fa fa-user fa-3x"></i> -->
                             </div>
-                            <div class="col-lg-9 text-right">
+                            <div class="col-lg-9 ">
                                 <h2 class="font-bold">${employeeparkings.parkingName}</h2>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="col-lg-3">
                                <!--  <i class="fa fa-user fa-3x"></i> -->
                             </div>
-                            <div class="col-lg-9 text-right">
+                            <div class="col-lg-9 ">
                                 <h2 class="font-bold">${employeeparkings.parkingName}</h2>
                             </div>
                         </div>

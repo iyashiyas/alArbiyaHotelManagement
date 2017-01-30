@@ -180,7 +180,7 @@ public class OrderController {
 				
 				//parking request accept
 				 
-				@RequestMapping(value = "/ParkingScreen", method = RequestMethod.GET)
+				@RequestMapping(value = "ParkingScreen", method = RequestMethod.GET)
 				public String ParkingScreen(Model model) {
 					List<Parking> parkings = parkingService.getAllParking(); 
 					List<Parking> availableParking = parkingService.availableParking();
@@ -188,7 +188,9 @@ public class OrderController {
 					List<Parking> vIPavailableParking = parkingService.vIPavailableParking();
 					List<Parking> employeeavailableParking = parkingService.employeeavailableParking(); 
 					List<Parking> customerNonAvailableParking = parkingService.customerNonAvailableParking();
+					List<Parking> customerOutParking = parkingService.customerOutParking();
 					List<Parking> vIPNonAvailableParking = parkingService.vIPNonAvailableParking();
+					List<Parking> vIPOutParking = parkingService.vIPOutParking();
 					List<Parking> employeeaNonAvailableParking = parkingService.employeeaNonAvailableParking();
 				 
 					List<Parking> cutomerparkings = parkingService.cutomerparkings();
@@ -200,6 +202,8 @@ public class OrderController {
 					attributes.put("parkings", parkings); 
 					
 					attributes.put("customerAvailableParking", customerAvailableParking); 
+					attributes.put("customerOutParking", customerOutParking); 
+					attributes.put("vIPOutParking", vIPOutParking); 
 					attributes.put("vIPavailableParking", vIPavailableParking); 
 					attributes.put("employeeavailableParking", employeeavailableParking); 
 					
@@ -219,7 +223,7 @@ public class OrderController {
 					public String accpetParkingRequest(@RequestParam(required=false) long id,
 					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName, @RequestParam(required=false) long parkingId,@RequestParam(required=false) String requestType, @ModelAttribute ParkingOrder parkingOrder) {
 					 orderService.accpetParkingRequest(parkingOrder,id, roomId, serviceItemName,parkingId,requestType);
-					 return "redirect:/ParkingScreen";
+					 return "redirect:/order/ParkingScreen";
 					}
 				 
 				 //house keeping Requests

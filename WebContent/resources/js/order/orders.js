@@ -15,8 +15,7 @@ $('#submit').click(function() {
         },
 		success: handleSuccess,
 		error:handleError
-	});
-	
+	}); 
 }); 
 
 
@@ -40,8 +39,7 @@ $('#submit').click(function() {
 	});
 	
 }); 
-
-
+ 
 $('#submit').click(function() {
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");

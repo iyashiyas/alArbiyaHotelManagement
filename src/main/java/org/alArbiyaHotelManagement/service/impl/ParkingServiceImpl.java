@@ -105,5 +105,17 @@ public class ParkingServiceImpl implements ParkingService {
 		// TODO Auto-generated method stub
 		return parkingRepository.getParkingRequests();
 	}
+
+	@Override
+	public List<Parking> customerOutParking() {
+		// TODO Auto-generated method stub
+		return parkingRepository.customerOutParking();
+	}
+
+	@Override
+	public List<Parking> vIPOutParking() {
+		// TODO Auto-generated method stub
+		return parkingRepository.vIPOutParking();
+	}
   
 }
