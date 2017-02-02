@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@PreAuthorize("hasRole('LANGUAGE_READ')") 
 @RequestMapping(value = "/language")
 public class LanguageController {
 	

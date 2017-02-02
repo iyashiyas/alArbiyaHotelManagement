@@ -52,14 +52,12 @@
 	<!-- end Internationaliazation -->  
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000" />
+		<property name="maxUploadSize" value="10000000" />
 	</bean> 
 	<!-- Use @Transaction annotations for managing transactions -->
 	<tx:annotation-driven transaction-manager="myTxManager" />
 	<context:annotation-config />
-	
- 
-
+	 
  <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine"> 
       <property name="additionalDialects">
         <set> 

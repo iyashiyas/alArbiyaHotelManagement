@@ -21,7 +21,7 @@
 	rel="stylesheet">
 <title><spring:message code="label.shms.login" /></title>
 </head>
-<body class="gray-bg" onload="Captcha();">
+<body class="gray-bg" >
 	<c:if test="${pageContext.response.locale=='ar'}">
 		<style type="text/css">
 body {

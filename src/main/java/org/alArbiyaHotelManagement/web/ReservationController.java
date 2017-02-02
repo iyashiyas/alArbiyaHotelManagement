@@ -97,8 +97,7 @@ public class ReservationController {
 	
 	@RequestMapping(value="/checkIn", method=RequestMethod.GET) 
 	public String checkIn(@ModelAttribute(value="booking")Booking booking, @RequestParam(required=true) String bookingrefernceId,@RequestParam(required=true) long parkingId, Model model) throws ParseException {
-	     booking = bookingService.createCheckIn(bookingrefernceId,parkingId); 
-	     System.out.println("parkingif0"+parkingId);
+	     booking = bookingService.createCheckIn(bookingrefernceId,parkingId);  
 		return "redirect:/reservation/bookedRooms";
 	}
 	@RequestMapping(value="/checkOut", method=RequestMethod.GET) 

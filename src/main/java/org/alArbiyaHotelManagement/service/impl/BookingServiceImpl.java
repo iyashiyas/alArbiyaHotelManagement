@@ -50,17 +50,14 @@ public class BookingServiceImpl implements BookingService{
 		return bookingRepository.createBooking(booking, roomId);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Booking createCheckIn(String bookingId,long parkingId) {
 		// TODO Auto-generated method stub 
 		Booking booking = new Booking();
-		   if(parkingId==0)
-		   {
-			 parkingId=(Long) null;
-		   }
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
-	  booking.setCheckedInTime(dateFormat.format(date));
+	    booking.setCheckedInTime(dateFormat.format(date));  
 		return bookingRepository.createCheckIn(bookingId,booking,parkingId);
 	}
 

@@ -70,7 +70,7 @@
                  <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                  <a href="${pageContext.request.contextPath}/player/showPlayer">Players - (${fn:length(players)}) </a> 
+                  <a href="${pageContext.request.contextPath}/player/showPlayer"><spring:message code="label.Player" /> - (${fn:length(players)}) </a> 
                             <div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -91,7 +91,7 @@
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <a href="${pageContext.request.contextPath}/hotel/showRoom">Rooms - (${fn:length(rooms)}) </a> 
+                            <a href="${pageContext.request.contextPath}/hotel/showRoom"><spring:message code="label.Rooms" /> - (${fn:length(rooms)}) </a> 
                             <div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -112,7 +112,7 @@
                   <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <a href="${pageContext.request.contextPath}/language">Languages - (${fn:length(languages)}) </a>
+                            <a href="${pageContext.request.contextPath}/language"><spring:message code="label.Languages" /> - (${fn:length(languages)}) </a>
                             <div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -191,11 +191,11 @@
                         </div>
                         <div class="ibox-content">
                             <div>
-                           ROOM-SCREEN-URL : <label>serverip(ex:192.168.100.1):9091(port)/alArbiyaScreenManagement/home</label>
-                           <p> COFFEESHOP-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/coffeeShopScreen</label>
-                           <p> RESTAURANT-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/restaurantScreen</label>
-                           <p> LAUNDRY-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/laundryScreen</label>
-                           <p> PARKING-SCREEN-URL:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/ParkingScreen</label>
+                           <spring:message code="label.ROOM-SCREEN-URL" /> :<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaScreenManagement/home</label>
+                           <p><spring:message code="label.COFFEESHOP-SCREEN-URL" /> :<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/coffeeShopScreen</label>
+                           <p><spring:message code="label.RESTAURANT-SCREEN-URL" /> :<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/restaurantScreen</label>
+                           <p><spring:message code="label.LAUNDRY-SCREEN-URL" /> :<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/laundryScreen</label>
+                           <p><spring:message code="label.PARKING-SCREEN-URL" /> :<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/ParkingScreen</label>
                            
                             </div>
                         </div>

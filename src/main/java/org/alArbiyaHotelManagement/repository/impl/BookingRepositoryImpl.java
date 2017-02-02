@@ -61,13 +61,24 @@ public class BookingRepositoryImpl implements BookingRepository{
 	@Override
 	public Booking createCheckIn(String bookingId,Booking booking,long parkingId) {
 		// TODO Auto-generated method stub
+		if(parkingId==0)
+		{
+			Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId ");
+			updateQuery.setParameter("bookingReferenceId", bookingId); 
+			updateQuery.setParameter("checkedinDate", booking.getCheckedInTime());  
+			entityManager.joinTransaction();
+			updateQuery.executeUpdate();
+		}
+		else
+		{
 		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate, parking.id=:parkingId where bookingReferenceId=:bookingReferenceId ");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
 		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
 		updateQuery.setParameter("parkingId", parkingId); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
-		return null ;
+		}
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")
