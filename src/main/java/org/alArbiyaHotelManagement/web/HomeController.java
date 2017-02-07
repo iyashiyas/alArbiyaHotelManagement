@@ -22,7 +22,7 @@ import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.PlayerService;
 import org.alArbiyaHotelManagement.service.RoomService;
 import org.alArbiyaHotelManagement.service.UserManagementService;
-import org.alArbiyaHotelManagement.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,10 +86,11 @@ public class HomeController {
 		attributes.put("notConfiguredPlayer", notConfiguredPlayer);
 		attributes.put("branches", branches);
 		attributes.put("newBranch", new Branch()); 
+		
 		/*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	      String name = auth.getName(); //get logged in username 
 	      model.addAttribute("username", name); */ 
-		  
+		   
 		  model.addAttribute("floors", floors);
 		  model.addAttribute("buildings", buildings);
 		  model.addAttribute("rooms", rooms);
@@ -99,13 +100,12 @@ public class HomeController {
 		  model.addAttribute("players", player);
 	      model.addAttribute("hotelInfos" ,hotelInfos);
 		  model.addAllAttributes(attributes); 
-		return "home/home";
-	}
-	 
+		  
+	    	return "home/home";
+	} 
 	@RequestMapping(value="/header", method=RequestMethod.GET)
 	public @ResponseBody List<HotelInfo> header() {
 		return hotelinfoService.getHotelInfo();
 	}
-	
 	  
 }
