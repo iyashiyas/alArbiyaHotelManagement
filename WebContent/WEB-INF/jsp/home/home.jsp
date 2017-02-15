@@ -124,7 +124,7 @@
 					</div>
 				</sec:authorize>
 
-				<sec:authorize
+				<%-- <sec:authorize
 					access="hasAnyRole('ROLE_LANGUAGEOVERVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
 						<div class="ibox float-e-margins">
@@ -143,6 +143,30 @@
 							<div class="ibox-content">
 								<div>
 									<canvas id="doughnutChartLanguages" height="140"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</sec:authorize> --%>
+				  
+				  <sec:authorize
+					access="hasAnyRole('ROLE_PARKINGVIEW','ROLE_ADMIN')">
+					<div class="col-lg-4">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title"><a href="${pageContext.request.contextPath}/showParking">
+							 <spring:message code="label.Parking" /> - (${fn:length(parkings)}) </a>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+								<input type="hidden" name="parkings"
+									value="${fn:length(parkings)}" id="parkings">
+								<input type="hidden" name="availableParking"
+									value="${fn:length(availableParking)}" id="availableParking">
+							</div>
+							<div class="ibox-content">
+								<div>
+									<canvas id="doughnutChartParking" height="140"></canvas>
 								</div>
 							</div>
 						</div>
@@ -210,7 +234,7 @@
 					<div class="col-lg-8">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Requests</h5>
+								<h5><spring:message code="label.Requests" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -261,7 +285,7 @@
 					<div class="col-lg-4">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Access URL</h5>
+								<h5><spring:message code="label.AccessURL" /></h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>

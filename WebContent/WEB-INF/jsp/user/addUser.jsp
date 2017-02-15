@@ -12,13 +12,11 @@
 <title>SHMS-Users</title>
 
 </head>
-<body>
-
+<body> 
 	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/usermanagement/addUser?${_csrf.parameterName}=${_csrf.token}" modelAttribute="newUser" method="post" >
 		<p>
 			<spring:message code="label.AddNewUserHere" />
-		</p>
- 
+		</p> 
  	<%-- <div class="form-group">
 			<label class="col-sm-2 control-label"><spring:message code="label.SelectRole"></spring:message></label>
 			<div class="col-sm-10">

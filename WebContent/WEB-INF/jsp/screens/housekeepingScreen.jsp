@@ -84,6 +84,7 @@
 											<!-- Fetching Language Table-->
 											<!-- Fetching Language Table--> 
 											 <c:forEach items="${orders}" var="orders"> 
+											 <tr>
 											 	<td class="center">${orders.id}</td>
 											 	<td class="center">${orders.room.roomCode}</td>
 											 	<td class="center">${orders.houseKeepingType}</td>
@@ -100,6 +101,7 @@
 											 		</c:when>
 											 	</c:choose>
 											  </td>
+											  </tr>
 											 </c:forEach>  
 											<!-- Demo -->
 											<!--End Action -->

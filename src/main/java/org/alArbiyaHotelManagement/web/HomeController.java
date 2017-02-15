@@ -12,6 +12,7 @@ import org.alArbiyaHotelManagement.model.HotelInfo;
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Orders;
+import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.Player;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.model.Room;
@@ -24,6 +25,7 @@ import org.alArbiyaHotelManagement.service.FloorService;
 import org.alArbiyaHotelManagement.service.HotelInfoService;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.OrderService;
+import org.alArbiyaHotelManagement.service.ParkingService;
 import org.alArbiyaHotelManagement.service.PlayerService;
 import org.alArbiyaHotelManagement.service.RoomService;
 import org.alArbiyaHotelManagement.service.RoomTypeService;
@@ -71,6 +73,9 @@ public class HomeController {
 	@Autowired
 	RoomTypeService roomTypeService;
 	
+	@Autowired
+	ParkingService parkingService;
+	
 	@RequestMapping(value = "/SHMS")
 	public String showHomePage(Model model) {
 		
@@ -108,6 +113,8 @@ public class HomeController {
 		List<ReceptionOrder> receptionOrderRequest = orderService.receptionScreen();
 		List<ReceptionOrder> receptionOrderRequestAccept = orderService.receptionOrderRequestAccept();
 		
+		List<Parking> parkings = parkingService.getAllParking();
+		List<Parking> availableParking = parkingService.availableParking();
 		
 		Map<String, Object> attributes = new HashMap<String, Object>(); 
 		
@@ -149,7 +156,11 @@ public class HomeController {
 	      
 	      model.addAttribute("receptionOrderRequest",receptionOrderRequest);
 	      model.addAttribute("receptionOrderRequestAccept",receptionOrderRequestAccept);
+	      
+	      model.addAttribute("parkings",parkings);
+	      model.addAttribute("availableParking",availableParking);
 	   
+	      
 		  model.addAllAttributes(attributes);  
 	    	return "home/home";
 	} 

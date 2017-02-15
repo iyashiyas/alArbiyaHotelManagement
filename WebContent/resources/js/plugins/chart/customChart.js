@@ -36,7 +36,7 @@ $(function () {
 		    new Chart(ctx5, {type: 'doughnut', data: doughnutData1, options:doughnutOptions1}); 
 });
 	
-	//languages
+	/*//languages
 	 var enabledLanguages=$('#enabledLanguages').val();
 		var disabledLanguages=$('#disabledLanguages').val();
 	$(function () {
@@ -53,10 +53,29 @@ $(function () {
 	    }; 
 		 var ctx5 = document.getElementById("doughnutChartLanguages").getContext("2d");
 		    new Chart(ctx5, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2}); 
-});
-});
+});*/
+	
+	// Parking
+	 var parkings=$('#parkings').val();
+		var availableParking=$('#availableParking').val();
+	$(function () {
 
-
+	    var doughnutData22 = {
+	        labels: ["Total Parking-"+parkings,"Available Parking-"+availableParking],
+	        datasets: [{
+	            data: [parkings,availableParking],
+	            backgroundColor: ["#f8ac59","#ec4758"]
+	        }]
+	    } ; 
+	    var doughnutOptions33 = {
+	        responsive: true
+	    }; 
+		 var ctx51 = document.getElementById("doughnutChartParking").getContext("2d");
+		    new Chart(ctx51, {type: 'doughnut', data: doughnutData22, options:doughnutOptions33}); 
+}); 
+	
+});
+ 
 // Bar Chart
 // requests
 var CoffeeShopOrder=$('#CoffeeShopOrder').val();

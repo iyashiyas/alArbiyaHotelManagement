@@ -50,8 +50,7 @@
                             <div class="col-lg-9">
                                 <h2 class="font-bold">${cutomerparkings.parkingName}</h2>
                             </div>
-                        </div>
-                     
+                        </div> 
   </button> 
   </c:if>
     </c:forEach>
