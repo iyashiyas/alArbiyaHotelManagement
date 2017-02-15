@@ -26,5 +26,18 @@ public interface OrderRepository {
 	public List<ReceptionOrder> receptionScreen();
 	public void accpetreceptionRequest(long id, long roomId,
 			String serviceItemName, ReceptionOrder receptionOrder);
+	public List<Orders> CoffeeShopOrderRequest();
+	public List<Orders> CoffeeShopOrderRequestAccept();
+	public List<Orders> CoffeeShopOrderDeliverd();
+	public List<Orders> restaurantOrderRequest();
+	public List<Orders> restaurantOrderRequestAccept();
+	public List<Orders> restaurantOrderDeliverd();
+	public List<Orders> laundryOrderRequest();
+	public List<Orders> laundryOrderRequestAccept();
+	public List<Orders> laundryOrderDeliverd();
+  
+	public List<HouseKeeping> houseKeepingOrderRequestAccept();
+	public List<ReceptionOrder> receptionOrderRequestAccept();
+ 
 	
 }

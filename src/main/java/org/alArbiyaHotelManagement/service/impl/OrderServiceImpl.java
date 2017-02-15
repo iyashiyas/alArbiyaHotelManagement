@@ -157,6 +157,75 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public List<Orders> CoffeeShopOrderRequest() {
+		// TODO Auto-generated method stub
+		return orderRepository.CoffeeShopOrderRequest();
+	}
+
+	@Override
+	public List<Orders> CoffeeShopOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		return orderRepository.CoffeeShopOrderRequestAccept();
+	}
+
+	@Override
+	public List<Orders> CoffeeShopOrderDeliverd() {
+		// TODO Auto-generated method stub
+		return orderRepository.CoffeeShopOrderDeliverd();
+	}
+
+	@Override
+	public List<Orders> restaurantOrderRequest() {
+		// TODO Auto-generated method stub
+		return orderRepository.restaurantOrderRequest();
+	}
+
+	@Override
+	public List<Orders> restaurantOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		return orderRepository.restaurantOrderRequestAccept();
+	}
+
+	@Override
+	public List<Orders> restaurantOrderDeliverd() {
+		// TODO Auto-generated method stub
+		return orderRepository.restaurantOrderDeliverd();
+	}
+
+	@Override
+	public List<Orders> laundryOrderRequest() {
+		// TODO Auto-generated method stub
+		return orderRepository.laundryOrderRequest();
+	}
+
+	@Override
+	public List<Orders> laundryOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		return orderRepository.laundryOrderRequestAccept();
+	}
+
+	@Override
+	public List<Orders> laundryOrderDeliverd() {
+		// TODO Auto-generated method stub
+		return orderRepository.laundryOrderDeliverd();
+	}
+
+ 
+
+	@Override
+	public List<HouseKeeping> houseKeepingOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		return orderRepository.houseKeepingOrderRequestAccept();
+	}
+
+	@Override
+	public List<ReceptionOrder> receptionOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		return orderRepository.receptionOrderRequestAccept();
+	}
+
+	 
 	 
  
 	

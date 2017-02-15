@@ -34,6 +34,9 @@ public class User implements UserDetails {
 
 	@Column(name = "PASSWORD")
 	private String password;
+	
+	@Column(name = "EMAIL")
+	private String email;
 
     @ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "USERS_ROLES", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID"))
@@ -101,6 +104,14 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

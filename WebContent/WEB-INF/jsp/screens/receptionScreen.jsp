@@ -85,66 +85,23 @@
 										</thead>
 										<tbody class="animated fadeInRight"> 
 											<!-- Fetching Language Table--> 
-										<%-- 	 <c:forEach items="${orders}" var="orders"> 
-												<tr class="gradeX" id="${orders.id}"> 
-													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomCode}</td> 
-													<td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
-													<td class="center"> 
-													<c:forEach items="${orders.unit}" var="units">
-													${units.unitName}
-													</c:forEach> 
-													</td> 
-													<td>
-													<c:forEach items="${orders.ingredients}" var="ingredients">
-													${ingredients.ingredientName}
-													</c:forEach> 
-													</td> 
-													<td class="center">${orders.quantity}</td> 
-													<td class="center">${orders.requestedTime}</td>
-													<td class="center"> 
-													<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
-													<c:choose>
-													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success"><spring:message code="label.AcceptRequest" /></a>
-													 </c:when> 
-													 <c:otherwise>
-													 <label class="label label-primary">
-													 ${orders.acceptTime}</label>
-													 </c:otherwise>
-													  </c:choose></sec:authorize>
-													 
-													 </td> 
-													<td class="center"> <sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
-													<c:choose>
-													<c:when test="${orders.readyForDeliveryTime == null}"> 
-													<a href="${pageContext.request.contextPath}/order/coffeeShopreadyForDelivery?id=${orders.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message code="label.ReadyForDelivery" /></a>
-													</c:when>
-													<c:otherwise>
-													 <label class="label label-primary">
-													${orders.readyForDeliveryTime}</label>
-													</c:otherwise>
-													</c:choose></sec:authorize>
-													
-													</td> 
-													<td class="center"> 
-													<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
-													<c:choose>
-													<c:when test="${orders.deliveredTime == null}">
-													<a href="${pageContext.request.contextPath}/order/coffeeShopdelivered?id=${orders.id}" class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message code="label.Delivered" /></a>
-													</c:when>
-													<c:otherwise>
-												    <label class="label label-primary">
-													${orders.deliveredTime}</label>
-													</c:otherwise>
-													</c:choose></sec:authorize>
-													
-													</td>
-												 	<td>
-													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
-													</td>   
-												</tr> 
-											</c:forEach>   --%>  
+									 	 <c:forEach items="${orders}" var="orders"> 
+												<tr class="gradeX"> 
+											 	<td class="center">${orders.id}</td>
+											 	<td class="center">${orders.room.roomCode}</td>
+											 	<td class="center">${orders.requestType}</td>
+											 	<td class="center">${orders.requestTime}</td>
+											 	<td class="center">
+											 	<c:choose>
+											 		<c:when test="${orders.orderStatus == 'ORDERED'}">
+											 		  <a href="${pageContext.request.contextPath}/order/accpetreceptionRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.requestType}"
+																	class="btn btn-success"><spring:message code="label.Submit" /></a>
+											 		</c:when>
+											 	</c:choose>
+											  </td>
+										  </tr>
+											 </c:forEach>  	 
+									 
 											<!-- Demo -->
 											<!--End Action -->
 									</table>
@@ -211,18 +168,26 @@
 
 												</tr>
 											</thead>
-											<tbody> 
-												<!-- Fetching Language Table-->
-
-												<tr class="gradeX">
-
-													<td class="center">1</td>
-													<td class="center">Item Name</td>
-													<td class="center">Sub Items</td>
-													<td class="center">1</td>
-													<td class="center">100sar/-</td>
- 
-												</tr> 
+											
+										<tbody class="animated fadeInRight">
+												<!-- Fetching Language Table--> 
+												 <c:forEach items="${orders}" var="orders"> 
+												<tr class="gradeX"> 
+											 	<td class="center">${orders.id}</td>
+											 	<td class="center">${orders.room.roomCode}</td>
+											 	<td class="center">${orders.requestType}</td>
+											 	<td class="center">${orders.requestTime}</td>
+											 	<td class="center">
+											 	<c:choose>
+											 		<c:when test="${orders.orderStatus == 'ORDERED'}">
+											 		  <a href="${pageContext.request.contextPath}/order/accpetreceptionRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.requestType}"
+																	class="btn btn-success"><spring:message code="label.Submit" /></a>
+											 		</c:when>
+											 	</c:choose>
+											  </td>
+										  </tr>
+											 </c:forEach>  
+											
 												<!-- Demo -->
 												<!--End Action -->
 										</table>

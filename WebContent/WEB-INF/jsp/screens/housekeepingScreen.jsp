@@ -66,12 +66,11 @@
 						name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</form>
 							</div>
-							<div class="ibox-content">
 								<div class="table-responsive">
-
+					 
 									<table
-										class="table table-striped table-bordered table-hover dataTables-example"
-										id="orderTable">
+										class="table table-striped table-bordered table-hover dataTables-example" id="orderTable">
+									 
 										<thead>
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
@@ -84,10 +83,27 @@
 										<tbody class="animated fadeInRight">
 											<!-- Fetching Language Table-->
 											<!-- Fetching Language Table--> 
-											 
- 
+											 <c:forEach items="${orders}" var="orders"> 
+											 	<td class="center">${orders.id}</td>
+											 	<td class="center">${orders.room.roomCode}</td>
+											 	<td class="center">${orders.houseKeepingType}</td>
+											 	<td class="center">${orders.requestTime}</td>
+											 	<td class="center">
+											 	<c:choose>
+											 		<c:when test="${orders.status == 'ORDERED'}">
+											 		  <a href="${pageContext.request.contextPath}/order/accpethouseKeepingRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${Orders.houseKeepingType}"
+																	class="btn btn-success "><spring:message
+																		code="label.Submit" /></a>
+											 		</c:when>
+											 		<c:when test="${orders.status != 'ORDERED'}">
+											 		   ${orders.status}
+											 		</c:when>
+											 	</c:choose>
+											  </td>
+											 </c:forEach>  
 											<!-- Demo -->
 											<!--End Action -->
+											</tbody>
 									</table>
 								</div>
 								<button type="button" class="btn btn-primary" onclick=refresh()>Refresh
@@ -123,10 +139,13 @@
 	<script
 		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
 	<script src="<c:url value="/resources/js/header/header.js"/>"></script>
-	<script
+<script
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
+	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript">  
+	</script>  <!-- Page-Level Scripts -->
 	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
 		type="text/javascript"> 
 		 </script> --%>

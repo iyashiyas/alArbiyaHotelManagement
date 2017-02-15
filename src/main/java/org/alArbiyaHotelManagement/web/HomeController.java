@@ -9,9 +9,13 @@ import org.alArbiyaHotelManagement.model.Branch;
 import org.alArbiyaHotelManagement.model.Building;
 import org.alArbiyaHotelManagement.model.Floor;
 import org.alArbiyaHotelManagement.model.HotelInfo;
+import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Player;
+import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.model.Room;
+import org.alArbiyaHotelManagement.model.RoomType;
 import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.service.BranchService;
@@ -19,10 +23,11 @@ import org.alArbiyaHotelManagement.service.BuildingService;
 import org.alArbiyaHotelManagement.service.FloorService;
 import org.alArbiyaHotelManagement.service.HotelInfoService;
 import org.alArbiyaHotelManagement.service.LanguageService;
+import org.alArbiyaHotelManagement.service.OrderService;
 import org.alArbiyaHotelManagement.service.PlayerService;
 import org.alArbiyaHotelManagement.service.RoomService;
+import org.alArbiyaHotelManagement.service.RoomTypeService;
 import org.alArbiyaHotelManagement.service.UserManagementService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,6 +65,12 @@ public class HomeController {
 	@Autowired
 	LanguageService languageService;
 	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	RoomTypeService roomTypeService;
+	
 	@RequestMapping(value = "/SHMS")
 	public String showHomePage(Model model) {
 		
@@ -77,6 +88,27 @@ public class HomeController {
 		List<Room> rooms = roomService.getAllRoom();
 		List<Building> buildings = buildingService.getAllBuildings();
 		List<Floor> floors = floorService.getAllFloor();
+		List<RoomType> roomTypes =roomTypeService.getAllRoomType();
+		
+		List<Orders> CoffeeShopOrderRequest = orderService.CoffeeShopOrderRequest();
+		List<Orders> CoffeeShopOrderRequestAccept = orderService.CoffeeShopOrderRequestAccept();
+		List<Orders> CoffeeShopOrderDeliverd = orderService.CoffeeShopOrderDeliverd();
+		
+		List<Orders> restaurantOrderRequest = orderService.restaurantOrderRequest();
+		List<Orders> restaurantOrderRequestAccept = orderService.restaurantOrderRequestAccept();
+		List<Orders> restaurantOrderDeliverd = orderService.restaurantOrderDeliverd();
+	   
+		List<Orders> laundryOrderRequest = orderService.laundryOrderRequest();
+		List<Orders> laundryOrderRequestAccept = orderService.laundryOrderRequestAccept();
+		List<Orders> laundryOrderDeliverd = orderService.laundryOrderDeliverd();
+	    
+		List<HouseKeeping> houseKeepingOrderRequest = orderService.housekeepingScreenOrder();
+		List<HouseKeeping> houseKeepingOrderRequestAccept = orderService.houseKeepingOrderRequestAccept();
+		
+		List<ReceptionOrder> receptionOrderRequest = orderService.receptionScreen();
+		List<ReceptionOrder> receptionOrderRequestAccept = orderService.receptionOrderRequestAccept();
+		
+		
 		Map<String, Object> attributes = new HashMap<String, Object>(); 
 		
 		attributes.put("languages", languages);
@@ -86,11 +118,11 @@ public class HomeController {
 		attributes.put("notConfiguredPlayer", notConfiguredPlayer);
 		attributes.put("branches", branches);
 		attributes.put("newBranch", new Branch()); 
-		
+		 
 		/*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	      String name = auth.getName(); //get logged in username 
 	      model.addAttribute("username", name); */ 
-		   
+		  model.addAttribute("roomTypes", roomTypes);
 		  model.addAttribute("floors", floors);
 		  model.addAttribute("buildings", buildings);
 		  model.addAttribute("rooms", rooms);
@@ -99,8 +131,26 @@ public class HomeController {
 		  model.addAttribute("checkedInRoom", checkedInRoom);
 		  model.addAttribute("players", player);
 	      model.addAttribute("hotelInfos" ,hotelInfos);
-		  model.addAllAttributes(attributes); 
+	       
+	      model.addAttribute("CoffeeShopOrderRequest" ,CoffeeShopOrderRequest);
+	      model.addAttribute("CoffeeShopOrderRequestAccept" ,CoffeeShopOrderRequestAccept);
+	      model.addAttribute("CoffeeShopOrderDeliverd" ,CoffeeShopOrderDeliverd);
+		     
+	      model.addAttribute("restaurantOrderRequest",restaurantOrderRequest);
+	      model.addAttribute("restaurantOrderRequestAccept",restaurantOrderRequestAccept);
+	      model.addAttribute("restaurantOrderDeliverd" ,restaurantOrderDeliverd);
 		  
+	      model.addAttribute("laundryOrderRequest",laundryOrderRequest);
+	      model.addAttribute("laundryOrderRequestAccept",laundryOrderRequestAccept);
+	      model.addAttribute("laundryOrderDeliverd" ,laundryOrderDeliverd);
+	      
+	      model.addAttribute("houseKeepingOrderRequest",houseKeepingOrderRequest);
+	      model.addAttribute("houseKeepingOrderRequestAccept",houseKeepingOrderRequestAccept);
+	      
+	      model.addAttribute("receptionOrderRequest",receptionOrderRequest);
+	      model.addAttribute("receptionOrderRequestAccept",receptionOrderRequestAccept);
+	   
+		  model.addAllAttributes(attributes);  
 	    	return "home/home";
 	} 
 	@RequestMapping(value="/header", method=RequestMethod.GET)

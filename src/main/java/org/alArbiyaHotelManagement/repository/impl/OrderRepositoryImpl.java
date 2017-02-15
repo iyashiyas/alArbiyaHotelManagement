@@ -176,4 +176,73 @@ public class OrderRepositoryImpl implements OrderRepository{
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
 	}
+	
+	@Override
+	public List<Orders> CoffeeShopOrderRequest() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='ORDERED'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> CoffeeShopOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='ORDER ACCEPT'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> CoffeeShopOrderDeliverd() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='DELIVERED'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> restaurantOrderRequest() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='ORDERED'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> restaurantOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='ORDER ACCEPT'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> restaurantOrderDeliverd() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='DELIVERED'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> laundryOrderRequest() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='ORDERED'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> laundryOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='ORDER ACCEPT'", Orders.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<Orders> laundryOrderDeliverd() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='DELIVERED'", Orders.class);
+		return query.getResultList();
+	}
+	 
+	@Override
+	public List<HouseKeeping> houseKeepingOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT housekeeping from HouseKeeping housekeeping where status='ACCEPT' ", HouseKeeping.class);
+		return query.getResultList();
+	}
+	@Override
+	public List<ReceptionOrder> receptionOrderRequestAccept() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT receptionOrder from ReceptionOrder receptionOrder where orderStatus='ACCEPT'", ReceptionOrder.class);
+		return query.getResultList();
+	}
+	 
 }

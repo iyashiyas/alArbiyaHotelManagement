@@ -4,12 +4,13 @@ package org.alArbiyaHotelManagement.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+ 
 import org.alArbiyaHotelManagement.model.Role;
 import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.service.RoleService;
 import org.alArbiyaHotelManagement.service.UserManagementService; 
 import org.springframework.beans.factory.annotation.Autowired;
+ 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,8 +26,7 @@ public class UserManagementController {
 	UserManagementService userManagementService;
 	
 	@Autowired
-	RoleService roleService;
-
+	RoleService roleService; 
 	
 	@RequestMapping(value="/showUser", method=RequestMethod.GET)
 	public String showUser(Model model){
@@ -37,6 +37,7 @@ public class UserManagementController {
 		attributes.put("roles", roles);
 		attributes.put("newUser", new User());
 		model.addAllAttributes(attributes);
+		 
 		return "user/user";
 	}
 	  
@@ -51,6 +52,6 @@ public class UserManagementController {
 		userManagementService.changePassword(user);
 		 return "redirect:/usermanagement/showUser";
 	}
-	
+	 
 	
 }

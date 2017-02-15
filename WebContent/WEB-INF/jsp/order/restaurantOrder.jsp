@@ -278,10 +278,10 @@
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript"> --%>
-		
-	</script>
+	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript">  
+	</script>  
+		 
 
 	<script type="text/javascript">
 function printDiv() 

@@ -14,13 +14,22 @@
 </head>
 <body> 
 	<form:form class="form-horizontal" id="confirm-EditForm"
-		modelAttribute="newUnit" method="POST" action="">
+		  method="POST" action="${pageContext.request.contextPath}/forgotPassword">
 		<div class="modal-header">
 			<spring:message code="label.forgotPassword" />
 		</div>
 		<div class="modal-body">
 			<p> <spring:message code="label.forgotPassword" />
 			</p> 
+			<%-- <div class="form-group">
+			<label class="col-sm-2 control-label"><spring:message
+					code="label.Email" /></label> 
+			<div class="col-sm-10">
+				<input type="email"  placeholder="Email"
+					name="email" class="form-control" >
+			</div>
+		</div> --%>
+		 
 		</div> 
 		<div class="modal-footer">
 			<button type="button" data-reload="yes" data-dismiss="modal"

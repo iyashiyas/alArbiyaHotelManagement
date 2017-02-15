@@ -232,7 +232,7 @@ public class OrderController {
 				 
 				   @RequestMapping(value="housekeepingScreen",method = RequestMethod.GET)
 					public String housekeepingScreen(Model model) {
-						List<Orders> orders = orderService.coffeeShopScreen();
+						List<HouseKeeping> orders = orderService.housekeepingScreenOrder();
 						Map<String, Object> attributes = new HashMap<String, Object>();
 						attributes.put("orders", orders);
 						attributes.put("order", new Orders());

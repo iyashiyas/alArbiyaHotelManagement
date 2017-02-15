@@ -155,7 +155,7 @@
 							<div class="ibox-title">
 								<h5>
 									<spring:message code="label.CheckInToRoomNumber" />
-									<label class="label-primary">"${ roomId}"</label>
+									<label class="label-primary">"${roomId}"</label>
 								</h5>
 								<div class="ibox-tools">
 									<a class=""

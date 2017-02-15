@@ -40,6 +40,16 @@
 					name="username" path="username" class="form-control" />
 			</div>
 		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><spring:message
+					code="label.Email" /></label> 
+			<div class="col-sm-10">
+				<form:input type="email"  placeholder="Email"
+					name="email" path="email" class="form-control" />
+			</div>
+		</div>
+		 
 
  
 		<div class="form-group">
@@ -64,7 +74,8 @@
                     <li data-value="43">PLAYER OVERVIEW</li>    
                    <li data-value="44">ROOMS OVERVIEW</li>   
                     <li data-value="45">LANGUAGE OVERVIEW</li> 
-                   <li data-value="46">PROFILE OVERVIEW</li>    
+                   <li data-value="46">PROFILE OVERVIEW</li>  
+                   <li data-value="49">REQUEST OVERVIEW</li>    
                    <li data-value="47">URL PRIVEW</li>     
                  </ul>
                 </li>

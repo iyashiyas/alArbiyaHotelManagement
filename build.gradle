@@ -12,13 +12,17 @@ def slfjVersion = '1.7.5'
 def securityVersion = '4.2.0.RELEASE'
 def springDataJpaVersion = '1.9.0.RELEASE' 
 def theversion = '2.1.2.RELEASE' 
+def javamailversion= '1.4.1'
+def springContextversion ='4.0.3.RELEASE'
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.7
  
 dependencies {
  
-	compile "org.springframework:spring-context:${springVersion}",
+    compile files('lib/ZKFingerReader.jar')
+    
+    compile "org.springframework:spring-context:${springVersion}",
 			"org.springframework:spring-webmvc:${springVersion}",
 			"org.springframework:spring-tx:${springVersion}",
 			"org.springframework:spring-orm:${springVersion}"
@@ -59,6 +63,11 @@ dependencies {
 	compile "org.springframework:spring-aop:1.2.6"       
 	
 	compile "org.springframework.data:spring-data-jpa:${springDataJpaVersion}"
+	
+	compile "org.springframework:spring-context-support:${springContextversion}"
+	        "org.springframework:spring-context:${springContextversion}"
+	
+	compile "javax.mail:mail:${javamailversion}"
     
     providedCompile "javax.servlet:servlet-api:2.3"
     

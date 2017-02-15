@@ -40,7 +40,7 @@
 					</ol>
 				</div>
 			</div>
-			<div class="raw  animated fadeInRight">
+			<div class="raw animated fadeInRight">
 
 				<%--  <div class="col-lg-4">
                     <div class="widget lazur-bg p-xl">
@@ -148,10 +148,12 @@
 						</div>
 					</div>
 				</sec:authorize>
+				 
+				
 
 				<sec:authorize
 					access="hasAnyRole('ROLE_PROFILEOVERVIEW','ROLE_ADMIN')">
-					<div class="col-lg-7">
+					<div class="col-lg-12">
 						<div>
 							<table class="table">
 								<tbody>
@@ -163,8 +165,7 @@
                             </td> 
                         </tr>
                         <tr>
-                            
-                            
+                             
                         </tr> --%>
 									<%--   <tr>  
                             <td>
@@ -174,8 +175,7 @@
                           <td>
                                 <button type="button" class="btn btn-default m-r-sm">${fn:length(users)}</button>
                                 <spring:message code="label.Totalusers" />
-                            </td>
-                            
+                            </td> 
                         </tr> --%>
 									<tr>
 										<td><a type="button"
@@ -190,8 +190,13 @@
 										<td><a type="button"
 											href="${pageContext.request.contextPath}/hotel/showFloor"
 											class="btn btn-info m-r-sm">${fn:length(floors)}</a> <spring:message
-												code="label.TotalFloor" /></td>
-
+												code="label.TotalFloor" /></td> 
+										
+										<td><a type="button"
+											href="${pageContext.request.contextPath}/hotel/showRoomTypes"
+											class="btn btn-default m-r-sm">${fn:length(roomTypes)}</a> <spring:message
+												code="label.TotalRoomTypes" /></td> 
+												 
 									</tr>
 								</tbody>
 							</table>
@@ -199,9 +204,61 @@
 
 					</div>
 				</sec:authorize>
-
+				   
+				 <sec:authorize
+					access="hasAnyRole('ROLE_REQUESTOVERVIEW','ROLE_ADMIN')">
+					<div class="col-lg-8">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>Requests</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a>
+								</div>
+								<input type="hidden" name="CoffeeShopOrder"
+									value="${fn:length(CoffeeShopOrderRequest)}" id="CoffeeShopOrder">
+								<input type="hidden" name="CoffeeShopOrderRequestAccept"
+									value="${fn:length(CoffeeShopOrderRequestAccept)}" id="CoffeeShopOrderRequestAccept">
+							<input type="hidden" name="CoffeeShopOrderDeliverd"
+									value="${fn:length(CoffeeShopOrderDeliverd)}" id="CoffeeShopOrderDeliverd">
+									
+									<!--  -->
+										<input type="hidden" name="restaurantOrderRequest"
+									value="${fn:length(restaurantOrderRequest)}" id="restaurantOrderRequest">
+								<input type="hidden" name="restaurantOrderRequestAccept"
+									value="${fn:length(restaurantOrderRequestAccept)}" id="restaurantOrderRequestAccept">
+							<input type="hidden" name="restaurantOrderDeliverd"
+									value="${fn:length(restaurantOrderDeliverd)}" id="restaurantOrderDeliverd">
+								  <!--  --> 
+								  <input type="hidden" name="laundryOrderRequest"
+									value="${fn:length(laundryOrderRequest)}" id="laundryOrderRequest">
+								<input type="hidden" name="laundryOrderRequestAccept"
+									value="${fn:length(laundryOrderRequestAccept)}" id="laundryOrderRequestAccept">
+							<input type="hidden" name="laundryOrderDeliverd"
+									value="${fn:length(laundryOrderDeliverd)}" id="laundryOrderDeliverd">
+									 
+								  <input type="hidden" name="houseKeepingOrderRequest"
+									value="${fn:length(houseKeepingOrderRequest)}" id="houseKeepingOrderRequest">
+								<input type="hidden" name="houseKeepingOrderRequestAccept"
+									value="${fn:length(houseKeepingOrderRequestAccept)}" id="houseKeepingOrderRequestAccept">
+							  
+							   <input type="hidden" name="receptionOrderRequest"
+									value="${fn:length(receptionOrderRequest)}" id="receptionOrderRequest">
+								<input type="hidden" name="receptionOrderRequestAccept"
+									value="${fn:length(receptionOrderRequestAccept)}" id="receptionOrderRequestAccept">
+							   
+							</div>
+							<div class="ibox-content">
+									 
+								<canvas id="barChart"></canvas>
+							 
+							</div>
+						</div>
+					</div>
+				</sec:authorize>
+				  
 				<sec:authorize access="hasAnyRole('ROLE_URLPREVIEW','ROLE_ADMIN')">
-					<div class="col-lg-12">
+					<div class="col-lg-4">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5>Access URL</h5>
@@ -213,26 +270,25 @@
 							<div class="ibox-content">
 								<div>
 									<spring:message code="label.ROOM-SCREEN-URL" />
-									:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaScreenManagement/home</label>
-									<p>
+								<label class="label">serverip:9091/alArbiyaScreenManagement/home</label>
+									 
 										<spring:message code="label.COFFEESHOP-SCREEN-URL" />
-										:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/coffeeShopScreen</label>
-									<p>
+									<label class="label">serverip:9091/alArbiyaHotelManagement/order/coffeeShopScreen</label>
+									 
 										<spring:message code="label.RESTAURANT-SCREEN-URL" />
-										:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/restaurantScreen</label>
-									<p>
+								<label class="label">serverip:9091/alArbiyaHotelManagement/order/restaurantScreen</label>
+									 
 										<spring:message code="label.LAUNDRY-SCREEN-URL" />
-										:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/order/laundryScreen</label>
-									<p>
+									<label class="label">serverip:9091/alArbiyaHotelManagement/order/laundryScreen</label>
+									 
 										<spring:message code="label.PARKING-SCREEN-URL" />
-										:<label>serverip(ex:192.168.100.1):9091(port)/alArbiyaHotelManagement/ParkingScreen</label>
+									<label class="label">serverip:9091/alArbiyaHotelManagement/ParkingScreen</label>
 								</div>
 							</div>
 						</div>
 					</div>
-				</sec:authorize>
-
-
+				</sec:authorize> 
+				 
 			</div>
 		</div>
 	</div>

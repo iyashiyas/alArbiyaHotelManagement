@@ -22,7 +22,7 @@ $(document)
 																							+ '</td><td>'
 																							+ Orders.room.roomCode
 																							+ '</td><td>'
-																							+ Orders.houseKeepingType
+																							+ Orders.requestType
 																							+ '</td><td>'
 																							+ Orders.requestTime
 																							+ '</td><td>'+(Orders.status == "ORDERED" ?  '<a class="btn btn-primary" href="accpethouseKeepingRequest?id='+Orders.id+'&roomId='+Orders.room.id+'&serviceItemName='+Orders.houseKeepingType+'">Accept</a>' : Orders.status)+'</td></tr>')
