@@ -1,14 +1,18 @@
 package org.alArbiyaHotelManagement.model;
 
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+ 
 
 @Entity
 @Table(name="UNIT")
@@ -32,6 +36,10 @@ public class Unit {
 	
 	@Column(name="UNIT_CATEGORY")
 	private String unitCategory;
+	
+	@OneToOne
+	@JoinColumn(name="UNIT_CATEGORY_ID", nullable=true)
+	private UnitCategory unitCategories;
 	
 	@OneToMany(mappedBy="unit", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<UnitLanguage> unitLanguages;
@@ -97,6 +105,14 @@ public class Unit {
 	
 	public void setUnitLanguages(List<UnitLanguage> unitLanguages) {
 		this.unitLanguages = unitLanguages;
+	}
+
+	public UnitCategory getUnitCategories() {
+		return unitCategories;
+	}
+
+	public void setUnitCategories(UnitCategory unitCategories) {
+		this.unitCategories = unitCategories;
 	} 
 	
 }

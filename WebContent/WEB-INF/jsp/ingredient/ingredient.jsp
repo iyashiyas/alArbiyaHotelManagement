@@ -63,7 +63,7 @@
 													<td class="id">${ingredient.id}</td>
 													<td class="ingredientName">${ingredient.ingredientName}</td>
 													<td class="ingredientDescription">${ingredient.ingredientDescription}</td>
-													<td class="ingredientCategory">${ingredient.ingredientCategory}</td>
+													<td class="ingredientCategory">${ingredient.ingredientCategories.ingredientCategoryName}</td>
                                                     <td class="ingredientStatus">${ingredient.ingredientStatus}</td>
 													<td class="hide"><input type="hidden" id="ingredientLanguageSize" class="ingredientLanguageSize" value="${ingredient.ingredientLanguages.size()}"/>
 													</td>

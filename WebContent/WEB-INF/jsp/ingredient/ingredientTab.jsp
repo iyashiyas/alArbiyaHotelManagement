@@ -12,12 +12,12 @@
 	<div class="col-lg-3">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<!-- <h5>
+		  <h5>
 					Categories - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
-				</h5> -->
+				</h5> 
 
 			</div>
-			<div class="ibox-content ">
+			<%-- <div class="ibox-content ">
 				<ul class="folder-list m-b-md nav metismenu" style="padding: 0">
 					<li><a
 						href="${pageContext.request.contextPath}/ingredient?categoryCode=SAUCE">
@@ -29,9 +29,23 @@
 
 				</ul>
 				<div class="clearfix"></div>
-			</div>
+			</div> --%>
+			
+			<div class="ibox-content ">
+                            <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
+                            <c:forEach items="${ingredientCategories}" var="ingredientCategories">
+                                <li ><a href="${pageContext.request.contextPath}/ingredient?categoryCode=${ingredientCategories.id}">${ingredientCategories.ingredientCategoryName}</a></li>
+ 
+                               </c:forEach>
+                                </ul>
+                             <div class="clearfix"></div>
+                        </div>
+			
+			
 		</div>
 	</div>
+	
+	
 
 
 	<div class="modal fade" id="addNewCategory-modal" tabindex="-1" role="dialog"
@@ -41,7 +55,7 @@
 
 				<div class="modal-header"><spring:message code="label.AddNewCategory" /></div>
 				<div class="modal-body">
-					<%--  <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include> --%>
+					 <jsp:include page="../ingredient/addIngredientCategory.jsp"></jsp:include>  
 				</div>
 			</div>
 		</div>

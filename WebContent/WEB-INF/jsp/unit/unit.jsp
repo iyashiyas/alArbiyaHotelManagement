@@ -70,16 +70,14 @@
 												<th><spring:message code="label.Status" /></th>
 												<th><spring:message code="label.Action" /></th>
 											</tr>
-										</thead>
-
-										<tbody>
-
+										</thead> 
+										<tbody> 
 											<c:forEach items="${unitWithCategory}" var="unit">
 												  <tr class="read" >
 													<td class="id">${unit.id}</td>
 													<td class="unitName">${unit.unitName}</td>
 													<td class="unitDescription">${unit.unitDescription}</td>
-													<td class="unitCategory">${unit.unitCategory}</td>
+													<td class="unitCategory">${unit.unitCategories.unitCategoryName}</td>
 													<td class="unitStatus">${unit.unitStatus}</td>
 													<td class="measurementUnit hide">${unit.measurementUnit}</td>
 													

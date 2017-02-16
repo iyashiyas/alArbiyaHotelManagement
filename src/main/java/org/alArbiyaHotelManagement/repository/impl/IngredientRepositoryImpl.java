@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
+import org.alArbiyaHotelManagement.model.IngredientCategory;
 import org.alArbiyaHotelManagement.model.IngredientLanguage;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.repository.IngredientRepository;
@@ -73,9 +74,9 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		Root<Ingredient> ingredientRoot = query.from(Ingredient.class);
 		 
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		categoryCode = (categoryCode == null || categoryCode == "" ) ? "SAUCE" : categoryCode;
+		categoryCode = (categoryCode == null || categoryCode == "" ) ? "1" : categoryCode;
 		
-		conditions.add(criteriaBuilder.equal(ingredientRoot.get("ingredientCategory"), categoryCode ));
+		//conditions.add(criteriaBuilder.equal(ingredientRoot.get("ingredientCategory"), categoryCode ));
 	 	 TypedQuery<Ingredient> typedQuery = entityManager.createQuery(query
 		        .select(ingredientRoot)
 		        .where(conditions.toArray(new Predicate[] {}))
@@ -89,6 +90,21 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where ingredientStatus='ENABLE' order by id", Ingredient.class);
 		return query.getResultList(); 
+	}
+
+	@Override
+	public List<IngredientCategory> ingredientCategories() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT ingredientCategories from IngredientCategory ingredientCategories where ingredientCategoryStatus='ENABLE' order by id", IngredientCategory.class);
+		return query.getResultList(); 
+	}
+
+	@Override
+	public IngredientCategory addIngredientCategory(
+			IngredientCategory ingredientCategory) {
+		// TODO Auto-generated method stub
+		entityManager.persist(ingredientCategory);
+		return ingredientCategory;
 	}
  
 }

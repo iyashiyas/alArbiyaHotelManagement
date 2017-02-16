@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.repository;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 
 public interface UnitRepository {
 	public Unit addUnit(Unit unit);
@@ -10,4 +11,6 @@ public interface UnitRepository {
 	public List<Unit> getAllUnitWithCategory(String categoryCode);
 	public void disableUnit(long id, String status);
 	public List<Unit> getAllUnits();
+	public List<UnitCategory> UnitCategories();
+	public UnitCategory addUnitCategory(UnitCategory unitCategory);
 }

@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.alArbiyaHotelManagement.model.Ingredient;
  
+import org.alArbiyaHotelManagement.model.IngredientCategory;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.service.IngredientService;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,12 @@ public class IngredientController {
 	public String showIngredient(Model model, @RequestParam(required=false) String categoryCode) {
 		List<Ingredient> ingredientsWithCategory = ingredientService.getAllIngredienttWithCategory(categoryCode);
 		List<Language> languages = languageService.getEnableLanguages();
+		List<IngredientCategory> ingredientCategories = ingredientService.ingredientCategories();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("ingredientWithCategory", ingredientsWithCategory);
 		attributes.put("languages", languages);
+		attributes.put("ingredientCategories", ingredientCategories);
+		attributes.put("newIngredientCategory", new IngredientCategory());
 		attributes.put("newIngredient", new Ingredient());
 		model.addAllAttributes(attributes);	
 		return "ingredient/ingredient";
@@ -47,4 +52,10 @@ public class IngredientController {
 		ingredientService.editIngredient(ingredient);
 		return "redirect:/ingredient";
 	  }
+	
+	@RequestMapping(value="/addIngredientCategory", method=RequestMethod.POST)
+	public String addIngredientCategory(@ModelAttribute IngredientCategory  ingredientCategory) {
+		 ingredientService.addIngredientCategory(ingredientCategory);
+		return "redirect:/ingredient";
+	}
 }

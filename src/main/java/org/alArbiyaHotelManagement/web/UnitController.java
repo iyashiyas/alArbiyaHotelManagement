@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,12 @@ public class UnitController {
 	public String showUnit(Model model, @RequestParam(required=false) String categoryCode) {
 		List<Unit> unitWithCategory = unitService.getAllUnitWithCategory(categoryCode);
 		List<Language> languages = languageService.getEnableLanguages();
+		List<UnitCategory> unitCategories = unitService.UnitCategories();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("unitWithCategory", unitWithCategory);
 		attributes.put("languages", languages);
+		attributes.put("unitCategories", unitCategories);
+		attributes.put("newUnitCategory", new UnitCategory());
 		attributes.put("newUnit", new Unit());
 		model.addAllAttributes(attributes);
 		return "unit/unit";
@@ -41,6 +45,12 @@ public class UnitController {
 	@RequestMapping(value="/addUnit", method=RequestMethod.POST)
 	public String addUnit(@ModelAttribute Unit unit) {
 		 unitService.addUnit(unit);
+		return "redirect:/unit";
+	}
+	
+	@RequestMapping(value="/addUnitCategory", method=RequestMethod.POST)
+	public String addUnitCategory(@ModelAttribute UnitCategory unitCategory) {
+		 unitService.addUnitCategory(unitCategory);
 		return "redirect:/unit";
 	}
 	

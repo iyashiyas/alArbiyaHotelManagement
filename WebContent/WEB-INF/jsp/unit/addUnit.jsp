@@ -29,12 +29,14 @@
 										<label class="col-sm-2 control-label"><spring:message code="label.UnitCategory" /></label>
 
 										<div class="col-sm-10">
-											<form:select class="form-control m-b" name="unitCategory"
-												path="">
-												<form:option value="GRL">General</form:option>
-												<form:option value="LNT">Length</form:option>
+											<form:select class="form-control m-b" name="unitCategories.id"
+												path="unitCategories.id">
+												  <c:forEach items="${unitCategories}" var="unitCategories">
+												<form:option value="${unitCategories.id}">${unitCategories.unitCategoryName}</form:option>
+												<%-- <form:option value="LNT">Length</form:option>
 												<form:option value="VAC">Volume and Capacity</form:option>
-												<form:option value="WGT">Weight</form:option>
+												<form:option value="WGT">Weight</form:option> --%>
+												</c:forEach>
 											</form:select>
 										</div>
 									</div>

@@ -17,14 +17,11 @@ public class IngredientCategory {
 	@Column(name="INGREDIENT_CATEGORY_ID")
 	private long id;
 	
-	@Column(name="INGREDIENT_NAME") 
-	private String categoryName;
+	@Column(name="INGREDIENT_CATEGORY_NAME") 
+	private String ingredientCategoryName;
 	
-	@Column(name="INGREDIENT_STATUS") 
-	private String categoryStatus;
-	
-	/*@OneToMany(mappedBy="ingredientCategory") 
-	private Set<Ingredient> ingredients;*/
+	@Column(name="INGREDIENT_CATEGORY_STATUS") 
+	private String ingredientCategoryStatus;
 
 	public long getId() {
 		return id;
@@ -34,28 +31,22 @@ public class IngredientCategory {
 		this.id = id;
 	}
 
-	public String getCategoryName() {
-		return categoryName;
+	public String getIngredientCategoryName() {
+		return ingredientCategoryName;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setIngredientCategoryName(String ingredientCategoryName) {
+		this.ingredientCategoryName = ingredientCategoryName;
 	}
 
-	public String getCategoryStatus() {
-		return categoryStatus;
+	public String getIngredientCategoryStatus() {
+		return ingredientCategoryStatus;
 	}
 
-	public void setCategoryStatus(String categoryStatus) {
-		this.categoryStatus = categoryStatus;
+	public void setIngredientCategoryStatus(String ingredientCategoryStatus) {
+		this.ingredientCategoryStatus = ingredientCategoryStatus;
 	}
-
-	/*public Set<Ingredient> getIngredients() {
-		return ingredients;
-	}
-
-	public void setIngredients(Set<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}*/
+	
+	 
 	
 }

@@ -14,6 +14,7 @@ import javax.persistence.criteria.Root;
 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.UnitRepository;
 import org.springframework.stereotype.Repository;
@@ -71,9 +72,9 @@ public class UnitRepositoryImpl implements UnitRepository{
 		//Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
 		
 		List<Predicate> conditions = new ArrayList<Predicate>();
-		categoryCode = (categoryCode == null || categoryCode == "" ) ? "GRL" : categoryCode;
+		categoryCode = (categoryCode == null || categoryCode == "" ) ? "1" : categoryCode;
 		
-		conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategory"), categoryCode ));
+		//conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategories"), categoryCode ));
 		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
 		query.orderBy(criteriaBuilder.asc(unitRoot.get("id")));
@@ -97,6 +98,18 @@ public class UnitRepositoryImpl implements UnitRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ENABLE' order by id", Unit.class);
 		return query.getResultList(); 
+	}
+	@Override
+	public List<UnitCategory> UnitCategories() {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT unitcategory from UnitCategory unitcategory where unitCategoryStatus='ENABLE' order by id", UnitCategory.class);
+		return query.getResultList(); 
+	}
+	@Override
+	public UnitCategory addUnitCategory(UnitCategory unitCategory) {
+		// TODO Auto-generated method stub
+		entityManager.persist(unitCategory);
+		return unitCategory;
 	}
 	 
 	 

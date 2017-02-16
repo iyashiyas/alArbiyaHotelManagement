@@ -16,10 +16,12 @@
 			</div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
-                                <li ><a href="${pageContext.request.contextPath}/unit?categoryCode=GRL">General</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=LNT">Length</a></li>
+                            <c:forEach items="${unitCategories}" var="unitCategories">
+                                <li ><a href="${pageContext.request.contextPath}/unit?categoryCode=${unitCategories.id}">${unitCategories.unitCategoryName}</a></li>
+                             <%--    <li><a href="${pageContext.request.contextPath}/unit?categoryCode=LNT">Length</a></li>
                                 <li><a href="${pageContext.request.contextPath}/unit?categoryCode=VAC">Volume and Capacity</a></li>
-                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=WGT">Weight</a></li>
+                                <li><a href="${pageContext.request.contextPath}/unit?categoryCode=WGT">Weight</a></li> --%>
+                               </c:forEach>
                                 </ul>
                              <div class="clearfix"></div>
                         </div>
@@ -34,8 +36,8 @@
 				<div class="modal-header">Add New Category</div>
 				<div class="modal-body">
 
-					<%-- <jsp:include page="../ingredient/addUnitCategory.jsp"></jsp:include>
- --%>
+					 <jsp:include page="../unit/addUnitCategory.jsp"></jsp:include>
+ 
 
 				</div>
 			</div>

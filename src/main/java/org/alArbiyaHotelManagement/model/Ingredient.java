@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
  
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +36,10 @@ public class Ingredient {
 	
 	@Column(name="INGREDIENT_CATEGORY")
 	private String ingredientCategory;
+	
+	@OneToOne
+	@JoinColumn(name="INGREDIENT_CATEGORY_ID", nullable=true)
+	private IngredientCategory ingredientCategories;
 	 
 	@OneToMany(mappedBy="ingredient", cascade=CascadeType.MERGE, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<IngredientLanguage> ingredientLanguages;
@@ -100,6 +106,14 @@ public class Ingredient {
     }
 	public void setIngredientLanguages(List<IngredientLanguage> ingredientLanguages) {
 		this.ingredientLanguages = ingredientLanguages;
+	}
+
+	public IngredientCategory getIngredientCategories() {
+		return ingredientCategories;
+	}
+
+	public void setIngredientCategories(IngredientCategory ingredientCategories) {
+		this.ingredientCategories = ingredientCategories;
 	} 
 	
 }

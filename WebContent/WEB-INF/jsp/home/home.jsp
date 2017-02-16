@@ -147,8 +147,7 @@
 							</div>
 						</div>
 					</div>
-				</sec:authorize> --%>
-				  
+				</sec:authorize> --%> 
 				  <sec:authorize
 					access="hasAnyRole('ROLE_PARKINGVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
@@ -280,7 +279,7 @@
 						</div>
 					</div>
 				</sec:authorize>
-				  
+				<%--   
 				<sec:authorize access="hasAnyRole('ROLE_URLPREVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
 						<div class="ibox float-e-margins">
@@ -294,24 +293,24 @@
 							<div class="ibox-content">
 								<div>
 									<spring:message code="label.ROOM-SCREEN-URL" />
-								<label class="label">serverip:9091/alArbiyaScreenManagement/home</label>
+							serverip:9091/alArbiyaScreenManagement/home</label>
 									 
 										<spring:message code="label.COFFEESHOP-SCREEN-URL" />
-									<label class="label">serverip:9091/alArbiyaHotelManagement/order/coffeeShopScreen</label>
+								serverip:9091/alArbiyaHotelManagement/order/coffeeShopScreen</label>
 									 
 										<spring:message code="label.RESTAURANT-SCREEN-URL" />
-								<label class="label">serverip:9091/alArbiyaHotelManagement/order/restaurantScreen</label>
+							serverip:9091/alArbiyaHotelManagement/order/restaurantScreen</label>
 									 
 										<spring:message code="label.LAUNDRY-SCREEN-URL" />
-									<label class="label">serverip:9091/alArbiyaHotelManagement/order/laundryScreen</label>
+									serverip:9091/alArbiyaHotelManagement/order/laundryScreen</label>
 									 
 										<spring:message code="label.PARKING-SCREEN-URL" />
-									<label class="label">serverip:9091/alArbiyaHotelManagement/ParkingScreen</label>
+								serverip:9091/alArbiyaHotelManagement/ParkingScreen</label>
 								</div>
 							</div>
 						</div>
 					</div>
-				</sec:authorize> 
+				</sec:authorize>  --%>
 				 
 			</div>
 		</div>

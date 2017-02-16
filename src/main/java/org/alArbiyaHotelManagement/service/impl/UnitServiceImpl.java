@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.service.impl;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitCategory;
 import org.alArbiyaHotelManagement.repository.UnitRepository;
 import org.alArbiyaHotelManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,19 @@ public class UnitServiceImpl implements UnitService {
 	public List<Unit> getAllUnits() {
 		// TODO Auto-generated method stub
 		return unitRepository.getAllUnits();
+	}
+	@Override
+	public List<UnitCategory> UnitCategories() {
+		// TODO Auto-generated method stub
+		return unitRepository.UnitCategories();
+	}
+	@Override
+	public UnitCategory addUnitCategory(UnitCategory unitCategory) {
+		// TODO Auto-generated method stub
+		if(unitCategory.getUnitCategoryStatus()==null) {
+			unitCategory.setUnitCategoryStatus("DISABLED");
+		}
+		return unitRepository.addUnitCategory(unitCategory);
 	}
 	
 	

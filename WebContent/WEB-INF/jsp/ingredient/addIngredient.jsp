@@ -27,10 +27,15 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.IngredientCategory" /></label>
                     	<div class="col-sm-10">
-						<form:select class="form-control m-b" path="ingredientCategory" >
-							<form:option value="SAUCE">SAUCE</form:option>
-							<form:option value="FLOUR">FLOUR</form:option>
-                       </form:select>
+						<form:select class="form-control m-b" name="ingredientCategories.id"
+												path="ingredientCategories.id">
+												  <c:forEach items="${ingredientCategories}" var="ingredientCategories">
+												<form:option value="${ingredientCategories.id}">${ingredientCategories.ingredientCategoryName}</form:option>
+												<%-- <form:option value="LNT">Length</form:option>
+												<form:option value="VAC">Volume and Capacity</form:option>
+												<form:option value="WGT">Weight</form:option> --%>
+												</c:forEach>
+											</form:select>
 					</div>
 				</div>
 				<div class="form-group">
