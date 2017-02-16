@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html><html>
 <head>
 <meta http-equiv="Content-Type"
@@ -12,9 +13,8 @@
 	<div class="col-lg-3">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-		  <h5>
-					Categories - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
-				</h5> 
+		  <h5>Categories <sec:authorize access="hasAnyRole('ROLE_NEWCATEGORY','ROLE_ADMIN')"> - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
+				</sec:authorize></h5> 
 
 			</div>
 			<%-- <div class="ibox-content ">

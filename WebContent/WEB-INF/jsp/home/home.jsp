@@ -40,38 +40,8 @@
 					</ol>
 				</div>
 			</div>
-			<div class="raw animated fadeInRight">
-
-				<%--  <div class="col-lg-4">
-                    <div class="widget lazur-bg p-xl">
-                        <c:forEach items="${hotelInfos}" var="hotelInfo">
-                                <h2>
-                                  <a href="#"><small><spring:message code="label.Name" /></small></a>
-                                   ${hotelInfo.hotelName}
-                                </h2>
-                        <ul class="list-unstyled m-t-md">
-                            <li>
-                                <span class="fa fa-envelope m-r-xs"></span>
-                                <label><spring:message code="label.Email" />:</label>
-                                ${hotelInfo.hotelEmail}
-                            </li>
-                            <li>
-                                <span class="fa fa-home m-r-xs"></span>
-                                <label><spring:message code="label.Address" />:</label>
-                                ${hotelInfo.hotelAddress1} , ${hotelInfo.hotelAddress2}
-                            </li>
-                            <li>
-                                <span class="fa fa-phone m-r-xs"></span>
-                                <label><spring:message code="label.Contact" />:</label>
-                               ${hotelInfo.hotelPhone}
-                            </li>
-                        </ul>
-                         	
-                   </c:forEach>
-                    </div>
-                    </div> --%>
-
-
+			
+			<div class="raw animated fadeInRight"> 
 				<!-- Chart 000-->
 				<sec:authorize
 					access="hasAnyRole('ROLE_PLAYEROVERVIEW','ROLE_ADMIN')">
@@ -88,8 +58,7 @@
 									value="${fn:length(configuredplayer)}" id="configuredPlayer">
 								<input type="hidden" name="players"
 									value="${fn:length(notConfiguredPlayer)}"
-									id="notConfiguredPlayer">
-
+									id="notConfiguredPlayer"> 
 							</div>
 							<div class="ibox-content">
 								<div>
@@ -123,31 +92,7 @@
 						</div>
 					</div>
 				</sec:authorize>
-
-				<%-- <sec:authorize
-					access="hasAnyRole('ROLE_LANGUAGEOVERVIEW','ROLE_ADMIN')">
-					<div class="col-lg-4">
-						<div class="ibox float-e-margins">
-							<div class="ibox-title">
-								<a href="${pageContext.request.contextPath}/language"><spring:message
-										code="label.Languages" /> - (${fn:length(languages)}) </a>
-								<div class="ibox-tools">
-									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-									</a>
-								</div>
-								<input type="hidden" name="enabledLanguages"
-									value="${fn:length(enabledLanguages)}" id="enabledLanguages">
-								<input type="hidden" name="disabledLanguages"
-									value="${fn:length(disabledLanguages)}" id="disabledLanguages">
-							</div>
-							<div class="ibox-content">
-								<div>
-									<canvas id="doughnutChartLanguages" height="140"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</sec:authorize> --%> 
+ 
 				  <sec:authorize
 					access="hasAnyRole('ROLE_PARKINGVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
@@ -171,63 +116,12 @@
 						</div>
 					</div>
 				</sec:authorize>
-				 
-				
-
-				<sec:authorize
-					access="hasAnyRole('ROLE_PROFILEOVERVIEW','ROLE_ADMIN')">
-					<div class="col-lg-12">
-						<div>
-							<table class="table">
-								<tbody>
-									<%--   <tr>
-                            
-                            <td>
-                            <button type="button" class="btn btn-info m-r-sm">${fn:length(rooms)}</button>
-                            <spring:message code="label.TotalRooms" />
-                            </td> 
-                        </tr>
-                        <tr>
-                             
-                        </tr> --%>
-									<%--   <tr>  
-                            <td>
-                                <button type="button" class="btn btn-success m-r-sm">${fn:length(bookedRooms)}</button>
-                                  <spring:message code="label.CheckInRooms" />
-                            </td>
-                          <td>
-                                <button type="button" class="btn btn-default m-r-sm">${fn:length(users)}</button>
-                                <spring:message code="label.Totalusers" />
-                            </td> 
-                        </tr> --%>
-									<tr>
-										<td><a type="button"
-											href="${pageContext.request.contextPath}/hotel/showBranch"
-											class="btn btn-warning m-r-sm">${fn:length(branches)}</a> <spring:message
-												code="label.TotalBranch" /></td>
-
-										<td><a type="button"
-											href="${pageContext.request.contextPath}/hotel/showBuilding"
-											class="btn btn-danger m-r-sm">${fn:length(buildings)}</a> <spring:message
-												code="label.Totalbuilding" /></td>
-										<td><a type="button"
-											href="${pageContext.request.contextPath}/hotel/showFloor"
-											class="btn btn-info m-r-sm">${fn:length(floors)}</a> <spring:message
-												code="label.TotalFloor" /></td> 
-										
-										<td><a type="button"
-											href="${pageContext.request.contextPath}/hotel/showRoomTypes"
-											class="btn btn-default m-r-sm">${fn:length(roomTypes)}</a> <spring:message
-												code="label.TotalRoomTypes" /></td> 
-												 
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-					</div>
-				</sec:authorize>
-				   
+				  
+				</div>
+			
+			
+			<div class="raw animated fadeInRight "> 
+			<div class="col-lg-12"> 
 				 <sec:authorize
 					access="hasAnyRole('ROLE_REQUESTOVERVIEW','ROLE_ADMIN')">
 					<div class="col-lg-8">
@@ -271,14 +165,55 @@
 									value="${fn:length(receptionOrderRequestAccept)}" id="receptionOrderRequestAccept">
 							   
 							</div>
-							<div class="ibox-content">
-									 
-								<canvas id="barChart"></canvas>
-							 
+							<div class="ibox-content"> 
+						 
+								<canvas id="barChart" height="126" width="485" style="display: block; width: 485px; height: 126px;"  ></canvas>
+							  
 							</div>
 						</div>
 					</div>
 				</sec:authorize>
+				
+
+				<sec:authorize
+					access="hasAnyRole('ROLE_PROFILEOVERVIEW','ROLE_ADMIN')">
+					<div class="col-lg-4">
+						<div>
+							<table class="table">
+								<tbody> 
+									<tr>
+										<td><a type="button"
+											href="${pageContext.request.contextPath}/hotel/showBranch"
+											class="btn btn-warning m-r-sm">${fn:length(branches)}</a> <spring:message
+												code="label.TotalBranch" /></td>
+                                      </tr><tr>
+										<td><a type="button"
+											href="${pageContext.request.contextPath}/hotel/showBuilding"
+											class="btn btn-danger m-r-sm">${fn:length(buildings)}</a> <spring:message
+												code="label.Totalbuilding" /></td>   </tr><tr>
+										<td><a type="button"
+											href="${pageContext.request.contextPath}/hotel/showFloor"
+											class="btn btn-info m-r-sm">${fn:length(floors)}</a> <spring:message
+												code="label.TotalFloor" /></td> 
+										   </tr><tr>
+										<td><a type="button"
+											href="${pageContext.request.contextPath}/hotel/showRoomTypes"
+											class="btn btn-default m-r-sm">${fn:length(roomTypes)}</a> <spring:message
+												code="label.TotalRoomTypes" /></td> 
+												 
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+					</div>
+				</sec:authorize> 
+				</div>
+				</div>
+				
+				   
+			
+		</div> 
+		</div>
 				<%--   
 				<sec:authorize access="hasAnyRole('ROLE_URLPREVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
@@ -312,9 +247,8 @@
 					</div>
 				</sec:authorize>  --%>
 				 
-			</div>
-		</div>
-	</div>
+			
+	
 	<script
 		src="<c:url value="/resources/js/plugins/chart/Chart.min.js" />"></script>
 	<script

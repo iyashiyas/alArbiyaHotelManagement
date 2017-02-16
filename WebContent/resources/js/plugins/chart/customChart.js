@@ -97,6 +97,7 @@ var receptionOrderRequest=$('#receptionOrderRequest').val();
 var receptionOrderRequestAccept=$('#receptionOrderRequestAccept').val();
  
     var barData = {
+    		 
         labels: ["COFFEESHOP", "RESTAURANT", "LAUNDRY", "HOUSEKEEPING", "RECEPTION"],
         datasets: [
       {
@@ -105,6 +106,7 @@ var receptionOrderRequestAccept=$('#receptionOrderRequestAccept').val();
     borderColor: "rgba(26,179,148,0.7)",
     pointBackgroundColor: "rgba(26,179,148,1)",
     pointBorderColor: "#fff",
+    height:"100px",
     data: [CoffeeShopOrder, restaurantOrderRequest, laundryOrderRequest,houseKeepingOrderRequest, receptionOrderRequest]
       },
          
@@ -114,19 +116,28 @@ var receptionOrderRequestAccept=$('#receptionOrderRequestAccept').val();
           borderColor: "rgba(26,179,148,0.7)",
           pointBackgroundColor: "rgba(26,179,148,1)",
           pointBorderColor: "#fff",
+          height:"100px",
           data: [CoffeeShopOrderRequestAccept, restaurantOrderRequestAccept, laundryOrderRequestAccept,houseKeepingOrderRequestAccept, receptionOrderRequestAccept]
       } ,
           {
          label: "DELIVERED",
            backgroundColor: '#ed5565',
            pointBorderColor: "#fff",
+           height:"100px",
            data: [CoffeeShopOrderDeliverd, restaurantOrderDeliverd, laundryOrderDeliverd]
             } 
         ]
     };
 
-    var barOptions = {
-        responsive: true
+    var barOptions = { 
+    		scales: {
+    		    xAxes: [{
+        	barPercentage: 0.3
+    		    }], 
+    		    yAxes: [{
+    	        	barPercentage: 0.1
+    	    		    }]
+    		}
     };
 
 

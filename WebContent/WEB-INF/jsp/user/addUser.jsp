@@ -138,6 +138,8 @@
                                <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
                                 <li data-value="33">ADD</li>
+                                <li data-value="50">NEW CATEGORY</li>
+                                
                     </ul>
                 </li>
                  <li data-value="11"><label class="label label-primary">INGREDIENTS</label>
@@ -145,6 +147,7 @@
                           <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
                                 <li data-value="33">ADD</li>
+                                <li data-value="50">NEW CATEGORY</li>
                     </ul>
                 </li>
                    
