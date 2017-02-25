@@ -19,5 +19,7 @@ public interface BookingService {
 	public List<Booking> checkedInRooms();
 
 	public List<Booking> bookedRoomsCount();
+
+	public Booking authenticate(long roomId, int password);
 	
 }

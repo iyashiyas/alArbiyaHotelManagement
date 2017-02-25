@@ -71,6 +71,13 @@ public class BookingRepositoryImpl implements BookingRepository{
 		}
 		else
 		{
+			
+			Query updateQuery1 = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate where bookingReferenceId=:bookingReferenceId ");
+			updateQuery1.setParameter("bookingReferenceId", bookingId); 
+			updateQuery1.setParameter("checkedinDate", booking.getCheckedInTime());  
+			entityManager.joinTransaction();
+			updateQuery1.executeUpdate();
+			
 		Query updateQuery = entityManager.createQuery("UPDATE Booking SET bookingStatus = 'CHECKEDIN' , checkedInTime=:checkedinDate, parking.id=:parkingId where bookingReferenceId=:bookingReferenceId ");
 		updateQuery.setParameter("bookingReferenceId", bookingId); 
 		updateQuery.setParameter("checkedinDate", booking.getCheckedInTime()); 
@@ -110,5 +117,14 @@ public class BookingRepositoryImpl implements BookingRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT chekedrooms from Booking chekedrooms where bookingStatus='CHECKEDIN'", Booking.class);
 		return query.getResultList();
+	}
+	@Override
+	public Booking authenticate(long roomId, int password) {
+		// TODO Auto-generated method stub
+		TypedQuery<Booking> query = this.entityManager.createQuery("SELECT bookings from Booking bookings WHERE bookings.room.id=:roomId and bookings.bookingStatus='CHECKEDIN' and bookings.accessPassword=:password", Booking.class);
+		 query.setParameter("roomId",roomId);
+		query.setParameter("password", password);
+		List<Booking> bookingDetails=query.getResultList();
+		return bookingDetails.isEmpty() ? null : bookingDetails.get(0);
 	}
 }

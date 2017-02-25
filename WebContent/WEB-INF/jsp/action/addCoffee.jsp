@@ -32,10 +32,9 @@
                      <div class="col-sm-10">
 						<form:select class="form-control m-b" name="category"
 							path="category">
-							<form:option value="HOTDRINKS"><spring:message code="label.HotDrinks" /></form:option>
-							<form:option value="COLDDRINKS"><spring:message code="label.ColdDrinks" /></form:option>
-							<form:option value="ICECREAM"><spring:message code="label.IceCreams" /></form:option>
-							<form:option value="PIESANDPASTRIES"><spring:message code="label.Pies" /></form:option>
+							  <c:forEach items="${coffeeShopCategory}" var="coffeeShopCategory">
+							<form:option value="${coffeeShopCategory.coffeeShopCategoryName}">${coffeeShopCategory.coffeeShopCategoryName}</form:option>
+						 </c:forEach>
 						</form:select>
 					</div>
 				</div> 
@@ -46,8 +45,7 @@
 						<form:input type="text" required="required" placeholder="ItemName" name="itemName"
 							path="itemName" class="form-control" />
 					</div>
-				</div>
- 
+				</div> 
 				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
 					<div class="col-sm-10">
@@ -63,7 +61,7 @@
 								</form:select>
 								
 								<form:input class="form-control" type="text"
-									name="languageName[0]" path="languageName[0]"
+									name="languageHelper[0].langageName" path="languageHelper[0].langageName"
 									placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
 								<span class="input-group-btn">
 									<button class="btn btn-primary coffeShopLanguage-btn-add"

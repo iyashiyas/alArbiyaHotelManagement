@@ -24,8 +24,9 @@
                        <div class="col-sm-10">
 						<form:select class="form-control m-b" name="category"
 							path="category">
-							<form:option value="Car">Car</form:option>
-							<form:option value="Bus">Bus</form:option> 
+							<c:forEach items="${carRentaltCategory}" var="carRentaltCategory">
+							<form:option value="${carRentaltCategory.carRenatalCategoryName}">${carRentaltCategory.carRenatalCategoryName}</form:option>
+						    </c:forEach>
 						</form:select>
 					</div>
 				</div> 

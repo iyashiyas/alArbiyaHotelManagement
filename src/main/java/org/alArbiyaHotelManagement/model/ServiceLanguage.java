@@ -21,7 +21,7 @@ public class ServiceLanguage {
 	private String hotelServiceLanguageName;
 	
 	@OneToOne
-	@JoinColumn(name="LANGUAGE_ID", nullable=false)
+	@JoinColumn(name="LANGUAGE_ID", nullable=true)
 	private Language language;
 	
 	@ManyToOne
@@ -61,4 +61,9 @@ public class ServiceLanguage {
 			hotelServicesItem.getServiceLanguages().add(this);
         }
 	}
+	
+	public boolean isEmpty() {
+		return (this.getHotelServiceLanguageName() == null || this.getHotelServiceLanguageName().isEmpty());
+	}
+
 }

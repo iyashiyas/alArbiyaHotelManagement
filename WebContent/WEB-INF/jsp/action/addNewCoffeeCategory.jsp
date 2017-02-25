@@ -1,75 +1,68 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<title>Add New CoffeeShop Category</title>
 </head>
 <body>
-	<form class="form-horizontal" id="confirm-EditForm" method="POST">
-		<div class="modal-header"><spring:message code="label.AddNewCategories" /></div>
-		<div class="modal-body">
-		
-		<div class="form-group">
-				<label class="col-sm-4 control-label"><spring:message code="label.ChooseCategoryType" /></label>
+<form:form class="form-horizontal" modelAttribute="newcoffeeShopCategory" action="${pageContext.request.contextPath}/action/addCoffeeShopCategory" method="post">
+								 
+			   <div class="form-group">
+										<label class="col-sm-2 control-label"><spring:message code="label.CoffeeShopCategory" /></label>
 
-				<div class="col-sm-6">
-					
-		<label><input type="radio"   value="main" id="optionsRadios1" name="optionsRadiosType"><spring:message code="label.Main" /></label>
-        <label><input type="radio"   value="sub" id="optionsRadios1" name="optionsRadiosType"><spring:message code="label.Sub" /></label>
-	
-				</div>
-			</div>
-			
-			
-			<div class="form-group" id="choosecategory" style="display: none">
-				<label class="col-sm-4 control-label"><spring:message code="label.SelectSub" /> </label>
+									 <div class="col-sm-10">
+											<form:input type="text" required="required" placeholder="CoffeeShop Category Name"
+												name="coffeeShopCategoryName" path="coffeeShopCategoryName" class="form-control" value="" />
+										</div>
+									</div> 
+									 
+									<div class="form-group">
+										<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
+										<div class="col-sm-10">
+											<div class="controls">
+												<div class="entry input-group ">
+													<form:select class="form-control m-b select" id="drp"
+														path="coffeeShopCategoryLanguages[0].language.id" name="coffeeShopCategoryLanguages[0].language.id" style="width:30%;">
+													 
+														<form:options items="${languages}" itemValue="id"
+															itemLabel="languageName"></form:options>
+													</form:select>
+													<form:input class="form-control" type="text"
+														name="coffeeShopCategoryLanguages[0].coffeeShopCategoryLanguageName"
+														path="coffeeShopCategoryLanguages[0].coffeeShopCategoryLanguageName"
+														placeholder="Enter Name"
+														style="width:40%;margin-left: 10px;" />
+													<span class="input-group-btn">
+														<button class="btn btn-primary btn-add" type="button">
+															<span class="glyphicon glyphicon-plus"></span>
+														</button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									 
+										<div class="form-group">
+										<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
-				<div class="col-sm-6">
-				
-						<select class="form-control">
-						<option><spring:message code="label.SelectMainCategory" /></option>
-				        <option>Hot Drinks</option>
-				        <option>Cold Drinks</option>
-						</select>
-		       
-				</div>
-			</div>
-			 
-				
-			<div class="form-group">
-				<label class="col-sm-4 control-label"> <spring:message code="label.Name" /></label>
-
-				<div class="col-sm-6">
-					<input type="text" required="required" placeholder="<spring:message code="label.Name" />" name="Name"
-						class="form-control">
-				</div>
-			</div>
-
-		</div>
-
-		<div class="modal-footer">
-			<button type="button" data-reload="yes" data-dismiss="modal"
-				class="btn btn-default"><spring:message code="label.Cancel" /></button>
-			<button type="submit" class="btn btn-success success"><spring:message code="label.Add" /></button>
-		</div>
-	</form>
-
-<script type="text/javascript">
-$(function() {
-    $('input[name="optionsRadiosType"]').on('click', function() {
-        if ($(this).val() == 'sub') {
-            $('#choosecategory').show();
-        }
-        else {
-            $('#choosecategory').hide();
-        }
-    });
-});
-</script>
-
+										<div class="col-sm-10">
+											<form:checkbox id="unitStatus" name="coffeeShopCategoryStatus"
+												path="coffeeShopCategoryStatus" value="ENABLE" checked="checked" />
+											<spring:message code="label.Enable" />
+										</div>
+									</div>
+									
+				             <div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+							 <button id="submit" type="submit" class="btn btn-success success"><spring:message code="label.Update" /></button>
+										</div>
+										</form:form>
+										
+									<script type="text/javascript" src="<c:url value="/resources/js/action/coffeeShopCategory.js"/>"></script>
 </body>
 </html>

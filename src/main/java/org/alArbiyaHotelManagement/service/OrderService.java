@@ -5,6 +5,7 @@ import java.util.List;
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 
 public interface OrderService {
@@ -12,7 +13,7 @@ public interface OrderService {
 	public Orders editOrder();
 	public List<Orders> GetAllOrder();
 	public void acceptOrder(Orders order,long id, long roomId, String serviceItemName);
-	public void readyForDelivery(Orders order,long id);
+	public void readyForDelivery(Orders order,long id,String deliveryBoyName,String roomName, long roomId);
 	public void delivered(Orders order,long id);
 	public List<Orders> getRestaurantOrder();
 	public List<Orders> getLaundry();
@@ -21,7 +22,7 @@ public interface OrderService {
 	public void accpetParkingRequest(ParkingOrder parkingOrder, long id, long roomId, String serviceItemName,long parkingId,String requestType);
 	public List<HouseKeeping> housekeepingScreenOrder();
 	public void accpethouseKeepingRequest(long id, long roomId,
-			String serviceItemName,HouseKeeping houseKeeping);
+			String serviceItemName,String roomName, String deliveryBoyName,HouseKeeping houseKeeping);
 	public List<ReceptionOrder> receptionScreen();
 	public void accpetreceptionRequest(long id, long roomId,
 			String serviceItemName, ReceptionOrder receptionOrder);
@@ -37,6 +38,8 @@ public interface OrderService {
  
 	public List<HouseKeeping> houseKeepingOrderRequestAccept();
 	public List<ReceptionOrder> receptionOrderRequestAccept();
+	public List<ReadyForDelivery> readyForDeliveryScreen(String name);
+	public ReadyForDelivery deliveryBoyAccept(ReadyForDelivery ReadyForDelivery, long orderId);
  
 	 
 	 

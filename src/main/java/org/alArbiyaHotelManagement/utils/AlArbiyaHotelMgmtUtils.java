@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopIngredientHelper;
@@ -22,6 +25,7 @@ import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
+import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.ServiceLanguage;
  
 
@@ -29,7 +33,7 @@ public class AlArbiyaHotelMgmtUtils {
 	
 	static final String validCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	static final SecureRandom secureRandom = new SecureRandom();
-
+	  static EntityManager entityManager;
 	
 	public static Date getDateForString(String date) throws ParseException {
 		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -110,9 +114,10 @@ public class AlArbiyaHotelMgmtUtils {
 		i=0;
 		for(CoffeeeShopLanguageHelper languageHelper: coffeeShop.getLanguageHelper()) {
 			ServiceLanguage serviceLanguage = new ServiceLanguage();
-			serviceLanguage.setHotelServicesItem(hotelServicesItem);
+			serviceLanguage.setHotelServicesItem(hotelServicesItem); 
 			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
-			serviceLanguage.setLanguage(null);
+			   
+			/*serviceLanguage.setLanguage(languageHelper.getLanguageId().get(i));*/
 			serviceLanguages.add(serviceLanguage);
 			i++;
 		}

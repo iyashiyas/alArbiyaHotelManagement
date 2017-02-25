@@ -49,7 +49,7 @@
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<a href="${pageContext.request.contextPath}/player/showPlayer"><spring:message
-										code="label.Player" /> - (${fn:length(players)}) </a>
+										code="label.Screen" /> - (${fn:length(players)}) </a>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
@@ -115,11 +115,8 @@
 							</div>
 						</div>
 					</div>
-				</sec:authorize>
-				  
-				</div>
-			
-			
+				</sec:authorize> 
+				</div> 
 			<div class="raw animated fadeInRight "> 
 			<div class="col-lg-12"> 
 				 <sec:authorize
@@ -173,14 +170,14 @@
 						</div>
 					</div>
 				</sec:authorize>
-				
-
+				 
 				<sec:authorize
 					access="hasAnyRole('ROLE_PROFILEOVERVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
-						<div>
-							<table class="table">
+						<div><marquee direction="up">
+							<table class="table">	
 								<tbody> 
+							
 									<tr>
 										<td><a type="button"
 											href="${pageContext.request.contextPath}/hotel/showBranch"
@@ -190,7 +187,7 @@
 										<td><a type="button"
 											href="${pageContext.request.contextPath}/hotel/showBuilding"
 											class="btn btn-danger m-r-sm">${fn:length(buildings)}</a> <spring:message
-												code="label.Totalbuilding" /></td>   </tr><tr>
+												code="label.Totalbuilding" /></td> </tr><tr>
 										<td><a type="button"
 											href="${pageContext.request.contextPath}/hotel/showFloor"
 											class="btn btn-info m-r-sm">${fn:length(floors)}</a> <spring:message
@@ -199,19 +196,16 @@
 										<td><a type="button"
 											href="${pageContext.request.contextPath}/hotel/showRoomTypes"
 											class="btn btn-default m-r-sm">${fn:length(roomTypes)}</a> <spring:message
-												code="label.TotalRoomTypes" /></td> 
-												 
+												code="label.TotalRoomTypes" /></td>  
 									</tr>
 								</tbody>
-							</table>
+							</table></marquee>
 						</div> 
 					</div>
 				</sec:authorize> 
 				</div>
 				</div>
-				
-				   
-			
+				 
 		</div> 
 		</div>
 				<%--   
@@ -246,9 +240,7 @@
 						</div>
 					</div>
 				</sec:authorize>  --%>
-				 
-			
-	
+				  
 	<script
 		src="<c:url value="/resources/js/plugins/chart/Chart.min.js" />"></script>
 	<script

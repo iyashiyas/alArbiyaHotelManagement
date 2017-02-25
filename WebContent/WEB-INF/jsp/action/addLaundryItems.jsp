@@ -27,12 +27,12 @@
 			<div class="col-sm-10">
 				<form:select class="form-control m-b" name="category"
 					path="category">
-					<form:option value="PANTS">
-						Pants
+					    <c:forEach items="${laundryCategory}" var="laundryCategory">
+					<form:option value="${laundryCategory.laundryCategoryName}">
+						${laundryCategory.laundryCategoryName}
 					</form:option>
-					<form:option value="SHIRT">
-						SHIRT
-					</form:option> 
+					 
+					</c:forEach>
 				</form:select>
 			</div>
 		</div>

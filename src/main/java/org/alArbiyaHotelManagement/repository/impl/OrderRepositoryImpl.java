@@ -1,5 +1,6 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,13 +15,20 @@ import javax.persistence.Query;
 
 
 
+
+
+
+
+
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,9 +69,12 @@ public class OrderRepositoryImpl implements OrderRepository{
 		notification.setServiceItemName(serviceItemName);
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
+		
+		
+		
 	}
 	@Override
-	public void readyForDelivery(Orders order) {
+	public void readyForDelivery(Orders order,String deliveryBoyName,String roomName,long roomId) {
 		// TODO Auto-generated method stub
 		Query updateQuery = entityManager.createQuery("UPDATE Orders SET orderStatus = :status,readyForDeliveryTime=:readyForDeliveryTime where id = :id ");
 		updateQuery.setParameter("status", order.getOrderStatus()); 
@@ -71,6 +82,15 @@ public class OrderRepositoryImpl implements OrderRepository{
 		updateQuery.setParameter("readyForDeliveryTime", order.getReadyForDeliveryTime()); 
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
+		
+		ReadyForDelivery readyForDelivery= new ReadyForDelivery();
+		readyForDelivery.setOrderId(order.getId());
+		readyForDelivery.setRoomName(roomName);
+		readyForDelivery.setRoomId(roomId);
+		readyForDelivery.setDeliveryBoyName(deliveryBoyName);
+		readyForDelivery.setStatus("READYFORDELIVERY");
+		this.entityManager.persist(readyForDelivery);
+		 
 	}
 	@Override
 	public void delivered(Orders order) {
@@ -80,7 +100,13 @@ public class OrderRepositoryImpl implements OrderRepository{
 		updateQuery.setParameter("id", order.getId()); 
 		updateQuery.setParameter("deliveredTime", order.getDeliveredTime()); 
 		entityManager.joinTransaction();
-		updateQuery.executeUpdate();
+		updateQuery.executeUpdate(); 
+		
+		Query updateQueryReadyForDelivery = entityManager.createQuery("UPDATE ReadyForDelivery SET status=:status where orderId = :id ");
+		updateQueryReadyForDelivery.setParameter("status", "DELIVERED"); 
+		updateQueryReadyForDelivery.setParameter("id", order.getId());  
+		updateQueryReadyForDelivery.executeUpdate();
+		 
 	}
 	@Override
 	public List<Orders> getRestaurantOrder() {
@@ -95,9 +121,10 @@ public class OrderRepositoryImpl implements OrderRepository{
 		return query.getResultList();
 	}
 	@Override
-	public List<Orders> coffeeShopScreen() {
+	public List<Orders> coffeeShopScreen(String minushour) {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' order by id desc", Orders.class);
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1'  order by id desc", Orders.class);
+	 /*query.setParameter("minuts", minushour); */
 		return query.getResultList();
 	}
 	@Override
@@ -108,7 +135,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 	}
 	
 	@Override
-	public void accpetParkingRequest(ParkingOrder parkingOrder, long roomId, String serviceItemName,long parkingId,Parking parking) {
+	public void accpetParkingRequest(ParkingOrder parkingOrder, long roomId, String serviceItemName,long parkingId, Parking parking) {
 		// TODO Auto-generated method stub
 		Query updateQuery = entityManager.createQuery("UPDATE ParkingOrder SET order_status = :status,acceptTime=:acceptTime where id = :id ");
 		updateQuery.setParameter("status", parkingOrder.getOrderStatus()); 
@@ -137,21 +164,29 @@ public class OrderRepositoryImpl implements OrderRepository{
 		return query.getResultList();
 	}
 	@Override
-	public void accpetParkingRequest(long id, long roomId,
-			String serviceItemName,HouseKeeping houseKeeping) { 
+	public void accpethouseKeepingRequest(long id, long roomId,
+			String serviceItemName,String roomName, String deliveryBoyName,HouseKeeping houseKeeping) { 
 		Query updateparkingQuery = entityManager.createQuery("UPDATE HouseKeeping SET status = :status where id = :id ");
 		updateparkingQuery.setParameter("status", "ACCEPT");  
 		updateparkingQuery.setParameter("id", id);  
 		entityManager.joinTransaction();
 		updateparkingQuery.executeUpdate();
-		
-		
+		 
 		Notification notification = new Notification();
 		notification.setOrderId(id);
 		notification.setRoomId(roomId);
 		notification.setServiceItemName(serviceItemName);
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
+		
+		ReadyForDelivery readyForDelivery= new ReadyForDelivery();
+		readyForDelivery.setOrderId(houseKeeping.getId());
+		readyForDelivery.setRoomName(roomName);
+		readyForDelivery.setRoomId(roomId);
+		readyForDelivery.setDeliveryBoyName(deliveryBoyName);
+		readyForDelivery.setStatus("READYFORDELIVERY");
+		this.entityManager.persist(readyForDelivery);
+		
 	}
 	
 	@Override
@@ -243,6 +278,31 @@ public class OrderRepositoryImpl implements OrderRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT receptionOrder from ReceptionOrder receptionOrder where orderStatus='ACCEPT'", ReceptionOrder.class);
 		return query.getResultList();
+	}
+	@Override
+	public List<ReadyForDelivery> readyForDeliveryScreen(String name) {
+		// TODO Auto-generated method stub
+		System.out.println("username"+name);
+		Query query = entityManager.createQuery("SELECT readyForDeliver from ReadyForDelivery readyForDeliver where readyForDeliver.deliveryBoyName=:name order by id desc", ReadyForDelivery.class);
+		query.setParameter("name", name);
+		return query.getResultList();
+	}
+	@Override
+	public ReadyForDelivery deliveryBoyAccept(
+			ReadyForDelivery readyForDelivery, long orderId) {
+
+		Query updateQuery = entityManager.createQuery("UPDATE ReadyForDelivery SET status=:status where orderId = :orderId ");
+		updateQuery.setParameter("status",readyForDelivery.getStatus());  
+	 updateQuery.setParameter("orderId", orderId);
+		entityManager.joinTransaction();
+		updateQuery.executeUpdate();  
+		
+		Query query = entityManager.createQuery("Update Notification set readStatus=:status where orderId=:orderId");
+		query.setParameter("orderId",orderId);
+		query.setParameter("status",ReadStatus.UNREAD.name());
+		query.executeUpdate();
+		
+		return readyForDelivery;
 	}
 	 
 }

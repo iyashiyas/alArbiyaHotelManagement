@@ -1,7 +1,9 @@
 package org.alArbiyaHotelManagement.service.impl;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -12,9 +14,14 @@ import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.alArbiyaHotelManagement.service.OrderService;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,14 +62,14 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void readyForDelivery(Orders order,long id) {
+	public void readyForDelivery(Orders order,long id,String deliveryBoyName,String roomName,long roomId) {
 		// TODO Auto-generated method stub
 		order.setId(id);
 		order.setOrderStatus("ORDER FOR DELIVERY");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
 	  order.setReadyForDeliveryTime(dateFormat.format(date));
-	 orderRepository.readyForDelivery(order);
+	 orderRepository.readyForDelivery(order,deliveryBoyName,roomName,roomId);
 	}
 
 	@Override
@@ -90,8 +97,16 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Orders> coffeeShopScreen() {
-		// TODO Auto-generated method stub
-		return orderRepository.coffeeShopScreen();
+		  
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
+		Calendar cal = Calendar.getInstance();
+		cal = Calendar.getInstance();
+	       cal.add(Calendar.HOUR, -1);
+		String minushour=dateFormat.format(cal.getTime());
+		System.out.println(minushour);
+		return orderRepository.coffeeShopScreen(minushour);
+		
 	}
 
 	@Override
@@ -128,8 +143,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void accpethouseKeepingRequest(long id, long roomId,
-			String serviceItemName,HouseKeeping houseKeeping) {
-		 orderRepository.accpetParkingRequest(id,roomId, serviceItemName,houseKeeping);
+			String serviceItemName,String roomName, String deliveryBoyName,HouseKeeping houseKeeping) {
+		 orderRepository.accpethouseKeepingRequest(id,roomId, serviceItemName,roomName,deliveryBoyName,houseKeeping);
 	}
 
 	@Override
@@ -223,6 +238,20 @@ public class OrderServiceImpl implements OrderService {
 	public List<ReceptionOrder> receptionOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		return orderRepository.receptionOrderRequestAccept();
+	}
+
+	@Override
+	public List<ReadyForDelivery> readyForDeliveryScreen(String name) {
+		// TODO Auto-generated method stub
+		return orderRepository.readyForDeliveryScreen(name);
+	}
+
+	@Override
+	public ReadyForDelivery deliveryBoyAccept(ReadyForDelivery readyForDelivery, long orderId) {
+		// TODO Auto-generated method stub
+		  readyForDelivery.setStatus("ACCEPTREQUEST");
+		return orderRepository.deliveryBoyAccept(readyForDelivery,orderId);
+		 
 	}
 
 	 

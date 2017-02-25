@@ -19,4 +19,9 @@ public class CoffeeeShopLanguageHelper {
 	public void setLangageName(String langageName) {
 		this.langageName = langageName;
 	}
+	
+	public boolean isEmpty() {
+		return (this.getLangageName() == null || this.getLangageName().isEmpty());
+	}
+
 }

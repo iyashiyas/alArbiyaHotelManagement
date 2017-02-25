@@ -2,9 +2,17 @@ package org.alArbiyaHotelManagement.repository;
 
 import java.util.List;
   
+
+
+
+
 import org.alArbiyaHotelManagement.model.Action; 
+import org.alArbiyaHotelManagement.model.CarRentalCategory;
+import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
+import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.RestaurantCategory;
   
 public interface ActionRepository {
 	public Action addAction();
@@ -21,5 +29,13 @@ public interface ActionRepository {
 	public List<HotelServicesItem> getAllLaundryItems();
 	public void UpdateReceptionServiceStatus(
 			HotelServicesCategory hotelServicesCategory);
+	public void addCarRentalCategory(CarRentalCategory carRentalCategory);
+	public void addLaundryCategory(LaundryCategory laundryCategory);
+	public void addRestaurantCategory(RestaurantCategory restaurantCategory);
+	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory);
+	public List<LaundryCategory> laundryCategory();
+	public List<CarRentalCategory> carRentaltCategory();
+	public List<RestaurantCategory> restaurantCategory();
+	public List<CoffeeShopCategory> coffeeShopCategory();
 	 
 }

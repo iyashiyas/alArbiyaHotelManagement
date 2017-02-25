@@ -28,9 +28,7 @@
 
 			</div>
 			<div class="wrapper wrapper-content">
-				<div class="row">
-					 
-
+				<div class="row"> 
 					<!-- Page Contents -->
 					<!-- Page Heading -->
 

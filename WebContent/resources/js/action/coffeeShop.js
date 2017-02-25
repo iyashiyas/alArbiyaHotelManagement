@@ -13,8 +13,8 @@ $(function() {
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"languageName[" + coffeeLangugaeCount+ "]")
-				newEntry.find('select').attr('name',"languageHelper[" + coffeeLangugaeCount + "].languageId")
+				newEntry.find('input').attr('name',"languageHelper[" + coffeeLangugaeCount+ "].langageName")
+				newEntry.find('select').attr('name',"languageHelper[" + coffeeLangugaeCount + "].langageName")
 				controlForm.find('.entry-coffeeLanguage:not(:last) .coffeShopLanguage-btn-add')
 					.removeClass('coffeShopLanguage-btn-add')
 					.addClass('coffeShopLanguage-btn-remove')

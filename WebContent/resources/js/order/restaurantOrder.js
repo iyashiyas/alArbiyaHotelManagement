@@ -44,9 +44,9 @@ $(document)
 																									+ Orders.acceptTime
 																								     + '</label>')
 																							+ '</td><td>'
-																							+ (Orders.orderStatus == "ORDER ACCEPT" ? '<a href="restaurantreadyForDelivery?id='
+																							+ (Orders.orderStatus == "ORDER ACCEPT" ? '<a href="#" id="readyForDeliverys" data-toggle="modal" data-target="#assignToDelivery" data-href="restaurantreadyForDelivery?id='
 																									+ Orders.id
-																									+ '" class="btn '
+																									+ '&roomName='+Orders.room.roomCode+'&roomId='+Orders.room.id+'" class="btn '
 																									+ (Orders.acceptTime == true ? 'disabled'
 																											: 'btn-success')
 																									+ '">ReadyForDelivery</a>' 
@@ -57,12 +57,7 @@ $(document)
 																							+ (Orders.orderStatus == "DELIVERED" ? ' <label class="label label-primary">'
 																									+ Orders.deliveredTime
 																									+ '</label>'
-																									:  '<a href="restaurantdelivered?id='
-																											+ Orders.id
-																											+ '" class="btn '
-																											+ (Orders.readyForDeliveryTime == null ? 'disabled'
-																													: 'btn-success')
-																											+ '">Delivered</a>' )
+																									:  'Waiting For Delivery' )
 																							+ '</td></tr>');
 																});
 											},
@@ -74,6 +69,14 @@ $(document)
 
 										});
 							}, 10000);
+					$("#e1").select2(); 
+					var deliveryBoyName; 
+					 $('#assignToDelivery').on('show.bs.modal', function(e){
+					 	 $('#e1').on('change', function(){
+					 		deliveryBoyName = this.value; 
+				    	$('#assignToDelivery').find('.btn-oks').attr('href', $('#readyForDeliverys').data('href')+'&deliveryBoyName='+deliveryBoyName);
+				    	}) 
+				  });  
 
 					/*
 					 * setInterval( function () { worker(); }, 30000 );

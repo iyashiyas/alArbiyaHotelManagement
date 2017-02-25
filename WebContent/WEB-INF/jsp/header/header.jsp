@@ -158,7 +158,7 @@
 				 <sec:authorize access="hasAnyRole('ROLE_SHOWPLAYER','ROLE_ADMIN')"><li><a
 					href="${pageContext.request.contextPath}/player/showPlayer"><i
 						class="fa fa-desktop"></i> <span class="nav-label"><spring:message
-								code="label.Player" /></span> </a></li></sec:authorize>
+								code="label.Screen" /></span> </a></li></sec:authorize>
 
 				 <sec:authorize access="hasAnyRole('ROLE_ORDER','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
@@ -181,6 +181,13 @@
 										 <sec:authorize access="hasAnyRole('ROLE_RECEPTIONSCREEN','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/receptionScreen"><i
 						class="fa fa-table"></i> <span class="nav-label"><spring:message
 								code="label.receptionScreen" /></span> </a></li></sec:authorize> 
+								 <sec:authorize access="hasAnyRole('ROLE_DELIVERYBOYSERVICE','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/readyForDeliveryScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.DeliveryBoyScreen" /></span> </a></li></sec:authorize>
+								 <sec:authorize access="hasAnyRole('ROLE_DELIVERYBOYHOUSEKEEPING','ROLE_ADMIN')"><li><a href="${pageContext.request.contextPath}/order/houseKeepingdeliveryScreen"><i
+						class="fa fa-table"></i> <span class="nav-label"><spring:message
+								code="label.DeliveryBoyScreen-HouseKeeping" /></span> </a></li></sec:authorize>  
+								 
 			</ul>
 		</div>
 	</nav>

@@ -152,7 +152,7 @@
 				<spring:message code="label.Parking" /></label>
 				<div class="col-sm-10">
 			  <select  id="e1" name="parkingId">
-			   <option value="0">SELECT PARKING</option>
+			   <option >SELECT PARKING</option>
 			  <option value="0">No Parking Card</option>
 			  <c:forEach items="${NotAvailableParking}" var="NotAvailableParking">  
         <option value="${NotAvailableParking.id}">${NotAvailableParking.parkingName}</option>  
@@ -193,7 +193,7 @@
     </script> 
    <script> 
       $("#e1").select2();   
-       var parkingId=0; 
+       var parkingId; 
       	 $('#confirmCheckIn').on('show.bs.modal', function(e){
       	 	 $('#e1').on('change', function(){
    	    	  parkingId = this.value;

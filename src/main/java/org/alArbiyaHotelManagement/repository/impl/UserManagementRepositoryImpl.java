@@ -57,8 +57,12 @@ public class UserManagementRepositoryImpl implements UserManagementRepository{
      	return user;
 	}
 
+	@Override
+	public List<User> getAllDeliveryBoy() {
+		Query query = entityManager.createQuery("SELECT user from User user where userType='DELIVERYBOY'", User.class);
+		return query.getResultList();
+	}
  
-	 
 	}
 
  

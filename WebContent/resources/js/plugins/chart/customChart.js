@@ -74,74 +74,76 @@ $(function () {
 		    new Chart(ctx51, {type: 'doughnut', data: doughnutData22, options:doughnutOptions33}); 
 }); 
 	
+	// Bar Chart
+	// requests
+	var CoffeeShopOrder=$('#CoffeeShopOrder').val();
+	var CoffeeShopOrderRequestAccept=$('#CoffeeShopOrderRequestAccept').val();
+	var CoffeeShopOrderDeliverd=$('#CoffeeShopOrderDeliverd').val();
+
+	var restaurantOrderRequest=$('#restaurantOrderRequest').val();
+	var restaurantOrderRequestAccept=$('#restaurantOrderRequestAccept').val();
+	var restaurantOrderDeliverd=$('#restaurantOrderDeliverd').val();
+
+	var laundryOrderRequest=$('#laundryOrderRequest').val();
+	var laundryOrderRequestAccept=$('#laundryOrderRequestAccept').val();
+	var laundryOrderDeliverd=$('#laundryOrderDeliverd').val();
+
+	var houseKeepingOrderRequest=$('#houseKeepingOrderRequest').val();
+	var houseKeepingOrderRequestAccept=$('#houseKeepingOrderRequestAccept').val();
+
+	var receptionOrderRequest=$('#receptionOrderRequest').val();
+	var receptionOrderRequestAccept=$('#receptionOrderRequestAccept').val();
+	 
+	    var barData = {
+	    		 
+	        labels: ["COFFEESHOP", "RESTAURANT", "LAUNDRY", "HOUSEKEEPING", "RECEPTION"],
+	        datasets: [
+	      {
+	    label: "REQUEST",
+	    backgroundColor: '#f8ac59',
+	    borderColor: "rgba(26,179,148,0.7)",
+	    pointBackgroundColor: "rgba(26,179,148,1)",
+	    pointBorderColor: "#fff",
+	    height:"100px",
+	    data: [CoffeeShopOrder, restaurantOrderRequest, laundryOrderRequest,houseKeepingOrderRequest, receptionOrderRequest]
+	      },
+	         
+	      {
+	          label: "REQUEST ACCEPT",
+	          backgroundColor: '#23c6c8',
+	          borderColor: "rgba(26,179,148,0.7)",
+	          pointBackgroundColor: "rgba(26,179,148,1)",
+	          pointBorderColor: "#fff",
+	          height:"100px",
+	          data: [CoffeeShopOrderRequestAccept, restaurantOrderRequestAccept, laundryOrderRequestAccept,houseKeepingOrderRequestAccept, receptionOrderRequestAccept]
+	      } ,
+	          {
+	         label: "DELIVERED",
+	           backgroundColor: '#ed5565',
+	           pointBorderColor: "#fff",
+	           height:"100px",
+	           data: [CoffeeShopOrderDeliverd, restaurantOrderDeliverd, laundryOrderDeliverd]
+	            } 
+	        ]
+	    };
+
+	    var barOptions = { 
+	    		scales: {
+	    		    xAxes: [{
+	        	barPercentage: 0.3
+	    		    }], 
+	    		    yAxes: [{
+	    	        	barPercentage: 0.1
+	    	    		    }]
+	    		}
+	    };
+
+
+	    var ctx2 = document.getElementById("barChart").getContext("2d");
+	    new Chart(ctx2, {type: 'bar', data: barData, options:barOptions});
+
+	
 });
  
-// Bar Chart
-// requests
-var CoffeeShopOrder=$('#CoffeeShopOrder').val();
-var CoffeeShopOrderRequestAccept=$('#CoffeeShopOrderRequestAccept').val();
-var CoffeeShopOrderDeliverd=$('#CoffeeShopOrderDeliverd').val();
-
-var restaurantOrderRequest=$('#restaurantOrderRequest').val();
-var restaurantOrderRequestAccept=$('#restaurantOrderRequestAccept').val();
-var restaurantOrderDeliverd=$('#restaurantOrderDeliverd').val();
-
-var laundryOrderRequest=$('#laundryOrderRequest').val();
-var laundryOrderRequestAccept=$('#laundryOrderRequestAccept').val();
-var laundryOrderDeliverd=$('#laundryOrderDeliverd').val();
-
-var houseKeepingOrderRequest=$('#houseKeepingOrderRequest').val();
-var houseKeepingOrderRequestAccept=$('#houseKeepingOrderRequestAccept').val();
-
-var receptionOrderRequest=$('#receptionOrderRequest').val();
-var receptionOrderRequestAccept=$('#receptionOrderRequestAccept').val();
- 
-    var barData = {
-    		 
-        labels: ["COFFEESHOP", "RESTAURANT", "LAUNDRY", "HOUSEKEEPING", "RECEPTION"],
-        datasets: [
-      {
-    label: "REQUEST",
-    backgroundColor: '#f8ac59',
-    borderColor: "rgba(26,179,148,0.7)",
-    pointBackgroundColor: "rgba(26,179,148,1)",
-    pointBorderColor: "#fff",
-    height:"100px",
-    data: [CoffeeShopOrder, restaurantOrderRequest, laundryOrderRequest,houseKeepingOrderRequest, receptionOrderRequest]
-      },
-         
-      {
-          label: "REQUEST ACCEPT",
-          backgroundColor: '#23c6c8',
-          borderColor: "rgba(26,179,148,0.7)",
-          pointBackgroundColor: "rgba(26,179,148,1)",
-          pointBorderColor: "#fff",
-          height:"100px",
-          data: [CoffeeShopOrderRequestAccept, restaurantOrderRequestAccept, laundryOrderRequestAccept,houseKeepingOrderRequestAccept, receptionOrderRequestAccept]
-      } ,
-          {
-         label: "DELIVERED",
-           backgroundColor: '#ed5565',
-           pointBorderColor: "#fff",
-           height:"100px",
-           data: [CoffeeShopOrderDeliverd, restaurantOrderDeliverd, laundryOrderDeliverd]
-            } 
-        ]
-    };
-
-    var barOptions = { 
-    		scales: {
-    		    xAxes: [{
-        	barPercentage: 0.3
-    		    }], 
-    		    yAxes: [{
-    	        	barPercentage: 0.1
-    	    		    }]
-    		}
-    };
-
-
-    var ctx2 = document.getElementById("barChart").getContext("2d");
-    new Chart(ctx2, {type: 'bar', data: barData, options:barOptions});
 
     

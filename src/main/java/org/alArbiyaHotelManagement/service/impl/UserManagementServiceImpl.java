@@ -24,7 +24,10 @@ public class UserManagementServiceImpl implements UserManagementService{
 	@Override
 	public User addUser(User user) {
 		// TODO Auto-generated method stub
- 
+     if(user.getUserType()==null)
+     {
+    	 user.setUserType("USER");
+     }
 		return userManagementRepository.addUser(user);
 	}
 
@@ -32,6 +35,12 @@ public class UserManagementServiceImpl implements UserManagementService{
 	public User changePassword(User user) {
 		  return userManagementRepository.changePassword(user);
 		
+	}
+
+	@Override
+	public List<User> getAllDeliveryBoy() {
+		// TODO Auto-generated method stub
+		 return userManagementRepository.getAllDeliveryBoy();
 	}
 
 	 

@@ -3,21 +3,24 @@ package org.alArbiyaHotelManagement.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
- 
-
-
-
-
-
+  
+import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
+import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
+import org.alArbiyaHotelManagement.model.User;
+import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.alArbiyaHotelManagement.service.ParkingService;
+import org.alArbiyaHotelManagement.service.UserManagementService;
+ 
+ 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,10 +39,18 @@ public class OrderController {
 	@Autowired
 	ParkingService parkingService;
 	
+	@Autowired
+	UserManagementService userManagementService;
+	
+	@Autowired
+    BookingService bookingService;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showOrder(Model model) {
 		List<Orders> orders = orderService.GetAllOrder();
+		 List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("deliveryBoy", deliveryBoy);
 		attributes.put("orders", orders);
 		attributes.put("order", new Orders());
 		model.addAllAttributes(attributes);
@@ -61,8 +72,8 @@ public class OrderController {
 		return "redirect:/order";
 	}
 	@RequestMapping(value = "readyForDelivery", method = RequestMethod.GET)
-	public String readyForDelivery(@RequestParam(required=false) long id, @ModelAttribute Orders order) {
-		orderService.readyForDelivery(order,id);
+	public String readyForDelivery(@RequestParam(required=false) long id, @RequestParam(required=false) String deliveryBoyName, @RequestParam(required=false) String roomName,@RequestParam(required=false) long roomId, @ModelAttribute Orders order) {
+		orderService.readyForDelivery(order,id,deliveryBoyName,roomName,roomId);
 		return "redirect:/order";
 	}
 	@RequestMapping(value = "delivered", method = RequestMethod.GET)
@@ -70,9 +81,7 @@ public class OrderController {
 		orderService.delivered(order,id);
 		return "redirect:/order";
 	}
-	
-	
-	
+	 
 	//restaurant Order
 	@RequestMapping(value="/restaurantScreenOrder", method=RequestMethod.GET)
 	public @ResponseBody List<Orders> restaurantScreen() {
@@ -83,8 +92,10 @@ public class OrderController {
 	
 	 @RequestMapping(value="restaurantScreen",method = RequestMethod.GET)
 	public String restaurant(Model model) {
+	    List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 		List<Orders> orders = orderService.getRestaurantOrder();
 		Map<String, Object> attributes = new HashMap<String, Object>();
+		attributes.put("deliveryBoy", deliveryBoy); 
 		attributes.put("orders", orders);
 		attributes.put("order", new Orders());
 		model.addAllAttributes(attributes);
@@ -99,8 +110,8 @@ public class OrderController {
 			return "redirect:/order/restaurantScreen";
 		}
 		@RequestMapping(value = "restaurantreadyForDelivery", method = RequestMethod.GET)
-		public String restaurantreadyForDelivery(@RequestParam(required=false) long id, @ModelAttribute Orders order) {
-			orderService.readyForDelivery(order,id);
+		public String restaurantreadyForDelivery(@RequestParam(required=false) long id, @RequestParam(required=false) String deliveryBoyName, @RequestParam(required=false) String roomName,@RequestParam(required=false) long roomId, @ModelAttribute Orders order) {
+			orderService.readyForDelivery(order,id,deliveryBoyName,roomName,roomId);
 			return "redirect:/order/restaurantScreen";
 		}
 		@RequestMapping(value = "restaurantdelivered", method = RequestMethod.GET)
@@ -118,9 +129,11 @@ public class OrderController {
 		
 	    @RequestMapping(value="coffeeShopScreen",method = RequestMethod.GET)
 		public String coffeeShop(Model model) {
+			List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 			List<Orders> orders = orderService.coffeeShopScreen();
 			Map<String, Object> attributes = new HashMap<String, Object>();
 			attributes.put("orders", orders);
+			attributes.put("deliveryBoy", deliveryBoy); 
 			attributes.put("order", new Orders());
 			model.addAllAttributes(attributes);
 			return "order/coffeeShopOrder";
@@ -134,14 +147,24 @@ public class OrderController {
 				 
 			}
 			@RequestMapping(value = "coffeeShopreadyForDelivery", method = RequestMethod.GET)
-			public String coffeeShopreadyForDelivery(@RequestParam(required=false) long id, @ModelAttribute Orders order) {
-				orderService.readyForDelivery(order,id);
+			public String coffeeShopreadyForDelivery(@RequestParam(required=false) long id, @RequestParam(required=false) String deliveryBoyName, @RequestParam(required=false) String roomName,@RequestParam(required=false) long roomId,@ModelAttribute Orders order) {
+				orderService.readyForDelivery(order,id,deliveryBoyName,roomName,roomId);
 				return "redirect:/order/coffeeShopScreen";
 			}
 			@RequestMapping(value = "coffeeShopdelivered", method = RequestMethod.GET)
-			public String coffeeShopdelivered(@RequestParam(required=false) long id, @ModelAttribute Orders order) {
-				orderService.delivered(order,id);
-				return "redirect:/order/coffeeShopScreen";
+			public String coffeeShopdelivered(@ModelAttribute Booking booking,@RequestParam(required=false) long id,@RequestParam(required=false) long roomId,@RequestParam(required=false) int password, @ModelAttribute Orders order) {
+				Map<String, Object> attributes = new HashMap<String, Object>();
+				Booking AuthenticatePassword= bookingService.authenticate(roomId,password);
+				if(AuthenticatePassword==null)
+				{ 
+					attributes.put("error","error"); 
+				}
+				else
+				{ 
+					orderService.delivered(order,id);
+
+				}
+			 return "redirect:/order/coffeeShopScreen";
 			}
 			
 			// End Coffee Shop
@@ -155,8 +178,10 @@ public class OrderController {
 			} 
 			 @RequestMapping(value="laundryScreen",method = RequestMethod.GET)
 			public String laundry(Model model) {
+				 List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 				List<Orders> orders = orderService.getLaundry();
 				Map<String, Object> attributes = new HashMap<String, Object>();
+				attributes.put("deliveryBoy", deliveryBoy);
 				attributes.put("orders", orders);
 				attributes.put("order", new Orders());
 				model.addAllAttributes(attributes);
@@ -169,8 +194,8 @@ public class OrderController {
 					return "redirect:/order/laundryScreen";
 				}
 				@RequestMapping(value = "laundryreadyForDelivery", method = RequestMethod.GET)
-				public String laundryreadyForDelivery(@RequestParam(required=false) long id, @ModelAttribute Orders order) {
-					orderService.readyForDelivery(order,id);
+				public String laundryreadyForDelivery(@RequestParam(required=false) long id, @RequestParam(required=false) String deliveryBoyName, @RequestParam(required=false) String roomName,@RequestParam(required=false) long roomId, @ModelAttribute Orders order) {
+					orderService.readyForDelivery(order,id,deliveryBoyName,roomName,roomId);
 					return "redirect:/order/laundryScreen";
 				}
 				@RequestMapping(value = "laundrydelivered", method = RequestMethod.GET)
@@ -232,8 +257,10 @@ public class OrderController {
 				 
 				   @RequestMapping(value="housekeepingScreen",method = RequestMethod.GET)
 					public String housekeepingScreen(Model model) {
+					   List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 						List<HouseKeeping> orders = orderService.housekeepingScreenOrder();
 						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("deliveryBoy", deliveryBoy);
 						attributes.put("orders", orders);
 						attributes.put("order", new Orders());
 						model.addAllAttributes(attributes);
@@ -247,9 +274,9 @@ public class OrderController {
 				    
 				   @RequestMapping(value = "accpethouseKeepingRequest",  method = RequestMethod.GET)
 					public String accpethouseKeepingRequest(@RequestParam(required=false) long id,
-					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName,HouseKeeping houseKeeping)
+					 @RequestParam(required=true) long roomId, @RequestParam(required=true) String serviceItemName,@RequestParam(required=true) String roomName, @RequestParam(required=true) String deliveryBoyName,HouseKeeping houseKeeping)
                       {
-					 orderService.accpethouseKeepingRequest(id, roomId, serviceItemName,houseKeeping);
+					 orderService.accpethouseKeepingRequest(id, roomId, serviceItemName,roomName,deliveryBoyName,houseKeeping);
 					 return "redirect:/order/housekeepingScreen";
 					  }
 				   
@@ -257,8 +284,10 @@ public class OrderController {
 				   
 				   @RequestMapping(value="receptionScreen",method = RequestMethod.GET)
 					public String receptionScreen(Model model) {
+					   List<User> deliveryBoy = userManagementService.getAllDeliveryBoy();
 						List<ReceptionOrder> orders = orderService.receptionScreen();
 						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("deliveryBoy", deliveryBoy);
 						attributes.put("orders", orders);
 						attributes.put("order", new ReceptionOrder());
 						model.addAllAttributes(attributes);
@@ -276,8 +305,79 @@ public class OrderController {
                      {
 					 orderService.accpetreceptionRequest(id, roomId, serviceItemName,receptionOrder);
 					 return "redirect:/order/receptionScreen";
-					  }
+					  } 
 				   
-				  
 				   
+				   @RequestMapping(value="readyForDeliveryScreen",method = RequestMethod.GET)
+					public String readyForDeliveryScreen(Model model) {
+					   
+					   Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); //get logged in username  
+						List<ReadyForDelivery> readyForDeliveryScreen = orderService.readyForDeliveryScreen(name);
+						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("orders", readyForDeliveryScreen);
+						attributes.put("order", new ReadyForDelivery());
+						model.addAllAttributes(attributes);
+						return "readyForDelivery/readyForDelivery";
+					}
+				   
+				   @RequestMapping(value="deliveryBoyAccept",method = RequestMethod.GET)
+					public String deliveryBoyAccept(ReadyForDelivery ReadyForDelivery, @RequestParam(required=false) long orderId) {
+					   orderService.deliveryBoyAccept(ReadyForDelivery,orderId);  
+						return "redirect:/order/readyForDeliveryScreen";
+					}
+				   
+				   @RequestMapping(value="deliverdAcccept",method = RequestMethod.GET)
+					public String deliverdAcccept(@ModelAttribute Booking booking,@RequestParam(required=false) long id,@RequestParam(required=false) long roomId,@RequestParam(required=false) int password, @ModelAttribute Orders order) {
+					   Map<String, Object> attributes = new HashMap<String, Object>();
+						Booking AuthenticatePassword= bookingService.authenticate(roomId,password);
+						if(AuthenticatePassword==null)
+						{ 
+							attributes.put("error","error"); 
+						}
+						else
+						{ 
+							orderService.delivered(order,id);
+
+						}
+						return "redirect:/order/readyForDeliveryScreen";
+					} 
+				   
+				   @RequestMapping(value="/deliveryBoyScreen", method=RequestMethod.GET)
+					public @ResponseBody List<ReadyForDelivery> deliveryBoyScreen() {
+					   Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); //get logged in username  
+						return orderService.readyForDeliveryScreen(name);
+					}
+				    
+				   @RequestMapping(value="houseKeepingdeliveryScreen",method = RequestMethod.GET)
+					public String houseKeepingdeliveryScreen(Model model) { 
+					   Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); //get logged in username  
+						List<ReadyForDelivery> readyForDeliveryScreen = orderService.readyForDeliveryScreen(name);
+						Map<String, Object> attributes = new HashMap<String, Object>();
+						attributes.put("orders", readyForDeliveryScreen);
+						attributes.put("order", new ReadyForDelivery());
+						model.addAllAttributes(attributes);
+						return "readyForDelivery/readyForDeliveryhouseKeeping";
+					}
+				    
+				   @RequestMapping(value="/houseKeepingdeliveryBoyScreen", method=RequestMethod.GET)
+					public @ResponseBody List<ReadyForDelivery> houseKeepingdeliveryBoyScreen() {
+					   Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); //get logged in UserName  
+						return orderService.readyForDeliveryScreen(name);
+					}
+				   
+				   @RequestMapping(value="deliveryBoyAccepthouseKeeping",method = RequestMethod.GET)
+					public String deliveryBoyAccepthouseKeeping(ReadyForDelivery ReadyForDelivery, @RequestParam(required=false) long orderId) {
+					   orderService.deliveryBoyAccept(ReadyForDelivery,orderId);  
+						return "redirect:/order/houseKeepingdeliveryScreen";
+					}
+				    
+				   @RequestMapping(value="deliverdAccceptHouseKeeping",method = RequestMethod.GET)
+					public String deliverdAccceptHouseKeeping(@ModelAttribute Booking booking,@RequestParam(required=false) long id,@RequestParam(required=false) long roomId, @ModelAttribute Orders order) {
+					  orderService.delivered(order,id);
+                      return "redirect:/order/houseKeepingdeliveryScreen";
+					}  
 }

@@ -31,8 +31,7 @@
 			</div>
 			<!-- Page Contents -->
 			<!-- Page Heading -->
-
-
+ 
 			<div class="wrapper wrapper-content">
 				<div class="row">
 					<div class="col-lg-10 animated fadeInRight">
@@ -71,13 +70,11 @@
 												<th><spring:message code="label.Description" /></th>
 												<th><spring:message code="label.Status" /></th>
 												<th><spring:message code="label.Edit" /></th>
-                                             
                                              </tr>
 										</thead>
 
 										<tbody>
 											<c:forEach items="${branches}" var="branch">
-
 												<tr class="gradeX">
 													<td class="center id"><c:out value="${branch.id}" /></td>
 													<td class="center branchName"><c:out
@@ -95,9 +92,9 @@
 													<td class="center branchStatus"><c:out
 															value="${branch.branchStatus}" /></td>		
 													<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><td class="branchEdit"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
-												</tr>
-
+												</tr> 
 											</c:forEach>
+
 
 										</tbody>
 									</table>

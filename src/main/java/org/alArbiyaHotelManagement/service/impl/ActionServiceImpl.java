@@ -8,8 +8,12 @@ import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action; 
+import org.alArbiyaHotelManagement.model.CarRentalCategory;
+import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem; 
+import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.RestaurantCategory;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
@@ -109,6 +113,59 @@ public class ActionServiceImpl implements ActionService {
 			hotelServicesCategory.setCategoryStatus("DISABLED");
 		} 
 		actionRepository.UpdateReceptionServiceStatus(hotelServicesCategory); 
+	}
+	@Override
+	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory) {
+		// TODO Auto-generated method stub
+		if(coffeeShopCategory.getCoffeeShopCategoryStatus()==null) {
+			coffeeShopCategory.setCoffeeShopCategoryStatus("DISABLED");
+		}
+		actionRepository.addCoffeeShopCategory(coffeeShopCategory);
+	}
+	@Override
+	public void addRestaurantCategory(RestaurantCategory restaurantCategory) {
+		// TODO Auto-generated method stub
+		if(restaurantCategory.getRestaurantCategoryStatus()==null) {
+			restaurantCategory.setRestaurantCategoryStatus("DISABLED");
+		}
+		actionRepository.addRestaurantCategory(restaurantCategory);
+	}
+	@Override
+	public void addLaundryCategory(LaundryCategory laundryCategory) {
+		// TODO Auto-generated method stub
+		if(laundryCategory.getLaundryCategoryStatus()==null) {
+			laundryCategory.setLaundryCategoryStatus("DISABLED");
+		}
+		actionRepository.addLaundryCategory(laundryCategory);
+	}
+	@Override
+	public void addCarRentalCategory(CarRentalCategory carRentalCategory) {
+		// TODO Auto-generated method stub
+		if(carRentalCategory.getCarRenatalCategoryName()==null) {
+			carRentalCategory.setCarRenatalCategoryStatus("DISABLED");
+		}
+		actionRepository.addCarRentalCategory(carRentalCategory);
+	}
+	@Override
+	public List<LaundryCategory> laundryCategory() {
+		// TODO Auto-generated method stub
+		 
+		return actionRepository.laundryCategory();
+	}
+	@Override
+	public List<CarRentalCategory> carRentaltCategory() {
+		// TODO Auto-generated method stub
+		return actionRepository.carRentaltCategory();
+	}
+	@Override
+	public List<RestaurantCategory> restaurantCategory() {
+		// TODO Auto-generated method stub
+		return actionRepository.restaurantCategory();
+	}
+	@Override
+	public List<CoffeeShopCategory> coffeeShopCategory() {
+		// TODO Auto-generated method stub
+		return actionRepository.coffeeShopCategory();
 	}
 	 
 }

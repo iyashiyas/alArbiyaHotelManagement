@@ -16,16 +16,21 @@ import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
 import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
+import org.alArbiyaHotelManagement.model.CarRentalCategory;
+import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
+import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.RestaurantCategory;
 import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.service.ActionService;
 import org.alArbiyaHotelManagement.service.BranchService;
 import org.alArbiyaHotelManagement.service.IngredientService;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.UnitService;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,6 +69,7 @@ public class ActionController {
 
 	@RequestMapping(value = "/showCoffeeShop", method = RequestMethod.GET)
 	public String showCoffeeShop(Model model) {
+		List<CoffeeShopCategory> coffeeShopCategory = actionService.coffeeShopCategory();
 		List<Language> languages = languageService.getEnableLanguages();
 		List<Unit> units = unitService.getAllUnits();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
@@ -73,7 +79,7 @@ public class ActionController {
 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CoffeeShop coffeeShop = new CoffeeShop();
-
+		attributes.put("languages", languages);
 		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null;
 		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
 		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
@@ -100,10 +106,12 @@ public class ActionController {
 					.getIngredientName());
 			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
 		}
+		attributes.put("coffeeShopCategory", coffeeShopCategory);
 		attributes.put("getAllcoffeeShops", getAllcoffeeShops);
 		attributes.put("coffeShop", coffeeShop);
 		attributes.put("languageHelper", languages);
 		attributes.put("unitHelper", units);
+		attributes.put("newcoffeeShopCategory", new CoffeeShopCategory());
 		attributes.put("ingredientHelper", ingredients);
 		model.addAllAttributes(attributes);
 		return "action/coffee";
@@ -143,6 +151,7 @@ public class ActionController {
 	public String showRestaurant(Model model) {
 
 		List<Language> languages = languageService.getEnableLanguages();
+		List<RestaurantCategory> restaurantCategory = actionService.restaurantCategory();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
 		List<Unit> units = unitService.getAllUnits();
 		List<HotelServicesItem> getAllRestaurantItems = actionService
@@ -177,10 +186,11 @@ public class ActionController {
 			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
 			restaurant.getUnitHelper().add(coffeeeShopUnitHelper);
 		}
-
+		attributes.put("restaurantCategory", restaurantCategory);
 		attributes.put("restaurant", restaurant);
 		attributes.put("ingredientHelper", ingredients);
 		attributes.put("unitHelper", units);
+		attributes.put("newRestaurantCategory", new RestaurantCategory());
 		attributes.put("languageHelper", languages);
 		attributes.put("getAllRestaurantItems", getAllRestaurantItems);
 
@@ -265,7 +275,7 @@ public class ActionController {
 	 
 	@RequestMapping(value = "/showCarRentalAction", method = RequestMethod.GET)
 	public String showCarRentalAction(Model model) { 
-		
+		List<CarRentalCategory> carRentaltCategory = actionService.carRentaltCategory();
         List<Language> languages = languageService.getEnableLanguages(); 
         List<Unit> units = unitService.getAllUnits();
     	List<HotelServicesItem> getAllCarRentalItems = actionService
@@ -291,9 +301,10 @@ public class ActionController {
 			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
 			carRental.getUnitHelper().add(coffeeeShopUnitHelper);
 		}
-        
+		attributes.put("carRentaltCategory", carRentaltCategory);
 		attributes.put("languageHelper", languages);
 		attributes.put("unitHelper", units);
+		attributes.put("newCarRentalCategory", new CarRentalCategory());
 		attributes.put("getAllCarRentalItems", getAllCarRentalItems);
 		attributes.put("newCarRental", new CarRental());
 		model.addAllAttributes(attributes);
@@ -302,6 +313,7 @@ public class ActionController {
 
 	@RequestMapping(value = "/showLaundryAction", method = RequestMethod.GET)
 	public String showLaundryAction(Model model) {
+		List<LaundryCategory> laundryCategory = actionService.laundryCategory();
 		  List<Language> languages = languageService.getEnableLanguages(); 
 	        List<Unit> units = unitService.getAllUnits();
 	      	List<HotelServicesItem> getAllLaundryItems = actionService
@@ -326,8 +338,9 @@ public class ActionController {
 				coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
 				laundry.getUnitHelper().add(coffeeeShopUnitHelper);
 			}
-	        
+			attributes.put("laundryCategory", laundryCategory);
 			attributes.put("languageHelper", languages);
+			attributes.put("newLundryCategory", new LaundryCategory());
 			attributes.put("unitHelper", units);
 			attributes.put("getAllLaundryItems", getAllLaundryItems);
 			attributes.put("newLaundry", new Laundry());
@@ -398,8 +411,7 @@ public class ActionController {
 		actionService.addLaundryItem(laundry,serverFile);
 		return "redirect:/action/showLaundryAction";
 	}
-  
-	
+   
 	@RequestMapping(value = "/showReception", method = RequestMethod.GET)
 	public String showReception(Model model) {
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -418,4 +430,27 @@ public class ActionController {
 		return "redirect:/action/showReception";
 	} 
 	
+	@RequestMapping(value="/addCoffeeShopCategory", method=RequestMethod.POST)
+	public String addCoffeeShopCategory(@ModelAttribute CoffeeShopCategory coffeeShopCategory) {
+		 actionService.addCoffeeShopCategory(coffeeShopCategory);
+		return "redirect:/action/showCoffeeShop";
+	}
+
+	@RequestMapping(value="/addRestaurantCategory", method=RequestMethod.POST)
+	public String addRestaurantCategory(@ModelAttribute RestaurantCategory restaurantCategory) {
+		 actionService.addRestaurantCategory(restaurantCategory);
+		return "redirect:/action/showRestaurant";
+	}
+	
+	@RequestMapping(value="/addLaundryCategory", method=RequestMethod.POST)
+	public String addLaundryCategory(@ModelAttribute LaundryCategory laundryCategory) {
+		 actionService.addLaundryCategory(laundryCategory);
+		return "redirect:/action/showLaundryAction";
+	}
+	
+	@RequestMapping(value="/addCarRentalCategory", method=RequestMethod.POST)
+	public String addCarRentalCategory(@ModelAttribute CarRentalCategory carRentalCategory) {
+		 actionService.addCarRentalCategory(carRentalCategory);
+		return "redirect:/action/showCarRentalAction";
+	}
 }

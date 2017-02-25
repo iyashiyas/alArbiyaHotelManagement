@@ -10,7 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
+	rel="stylesheet">
+	<link   href="<c:url value="/resources/css/select/select2.css"/>"
 	rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
 	rel="stylesheet">
@@ -30,7 +34,7 @@
 	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
 	rel="stylesheet"> 
 	</c:if> --%>
-<title>SHMS-Restaurant-Order</title>
+<title>SHMS-Housekeeping-Order</title>
 </head>
 <body>
 	<!-- Include Page Header-->
@@ -66,11 +70,11 @@
 						name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</form>
 							</div>
-								<div class="table-responsive">
-					 
-									<table
-										class="table table-striped table-bordered table-hover dataTables-example" id="orderTable">
-									 
+								<div class="ibox-content">
+						 	<div class="table-responsive">  
+
+									<table class="table table-striped table-bordered table-hover dataTables-example"
+										id="orderTable">
 										<thead>
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
@@ -78,6 +82,7 @@
 												<th><spring:message code="label.ItemName" /></th>  
 										        <th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
+												<th><spring:message code="label.Requests" /></th>  
 											 </tr>
 										</thead>
 										<tbody class="animated fadeInRight">
@@ -92,7 +97,8 @@
 											 	<td class="center">
 											 	<c:choose>
 											 		<c:when test="${orders.status == 'ORDERED'}">
-											 		  <a href="${pageContext.request.contextPath}/order/accpethouseKeepingRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${Orders.houseKeepingType}"
+											 		  <a id="readyForDeliverys" data-toggle="modal"
+																		data-target="#assignToDelivery" data-href="${pageContext.request.contextPath}/order/accpethouseKeepingRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${Orders.houseKeepingType}&roomName=${orders.room.roomCode}"
 																	class="btn btn-success "><spring:message
 																		code="label.Submit" /></a>
 											 		</c:when>
@@ -100,13 +106,15 @@
 											 		   ${orders.status}
 											 		</c:when>
 											 	</c:choose>
-											  </td>
+											  </td> 
+											   
 											  </tr>
 											 </c:forEach>  
 											<!-- Demo -->
 											<!--End Action -->
 											</tbody>
 									</table>
+								</div>
 								</div>
 								<button type="button" class="btn btn-primary" onclick=refresh()>Refresh
 									Off/Refresh Here</button>
@@ -118,7 +126,47 @@
 			<input type="hidden" name="${_csrf.parameterName}" id="secuirtyId"
 				value="${_csrf.token}" /> 
 	</div>
-	</div>
+	 
+		<div class="modal fade" id="assignToDelivery" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">
+								<spring:message code="label.ConfirmSubmit" />
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-4 control-label"> <spring:message
+										code="label.SelectDeliveryBoy" /></label>
+								<div class="col-sm-8">
+									<select id="e1" name="parkingId">
+										<option value="0">SELECT DELIVERY BOY</option>
+										<c:forEach items="${deliveryBoy}" var="deliveryBoy">
+											<option value="${deliveryBoy.username}">${deliveryBoy.username}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">
+								<spring:message code="label.Cancel" />
+							</button>
+							<a class="btn btn-danger btn-oks"><spring:message
+									code="label.ConfirmSubmit" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	  
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<%-- <script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script> --%>
 
@@ -134,6 +182,7 @@
 	<!-- iCheck -->
 	<script
 		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
+<script src="<c:url value="/resources/js/plugins/select/select2.js"/>"></script> 
 
 	<!-- Date Time Picker -->
 	<script
@@ -141,42 +190,15 @@
 	<script
 		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
 	<script src="<c:url value="/resources/js/header/header.js"/>"></script>
-<script
+	<%-- <script
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript">  
-	</script>  <!-- Page-Level Scripts -->
-	<%-- <script src="<c:url value="/resources/js/datatablecustom.js" />"
-		type="text/javascript"> 
-		 </script> --%>
-
-	<script type="text/javascript">
-function printDiv() 
-{ 
-  var divToPrint=document.getElementById('printdiv');
-
-  var newWin=window.open('','Print-Window');
-
-  newWin.document.open();
-
-  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
-
-  newWin.document.close();
-
-  setTimeout(function(){newWin.close();},10);
-
-}
-</script>
-
+	<script src="<c:url value="/resources/js/datatablecustom.js" />"
+		type="text/javascript">   
+	</script> --%>
 	<script src="<c:url value="/resources/js/order/houseKeepingOrder.js" />"></script>
 
-
-	<script type="text/javascript">
-
-function refresh()
-{window.location.reload();}
-</script>
+	 
 </body>
 </html>

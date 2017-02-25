@@ -8,8 +8,12 @@ import org.alArbiyaHotelManagement.dto.CoffeeShop;
 import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action;
+import org.alArbiyaHotelManagement.model.CarRentalCategory;
+import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
+import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.RestaurantCategory;
 
 public interface ActionService {
 	public Action addCoffeeShop(CoffeeShop coffeeShop, File serverFile);
@@ -38,5 +42,21 @@ public interface ActionService {
 
 	public void UpdateReceptionServiceStatus(
 			HotelServicesCategory hotelServicesCategory);
+
+	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory);
+
+	public void addRestaurantCategory(RestaurantCategory restaurantCategory);
+
+	public void addLaundryCategory(LaundryCategory laundryCategory);
+
+	public void addCarRentalCategory(CarRentalCategory carRentalCategory);
+
+	public List<LaundryCategory> laundryCategory();
+
+	public List<CarRentalCategory> carRentaltCategory();
+
+	public List<RestaurantCategory> restaurantCategory();
+
+	public List<CoffeeShopCategory> coffeeShopCategory();
 
 }

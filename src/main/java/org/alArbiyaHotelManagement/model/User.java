@@ -31,6 +31,9 @@ public class User implements UserDetails {
 
 	@Column(name = "USER_NAME")
 	private String username;
+	
+	@Column(name="USER_TYPE")
+	private String userType;
 
 	@Column(name = "PASSWORD")
 	private String password;
@@ -112,6 +115,14 @@ public class User implements UserDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 }

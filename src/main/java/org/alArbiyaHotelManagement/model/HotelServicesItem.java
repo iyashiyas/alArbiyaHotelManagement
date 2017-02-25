@@ -35,7 +35,7 @@ public class HotelServicesItem {
 	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
 	
-	 
+	@JsonIgnore
 	@OneToMany(mappedBy="hotelServicesItem", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
 	

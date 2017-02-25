@@ -28,6 +28,16 @@
 				</form:select>
 			</div>
 		</div>   --%> 
+		
+		<div class="form-group">
+				<label class="col-sm-2 control-label"><spring:message code="label.UserType" /> </label>
+
+				<div class="col-sm-10">
+					<form:checkbox id="checkbox1" path="userType" value="DELIVERYBOY" name="userType"
+						 />
+					<label for="checkbox1"> <spring:message code="label.DeliveryBoy" /> </label>
+				</div>
+			</div>
 
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><spring:message
@@ -167,24 +177,28 @@
                                 <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
                                 <li data-value="33">ADD</li>
+                                <li data-value="50">NEW CATEGORY</li>
                             </ul>
                         </li>
                         <li data-value="17">RESTAURANT
                           <ul>  <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
                                 <li data-value="33">ADD</li>
+                                <li data-value="50">NEW CATEGORY</li>
                             </ul>
                         </li>
                         <li  data-value="15">LAUNDRY
                           <ul>  <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
+                                <li data-value="33">ADD</li>  
+                                 <li data-value="50">NEW CATEGORY</li>
                             </ul>
                         </li>
                          <li   data-value="18">CARRENTAL
                           <ul>  <li data-value="31">EDIT</li>
                                 <li data-value="32">DELETE</li>
                                 <li data-value="33">ADD</li>
+                                <li data-value="50">NEW CATEGORY</li>
                             </ul>
                         </li>
                          <li  data-value="19">RECEPTION
@@ -258,11 +272,18 @@
                    <li data-value="28">ACCEPT ORDER</li>
                     </ul>
                 </li>
+                 <li data-value="51"><label class="label label-primary">DELIVERYBOY</label> 
+                 <ul>
+                   <li data-value="53">HOUSEKEEPING</li>
+                    </ul>
+                    <ul>
+                   <li data-value="54">OTHERSERVICE</li>
+                    </ul>
+                </li>
                     </ul>
               
             </div>
-        </div>
-        
+        </div> 
         </div> 
 
 		<div class="form-group">

@@ -20,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name="BUILDING")
 public class Building {
-
-	
+ 
 	@Id @GeneratedValue 
 	@Column(name="BUILDING_ID")
 	private long id;
@@ -131,8 +130,7 @@ public class Building {
         	branch.getBuildings().add(this);
         }
 	}
-	 
-	
+	  
 	public List<Floor> getFloors() {
 		return floors;
 	}
@@ -147,9 +145,6 @@ public class Building {
 	public void setFloors(List<Floor> floors) {
 		this.floors = floors;
 	} 
-	
-	
-	
-	
+	 
 }
 

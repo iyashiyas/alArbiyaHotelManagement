@@ -23,9 +23,9 @@
 					<div class="col-sm-10">
 						<form:select class="form-control m-b" name="category"
 							path="category">
-							<form:option value="INDIAN">Indian</form:option>
-							<form:option value="LUNCH">LUNCH</form:option>
-							<form:option value="DINNER">DINNER</form:option> 
+							  <c:forEach items="${restaurantCategory}" var="restaurantCategory">
+							<form:option value="${restaurantCategory.restaurantCategoryName}">${restaurantCategory.restaurantCategoryName}</form:option>
+						    </c:forEach>
 						</form:select>
 					</div>
 				</div>

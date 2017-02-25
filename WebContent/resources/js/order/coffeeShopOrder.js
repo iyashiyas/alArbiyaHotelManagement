@@ -38,11 +38,10 @@ $(document)
 																											+ Orders.acceptTime
 																											+ '</label>')
 																							+ '</td><td>'
-																							+ (Orders.orderStatus == "ORDER ACCEPT" ?  '<a href="coffeeShopreadyForDelivery?id='
+																							+ (Orders.orderStatus == "ORDER ACCEPT" ?  '<a href="#" id="readyForDeliverys" data-toggle="modal" data-target="#assignToDelivery" data-href="coffeeShopreadyForDelivery?id='
 																									+ Orders.id
-																									+ '" class="btn '
-																									+ (Orders.acceptTime == null ? 'disabled'
-																											: 'btn-success')
+																									+ '&roomName='+Orders.room.roomCode+'&roomId='+Orders.room.id+'" class="btn '
+																									+ (Orders.acceptTime == null ? 'disabled' : 'btn-success')
 																									+ '">ReadyForDelivery</a>' 
 																									: ' <label class="label label-primary">'
 																											+ Orders.readyForDeliveryTime
@@ -51,12 +50,7 @@ $(document)
 																							+ (Orders.orderStatus == "DELIVERED" ? ' <label class="label label-primary">'
 																									+ Orders.deliveredTime
 																									+ '</label>'
-																									:  '<a href="coffeeShopdelivered?id='
-																											+ Orders.id
-																											+ '" class="btn '
-																											+ (Orders.readyForDeliveryTime == null ? 'disabled'
-																													: 'btn-success')
-																											+ '">Delivered</a>' )
+																									:  'Waiting For Delivery' )
 																								    + '</td></tr>' );
 																});
 											},
@@ -68,7 +62,14 @@ $(document)
 
 										});
 							}, 10000);
- 
+					$("#e1").select2();   
+					var deliveryBoyName; 
+						 $('#assignToDelivery').on('show.bs.modal', function(e){
+						 	 $('#e1').on('change', function(){
+						 		deliveryBoyName = this.value; 
+					    	$('#assignToDelivery').find('.btn-oks').attr('href', $('#readyForDeliverys').data('href')+'&deliveryBoyName='+deliveryBoyName);
+					    	}) 
+					  });  
 				});
 
 function printDiv()

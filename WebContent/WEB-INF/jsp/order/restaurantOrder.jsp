@@ -1,7 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,8 @@
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
+	rel="stylesheet">
+	<link   href="<c:url value="/resources/css/select/select2.css"/>"
 	rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
 	rel="stylesheet">
@@ -56,15 +59,19 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h3 class="text-center "><label class="label label-primary">Restaurant Screen</label></h3>
-<form action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
-					method="post">
-					<button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i>
-						<spring:message code="label.Logout" />
-					</button>
-					 <input type="hidden"
-						name="${_csrf.parameterName}" value="${_csrf.token}" />
-				</form>
+								<h3 class="text-center ">
+									<label class="label label-primary">Restaurant Screen</label>
+								</h3>
+								<form
+									action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
+									method="post">
+									<button type="submit" class="btn btn-primary">
+										<i class="fa fa-sign-out"></i>
+										<spring:message code="label.Logout" />
+									</button>
+									<input type="hidden" name="${_csrf.parameterName}"
+										value="${_csrf.token}" />
+								</form>
 							</div>
 							<div class="ibox-content">
 								<div class="table-responsive">
@@ -76,7 +83,7 @@
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th>
-												<th><spring:message code="label.ItemName" /></th>  
+												<th><spring:message code="label.ItemName" /></th>
 												<th><spring:message code="label.Unit" /></th>
 												<th><spring:message code="label.Ingredient" /></th>
 												<th><spring:message code="label.Quantity" /></th>
@@ -88,67 +95,75 @@
 										</thead>
 										<tbody class="animated fadeInRight">
 											<!-- Fetching Language Table-->
-											<!-- Fetching Language Table--> 
-											 <c:forEach items="${orders}" var="orders"> 
-												<tr class="gradeX" id="${orders.id}"> 
+											<!-- Fetching Language Table-->
+											<c:forEach items="${orders}" var="orders">
+												<tr class="gradeX" id="${orders.id}">
 													<td class="center">${orders.id}</td>
-													<td class="center">${orders.room.roomCode}</td> 
-													<td class="center">${orders.hotelServicesItem.serviceItemName}</td> 
-													<td class="center"> 
-													<c:forEach items="${orders.unit}" var="units">
+													<td class="center">${orders.room.roomCode}</td>
+													<td class="center">${orders.hotelServicesItem.serviceItemName}</td>
+													<td class="center"><c:forEach items="${orders.unit}"
+															var="units">
 													${units.unitName}
-													</c:forEach> 
-													</td> 
-													<td>
-													<c:forEach items="${orders.ingredients}" var="ingredients">
+													</c:forEach></td>
+													<td><c:forEach items="${orders.ingredients}"
+															var="ingredients">
 													${ingredients.ingredientName}
-													</c:forEach> 
-													</td> 
-													<td class="center">${orders.quantity}</td> 
+													</c:forEach></td>
+													<td class="center">${orders.quantity}</td>
 													<td class="center">${orders.requestedTime}</td>
-													<td class="center"> <sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
-													<c:choose>
-															<c:when test="${orders.acceptTime == null}">
-																<a
-																	href="${pageContext.request.contextPath}/order/restaurantacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}"
-																	class="btn btn-success"><spring:message
-																		code="label.AcceptRequest" /></a>
-															</c:when>
-															<c:otherwise>
-																<label class="label label-primary">
-																	${orders.acceptTime}</label>
-															</c:otherwise>
-														</c:choose></sec:authorize></td>
-													<td class="center"><sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')"><c:choose>
-															<c:when test="${orders.readyForDeliveryTime == null}">
-                                                                <a href="${pageContext.request.contextPath}/order/restaurantreadyForDelivery?id=${orders.id}"
-																	class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message
-																		code="label.ReadyForDelivery" /></a>
-															</c:when>
-															<c:otherwise>
-																<label class="label label-primary">
-																	${orders.readyForDeliveryTime}</label>
-															</c:otherwise>
-														</c:choose></sec:authorize></td>
-													<td class="center"><sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')"><c:choose>
-															<c:when test="${orders.deliveredTime == null}">
-																<a
-																	href="${pageContext.request.contextPath}/order/restaurantdelivered?id=${orders.id}"
-																	class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message
-																		code="label.Delivered" /></a>
-															</c:when>
-													<c:otherwise>
-												    <label class="label label-primary">
-													${orders.deliveredTime}</label>
-													</c:otherwise>
-													</c:choose></sec:authorize>
-													</td>
+													<td class="center"><sec:authorize
+															access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+															<c:choose>
+																<c:when test="${orders.acceptTime == null}">
+																	<a
+																		href="${pageContext.request.contextPath}/order/restaurantacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}"
+																		class="btn btn-success"><spring:message
+																			code="label.AcceptRequest" /></a>
+																</c:when>
+																<c:otherwise>
+																	<label class="label label-primary">
+																		${orders.acceptTime}</label>
+																</c:otherwise>
+															</c:choose>
+														</sec:authorize></td>
+													<td class="center"><sec:authorize
+															access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+															<c:choose>
+																<c:when test="${orders.readyForDeliveryTime == null}">
+																	<a href="#" id="readyForDeliverys" data-toggle="modal"
+																		data-target="#assignToDelivery"
+																		data-href="${pageContext.request.contextPath}/order/restaurantreadyForDelivery?id=${orders.id}&roomName=${orders.room.roomCode}&roomId=${orders.room.id}"
+																		class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message
+																			code="label.ReadyForDelivery" /></a>
+																</c:when>
+																<c:otherwise>
+																	<label class="label label-primary">
+																		${orders.readyForDeliveryTime}</label>
+																</c:otherwise>
+															</c:choose>
+														</sec:authorize></td>
+													<td class="center"><sec:authorize
+															access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+															<c:choose>
+																<c:when test="${orders.deliveredTime == null}">
+																	<%--  <a
+																		href="${pageContext.request.contextPath}/order/restaurantdelivered?id=${orders.id}"
+																		class="btn ${orders.readyForDeliveryTime==null ? 'disabled' : 'btn-success' }"><spring:message
+																			code="label.Delivered" /></a> --%>
+																			Waiting For Delivery
+																</c:when>
+																<c:otherwise>
+																	<label class="label label-primary">
+																		${orders.deliveredTime}</label>
+																</c:otherwise>
+															</c:choose>
+														</sec:authorize></td>
 													<%-- 	<td>
 													<button id="singlebutton" type="button" name="singlebutton" onclick="printDiv()" class="btn btn-primary center-block"><spring:message code="label.PrintOut"/></button>
-													</td> --%> 
-												</tr> 
+													</td> --%>
+												</tr>
 											</c:forEach>
- 
+
 											<!-- Demo -->
 											<!--End Action -->
 									</table>
@@ -160,13 +175,17 @@
 					</div>
 				</div>
 			</div>
-		
-		<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')" var="RoleAcceptorAdmin">
-				</sec:authorize>
-				<sec:authorize access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')" var="RoleDeliveryorAdmin">
-				</sec:authorize>
-				<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')" var="RoledeliveredorAdmin">
-				</sec:authorize>
+
+			<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')"
+				var="RoleAcceptorAdmin">
+			</sec:authorize>
+			<sec:authorize
+				access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')"
+				var="RoleDeliveryorAdmin">
+			</sec:authorize>
+			<sec:authorize access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')"
+				var="RoledeliveredorAdmin">
+			</sec:authorize>
 			<input type="hidden" name="${_csrf.parameterName}" id="secuirtyId"
 				value="${_csrf.token}" />
 
@@ -195,7 +214,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal fade" id="assign_to_room" tabindex="-1"
+			<%-- <div class="modal fade" id="assign_to_room" tabindex="-1"
 				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -247,11 +266,53 @@
 						</form>
 					</div>
 				</div>
+			</div> --%>
+
+
+			<div class="modal fade" id="assignToDelivery" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">
+								<spring:message code="label.ConfirmSubmit" />
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-4 control-label"> <spring:message
+										code="label.SelectDeliveryBoy" /></label>
+								<div class="col-sm-8">
+									<select id="e1" name="parkingId">
+										<option value="0">SELECT DELIVERY BOY</option>
+										<c:forEach items="${deliveryBoy}" var="deliveryBoy">
+											<option value="${deliveryBoy.username}">${deliveryBoy.username}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">
+								<spring:message code="label.Cancel" />
+							</button>
+							<a class="btn btn-danger btn-oks"><spring:message
+									code="label.ConfirmSubmit" /></a>
+						</div>
+					</div>
+				</div>
 			</div>
+
+
 
 		</div>
 	</div>
-	</div>
+
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<%-- <script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script> --%>
 
@@ -278,10 +339,10 @@
 		src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
 
 	<!-- Page-Level Scripts -->
-	  <script src="<c:url value="/resources/js/datatablecustom.js" />"
+	<script src="<c:url value="/resources/js/datatablecustom.js" />"
 		type="text/javascript">  
-	</script>  
-		 
+	</script>
+
 
 	<script type="text/javascript">
 function printDiv() 

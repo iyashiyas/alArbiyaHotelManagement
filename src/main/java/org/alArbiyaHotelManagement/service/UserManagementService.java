@@ -13,4 +13,6 @@ public interface UserManagementService {
 
 	public User changePassword(User user);
 
+	List<User> getAllDeliveryBoy();
+
 }

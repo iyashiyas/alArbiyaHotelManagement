@@ -29,7 +29,7 @@
 						<li><a href="${pageContext.request.contextPath}/"><spring:message
 									code="label.Home" /></a></li>
 						<li class="active"><strong><spring:message
-									code="label.Player" /></strong></li>
+									code="label.Screen" /></strong></li>
 					</ol>
 				</div>
 			</div>
@@ -61,8 +61,7 @@
 												<th><spring:message code="label.player.assign" /></th>
 											 </tr>
 										</thead>
-										<tbody>
-
+										<tbody> 
 											<!-- Fetching Language Table-->
 											<c:forEach items="${players}" var="players">
 												<tr class="gradeX">

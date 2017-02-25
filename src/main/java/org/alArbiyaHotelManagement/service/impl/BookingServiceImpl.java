@@ -54,6 +54,7 @@ public class BookingServiceImpl implements BookingService{
 	@Override
 	public Booking createCheckIn(String bookingId,long parkingId) {
 		// TODO Auto-generated method stub 
+		 
 		Booking booking = new Booking();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
@@ -87,6 +88,12 @@ public class BookingServiceImpl implements BookingService{
 	public List<Booking> bookedRoomsCount() {
 		// TODO Auto-generated method stub
 		return bookingRepository.bookedRoomsCount();
+	}
+
+	@Override
+	public Booking authenticate(long roomId, int password) {
+		// TODO Auto-generated method stub
+		return bookingRepository.authenticate(roomId,password);
 	}
 
 }

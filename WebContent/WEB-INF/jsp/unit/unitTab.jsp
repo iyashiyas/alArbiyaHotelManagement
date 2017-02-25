@@ -26,8 +26,7 @@
          
              <div class="modal fade" id="addUnitCategory-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-
+			<div class="modal-content"> 
 				<div class="modal-header">Add New Category</div>
 				<div class="modal-body"> 
 					 <jsp:include page="../unit/addUnitCategory.jsp"></jsp:include> 
