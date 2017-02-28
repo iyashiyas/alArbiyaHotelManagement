@@ -69,7 +69,7 @@ public class HotelController {
 		branchService.addBranch(branch);
 		return "redirect:/hotel/showBranch";
 	}
-	
+		
 	@RequestMapping(value="/editBranch", method=RequestMethod.POST)
 	public String editBranch(@ModelAttribute Branch branch) {
 		 branchService.editBranch(branch);

@@ -2,9 +2,7 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
+ 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,8 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "USERS")
 public class User implements UserDetails {
 
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 1L; 
 	@Id
 	@GeneratedValue
 	@Column(name = "USER_ID")

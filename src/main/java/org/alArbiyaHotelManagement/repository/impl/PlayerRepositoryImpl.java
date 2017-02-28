@@ -8,6 +8,8 @@ import javax.persistence.Query;
  
 
 
+
+
 import org.alArbiyaHotelManagement.model.Player;
 import org.alArbiyaHotelManagement.repository.PlayerRepository;
 import org.springframework.stereotype.Repository;
@@ -32,14 +34,14 @@ public class PlayerRepositoryImpl implements PlayerRepository{
 	entityManager.merge(player);
 		return player;
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> configuredplayer() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select ply from Player ply where playerStatus='ASSIGNED'", Player.class);
 		return query.getResultList(); 
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> notConfiguredPlayer() {
 		// TODO Auto-generated method stub

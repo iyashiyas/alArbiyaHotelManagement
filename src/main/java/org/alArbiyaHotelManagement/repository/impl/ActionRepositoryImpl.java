@@ -7,8 +7,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+ 
 
-import org.alArbiyaHotelManagement.dto.CoffeeeShopLanguageHelper;
+
+
+
 import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.CarRentalCategory;
 import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
@@ -20,9 +23,7 @@ import org.alArbiyaHotelManagement.model.HotelServicesValue;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.LaundryCategory;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
-import org.alArbiyaHotelManagement.model.ServiceLanguage;
-import org.alArbiyaHotelManagement.model.UnitCategory;
-import org.alArbiyaHotelManagement.model.UnitLanguage;
+ 
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -176,24 +177,28 @@ public class ActionRepositoryImpl implements ActionRepository{
 			}
 		} 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<LaundryCategory> laundryCategory() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT laundryCategory from LaundryCategory laundryCategory where laundryCategoryStatus='ENABLE' order by id", LaundryCategory.class);
 		return query.getResultList(); 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CarRentalCategory> carRentaltCategory() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT carRentalcategory from CarRentalCategory carRentalcategory where carRenatalCategoryStatus='ENABLE' order by id", CarRentalCategory.class);
 		return query.getResultList(); 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<RestaurantCategory> restaurantCategory() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT restaurantCategory from RestaurantCategory restaurantCategory where restaurantCategoryStatus='ENABLE' order by id", RestaurantCategory.class);
 		return query.getResultList(); 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CoffeeShopCategory> coffeeShopCategory() {
 		// TODO Auto-generated method stub

@@ -14,8 +14,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.alArbiyaHotelManagement.enums.RoomType;
-import org.alArbiyaHotelManagement.model.Booking;
+ 
 import org.alArbiyaHotelManagement.model.Room;
 import org.alArbiyaHotelManagement.repository.ReservationRepository;
 import org.springframework.stereotype.Repository;

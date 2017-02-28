@@ -10,6 +10,7 @@ import javax.persistence.Query;
  
 
 
+
 import org.alArbiyaHotelManagement.model.Role;
 import org.alArbiyaHotelManagement.model.User;
 import org.alArbiyaHotelManagement.repository.UserManagementRepository; 
@@ -56,7 +57,7 @@ public class UserManagementRepositoryImpl implements UserManagementRepository{
 		query.executeUpdate();
      	return user;
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllDeliveryBoy() {
 		Query query = entityManager.createQuery("SELECT user from User user where userType='DELIVERYBOY'", User.class);

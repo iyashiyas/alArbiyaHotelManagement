@@ -92,6 +92,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		return query.getResultList(); 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<IngredientCategory> ingredientCategories() {
 		// TODO Auto-generated method stub

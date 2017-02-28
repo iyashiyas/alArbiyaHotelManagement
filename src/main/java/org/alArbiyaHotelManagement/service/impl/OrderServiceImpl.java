@@ -1,16 +1,15 @@
 package org.alArbiyaHotelManagement.service.impl;
 
 import java.text.DateFormat;
-import java.text.ParseException;
+ 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Query;
+ 
 
 import org.alArbiyaHotelManagement.model.HouseKeeping;
-import org.alArbiyaHotelManagement.model.Language;
+ 
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
@@ -18,10 +17,7 @@ import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
 import org.alArbiyaHotelManagement.service.OrderService;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

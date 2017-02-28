@@ -112,6 +112,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		updateQuery.executeUpdate();
 		return null ;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Booking> checkedInRooms() {
 		// TODO Auto-generated method stub

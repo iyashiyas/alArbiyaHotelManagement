@@ -3,8 +3,7 @@ package org.alArbiyaHotelManagement.web;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
+ 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,22 +11,22 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+ 
 import javax.servlet.http.HttpSession;
 
 import org.alArbiyaHotelManagement.model.HotelInfo;
 
 import org.alArbiyaHotelManagement.service.HotelInfoService;
-import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+ 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+ 
 
 @Controller
 @RequestMapping(value = "/info")
@@ -37,8 +36,7 @@ public class HotelInfoController {
 	HotelInfoService hotelinfoService;
 
 	@RequestMapping(value = "/showInfo")
-	public String showAccount(Model model) {
-
+	public String showAccount(Model model) { 
 		List<HotelInfo> hotelInfos = hotelinfoService.getHotelInfo();
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("hotelInfo", hotelInfos);
@@ -48,8 +46,7 @@ public class HotelInfoController {
 	}
 
 	@RequestMapping(value = "/editHotelInfo", method = RequestMethod.POST)
-	public String editInfo(@ModelAttribute HotelInfo info) {
-
+	public String editInfo(@ModelAttribute HotelInfo info) { 
 		hotelinfoService.editInfo(info);
 		return "redirect:/info/showInfo";
 	}

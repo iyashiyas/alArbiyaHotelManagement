@@ -1,25 +1,13 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
-import java.util.Date;
+ 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+  
  
-
-
-
-
-
-
-
-
-
-
-
-
-
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Notification;
 import org.alArbiyaHotelManagement.model.Orders;
@@ -28,7 +16,7 @@ import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.model.ReadyForDelivery;
 import org.alArbiyaHotelManagement.model.ReceptionOrder;
 import org.alArbiyaHotelManagement.repository.OrderRepository;
-import org.joda.time.DateTime;
+ 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +36,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 	public Orders editOrder() {
 		return null;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> GetAllOrder() {
 		Query query = entityManager.createQuery("SELECT order from Orders order order by id desc", Orders.class);
@@ -108,18 +97,21 @@ public class OrderRepositoryImpl implements OrderRepository{
 		updateQueryReadyForDelivery.executeUpdate();
 		 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> getRestaurantOrder() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' order by id desc", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> getLaundry() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' order by id desc", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> coffeeShopScreen(String minushour) {
 		// TODO Auto-generated method stub
@@ -127,6 +119,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 	 /*query.setParameter("minuts", minushour); */
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> carRentalScreen() {
 		// TODO Auto-generated method stub
@@ -157,6 +150,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 		entityManager.joinTransaction();
 		updateparkingQuery.executeUpdate();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<HouseKeeping> housekeepingScreenOrder() {
 		// TODO Auto-generated method stub
@@ -188,7 +182,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 		this.entityManager.persist(readyForDelivery);
 		
 	}
-	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ReceptionOrder> receptionScreen() { 
 		Query query = entityManager.createQuery("SELECT receptionOrder from ReceptionOrder receptionOrder order by id desc", ReceptionOrder.class);
@@ -211,74 +205,84 @@ public class OrderRepositoryImpl implements OrderRepository{
 		notification.setReadStatus(ReadStatus.UNREAD.name());
 		this.entityManager.persist(notification);
 	}
-	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> CoffeeShopOrderRequest() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='ORDERED'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> CoffeeShopOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='ORDER ACCEPT'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> CoffeeShopOrderDeliverd() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.orderStatus='DELIVERED'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> restaurantOrderRequest() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='ORDERED'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> restaurantOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='ORDER ACCEPT'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> restaurantOrderDeliverd() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='6' and order.orderStatus='DELIVERED'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> laundryOrderRequest() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='ORDERED'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> laundryOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='ORDER ACCEPT'", Orders.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Orders> laundryOrderDeliverd() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='5' and order.orderStatus='DELIVERED'", Orders.class);
 		return query.getResultList();
 	}
-	 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<HouseKeeping> houseKeepingOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT housekeeping from HouseKeeping housekeeping where status='ACCEPT' ", HouseKeeping.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ReceptionOrder> receptionOrderRequestAccept() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT receptionOrder from ReceptionOrder receptionOrder where orderStatus='ACCEPT'", ReceptionOrder.class);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ReadyForDelivery> readyForDeliveryScreen(String name) {
 		// TODO Auto-generated method stub

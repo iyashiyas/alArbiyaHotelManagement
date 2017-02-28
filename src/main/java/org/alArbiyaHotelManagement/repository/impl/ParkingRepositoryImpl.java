@@ -8,6 +8,21 @@ import javax.persistence.Query;
  
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
 import org.alArbiyaHotelManagement.repository.ParkingRepository;
@@ -27,80 +42,80 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		entityManager.persist(parking);
 		return parking;
 	} 
-	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> getAllParking() {
 		Query query = entityManager.createQuery("SELECT parking from Parking parking", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> cutomerparkings() {
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingCategory='CUSTOMER'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> employeeparkings() {
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingCategory='EMPLOYEE'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> VIPparkings() {
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingCategory='VIP'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> availableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='AVAILABLE'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> customerParkingAvailable() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='AVAILABLE' AND parking.parkingCategory='CUSTOMER'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> vIPavailableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='AVAILABLE' AND parking.parkingCategory='VIP'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> employeeavailableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='AVAILABLE' AND parking.parkingCategory='EMPLOYEE'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> customerNonAvailableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='NOTAVAILABLE' AND parking.parkingCategory='CUSTOMER'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> vIPNonAvailableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='NOTAVAILABLE' AND parking.parkingCategory='VIP'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> employeeaNonAvailableParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='NOTAVAILABLE' AND parking.parkingCategory='EMPLOYEE'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> NotAvailableParking() {
 		// TODO Auto-generated method stub
@@ -118,21 +133,21 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		Updatequery.executeUpdate();
 	    
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ParkingOrder> getParkingRequests() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from ParkingOrder parking where parking.orderStatus='ORDERED' ", ParkingOrder.class);
 		return query.getResultList();
 	}
-
+   @SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> customerOutParking() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT parking from Parking parking where parking.parkingStatus='OUT' AND parking.parkingCategory='CUSTOMER'", Parking.class);
 		return query.getResultList();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Parking> vIPOutParking() {
 		// TODO Auto-generated method stub

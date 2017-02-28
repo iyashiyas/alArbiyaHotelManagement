@@ -99,6 +99,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ENABLE' order by id", Unit.class);
 		return query.getResultList(); 
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<UnitCategory> UnitCategories() {
 		// TODO Auto-generated method stub

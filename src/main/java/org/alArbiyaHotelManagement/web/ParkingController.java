@@ -3,20 +3,11 @@ package org.alArbiyaHotelManagement.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
- 
-
-
-
-
-
-
-
-import org.alArbiyaHotelManagement.model.Booking;
-import org.alArbiyaHotelManagement.model.Building;
+    
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
-import org.alArbiyaHotelManagement.model.Player;
+ 
 import org.alArbiyaHotelManagement.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+ 
 
 import org.alArbiyaHotelManagement.dto.CarRental;
 import org.alArbiyaHotelManagement.dto.CoffeeShop;
@@ -25,7 +25,7 @@ import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue;
-import org.alArbiyaHotelManagement.model.Language;
+ 
 import org.alArbiyaHotelManagement.model.ServiceLanguage;
  
 

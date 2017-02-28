@@ -49,8 +49,7 @@ public class BookingServiceImpl implements BookingService{
 		booking.setUserDetails(userDetails);
 		return bookingRepository.createBooking(booking, roomId);
 	}
-
-	@SuppressWarnings("null")
+ 
 	@Override
 	public Booking createCheckIn(String bookingId,long parkingId) {
 		// TODO Auto-generated method stub 

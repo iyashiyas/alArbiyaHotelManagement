@@ -1,6 +1,7 @@
 package org.alArbiyaHotelManagement.repository.impl;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -38,7 +39,7 @@ public class LanguageRepositoryImpl implements LanguageRepository{
 		entityManager.joinTransaction();
 		updateQuery.executeUpdate();
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Language> disabledLanguages() {
 		Query query = entityManager.createQuery("SELECT langs from Language langs where status='INACTIVE' order by id", Language.class);
