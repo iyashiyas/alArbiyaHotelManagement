@@ -222,8 +222,7 @@
 </c:choose> </span></li>
 
 <li><a href="?lang=en">English</a></li>
-<li><a href="?lang=ar"><spring:message
-					code="label.arabic" /></a></li>
+<li><a href="?lang=ar"><spring:message code="label.arabic" /></a></li>
 			<li><form action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
 					method="post">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-sign-out"></i>

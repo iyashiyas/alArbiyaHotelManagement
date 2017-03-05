@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
-<title>Insert title here</title>
+<title>add Building</title>
 </head>
 <body>
 	<div class="ibox-content">
@@ -86,7 +86,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-8">
-					<button type="submit" name="btn" value=" id="submitBtn1"  
+					<button type="submit" name="btn" value="" id="submitBtn1"  
 																class="btn btn-primary submitBtn"><spring:message code="label.Add" /> </button>	</div>
 			</div>
 		</form:form>
@@ -100,8 +100,7 @@
 						</div>
 						<div class="modal-body">
 							<spring:message code="label.AreYouSureYouWanttoSubmit" />
-
-						</div>
+                        </div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">
@@ -111,8 +110,8 @@
 									code="label.Submit" /></a>
 						</div>
 					</div>
-				</div>
-			</div>
+				  </div>
+     </div>
 	
 </body>
 </html>

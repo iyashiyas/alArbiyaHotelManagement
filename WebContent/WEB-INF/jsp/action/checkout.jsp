@@ -50,7 +50,7 @@
             </div>
         </div>
         </div>
-		 	    	<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><div class="col-lg-4">
+		 	    	<sec:authorize access="hasAnyRole('ROLE_CHECKOUT_EDIT','ROLE_ADMIN')"><div class="col-lg-4">
 		<div class="ibox float-e-margins">
 
 	         <div class="ibox-content text-center p-md">

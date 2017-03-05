@@ -13,7 +13,7 @@
 	<div class="col-lg-3">
 		<div class="ibox float-e-margins">
 			<div class="ibox-title">
-		  <h5>Categories <sec:authorize access="hasAnyRole('ROLE_NEWCATEGORY','ROLE_ADMIN')"> - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
+		  <h5>Categories <sec:authorize access="hasAnyRole('ROLE_INGREDIENT_NEWCATEGORY','ROLE_ADMIN')"> - <a data-toggle="modal" href="#addNewCategory-modal">New Category</a>
 				</sec:authorize></h5> 
 
 			</div>

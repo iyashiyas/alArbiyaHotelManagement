@@ -114,7 +114,7 @@
 													<td class="center">${orders.quantity}</td>
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_COFFEESHOP_ACCEPTORDER','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.acceptTime == null}">
 																	<a
@@ -129,7 +129,7 @@
 															</c:choose>
 														</sec:authorize></td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_COFFEESHOP_READYFORDELIVERY','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.readyForDeliveryTime == null}">
 																	<a href="#" id="readyForDeliverys" data-toggle="modal"  data-target="#assignToDelivery" data-href="coffeeShopreadyForDelivery?id= ${orders.id}&roomName=${orders.room.roomCode}&roomId=${orders.room.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message
@@ -142,7 +142,7 @@
 															</c:choose>
 														</sec:authorize></td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_COFFEESHOP_DELIVERED','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.deliveredTime == null}">
 																	Waiting For Delivery

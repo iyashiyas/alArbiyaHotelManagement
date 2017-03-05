@@ -44,7 +44,7 @@
 									</a>
 								</div>
 							</div>
-							<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+							<sec:authorize access="hasAnyRole('ROLE_FLOOR_ADD','ROLE_ADMIN')">
 							<jsp:include page="../hotel/addFloor.jsp"></jsp:include>
 							</sec:authorize>
 						</div>
@@ -95,7 +95,7 @@
 															value="${floor.floorDescription}" /></td>
 													<td class="floorStatus"><c:out
 															value="${floor.floorStatus}" /></td>
-													<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><td class="editFloorbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
+													<sec:authorize access="hasAnyRole('ROLE_FLOOR_EDIT','ROLE_ADMIN')"><td class="editFloorbtn"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
 
 												</tr>
 											</c:forEach>

@@ -112,7 +112,7 @@
 								</a>
 							</div>
 						</div>
-						<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+						<sec:authorize access="hasAnyRole('ROLE_PARKING_ADD','ROLE_ADMIN')">
 							<jsp:include page="../action/addParking.jsp"></jsp:include></sec:authorize>
 					</div>
 

@@ -42,7 +42,7 @@
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a>
 								</div>
-							</div><sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+							</div><sec:authorize access="hasAnyRole('ROLE_BRANCH_ADD','ROLE_ADMIN')">
 							<jsp:include page="../hotel/addBranch.jsp"></jsp:include></sec:authorize>
 						</div>
 
@@ -91,7 +91,7 @@
 															value="${branch.branchDescription}" /></td>
 													<td class="center branchStatus"><c:out
 															value="${branch.branchStatus}" /></td>		
-													<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><td class="branchEdit"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
+													<sec:authorize access="hasAnyRole('ROLE_BRANCH_EDIT','ROLE_ADMIN')"><td class="branchEdit"><i class="fa fa-pencil"><a><spring:message code="label.Edit" /></a></i></td></sec:authorize>
 												</tr> 
 											</c:forEach>
 

@@ -48,7 +48,7 @@
 								</div>
 							</div>
 							<div class="ibox-content">
-							<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+							<sec:authorize access="hasAnyRole('ROLE_RESTAURANT_ADD','ROLE_ADMIN')">
 								<jsp:include page="../action/addRestaurantItem.jsp"></jsp:include>
 								</sec:authorize>
 							</div>
@@ -79,7 +79,7 @@
 											<td>${getAllRestaurantItems.id}</td>
 											<td><c:out value="${getAllRestaurantItems.serviceItemName}" /></td>
 											<td>${getAllRestaurantItems.serviceItemDescription}</td>
-											<td><sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td> 
+											<td><sec:authorize access="hasAnyRole('ROLE_RESTAURANT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td> 
 										</tr>
 										</c:forEach>
 									</tbody>

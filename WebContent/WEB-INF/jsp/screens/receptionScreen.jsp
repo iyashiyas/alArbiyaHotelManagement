@@ -94,8 +94,12 @@
 											 	<td class="center">
 											 	<c:choose>
 											 		<c:when test="${orders.orderStatus == 'ORDERED'}">
+											 		<sec:authorize access="hasAnyRole('ROLE_RECEPTION_ACCEPTORDER','ROLE_ADMIN')">
+											 		
+											 		
 											 		  <a href="${pageContext.request.contextPath}/order/accpetreceptionRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.requestType}"
 																	class="btn btn-success"><spring:message code="label.Submit" /></a>
+											 		</sec:authorize>
 											 		</c:when>
 											 	</c:choose>
 											  </td>

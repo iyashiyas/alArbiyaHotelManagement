@@ -13,7 +13,7 @@
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
 			<div class="ibox-title">
-				<h5><spring:message code="label.Categories" /> <sec:authorize access="hasAnyRole('ROLE_NEWCATEGORY','ROLE_ADMIN')"> -  <a href="#addRestaurantCategory-Modal" data-toggle="modal" ><spring:message code="label.NewCategory" /></a></sec:authorize></h5>
+				<h5><spring:message code="label.Categories" /> <sec:authorize access="hasAnyRole('ROLE_RESTAURANT_NEWCATEGORY','ROLE_ADMIN')"> -  <a href="#addRestaurantCategory-Modal" data-toggle="modal" ><spring:message code="label.NewCategory" /></a></sec:authorize></h5>
 			 </div> 
 			<div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">

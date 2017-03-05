@@ -31,7 +31,7 @@
 				<div class="row"> 
 					<jsp:include page="../ingredient/ingredientTab.jsp"></jsp:include> 
 					<div class="col-lg-8 animated fadeInRight"> 
-					<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+					<sec:authorize access="hasAnyRole('ROLE_INGREDIENT_ADD','ROLE_ADMIN')">
 						<jsp:include page="../ingredient/addIngredient.jsp"></jsp:include> </sec:authorize>
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
@@ -72,7 +72,7 @@
 														<td class="ingredientLanguageId${loop.index} hide" value="${language.id }"></td>
 														<td class="ingredientLanguageName${loop.index} hide" value="${language.ingredientLanguageName }"></td>
 													</c:forEach>
-													<td class="ingredientEdit"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a class=""
+													<td class="ingredientEdit"><sec:authorize access="hasAnyRole('ROLE_INGREDIENT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a class=""
 															data-toggle="modal"  ><spring:message code="label.Edit" /></a></i></sec:authorize></td>
 												</tr>
 											</c:forEach>

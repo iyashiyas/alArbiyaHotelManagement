@@ -97,10 +97,13 @@
 											 	<td class="center">
 											 	<c:choose>
 											 		<c:when test="${orders.status == 'ORDERED'}">
+											 		<sec:authorize access="hasAnyRole('ROLE_HOUSEKEEPING_ACCEPTORDER','ROLE_ADMIN')">
+											 		ROLE_HOUSEKEEPING_ACCEPTORDER
 											 		  <a id="readyForDeliverys" data-toggle="modal"
 																		data-target="#assignToDelivery" data-href="${pageContext.request.contextPath}/order/accpethouseKeepingRequest?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${Orders.houseKeepingType}&roomName=${orders.room.roomCode}"
 																	class="btn btn-success "><spring:message
 																		code="label.Submit" /></a>
+																		</sec:authorize>>
 											 		</c:when>
 											 		<c:when test="${orders.status != 'ORDERED'}">
 											 		   ${orders.status}

@@ -112,7 +112,7 @@
 													<td class="center">${orders.quantity}</td>
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_RESTAURANT_ACCEPTORDER','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.acceptTime == null}">
 																	<a
@@ -127,7 +127,7 @@
 															</c:choose>
 														</sec:authorize></td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_READYFORDELIVERY','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_RESTAURANT_READYFORDELIVERY','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.readyForDeliveryTime == null}">
 																	<a href="#" id="readyForDeliverys" data-toggle="modal"
@@ -143,7 +143,7 @@
 															</c:choose>
 														</sec:authorize></td>
 													<td class="center"><sec:authorize
-															access="hasAnyRole('ROLE_DELIVERED','ROLE_ADMIN')">
+															access="hasAnyRole('ROLE_RESTAURANT_DELIVERED','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.deliveredTime == null}">
 																	<%--  <a

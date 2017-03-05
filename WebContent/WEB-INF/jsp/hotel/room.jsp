@@ -33,10 +33,10 @@
 					<!-- Page Heading -->
 
 					<div class="col-lg-12 animated fadeInRight">
-
+<sec:authorize access="hasAnyRole('ROLE_ROOM_ADD','ROLE_ADMIN')">
 						<jsp:include page="../hotel/addRoom.jsp"></jsp:include>
 
-
+</sec:authorize>
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
 								<h5><spring:message code="label.RoomsOverView" /></h5>
@@ -84,7 +84,7 @@
 															value="${room.roomStatus}" /></td>
 															<td class="roomDescription hide"><c:out
 															value="${room.roomDescription}" /></td>
-												<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"> <td class="edit-roombtn"><i class="fa fa-pencil"><a>Edit</a></i></td></sec:authorize>
+												<sec:authorize access="hasAnyRole('ROLE_ROOM_EDIT','ROLE_ADMIN')"> <td class="edit-roombtn"><i class="fa fa-pencil"><a>Edit</a></i></td></sec:authorize>
 
 												</tr>
 											</c:forEach>

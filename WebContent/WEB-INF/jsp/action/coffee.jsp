@@ -38,7 +38,7 @@
 					<jsp:include page="../action/coffeeTab.jsp"></jsp:include>
 
 					<div class="col-lg-8 animated fadeInRight">
-	<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+	<sec:authorize access="hasAnyRole('ROLE_COFFEESHOP_ADD','ROLE_ADMIN')">
 						<jsp:include page="../action/addCoffee.jsp"></jsp:include>
  </sec:authorize>
 
@@ -71,7 +71,7 @@
 											<td>${coffeeShop.id}</td>
 											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
 											<td>${coffeeShop.serviceItemDescription}</td>
-											<td> <sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
+											<td> <sec:authorize access="hasAnyRole('ROLE_COFFEESHOP_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
 										</c:forEach>

@@ -45,7 +45,7 @@
 					<jsp:include page="../unit/unitTab.jsp"></jsp:include>
 
 					<div class="col-lg-8 animated fadeInRight">
-				 <sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+				 <sec:authorize access="hasAnyRole('ROLE_UNIT_ADD','ROLE_ADMIN')">
 							 <jsp:include page="../unit/addUnit.jsp"></jsp:include>
 					  </sec:authorize>
 						<div class="ibox float-e-margins">
@@ -89,7 +89,7 @@
 														<td class="unitLanguageName${loop.index} hide" value="${language.unitLanguageName }"></td>
 													</c:forEach>
 													
-													<td class="unitEdit"><sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a  ><spring:message code="label.Edit" /></a></i></sec:authorize></td>
+													<td class="unitEdit"><sec:authorize access="hasAnyRole('ROLE_UNIT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a  ><spring:message code="label.Edit" /></a></i></sec:authorize></td>
 												
 												</tr>  
 												

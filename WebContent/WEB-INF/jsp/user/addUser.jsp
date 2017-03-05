@@ -104,33 +104,33 @@
                     <ul> 
                         <li data-value="3">BRANCH
                             <ul>
-                        <li data-value="33">ADD</li>
-                        <li data-value="31">EDIT</li>
-                        <li data-value="32">DELETE</li>
+                        <li data-value="68">ADD</li>
+                        <li data-value="66">EDIT</li>
+                        <li data-value="67">DELETE</li>
                             </ul>
                         </li>
                         <li data-value="4">BUILDING
-                          <ul>  <li data-value="33">ADD</li>
-                        <li data-value="31">EDIT</li>
-                        <li data-value="32">DELETE</li>
+                          <ul>  <li data-value="65">ADD</li>
+                        <li data-value="63">EDIT</li>
+                        <li data-value="64">DELETE</li>
                             </ul>
                         </li>
                         <li data-value="5">FLOOR
-                          <ul>  <li data-value="33">ADD</li>
-                        <li data-value="31">EDIT</li>
-                        <li data-value="32">DELETE</li>
+                          <ul>  <li data-value="71">ADD</li>
+                        <li data-value="69">EDIT</li>
+                        <li data-value="70">DELETE</li>
                             </ul>
                         </li>
                         <li data-value="6">ROOM
-                          <ul>  <li data-value="33">ADD</li>
-                        <li data-value="31">EDIT</li>
-                        <li data-value="32">DELETE</li>
+                          <ul>  <li data-value="74">ADD</li>
+                        <li data-value="72">EDIT</li>
+                        <li data-value="73">DELETE</li>
                             </ul>
                         </li>
                         <li data-value="7">ROOMTYPE
-                          <ul>  <li data-value="33">ADD</li>
-                        <li data-value="31">EDIT</li>
-                        <li data-value="32">DELETE</li>
+                          <ul>  <li data-value="77">ADD</li>
+                        <li data-value="75">EDIT</li>
+                        <li data-value="76">DELETE</li>
                             </ul>
                         </li>
                     </ul>
@@ -145,19 +145,19 @@
                 </li>
                 <li data-value="10"><label class="label label-primary">UNIT</label>
                     <ul> 
-                               <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
-                                <li data-value="50">NEW CATEGORY</li>
+                               <li data-value="59">EDIT</li>
+                                <li data-value="60">DELETE</li>
+                                <li data-value="61">ADD</li>
+                                <li data-value="62">NEW CATEGORY</li>
                                 
                     </ul>
                 </li>
                  <li data-value="11"><label class="label label-primary">INGREDIENTS</label>
                     <ul>
-                          <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
-                                <li data-value="50">NEW CATEGORY</li>
+                          <li data-value="55">EDIT</li>
+                                <li data-value="56">DELETE</li>
+                                <li data-value="57">ADD</li>
+                                <li data-value="58">NEW CATEGORY</li>
                     </ul>
                 </li>
                    
@@ -165,40 +165,40 @@
                     <ul> 
                         <li data-value="12">CHECK-OUT
                             <ul>
-                                <li data-value="31">ENABLE/DISABLE</li> 
+                                <li data-value="95">ENABLE/DISABLE</li> 
                             </ul>
                         </li>
                         <li data-value="13">PARKING
-                          <ul> <li data-value="33">ADD</li>  
+                          <ul> <li data-value="94">ADD</li>  
                             </ul>
                         </li>
                         <li data-value="16">COFFEESHOP
                           <ul>  
-                                <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
-                                <li data-value="50">NEW CATEGORY</li>
+                                <li data-value="78">EDIT</li>
+                                <li data-value="79">DELETE</li>
+                                <li data-value="80">ADD</li>
+                                <li data-value="81">NEW CATEGORY</li>
                             </ul>
                         </li>
                         <li data-value="17">RESTAURANT
-                          <ul>  <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
-                                <li data-value="50">NEW CATEGORY</li>
+                          <ul>  <li data-value="82">EDIT</li>
+                                <li data-value="83">DELETE</li>
+                                <li data-value="84">ADD</li>
+                                <li data-value="85">NEW CATEGORY</li>
                             </ul>
                         </li>
                         <li  data-value="15">LAUNDRY
-                          <ul>  <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>  
-                                 <li data-value="50">NEW CATEGORY</li>
+                          <ul>  <li data-value="86">EDIT</li>
+                                <li data-value="87">DELETE</li>
+                                <li data-value="88">ADD</li>  
+                                 <li data-value="89">NEW CATEGORY</li>
                             </ul>
                         </li>
                          <li   data-value="18">CARRENTAL
-                          <ul>  <li data-value="31">EDIT</li>
-                                <li data-value="32">DELETE</li>
-                                <li data-value="33">ADD</li>
-                                <li data-value="50">NEW CATEGORY</li>
+                          <ul>  <li data-value="90">EDIT</li>
+                                <li data-value="91">DELETE</li>
+                                <li data-value="92">ADD</li>
+                                <li data-value="93">NEW CATEGORY</li>
                             </ul>
                         </li>
                          <li  data-value="19">RECEPTION
@@ -208,7 +208,7 @@
                             </ul>
                         </li>
                             <li data-value="14">HOUSEKEEPING
-                          <ul> <li data-value="31">CHANGE ROOM STATUS</li>
+                          <ul> <li data-value="96">CHANGE ROOM STATUS</li>
                                 
                             </ul>
                         </li>
@@ -236,16 +236,16 @@
                 </li> 
                  <li data-value="25"><label class="label label-primary">COFFEESHOPSCREEN</label>
                     <ul>
-                    <li data-value="28">ACCEPT ORDER</li>
-                     <li data-value="29">READY FOR DELIVERY</li>
-                     <li data-value="30">DELIVERD</li>
+                    <li data-value="97">ACCEPT ORDER</li>
+                     <li data-value="98">READY FOR DELIVERY</li>
+                     <li data-value="99">DELIVERD</li>
                     </ul>
                 </li> 
                  <li data-value="26"><label class="label label-primary">RESTAURANTSCREEN</label>
                     <ul>
-                    <li data-value="28">ACCEPT ORDER</li>
-                     <li data-value="29">READY FOR DELIVERY</li>
-                     <li data-value="30">DELIVERD</li>
+                    <li data-value="100">ACCEPT ORDER</li>
+                     <li data-value="101">READY FOR DELIVERY</li>
+                     <li data-value="102">DELIVERD</li>
                     </ul>
                 </li>  
                  <li data-value="40"><label class="label label-primary">PARKINGSCREEN</label>
@@ -257,19 +257,19 @@
                 </li> 
                 <li data-value="27"><label class="label label-primary">LAUNDRYSCREEN</label>
                     <ul>
-                   <li data-value="28">ACCEPT ORDER</li>
-                     <li data-value="29">READY FOR DELIVERY</li>
-                     <li data-value="30">DELIVERD</li>
+                   <li data-value="103">ACCEPT ORDER</li>
+                     <li data-value="104">READY FOR DELIVERY</li>
+                     <li data-value="105">DELIVERD</li>
                     </ul>
                 </li>
                  <li data-value="41"><label class="label label-primary">HOUSEKEEPINGSCREEN</label>
                     <ul>
-                   <li data-value="28">ACCEPT ORDER</li>
+                   <li data-value="106">ACCEPT ORDER</li>
                     </ul>
                 </li>
                   <li data-value="48"><label class="label label-primary">RECEPTIONSCREEN</label>
                     <ul>
-                   <li data-value="28">ACCEPT ORDER</li>
+                   <li data-value="107">ACCEPT ORDER</li>
                     </ul>
                 </li>
                  <li data-value="51"><label class="label label-primary">DELIVERYBOY</label> 

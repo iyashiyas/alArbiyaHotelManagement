@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@
 			<div class="wrapper wrapper-content">
 				<div class="row"> 
 					<div class="col-lg-10 animated fadeInRight"> 
-						<sec:authorize access="hasAnyRole('ROLE_ADD','ROLE_ADMIN')">
+						<sec:authorize access="hasAnyRole('ROLE_ROOMTYPE_ADD','ROLE_ADMIN')">
 						<jsp:include page="../hotel/addRoomType.jsp"></jsp:include> 
 						</sec:authorize>
        <div class="ibox float-e-margins">
@@ -64,7 +65,7 @@
 										     <td class="roomTypeDescription"><c:out value="${roomType.roomTypeDescription}" /></td>
 											   <td class="roomTypeStatus"><c:out value="${roomType.roomTypeStatus}"/></td>
 											 
-										<sec:authorize access="hasAnyRole('ROLE_EDIT','ROLE_ADMIN')"> <td class="edit-roomType"><i class="fa fa-pencil"><a >Edit</a></i></td></sec:authorize>
+										<sec:authorize access="hasAnyRole('ROLE_ROOMTYPE_EDIT','ROLE_ADMIN')"> <td class="edit-roomType"><i class="fa fa-pencil"><a >Edit</a></i></td></sec:authorize>
 							                  </tr>
 											 </c:forEach>
 										</tbody>
