@@ -41,8 +41,20 @@ public class Booking {
 	@Column(name="CHECKED_OUT_TIME")
 	private String checkedOutTime;
 	
+	@Column(name="BARCODE_IMAGE")
+	private String barCodeImage;
+	  
+	public String getBarCodeImage() {
+		return barCodeImage;
+	}
+
+	public void setBarCodeImage(String barCodeImage) {
+		this.barCodeImage = barCodeImage;
+	}
+
 	@Column(name="ACCESS_PASSWORD")
 	private int accessPassword;
+	
   
 	@JsonBackReference
 	@OneToOne(cascade={CascadeType.MERGE})

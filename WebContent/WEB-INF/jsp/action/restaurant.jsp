@@ -69,6 +69,7 @@
 											<th class="check-mail">  <spring:message code="label.ItemsID" /></th>
 											<th>  <spring:message code="label.ItemName" /></th>
 											<th>  <spring:message code="label.Description" /></th>
+											<th>BarCode</th>
 											<th>  <spring:message code="label.Edit" /></th>
 										</tr>
 									</thead>
@@ -79,6 +80,8 @@
 											<td>${getAllRestaurantItems.id}</td>
 											<td><c:out value="${getAllRestaurantItems.serviceItemName}" /></td>
 											<td>${getAllRestaurantItems.serviceItemDescription}</td>
+											  <td> <img src="/alArbiyaHotelManagement/images/restaurant/${getAllRestaurantItems.barCodeImageUrlName}"> </td>
+										
 											<td><sec:authorize access="hasAnyRole('ROLE_RESTAURANT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td> 
 										</tr>
 										</c:forEach>

@@ -64,6 +64,7 @@ public class AlArbiyaHotelMgmtUtils {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(coffeeShop.getItemName());
 		hotelServicesItem.setServiceItemDescription(coffeeShop.getDescription());
+		hotelServicesItem.setServiceItemCode(coffeeShop.getServiceItemCode());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 		if(coffeeShop.getStatus()==null)
 		{
@@ -133,6 +134,7 @@ public class AlArbiyaHotelMgmtUtils {
 	public static HotelServicesItem toHotelServiceRestaurant(Restaurant restaurant, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(restaurant.getItemName());
+		hotelServicesItem.setServiceItemCode(restaurant.getServiceItemCode());
 		hotelServicesItem.setServiceItemDescription(restaurant.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 	 
@@ -206,6 +208,7 @@ public class AlArbiyaHotelMgmtUtils {
 	public static HotelServicesItem toHotelServiceCareRental(CarRental carRental, HotelServicesCategory hotelServicesCategory) {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(carRental.getItemName());
+		hotelServicesItem.setServiceItemCode(carRental.getServiceItemCode());
 		hotelServicesItem.setServiceItemDescription(carRental.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 		if(carRental.getStatus()==null)
@@ -266,6 +269,7 @@ public class AlArbiyaHotelMgmtUtils {
 		HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(laundry.getItemName());
 		hotelServicesItem.setServiceItemDescription(laundry.getDescription());
+		hotelServicesItem.setServiceItemCode(laundry.getServiceItemCode());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 		if(laundry.getStatus()==null)
 		{

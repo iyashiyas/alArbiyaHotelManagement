@@ -49,12 +49,15 @@
 							</div>
 							<div class="ibox-content">
 		<div class="table-responsive" id="printdiv">
-										<table
-											class="table table-striped table-bordered table-hover dataTables-example printtable">
-			<thead>
-				 
+			 <table class="table table-striped table-bordered table-hover dataTables-example printtable">
+			<thead> 
 			</thead>
 			<tbody>
+			 
+			<tr> 
+			 <td><img src="/alArbiyaHotelManagement/images/booking/${bookingDetails.barCodeImage}"></td>
+				</tr>
+			
 				<tr>
 					<td><spring:message code="label.ReferenceID" /></td>
 					<td>${bookingDetails.bookingReferenceId}</td>
@@ -91,6 +94,7 @@
 		<a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/reservation"><spring:message code="label.DoAnotherBooking"/></a>
 	</div>
 	
+	</div>
 	</div>
 	</div>
 	</div>

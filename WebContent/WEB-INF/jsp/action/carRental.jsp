@@ -69,6 +69,7 @@
 											<th><spring:message code="label.ItemID" /></th>
 											<th><spring:message code="label.ItemName" /></th>
 											<th><spring:message code="label.Description" /></th>
+											<th>BarCode</th>
 											<th><spring:message code="label.Edit" /></th>
 
 										</tr>
@@ -80,7 +81,8 @@
 											<td>${getAllCarRentalItems.id}</td>
 											<td><c:out value="${getAllCarRentalItems.serviceItemName}" /></td>
 											<td>${getAllCarRentalItems.serviceItemDescription}</td>
-											<td><sec:authorize access="hasAnyRole('ROLE_CARRENTAL_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
+											  <td> <img src="/alArbiyaHotelManagement/images/CareRental/${getAllCarRentalItems.barCodeImageUrlName}"> </td>
+										  <td><sec:authorize access="hasAnyRole('ROLE_CARRENTAL_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
 										</c:forEach>

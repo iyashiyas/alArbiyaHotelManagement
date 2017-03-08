@@ -29,10 +29,12 @@ public class ActionServiceImpl implements ActionService {
 		return null;
 	}
 	@Override
-	public Action addCoffeeShop(CoffeeShop coffeeShop, File file) {
+	public Action addCoffeeShop(CoffeeShop coffeeShop, File file,File outputFile) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(coffeeShop.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop, hotelServicesCategory);
 		hotelServices.setImageUrlName(file.getName()); 
+		hotelServices.setBarCodeImageUrlName(outputFile.getName()); 
+		
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}
@@ -42,10 +44,11 @@ public class ActionServiceImpl implements ActionService {
 		return actionRepository.getAllCoffeShopItems();
 	}
 	@Override
-	public Action addRestaurantItems(Restaurant restaurant, File file) {
+	public Action addRestaurantItems(Restaurant restaurant, File file,File barCodeFile) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(restaurant.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceRestaurant(restaurant, hotelServicesCategory);
 		hotelServices.setImageUrlName(file.getName());
+		hotelServices.setBarCodeImageUrlName(barCodeFile.getName()); 
 		actionRepository.hotelService(hotelServices);
 		return null;
 	}
@@ -81,18 +84,20 @@ public class ActionServiceImpl implements ActionService {
 	}
 	 
 	@Override
-	public void addCarRentalItem(CarRental carRental, File file) {
+	public void addCarRentalItem(CarRental carRental, File file,File barCodeFile) {
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(carRental.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceCareRental(carRental, hotelServicesCategory);
 		hotelServices.setImageUrlName(file.getName());
+		hotelServices.setBarCodeImageUrlName(barCodeFile.getName()); 
 		actionRepository.hotelService(hotelServices); 
 	}
 	@Override
-	public void addLaundryItem(Laundry laundry, File file) {
+	public void addLaundryItem(Laundry laundry, File file,File barCodeFile) {
 		// TODO Auto-generated method stub
 		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(laundry.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelServiceLaundry(laundry, hotelServicesCategory);
 		hotelServices.setImageUrlName(file.getName());
+		hotelServices.setBarCodeImageUrlName(barCodeFile.getName()); 
 		actionRepository.hotelService(hotelServices);
 	}
 	@Override

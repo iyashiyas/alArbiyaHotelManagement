@@ -60,6 +60,7 @@
 											<th><spring:message code="label.ItemID" /></th>
 											<th><spring:message code="label.ItemName" /></th>
 											<th><spring:message code="label.Description" /></th>
+										    <th>BarCode</th>
 											<th><spring:message code="label.Edit" /></th>
 
 										</tr>
@@ -71,6 +72,7 @@
 											<td>${coffeeShop.id}</td>
 											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
 											<td>${coffeeShop.serviceItemDescription}</td>
+									        <td> <img src="/alArbiyaHotelManagement/images/coffeeShop/${coffeeShop.barCodeImageUrlName}"> </td>
 											<td> <sec:authorize access="hasAnyRole('ROLE_COFFEESHOP_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
@@ -85,14 +87,11 @@
 			</div>
 		</div>
 	</div>
-
-
-
+ 
 	<div class="modal fade" id="addNewCategoryCoffeeShop" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-
+			<div class="modal-content"> 
 				<jsp:include page="../action/addNewCoffeeCategory.jsp"></jsp:include>
 			</div>
 		</div>

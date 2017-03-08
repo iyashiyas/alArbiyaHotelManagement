@@ -28,6 +28,9 @@ public class HotelServicesItem {
 	@Column(name="SERVICE_ITEM_NAME")
 	private String serviceItemName;
 	
+	@Column(name="SERVICE_ITEM_CODE")
+	private String serviceItemCode;
+	
 	@Column(name="SERVICE_ITEM_DESCRIPTION")
 	private String serviceItemDescription;
 	
@@ -45,6 +48,9 @@ public class HotelServicesItem {
 
 	@Column(name="IMAGE_URL_NAME")
 	private String imageUrlName;
+	
+	@Column(name="BARCODEIMAGE_URL_NAME")
+	private String barCodeImageUrlName;
 
 	public long getId() {
 		return id;
@@ -127,6 +133,22 @@ public class HotelServicesItem {
 	public void setImageUrlName(String imageUrlName) {
 		// TODO Auto-generated method stub
 		this.imageUrlName = imageUrlName; 
+	}
+
+	public String getServiceItemCode() {
+		return serviceItemCode;
+	}
+
+	public void setServiceItemCode(String serviceItemCode) {
+		this.serviceItemCode = serviceItemCode;
+	}
+
+	public String getBarCodeImageUrlName() {
+		return barCodeImageUrlName;
+	}
+
+	public void setBarCodeImageUrlName(String barCodeImageUrlName) {
+		this.barCodeImageUrlName = barCodeImageUrlName;
 	} 
 
 }

@@ -21,6 +21,8 @@ public class Laundry {
 	private List<CoffeeeShopIngredientHelper> ingredientHelper;
 	private List<BigDecimal> ingredientPrice;
  
+	private String serviceItemCode;
+	private String barCodeImageUrlName;
 	
 	public List<CoffeeeShopLanguageHelper> getLanguageHelper() {
 		if(languageHelper==null) {
@@ -144,4 +146,19 @@ public class Laundry {
 	public void setIngredientPrice(List<BigDecimal> ingredientPrice) {
 		this.ingredientPrice = ingredientPrice;
 	} 
+	
+	public String getServiceItemCode() {
+		return serviceItemCode;
+	}
+	
+	public void setServiceItemCode(String serviceItemCode) {
+		this.serviceItemCode = serviceItemCode;
+	}
+	public String getBarCodeImageUrlName() {
+		return barCodeImageUrlName;
+	}
+
+	public void setBarCodeImageUrlName(String barCodeImageUrlName) {
+		this.barCodeImageUrlName = barCodeImageUrlName;
+	}
 }

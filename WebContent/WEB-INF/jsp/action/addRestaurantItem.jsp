@@ -30,9 +30,17 @@
 					</div>
 				</div>
 
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Item Code</label>
+
+					<div class="col-sm-10">
+						<form:input type="text" placeholder="Item Code"
+							name="serviceItemCode" path="serviceItemCode" class="form-control" />
+					</div>
+				</div> 
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><spring:message code="label.ItemName" /></label>
-
+             
 			<div class="col-sm-10">
 				<form:input type="text" required="required" path="itemName" placeholder="ItemName"
 					name="itemName" class="form-control" />

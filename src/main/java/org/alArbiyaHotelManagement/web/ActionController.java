@@ -1,8 +1,12 @@
 package org.alArbiyaHotelManagement.web;
 
+ 
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileOutputStream; 
+ 
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +35,10 @@ import org.alArbiyaHotelManagement.service.IngredientService;
 import org.alArbiyaHotelManagement.service.LanguageService;
 import org.alArbiyaHotelManagement.service.UnitService;
  
+import org.krysalis.barcode4j.impl.code128.Code128Bean;
+import org.krysalis.barcode4j.impl.code128.Code128Constants;
+import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
+import org.krysalis.barcode4j.tools.UnitConv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +46,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+ 
+ 
 
 @Controller
 @RequestMapping(value = "/action")
@@ -120,6 +131,8 @@ public class ActionController {
 	@RequestMapping(value = "/addCoffeShop", method = RequestMethod.POST)
 	public String addCoffeShop(@ModelAttribute CoffeeShop coffeeShop) {
 		File serverFile = null;
+		
+		
 		if (!coffeeShop.getMultipartFile().isEmpty()) {
 			try {
 				byte[] bytes = coffeeShop.getMultipartFile().getBytes();
@@ -142,8 +155,56 @@ public class ActionController {
 				
 			}
 		}
+		 
+		//Barcode
+		File outputFile =null;
+		try 
+		  {
+		 String barcodeString = coffeeShop.getServiceItemCode();;
+		    Code128Bean barcode128Bean = new Code128Bean();
+		    
+		    
+		    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+		    final int dpi = 100;
+
+		  //Configure the barcode generator
+		    //adjust barcode width here
+		  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+		  barcode128Bean.doQuietZone(false);
+
+		  //Open output file
+		  String rootPath = System.getProperty("user.home");
+			File dir = new File(rootPath+File.separator+"coffeeShop");
+			if (!dir.exists())
+				dir.mkdirs();
+			 outputFile = new File(dir.getAbsolutePath()
+					+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+ 		  
+ 			  /*outputFile = new File(dir+"barcode.png");*/
+			OutputStream  out = 
+					new FileOutputStream(outputFile);
+			 
+		  /*File outputFile = new File(dir+"barcode.png");
+		  OutputStream out = new FileOutputStream(outputFile);*/
+			
+		      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+		              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+
+		      canvasProvider.finish();
+
+            
+		  } 
 		
-		actionService.addCoffeeShop(coffeeShop, serverFile);
+		
+		  catch(Exception e)
+		  {
+			  
+		  }
+		 
+		    
+		actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);
 		return "redirect:/action/showCoffeeShop";
 	}
 
@@ -223,7 +284,55 @@ public class ActionController {
 				
 			}
 		} 
-		actionService.addRestaurantItems(restaurant,serverFile);
+		 
+		//Barcode
+				File outputFile =null;
+				try 
+				  {
+				 String barcodeString = restaurant.getServiceItemCode();;
+				    Code128Bean barcode128Bean = new Code128Bean();
+				    
+				    
+				    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+				    final int dpi = 100;
+
+				  //Configure the barcode generator
+				    //adjust barcode width here
+				  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+				  barcode128Bean.doQuietZone(false);
+
+				  //Open output file
+				  String rootPath = System.getProperty("user.home");
+					File dir = new File(rootPath+File.separator+"restaurant");
+					if (!dir.exists())
+						dir.mkdirs();
+					 outputFile = new File(dir.getAbsolutePath()
+							+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+		 		  
+		 			  /*outputFile = new File(dir+"barcode.png");*/
+					OutputStream  out = 
+							new FileOutputStream(outputFile);
+					 
+				  /*File outputFile = new File(dir+"barcode.png");
+				  OutputStream out = new FileOutputStream(outputFile);*/
+					
+				      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+				              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+				      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+
+				      canvasProvider.finish();
+
+		            
+				  } 
+				
+				
+				  catch(Exception e)
+				  {
+					  
+				  }
+				  
+		actionService.addRestaurantItems(restaurant,serverFile,outputFile);
 		return "redirect:/action/showRestaurant";
 	} 
 	@RequestMapping(value = "/showCheckoutAction", method = RequestMethod.GET)
@@ -376,7 +485,55 @@ public class ActionController {
 				
 			}
 		} 
-		actionService.addCarRentalItem(carRental,serverFile);
+		
+		
+		
+		//Barcode
+		File outputFile =null;
+		try 
+		  {
+		 String barcodeString = carRental.getServiceItemCode();;
+		    Code128Bean barcode128Bean = new Code128Bean();
+		    
+		    
+		    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+		    final int dpi = 100;
+
+		  //Configure the barcode generator
+		    //adjust barcode width here
+		  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+		  barcode128Bean.doQuietZone(false);
+
+		  //Open output file
+		  String rootPath = System.getProperty("user.home");
+			File dir = new File(rootPath+File.separator+"CareRental");
+			if (!dir.exists())
+				dir.mkdirs();
+			 outputFile = new File(dir.getAbsolutePath()
+					+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+ 		  
+ 			  /*outputFile = new File(dir+"barcode.png");*/
+			OutputStream  out = 
+					new FileOutputStream(outputFile);
+			 
+		  /*File outputFile = new File(dir+"barcode.png");
+		  OutputStream out = new FileOutputStream(outputFile);*/
+			
+		      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+		              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+
+		      canvasProvider.finish(); 
+            
+		  } 
+		
+		
+		  catch(Exception e)
+		  {
+			  
+		  } 
+		actionService.addCarRentalItem(carRental,serverFile,outputFile);
 		return "redirect:/action/showCarRentalAction";
 	}
 
@@ -408,7 +565,55 @@ public class ActionController {
 				
 			}
 		} 
-		actionService.addLaundryItem(laundry,serverFile);
+		
+		
+		//Barcode
+				File outputFile =null;
+				try 
+				  {
+				 String barcodeString = laundry.getServiceItemCode();;
+				    Code128Bean barcode128Bean = new Code128Bean();
+				    
+				    
+				    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+				    final int dpi = 100;
+
+				  //Configure the barcode generator
+				    //adjust barcode width here
+				  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+				  barcode128Bean.doQuietZone(false);
+
+				  //Open output file
+				  String rootPath = System.getProperty("user.home");
+					File dir = new File(rootPath+File.separator+"Laundry");
+					if (!dir.exists())
+						dir.mkdirs();
+					 outputFile = new File(dir.getAbsolutePath()
+							+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+		 		  
+		 			  /*outputFile = new File(dir+"barcode.png");*/
+					OutputStream  out = 
+							new FileOutputStream(outputFile);
+					 
+				  /*File outputFile = new File(dir+"barcode.png");
+				  OutputStream out = new FileOutputStream(outputFile);*/
+					
+				      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+				              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+				      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+
+				      canvasProvider.finish(); 
+		            
+				  } 
+				 
+				  catch(Exception e)
+				  {
+					  
+				  } 
+		
+		
+		actionService.addLaundryItem(laundry,serverFile,outputFile);
 		return "redirect:/action/showLaundryAction";
 	}
    

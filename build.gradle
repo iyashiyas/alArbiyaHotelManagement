@@ -68,6 +68,8 @@ dependencies {
 	        "org.springframework:spring-context:${springContextversion}"
 	
 	compile "javax.mail:mail:${javamailversion}"
+	
+	compile "net.sf.barcode4j:barcode4j:2.1"
     
     providedCompile "javax.servlet:servlet-api:2.3"
     

@@ -1,6 +1,10 @@
 package org.alArbiyaHotelManagement.service.impl;
 
  
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
  
@@ -15,6 +19,10 @@ import org.alArbiyaHotelManagement.model.UserDetails;
 import org.alArbiyaHotelManagement.repository.BookingRepository;
 import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
+import org.krysalis.barcode4j.impl.code128.Code128Bean;
+import org.krysalis.barcode4j.impl.code128.Code128Constants;
+import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
+import org.krysalis.barcode4j.tools.UnitConv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +45,48 @@ public class BookingServiceImpl implements BookingService{
 		booking.setStartDate(startDate);
 		booking.setEndDate(endDate);
 		booking.setAccessPassword(randomPassword);
+		  
+		//Barcode
+				File outputFile =null;
+				try 
+				  {
+				 String barcodeString = bookingId;;
+				    Code128Bean barcode128Bean = new Code128Bean(); 
+				    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+				    final int dpi = 100;
+
+				  //Configure the barcode generator
+				    //adjust barcode width here
+				  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+				  barcode128Bean.doQuietZone(false);
+
+				  //Open output file
+				  String rootPath = System.getProperty("user.home");
+					File dir = new File(rootPath+File.separator+"booking");
+					if (!dir.exists())
+						dir.mkdirs();
+					 outputFile = new File(dir.getAbsolutePath()
+							+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+		 		  
+		 			  /*outputFile = new File(dir+"barcode.png");*/
+					OutputStream  out = 
+							new FileOutputStream(outputFile);
+					 
+				  /*File outputFile = new File(dir+"barcode.png");
+				  OutputStream out = new FileOutputStream(outputFile);*/
+					
+				      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+				              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0); 
+				      barcode128Bean.generateBarcode(canvasProvider,barcodeString); 
+				      canvasProvider.finish(); 
+				  }  
+				  catch(Exception e)
+				  {
+					  
+				  }
+				
+				booking.setBarCodeImage(outputFile.getName());
+		  
 		booking.setBookingStatus(BookingStatus.BOOKED.name());
 		if(userDetails.getId()<1) {
 			/*userDetails.setPhoneNumber("");*/
@@ -57,7 +107,8 @@ public class BookingServiceImpl implements BookingService{
 		Booking booking = new Booking();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
-	    booking.setCheckedInTime(dateFormat.format(date));  
+	    booking.setCheckedInTime(dateFormat.format(date)); 
+	 
 		return bookingRepository.createCheckIn(bookingId,booking,parkingId);
 	}
 

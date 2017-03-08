@@ -16,13 +16,13 @@ import org.alArbiyaHotelManagement.model.LaundryCategory;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
 
 public interface ActionService {
-	public Action addCoffeeShop(CoffeeShop coffeeShop, File serverFile);
+	public Action addCoffeeShop(CoffeeShop coffeeShop, File serverFile,File outputFile);
 
 	public Action editAction();
 
 	public List<HotelServicesItem> getAllCoffeShopItems();
 
-	public Action addRestaurantItems(Restaurant restaurant, File serverFile);
+	public Action addRestaurantItems(Restaurant restaurant, File serverFile,File barCodeFile);
 
 	public List<HotelServicesItem> getAllRestaurantItems();
 
@@ -32,9 +32,9 @@ public interface ActionService {
 
 	public HotelServicesCategory updateHouseKeepingStatus(HotelServicesCategory hotelServicesCategory);
 
-	public void addCarRentalItem(CarRental carRental, File serverFile);
+	public void addCarRentalItem(CarRental carRental, File serverFile,File barCodeFile);
 
-	public void addLaundryItem(Laundry laundry, File serverFile);
+	public void addLaundryItem(Laundry laundry, File serverFile,File outputFile);
 
 	public List<HotelServicesItem> getAllCarRentalItems();
 

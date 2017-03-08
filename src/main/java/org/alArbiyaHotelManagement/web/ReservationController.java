@@ -1,6 +1,12 @@
 package org.alArbiyaHotelManagement.web;
  
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +22,10 @@ import org.alArbiyaHotelManagement.service.ReservationService;
 import org.alArbiyaHotelManagement.service.RoomTypeService;
 import org.alArbiyaHotelManagement.service.UserService;
 import org.alArbiyaHotelManagement.utils.AlArbiyaHotelMgmtUtils;
+import org.krysalis.barcode4j.impl.code128.Code128Bean;
+import org.krysalis.barcode4j.impl.code128.Code128Constants;
+import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
+import org.krysalis.barcode4j.tools.UnitConv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
  
@@ -87,10 +97,13 @@ public class ReservationController {
 			@RequestParam(required=true) String startDate, 
 			@RequestParam(required=true) String endDate,
 			@RequestParam(required=true) int randomPassword, 
-			Model model) throws ParseException { 
+			Model model) throws ParseException {
+		 
 		Booking booking = bookingService.createBooking(roomId, startDate, endDate,randomPassword, userDetails);
+		 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		attributes.put("bookingDetails", booking);
+		 
 		model.addAllAttributes(attributes);
 		return "reservation/reservationDetails";
 	}

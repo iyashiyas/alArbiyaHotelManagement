@@ -12,6 +12,8 @@ public class CoffeeShop {
 	private String itemName;
 	private String description;
 	private String status;
+	private String serviceItemCode;
+	private String barCodeImageUrlName;
 	private String hotelServiceCategoryId;
 	private CommonsMultipartFile multipartFile;
 	private List<CoffeeeShopLanguageHelper> languageHelper;
@@ -20,8 +22,7 @@ public class CoffeeShop {
 	private List<BigDecimal> unitPrice;
 	private List<CoffeeeShopIngredientHelper> ingredientHelper;
 	private List<BigDecimal> ingredientPrice;
-	
-	
+	 
 	public List<CoffeeeShopLanguageHelper> getLanguageHelper() {
 		if(languageHelper==null) {
 			languageHelper = new ArrayList<CoffeeeShopLanguageHelper>();
@@ -66,6 +67,15 @@ public class CoffeeShop {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	public String getServiceItemCode() {
+		return serviceItemCode;
+	}
+	
+	public void setServiceItemCode(String serviceItemCode) {
+		this.serviceItemCode = serviceItemCode;
+	}
+	
 	
 	public String getItemName() {
 		return itemName;
@@ -141,6 +151,14 @@ public class CoffeeShop {
 
 	public void setMultipartFile(CommonsMultipartFile multipartFile) {
 		this.multipartFile = multipartFile;
-	} 
-	 
+	}
+
+	public String getBarCodeImageUrlName() {
+		return barCodeImageUrlName;
+	}
+
+	public void setBarCodeImageUrlName(String barCodeImageUrlName) {
+		this.barCodeImageUrlName = barCodeImageUrlName;
+	}
+ 
 }
