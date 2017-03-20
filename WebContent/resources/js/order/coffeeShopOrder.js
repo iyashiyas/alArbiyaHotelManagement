@@ -9,11 +9,8 @@ $(document)
 											contentType : "application/json",
 											url : "/alArbiyaHotelManagement/order/coffeeShopScreenOrder",
 											dataType : "json",
-											success : function(data) {
-
-												$.each( data,
-																function(i,
-																		Orders) {
+											success : function(data) { 
+												$.each( data, function(i,Orders) {
 																	$('#orderTable > tbody').append( '<tr><td>'
 																							+ Orders.id
 																							+ '</td><td>'

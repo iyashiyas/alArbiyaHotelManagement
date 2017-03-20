@@ -37,7 +37,7 @@ $(document)
 																											+ '">Accept Delivery</a>'
 																											: (Orders.status == "DELIVERED" ? 'Delivered'
 																													: s)))
-																							+ '</td></tr>')
+																							+ '</td><td><input type="button" value="Click Me" onClick="print('+Orders.orderId+','+Orders.roomName+')"/></td>></tr>')
 																});
 											},
 											error : function(xmlHttpRequest,

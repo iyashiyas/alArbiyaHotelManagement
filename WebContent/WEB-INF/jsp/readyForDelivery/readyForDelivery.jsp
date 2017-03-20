@@ -68,6 +68,7 @@
 											 <th><spring:message code="label.OrderRoom" /></th>
 											 <th><spring:message code="label.Status" /></th>
 											  <th> label.AcceptRequest   </th>
+											  <th> Print   </th>
 											</tr>
 										</thead>
 											<tbody class="animated fadeInRight">
@@ -92,11 +93,16 @@
 														 	<label class="label label-default"><spring:message code="label.Delivered" /> </label>
 														</c:if>  
 												</td>
+												<td> <input type="button" value="Click Me" onClick="print(${orders.orderId},${orders.roomName})" />
+												</td>
 												</tr> 
 												</c:forEach>
 												</tbody>
 												</table>
 												</div>
+												
+												
+											 	
 	  <div class="modal fade" id="confirmReadForDelivery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content"> 
@@ -176,6 +182,18 @@
        
         });  
      	 
+</script> 
+<script type="text/javascript"> 
+function displaymessage()
+{
+JSInterface.changeActivity();
+}
+</script>
+ 
+<script type="text/javascript">
+   function print(orderId,roomNumber) {
+     Android.print(orderId,roomNumber);
+    }
 </script>
 </body>
 </html>
