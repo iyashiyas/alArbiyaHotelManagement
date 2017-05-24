@@ -9,10 +9,11 @@ import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action;
 import org.alArbiyaHotelManagement.model.CarRentalCategory;
-import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
+import org.alArbiyaHotelManagement.model.ServiceItemCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.Product;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
 
 public interface ActionService {
@@ -43,20 +44,25 @@ public interface ActionService {
 	public void UpdateReceptionServiceStatus(
 			HotelServicesCategory hotelServicesCategory);
 
-	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory);
+	public void addServiceItemCategory(ServiceItemCategory coffeeShopCategory);
 
-	public void addRestaurantCategory(RestaurantCategory restaurantCategory);
+/*	public void addRestaurantCategory(ServiceItemCategory restaurantCategory);
 
-	public void addLaundryCategory(LaundryCategory laundryCategory);
+	public void addLaundryCategory(ServiceItemCategory laundryCategory);
 
-	public void addCarRentalCategory(CarRentalCategory carRentalCategory);
-
+	public void addCarRentalCategory(ServiceItemCategory carRentalCategory);
+*/
 	public List<LaundryCategory> laundryCategory();
 
 	public List<CarRentalCategory> carRentaltCategory();
 
 	public List<RestaurantCategory> restaurantCategory();
 
-	public List<CoffeeShopCategory> coffeeShopCategory();
+	public List<ServiceItemCategory> serviceItemCategory(long serviceCateogy);
+
+	public void addNewProduct(Product coffeeShop, File serverFile,
+			File outputFile);
+
+	public List<Product> getAllProductWithCategory(String categoryCode);
 
 }

@@ -15,14 +15,16 @@
 			<div class="ibox-title">
 				<h5><spring:message code="label.Categories" /> <sec:authorize access="hasAnyRole('ROLE_LAUNDRY_NEWCATEGORY','ROLE_ADMIN')"> -  <a href="#addLaundryCategory-Modal" data-toggle="modal" ><spring:message code="label.NewCategory" /></a></sec:authorize></h5>
 			 </div> 
-			<div class="ibox-content ">
+			    
+			     <div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
                               <c:forEach items="${laundryCategory}" var="laundryCategory">
-                                <li ><a>${laundryCategory.laundryCategoryName}</a></li> 
+                                <li ><a href="${pageContext.request.contextPath}/action/showLaundryAction?categoryCode=${laundryCategory.id}&serviceCateogy=5" >${laundryCategory.serviceItemCategoryName}</a></li> 
                            </c:forEach>
                                  </ul>
                              <div class="clearfix"></div>
-                        </div>
+                        </div> 
+                        
                     </div>
                 </div>
         

@@ -74,18 +74,19 @@
 										</tr>
 									</thead>
 
-									<tbody>
-										<c:forEach items="${getAllRestaurantItems}" var="getAllRestaurantItems">
-										<tr class="">
-											<td>${getAllRestaurantItems.id}</td>
-											<td><c:out value="${getAllRestaurantItems.serviceItemName}" /></td>
-											<td>${getAllRestaurantItems.serviceItemDescription}</td>
-											  <td> <img src="/alArbiyaHotelManagement/images/restaurant/${getAllRestaurantItems.barCodeImageUrlName}"> </td>
-										
-											<td><sec:authorize access="hasAnyRole('ROLE_RESTAURANT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td> 
+<tbody>
+								 <c:forEach items="${getAllProductWithCategory}" var="restaurant">
+										<tr class=" ">
+											<td>${restaurant.id}</td>
+											<td><c:out value="${restaurant.serviceItemName}" /></td>
+											<td>${restaurant.serviceItemDescription}</td>
+									        <td> <img src="/alArbiyaHotelManagement/images/restaurant/${restaurant.barCodeImageUrlName}"> </td>
+											<td> <sec:authorize access="hasAnyRole('ROLE_RESTAURANT_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
+
 										</tr>
-										</c:forEach>
+										</c:forEach>  
 									</tbody>
+ 
 								</table>
 
 							</div>

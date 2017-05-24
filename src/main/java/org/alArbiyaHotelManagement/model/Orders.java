@@ -2,18 +2,21 @@ package org.alArbiyaHotelManagement.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+ 
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table; 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+ 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+ 
   
 @Entity
 @Table(name="ORDERS")
@@ -45,19 +48,24 @@ public class Orders {
 	@Column(name="DELIVERED_TIME")
 	private String deliveredTime;
 	
-	@Column(name="QUANTITY")
-	private String quantity;
+	/*@Column(name="QUANTITY")
+	private String quantity;*/
+	 
+	@JsonManagedReference
+    @OneToMany(mappedBy = "orders",cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true)
+    private List<NewOrderDetails> newOrderDetails;
+
 	 
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
 	private Room room;
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
 	private HotelServicesCategory hotelServiceCategories;
 	
-	 
+	/*
 	@OneToOne
 	@JoinColumn(name="SERVICE_ITEM_ID", nullable=false)
 	private HotelServicesItem hotelServicesItem;
@@ -84,7 +92,7 @@ public class Orders {
 
 	public void setUnit(List<Unit> unit) {
 		this.unit = unit;
-	}
+	}*/
 
 	public long getId() {
 		return id;
@@ -158,13 +166,13 @@ public class Orders {
 		this.totalPrice = totalPrice;
 	}
 
-	public String getQuantity() {
+	/*public String getQuantity() {
 		return quantity;
 	}
 
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-	}
+	}*/
 	
 	public HotelServicesCategory getHotelServiceCategories() {
 		return hotelServiceCategories;
@@ -174,12 +182,20 @@ public class Orders {
 			HotelServicesCategory hotelServiceCategories) {
 		this.hotelServiceCategories = hotelServiceCategories;
 	}
-
+	/*
 	public HotelServicesItem getHotelServicesItem() {
 		return hotelServicesItem;
 	}
 
 	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
 		this.hotelServicesItem = hotelServicesItem;
+	}*/
+
+	public List<NewOrderDetails> getNewOrderDetails() {
+		return newOrderDetails;
+	}
+
+	public void setNewOrderDetails(List<NewOrderDetails> newOrderDetails) {
+		this.newOrderDetails = newOrderDetails;
 	}
 }

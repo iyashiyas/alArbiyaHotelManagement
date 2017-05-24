@@ -1,4 +1,5 @@
 package org.alArbiyaHotelManagement.model;
+
  
 import java.util.List;
 
@@ -8,16 +9,23 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+ 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-/*
+
+
 @Entity
-@Table(name="HOTEL_SERVICES_ITEM")*/
-public class HotelServicesItem {
-	
+@Table(name="PRODUCT")
+public class Product {
+
 	@Id @GeneratedValue 
 	@Column(name="SERVICE_ITEM_ID")
 	private long id;
@@ -34,28 +42,51 @@ public class HotelServicesItem {
 	@Column(name="SERVICE_ITEM_DESCRIPTION")
 	private String serviceItemDescription;
 	
-	@Column(name="PRICE")
-	private String price;
+	@Column(name="AMOUNT")
+	private float amount;
 	
+	@Column(name="DISCOUNT")
+	private float discount;
 	
-/*	@JsonIgnore
-	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
-	private List<HotelServicesGroup> hotelServiceParentGroups;
-	*/
+	@Transient
+	private CommonsMultipartFile multipartFile;
+	
+	@Column(name="IMAGE_URL_NAME")
+	private String imageUrlName;
+	
+	@Column(name="BARCODEIMAGE_URL_NAME")
+	private String barCodeImageUrlName;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="hotelServicesItem", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
 	
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne 
+	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
 	private HotelServicesCategory hotelServicesCategory;
-
-	@Column(name="IMAGE_URL_NAME")
-	private String imageUrlName;
 	
-	@Column(name="BARCODEIMAGE_URL_NAME")
-	private String barCodeImageUrlName;
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name="SERVICE_ITEM_CATEGORY_ID", nullable=true)
+	private ServiceItemCategory serviceItemCategory;
+	 
+	 
+	public ServiceItemCategory getServiceItemCategory() {
+		return serviceItemCategory;
+	}
+
+	public void setServiceItemCategory(ServiceItemCategory serviceItemCategory) {
+		this.serviceItemCategory = serviceItemCategory;
+	}
+	
+	public CommonsMultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(CommonsMultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
 
 	public long getId() {
 		return id;
@@ -80,7 +111,15 @@ public class HotelServicesItem {
 	public void setServiceItemName(String serviceItemName) {
 		this.serviceItemName = serviceItemName;
 	}
-	
+
+	public String getServiceItemCode() {
+		return serviceItemCode;
+	}
+
+	public void setServiceItemCode(String serviceItemCode) {
+		this.serviceItemCode = serviceItemCode;
+	}
+
 	public String getServiceItemDescription() {
 		return serviceItemDescription;
 	}
@@ -89,63 +128,22 @@ public class HotelServicesItem {
 		this.serviceItemDescription = serviceItemDescription;
 	}
 
-	/*public List<HotelServicesGroup> getHotelServiceParentGroups() {
-		return hotelServiceParentGroups;
-	}
-	
-	public void addHotelServiceParentGroup(HotelServicesGroup hotelServicesGroup) {
-		this.hotelServiceParentGroups.add(hotelServicesGroup);
-		if(hotelServicesGroup.getHotelServicesItem() !=this) {
-			hotelServicesGroup.setHotelServicesItem(this);
-		}
+ 
+
+	public float getAmount() {
+		return amount;
 	}
 
-	public void setHotelServiceParentGroups(
-			List<HotelServicesGroup> hotelServiceParentGroups) {
-		this.hotelServiceParentGroups = hotelServiceParentGroups;
-	}*/
-
-	public List<ServiceLanguage> getServiceLanguages() {
-		return serviceLanguages;
+	public void setAmount(float amount) {
+		this.amount = amount;
 	}
-
-	/*public void addServiceLanguage(ServiceLanguage serviceLanguage) {
-        this.serviceLanguages.add(serviceLanguage);
-        if (serviceLanguage.getHotelServicesItem() != this) {
-        	serviceLanguage.setHotelServicesItem(this);
-        }
-    }*/
-	
-	public void setServiceLanguages(List<ServiceLanguage> serviceLanguages) {
-		this.serviceLanguages = serviceLanguages;
-	}
-
-/*	public HotelServicesCategory getHotelServicesCategory() {
-		return hotelServicesCategory;
-	}
-
-	public void setHotelServicesCategory(HotelServicesCategory hotelServicesCategory) {
-		this.hotelServicesCategory = hotelServicesCategory;
-		if(hotelServicesCategory.getHotelServicesItems() != null && !hotelServicesCategory.getHotelServicesItems().contains(this)) {
-			hotelServicesCategory.getHotelServicesItems().add(this);
-		}
-	}*/
 
 	public String getImageUrlName() {
-		return this.imageUrlName;
+		return imageUrlName;
 	}
-	
+
 	public void setImageUrlName(String imageUrlName) {
-		// TODO Auto-generated method stub
-		this.imageUrlName = imageUrlName; 
-	}
-
-	public String getServiceItemCode() {
-		return serviceItemCode;
-	}
-
-	public void setServiceItemCode(String serviceItemCode) {
-		this.serviceItemCode = serviceItemCode;
+		this.imageUrlName = imageUrlName;
 	}
 
 	public String getBarCodeImageUrlName() {
@@ -156,12 +154,36 @@ public class HotelServicesItem {
 		this.barCodeImageUrlName = barCodeImageUrlName;
 	}
 
-	public String getPrice() {
-		return price;
+	public List<ServiceLanguage> getServiceLanguages() {
+		return serviceLanguages;
+	}
+	
+	public void addServiceLanguage(ServiceLanguage serviceLanguage) {
+        this.serviceLanguages.add(serviceLanguage);
+        if (serviceLanguage.getHotelServicesItem() != this) {
+        	serviceLanguage.setHotelServicesItem(this);
+        }
+    }
+
+	public void setServiceLanguages(List<ServiceLanguage> serviceLanguages) {
+		this.serviceLanguages = serviceLanguages;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
-	} 
+	public HotelServicesCategory getHotelServicesCategory() {
+		return hotelServicesCategory;
+	}
 
+	public void setHotelServicesCategory(HotelServicesCategory hotelServicesCategory) {
+		this.hotelServicesCategory = hotelServicesCategory;
+	}
+
+	public float getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(float discount) {
+		this.discount = discount;
+	}
+
+	
 }

@@ -76,16 +76,17 @@
 									</thead>
 
 									<tbody>
-									<c:forEach items="${getAllCarRentalItems}" var="getAllCarRentalItems">
+									
+									 <c:forEach items="${getAllProductWithCategory}" var="carRental">
 										<tr class="">
-											<td>${getAllCarRentalItems.id}</td>
-											<td><c:out value="${getAllCarRentalItems.serviceItemName}" /></td>
-											<td>${getAllCarRentalItems.serviceItemDescription}</td>
-											  <td> <img src="/alArbiyaHotelManagement/images/CareRental/${getAllCarRentalItems.barCodeImageUrlName}"> </td>
-										  <td><sec:authorize access="hasAnyRole('ROLE_CARRENTAL_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
-
-										</tr>
-										</c:forEach>
+											<td>${carRental.id}</td>
+											<td><c:out value="${carRental.serviceItemName}" /></td>
+											<td>${carRental.serviceItemDescription}</td>
+									        <td> <img src="/alArbiyaHotelManagement/images/CareRental/${carRental.barCodeImageUrlName}"> </td>
+											<td> <sec:authorize access="hasAnyRole('ROLE_CARRENTAL_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
+                                        </tr>
+										</c:forEach>  
+								 
 									</tbody>
 								</table>
 								</div>

@@ -87,17 +87,17 @@
 									</thead>
 
 									<tbody>
-									<c:forEach items="${getAllLaundryItems}" var="getAllLaundryItems">
-										<tr class="">
-											<td>${getAllLaundryItems.id}</td>
-											<td><c:out value="${getAllLaundryItems.serviceItemName}" /></td>
-											<td>${getAllLaundryItems.serviceItemDescription}</td>
-											  <td> <img src="/alArbiyaHotelManagement/images/Laundry/${getAllLaundryItems.barCodeImageUrlName}"> </td>
-										
-											<td><sec:authorize access="hasAnyRole('ROLE_LAUNDRY_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
+									
+										 <c:forEach items="${getAllProductWithCategory}" var="laundry">
+										<tr class=" ">
+											<td>${laundry.id}</td>
+											<td><c:out value="${laundry.serviceItemName}" /></td>
+											<td>${laundry.serviceItemDescription}</td>
+									        <td> <img src="/alArbiyaHotelManagement/images/Laundry/${laundry.barCodeImageUrlName}"> </td>
+											<td> <sec:authorize access="hasAnyRole('ROLE_LAUNDRY_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
-										</c:forEach>
+										</c:forEach>   
 									</tbody>
 								</table>
 							</div>

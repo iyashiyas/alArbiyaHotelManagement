@@ -1,29 +1,35 @@
 package org.alArbiyaHotelManagement.repository.impl;
-
+ 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
- 
-
-
-
+  
 
 import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.CarRentalCategory;
-import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
-import org.alArbiyaHotelManagement.model.CoffeeShopCategoryLanguage;
+import org.alArbiyaHotelManagement.model.ServiceItemCategory;
+import org.alArbiyaHotelManagement.model.ServiceItemCategoryLanguage;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.HotelServicesGroup;
 import org.alArbiyaHotelManagement.model.HotelServicesValue; 
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.Product;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
  
+import org.alArbiyaHotelManagement.model.ServiceLanguage;
+import org.alArbiyaHotelManagement.model.Unit;
+import org.alArbiyaHotelManagement.model.UnitLanguage;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -56,7 +62,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 			entityManager.persist(serviceLanguage);
 		} */
 		
-		
+	/*	
 		for(HotelServicesGroup hotelServiceParentGroup:hotelServicesItem.getHotelServiceParentGroups()){
 			entityManager.persist(hotelServiceParentGroup);
 		}
@@ -72,7 +78,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 					entityManager.persist(hotelServicesValue);
 				}
 			}
-		}
+		}*/
 		 
 	}
 	@SuppressWarnings("unchecked")
@@ -147,7 +153,8 @@ public class ActionRepositoryImpl implements ActionRepository{
 			HotelServicesCategory hotelServicesCategory) {
 		entityManager.merge(hotelServicesCategory);
 	}
-	@Override
+	
+/*	@Override
 	public void addCarRentalCategory(CarRentalCategory carRentalCategory) {
 		// TODO Auto-generated method stub
 		entityManager.persist(carRentalCategory);
@@ -161,19 +168,20 @@ public class ActionRepositoryImpl implements ActionRepository{
 	public void addRestaurantCategory(RestaurantCategory restaurantCategory) {
 		// TODO Auto-generated method stub
 		entityManager.persist(restaurantCategory);
-	}
+	}*/
+	
 	@Override
-	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory) {
+	public void addServiceItemCategory(ServiceItemCategory coffeeShopCategory) {
 		// TODO Auto-generated method stub
 		entityManager.persist(coffeeShopCategory);
 		 
-		for(CoffeeShopCategoryLanguage coffeeShopCategoryLanguage: coffeeShopCategory.getCoffeeShopCategoryLanguages()) {
+		for(ServiceItemCategoryLanguage coffeeShopCategoryLanguage: coffeeShopCategory.getServiceItemCategoryLanguage()) {
 			if(!coffeeShopCategoryLanguage.isEmpty()) {
 				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
 				Language language = query.setParameter("languageId", coffeeShopCategoryLanguage.getLanguage().getId()).getSingleResult();
 				coffeeShopCategoryLanguage.setLanguage(language);
-				coffeeShopCategoryLanguage.setCoffeeShopCategory(coffeeShopCategory);
-				this.entityManager.merge(coffeeShopCategory);
+				coffeeShopCategoryLanguage.setServiceItemCategory(coffeeShopCategory);
+				this.entityManager.merge(coffeeShopCategory); 
 			}
 		} 
 	}
@@ -200,10 +208,46 @@ public class ActionRepositoryImpl implements ActionRepository{
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CoffeeShopCategory> coffeeShopCategory() {
+	public List<ServiceItemCategory> serviceItemCategory(long serviceCateogy) {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT coffeeShopCategory from CoffeeShopCategory coffeeShopCategory where coffeeShopCategoryStatus='ENABLE' order by id", CoffeeShopCategory.class);
+		Query query = entityManager.createQuery("SELECT serviceItemCategory from ServiceItemCategory serviceItemCategory where serviceItemCategoryStatus='ENABLE' and hotelServicesCategory.hotelServicesCategoryId=:serviceCateogy  order by id", ServiceItemCategory.class);
+		query.setParameter("serviceCateogy", serviceCateogy);
 		return query.getResultList(); 
+	}
+	@Override
+	public void addNewProduct(Product product) { 
+		this.entityManager.persist(product);
+		for(ServiceLanguage serviceLanguage: product.getServiceLanguages()) {
+			if(!serviceLanguage.isEmpty()) {
+				TypedQuery<Language> query = this.entityManager.createQuery("SELECT lang from Language lang WHERE lang.id=:languageId", Language.class);
+				Language language = query.setParameter("languageId", serviceLanguage.getLanguage().getId()).getSingleResult();
+				serviceLanguage.setLanguage(language);
+				serviceLanguage.setHotelServicesItem(product);
+				this.entityManager.merge(serviceLanguage);
+			}
+		}
+		 
+	}
+	@Override
+	public List<Product> getAllProductWithCategory(String categoryCode) {
+		// TODO Auto-generated method stub
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Product> query = criteriaBuilder.createQuery(Product.class);
+		Root<Product> productRoot = query.from(Product.class);
+		//Join<UnitCategory, Unit> joinUnit = unitCategoryRoot.join("units");
+		
+		List<Predicate> conditions = new ArrayList<Predicate>();
+		categoryCode = (categoryCode == null || categoryCode == "" ) ? "1" : categoryCode;
+		
+		 conditions.add(criteriaBuilder.equal(productRoot.get("serviceItemCategory").get("id"), categoryCode ));
+		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
+		
+		query.orderBy(criteriaBuilder.asc(productRoot.get("id")));
+		TypedQuery<Product> typedQuery = entityManager.createQuery(query
+		        .select(productRoot)
+		        .where(conditions.toArray(new Predicate[] {}))
+		);
+		return typedQuery.getResultList();
 	}
 	  
 }

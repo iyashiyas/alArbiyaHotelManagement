@@ -74,7 +74,7 @@ public class UnitRepositoryImpl implements UnitRepository{
 		List<Predicate> conditions = new ArrayList<Predicate>();
 		categoryCode = (categoryCode == null || categoryCode == "" ) ? "1" : categoryCode;
 		
-		//conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategories"), categoryCode ));
+		 conditions.add(criteriaBuilder.equal(unitRoot.get("unitCategories").get("id"), categoryCode ));
 		//conditions.add(criteriaBuilder.equal(joinUnit.get("unitStatus"), Status.ACTIVE.name()));
 		
 		query.orderBy(criteriaBuilder.asc(unitRoot.get("id")));

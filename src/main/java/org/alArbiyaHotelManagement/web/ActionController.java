@@ -21,12 +21,13 @@ import org.alArbiyaHotelManagement.dto.CoffeeeShopUnitHelper;
 import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.CarRentalCategory;
-import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
+import org.alArbiyaHotelManagement.model.ServiceItemCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem;
 import org.alArbiyaHotelManagement.model.Ingredient;
 import org.alArbiyaHotelManagement.model.Language;
 import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.Product;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
 import org.alArbiyaHotelManagement.model.Unit;
 import org.alArbiyaHotelManagement.service.ActionService;
@@ -79,31 +80,33 @@ public class ActionController {
 	}
 
 	@RequestMapping(value = "/showCoffeeShop", method = RequestMethod.GET)
-	public String showCoffeeShop(Model model) {
-		List<CoffeeShopCategory> coffeeShopCategory = actionService.coffeeShopCategory();
+	public String showCoffeeShop(Model model,@RequestParam(required=false) String categoryCode,@RequestParam(required=false) long serviceCateogy){
+		List<ServiceItemCategory> serviceItemCategory = actionService.serviceItemCategory(serviceCateogy);
 		List<Language> languages = languageService.getEnableLanguages();
-		List<Unit> units = unitService.getAllUnits();
+	/*	List<Unit> units = unitService.getAllUnits();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
-
-		List<HotelServicesItem> getAllcoffeeShops = actionService
-				.getAllCoffeShopItems();
-
+*/
+		/*List<HotelServicesItem> getAllcoffeeShops = actionService
+				.getAllCoffeShopItems(); */
+		List<Product> getAllProductWithCategory = actionService
+				.getAllProductWithCategory(categoryCode); 
 		Map<String, Object> attributes = new HashMap<String, Object>();
-		CoffeeShop coffeeShop = new CoffeeShop();
-		attributes.put("languages", languages);
-		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null;
+           
+	/*	CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+		Product coffeeShop = new Product();*/
+		/*
 		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
 		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
-
-		for (Language language : languages) {
+*/
+		/* for (Language language : languages) {
 			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
 			coffeeeShopLanguageHelper.setLanguageId(language.getId());
 			coffeeeShopLanguageHelper
 					.setLangageName(language.getLanguageName());
 			coffeeShop.getLanguageHelper().add(coffeeeShopLanguageHelper);
-		}
+		} */
 
-		for (Unit unit : units) {
+		/*for (Unit unit : units) {
 			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
 			coffeeeShopUnitHelper.setUnitId(unit.getId());
 			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
@@ -116,20 +119,22 @@ public class ActionController {
 			coffeeeShopIngredientHelper.setIngredientName(ingredient
 					.getIngredientName());
 			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
-		}
-		attributes.put("coffeeShopCategory", coffeeShopCategory);
-		attributes.put("getAllcoffeeShops", getAllcoffeeShops);
-		attributes.put("coffeShop", coffeeShop);
-		attributes.put("languageHelper", languages);
-		attributes.put("unitHelper", units);
-		attributes.put("newcoffeeShopCategory", new CoffeeShopCategory());
-		attributes.put("ingredientHelper", ingredients);
+		}*/
+		attributes.put("coffeeShopCategory", serviceItemCategory);
+	/*	attributes.put("getAllcoffeeShops", getAllcoffeeShops);*/
+	/*	attributes.put("coffeShop", coffeeShop);*/
+		 attributes.put("languages", languages);
+		 attributes.put("getAllProductWithCategory", getAllProductWithCategory);
+		/*attributes.put("unitHelper", units);*/
+		attributes.put("newcoffeeShopCategory", new ServiceItemCategory());
+/*		attributes.put("ingredientHelper", ingredients);*/
+		attributes.put("newProduct", new Product());
 		model.addAllAttributes(attributes);
 		return "action/coffee";
 	}
 
 	@RequestMapping(value = "/addCoffeShop", method = RequestMethod.POST)
-	public String addCoffeShop(@ModelAttribute CoffeeShop coffeeShop) {
+	public String addCoffeShop(@ModelAttribute Product coffeeShop/*@ModelAttribute CoffeeShop coffeeShop*/) {
 		File serverFile = null;
 		
 		
@@ -193,45 +198,51 @@ public class ActionController {
 		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
 
 		      canvasProvider.finish();
-
-            
+ 
 		  } 
-		
-		
+		 
 		  catch(Exception e)
 		  {
 			  
-		  }
-		 
-		    
-		actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);
-		return "redirect:/action/showCoffeeShop";
+		  }  
+	/*	actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);*/
+		long categorycode=coffeeShop.getServiceItemCategory().getId();
+		actionService.addNewProduct(coffeeShop, serverFile,outputFile);
+		return "redirect:/action/showCoffeeShop?categoryCode="+categorycode+"&serviceCateogy=1";
 	}
 
 	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
-	public String showRestaurant(Model model) {
-
+	public String showRestaurant(Model model,@RequestParam(required=false) String categoryCode,@RequestParam(required=false) long serviceCateogy) {
+		List<ServiceItemCategory> serviceItemCategory = actionService.serviceItemCategory(serviceCateogy);
 		List<Language> languages = languageService.getEnableLanguages();
-		List<RestaurantCategory> restaurantCategory = actionService.restaurantCategory();
+	/*	List<Unit> units = unitService.getAllUnits();
 		List<Ingredient> ingredients = ingredientService.getAllIngredients();
-		List<Unit> units = unitService.getAllUnits();
-		List<HotelServicesItem> getAllRestaurantItems = actionService
-				.getAllRestaurantItems();
-
+*/
+		/*List<HotelServicesItem> getAllcoffeeShops = actionService
+				.getAllCoffeShopItems(); */
+		List<Product> getAllProductWithCategory = actionService
+				.getAllProductWithCategory(categoryCode); 
 		Map<String, Object> attributes = new HashMap<String, Object>();
-
-		Restaurant restaurant = new Restaurant();
-
-		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null;
-		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
+           
+	/*	CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+		Product coffeeShop = new Product();*/
+		/*
 		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
-
-		for (Language language : languages) {
+		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
+*/
+		/* for (Language language : languages) {
 			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
 			coffeeeShopLanguageHelper.setLanguageId(language.getId());
 			coffeeeShopLanguageHelper
 					.setLangageName(language.getLanguageName());
-			restaurant.getLanguageHelper().add(coffeeeShopLanguageHelper);
+			coffeeShop.getLanguageHelper().add(coffeeeShopLanguageHelper);
+		} */
+
+		/*for (Unit unit : units) {
+			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
+			coffeeeShopUnitHelper.setUnitId(unit.getId());
+			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
+			coffeeShop.getUnitHelper().add(coffeeeShopUnitHelper);
 		}
 
 		for (Ingredient ingredient : ingredients) {
@@ -239,30 +250,27 @@ public class ActionController {
 			coffeeeShopIngredientHelper.setIngredientId(ingredient.getId());
 			coffeeeShopIngredientHelper.setIngredientName(ingredient
 					.getIngredientName());
-			restaurant.getIngredientHelper().add(coffeeeShopIngredientHelper);
-		}
-		for (Unit unit : units) {
-			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
-			coffeeeShopUnitHelper.setUnitId(unit.getId());
-			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
-			restaurant.getUnitHelper().add(coffeeeShopUnitHelper);
-		}
-		attributes.put("restaurantCategory", restaurantCategory);
-		attributes.put("restaurant", restaurant);
-		attributes.put("ingredientHelper", ingredients);
-		attributes.put("unitHelper", units);
-		attributes.put("newRestaurantCategory", new RestaurantCategory());
-		attributes.put("languageHelper", languages);
-		attributes.put("getAllRestaurantItems", getAllRestaurantItems);
-
+			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
+		}*/
+		attributes.put("restaurantCategory", serviceItemCategory);
+	/*	attributes.put("getAllcoffeeShops", getAllcoffeeShops);*/
+	/*	attributes.put("coffeShop", coffeeShop);*/
+		 attributes.put("languages", languages);
+		 attributes.put("getAllProductWithCategory", getAllProductWithCategory);
+		/*attributes.put("unitHelper", units);*/
+		attributes.put("newRestaurantCategory", new ServiceItemCategory());
+/*		attributes.put("ingredientHelper", ingredients);*/
+		attributes.put("newProduct", new Product());
 		model.addAllAttributes(attributes);
+	 
 		return "action/restaurant";
 	}
 
 	@RequestMapping(value = "/addRestaurantItems", method = RequestMethod.POST)
-	public String addRestaurantItems(@ModelAttribute Restaurant restaurant) {
+	public String addRestaurantItems(@ModelAttribute Product restaurant) {
+File serverFile = null;
 		
-		File serverFile = null;
+		
 		if (!restaurant.getMultipartFile().isEmpty()) {
 			try {
 				byte[] bytes = restaurant.getMultipartFile().getBytes();
@@ -271,7 +279,8 @@ public class ActionController {
 				String rootPath = System.getProperty("user.home");
 				File dir = new File(rootPath+File.separator+"restaurant");
 				if (!dir.exists())
-					dir.mkdirs(); 
+					dir.mkdirs();
+
 				// Create the file on server
 				serverFile = new File(dir.getAbsolutePath()
 						+ File.separator + new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".jpeg");
@@ -283,57 +292,56 @@ public class ActionController {
 			} catch (Exception e) {
 				
 			}
-		} 
+		}
 		 
 		//Barcode
-				File outputFile =null;
-				try 
-				  {
-				 String barcodeString = restaurant.getServiceItemCode();;
-				    Code128Bean barcode128Bean = new Code128Bean();
-				    
-				    
-				    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
-				    final int dpi = 100;
+		File outputFile =null;
+		try 
+		  {
+		 String barcodeString = restaurant.getServiceItemCode();;
+		    Code128Bean barcode128Bean = new Code128Bean();
+		    
+		    
+		    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+		    final int dpi = 100;
 
-				  //Configure the barcode generator
-				    //adjust barcode width here
-				  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
-				  barcode128Bean.doQuietZone(false);
+		  //Configure the barcode generator
+		    //adjust barcode width here
+		  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+		  barcode128Bean.doQuietZone(false);
 
-				  //Open output file
-				  String rootPath = System.getProperty("user.home");
-					File dir = new File(rootPath+File.separator+"restaurant");
-					if (!dir.exists())
-						dir.mkdirs();
-					 outputFile = new File(dir.getAbsolutePath()
-							+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
-		 		  
-		 			  /*outputFile = new File(dir+"barcode.png");*/
-					OutputStream  out = 
-							new FileOutputStream(outputFile);
-					 
-				  /*File outputFile = new File(dir+"barcode.png");
-				  OutputStream out = new FileOutputStream(outputFile);*/
-					
-				      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
-				              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+		  //Open output file
+		  String rootPath = System.getProperty("user.home");
+			File dir = new File(rootPath+File.separator+"restaurant");
+			if (!dir.exists())
+				dir.mkdirs();
+			 outputFile = new File(dir.getAbsolutePath()
+					+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+ 		  
+ 			  /*outputFile = new File(dir+"barcode.png");*/
+			OutputStream  out = 
+					new FileOutputStream(outputFile);
+			 
+		  /*File outputFile = new File(dir+"barcode.png");
+		  OutputStream out = new FileOutputStream(outputFile);*/
+			
+		      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+		              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
 
-				      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
 
-				      canvasProvider.finish();
-
-		            
-				  } 
-				
-				
-				  catch(Exception e)
-				  {
-					  
-				  }
-				  
-		actionService.addRestaurantItems(restaurant,serverFile,outputFile);
-		return "redirect:/action/showRestaurant";
+		      canvasProvider.finish();
+ 
+		  } 
+		 
+		  catch(Exception e)
+		  {
+			  
+		  }  
+	/*	actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);*/
+		long categorycode=restaurant.getServiceItemCategory().getId();
+		actionService.addNewProduct(restaurant, serverFile,outputFile); 
+		return "redirect:/action/showRestaurant?categoryCode="+categorycode+"&serviceCateogy=6";
 	} 
 	@RequestMapping(value = "/showCheckoutAction", method = RequestMethod.GET)
 	public String showCheckoutAction(Model model) {
@@ -383,86 +391,121 @@ public class ActionController {
 	} 
 	 
 	@RequestMapping(value = "/showCarRentalAction", method = RequestMethod.GET)
-	public String showCarRentalAction(Model model) { 
-		List<CarRentalCategory> carRentaltCategory = actionService.carRentaltCategory();
-        List<Language> languages = languageService.getEnableLanguages(); 
-        List<Unit> units = unitService.getAllUnits();
-    	List<HotelServicesItem> getAllCarRentalItems = actionService
-				.getAllCarRentalItems();
-
-		Map<String, Object> attributes = new HashMap<String, Object>(); 
-		CarRental carRental= new CarRental();
-		
-		CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+	public String showCarRentalAction(Model model,@RequestParam(required=false) String categoryCode,@RequestParam(required=false) long serviceCateogy) {
+		List<ServiceItemCategory> serviceItemCategory = actionService.serviceItemCategory(serviceCateogy);
+		List<Language> languages = languageService.getEnableLanguages();
+	/*	List<Unit> units = unitService.getAllUnits();
+		List<Ingredient> ingredients = ingredientService.getAllIngredients();
+*/
+		/*List<HotelServicesItem> getAllcoffeeShops = actionService
+				.getAllCoffeShopItems(); */
+		List<Product> getAllProductWithCategory = actionService
+				.getAllProductWithCategory(categoryCode); 
+		Map<String, Object> attributes = new HashMap<String, Object>();
+           
+	/*	CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+		Product coffeeShop = new Product();*/
+		/*
 		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
-		for (Language language : languages) {
+		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
+*/
+		/* for (Language language : languages) {
 			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
 			coffeeeShopLanguageHelper.setLanguageId(language.getId());
 			coffeeeShopLanguageHelper
 					.setLangageName(language.getLanguageName());
-			
-			carRental.getLanguageHelper().add(coffeeeShopLanguageHelper);
-		}
-		
-		for (Unit unit : units) {
+			coffeeShop.getLanguageHelper().add(coffeeeShopLanguageHelper);
+		} */
+
+		/*for (Unit unit : units) {
 			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
 			coffeeeShopUnitHelper.setUnitId(unit.getId());
 			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
-			carRental.getUnitHelper().add(coffeeeShopUnitHelper);
+			coffeeShop.getUnitHelper().add(coffeeeShopUnitHelper);
 		}
-		attributes.put("carRentaltCategory", carRentaltCategory);
-		attributes.put("languageHelper", languages);
-		attributes.put("unitHelper", units);
-		attributes.put("newCarRentalCategory", new CarRentalCategory());
-		attributes.put("getAllCarRentalItems", getAllCarRentalItems);
-		attributes.put("newCarRental", new CarRental());
+
+		for (Ingredient ingredient : ingredients) {
+			coffeeeShopIngredientHelper = new CoffeeeShopIngredientHelper();
+			coffeeeShopIngredientHelper.setIngredientId(ingredient.getId());
+			coffeeeShopIngredientHelper.setIngredientName(ingredient
+					.getIngredientName());
+			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
+		}*/
+		attributes.put("carRentaltCategory", serviceItemCategory);
+	/*	attributes.put("getAllcoffeeShops", getAllcoffeeShops);*/
+	/*	attributes.put("coffeShop", coffeeShop);*/
+		 attributes.put("languages", languages);
+		 attributes.put("getAllProductWithCategory", getAllProductWithCategory);
+		/*attributes.put("unitHelper", units);*/
+		attributes.put("newCarRentalCategory", new ServiceItemCategory());
+/*		attributes.put("ingredientHelper", ingredients);*/
+		attributes.put("newProduct", new Product());
 		model.addAllAttributes(attributes);
+	 
 	    return "action/carRental";
 	} 
 
 	@RequestMapping(value = "/showLaundryAction", method = RequestMethod.GET)
-	public String showLaundryAction(Model model) {
-		List<LaundryCategory> laundryCategory = actionService.laundryCategory();
-		  List<Language> languages = languageService.getEnableLanguages(); 
-	        List<Unit> units = unitService.getAllUnits();
-	      	List<HotelServicesItem> getAllLaundryItems = actionService
-					.getAllLaundryItems();
-			Map<String, Object> attributes = new HashMap<String, Object>(); 
-		  Laundry laundry= new Laundry();
-			
-			CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
-			CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
-			for (Language language : languages) {
-				coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
-				coffeeeShopLanguageHelper.setLanguageId(language.getId());
-				coffeeeShopLanguageHelper
-						.setLangageName(language.getLanguageName());
-				
-				laundry.getLanguageHelper().add(coffeeeShopLanguageHelper);
-			}
-			
-			for (Unit unit : units) {
-				coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
-				coffeeeShopUnitHelper.setUnitId(unit.getId());
-				coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
-				laundry.getUnitHelper().add(coffeeeShopUnitHelper);
-			}
-			attributes.put("laundryCategory", laundryCategory);
-			attributes.put("languageHelper", languages);
-			attributes.put("newLundryCategory", new LaundryCategory());
-			attributes.put("unitHelper", units);
-			attributes.put("getAllLaundryItems", getAllLaundryItems);
-			attributes.put("newLaundry", new Laundry());
-			model.addAllAttributes(attributes);
+	public String showLaundryAction(Model model,@RequestParam(required=false) String categoryCode,@RequestParam(required=false) long serviceCateogy) {
+		List<ServiceItemCategory> serviceItemCategory = actionService.serviceItemCategory(serviceCateogy);
+		List<Language> languages = languageService.getEnableLanguages();
+	/*	List<Unit> units = unitService.getAllUnits();
+		List<Ingredient> ingredients = ingredientService.getAllIngredients();
+*/
+		/*List<HotelServicesItem> getAllcoffeeShops = actionService
+				.getAllCoffeShopItems(); */
+		List<Product> getAllProductWithCategory = actionService
+				.getAllProductWithCategory(categoryCode); 
+		Map<String, Object> attributes = new HashMap<String, Object>();
+           
+	/*	CoffeeeShopLanguageHelper coffeeeShopLanguageHelper = null; 
+		Product coffeeShop = new Product();*/
+		/*
+		CoffeeeShopUnitHelper coffeeeShopUnitHelper = null;
+		CoffeeeShopIngredientHelper coffeeeShopIngredientHelper = null;
+*/
+		/* for (Language language : languages) {
+			coffeeeShopLanguageHelper = new CoffeeeShopLanguageHelper();
+			coffeeeShopLanguageHelper.setLanguageId(language.getId());
+			coffeeeShopLanguageHelper
+					.setLangageName(language.getLanguageName());
+			coffeeShop.getLanguageHelper().add(coffeeeShopLanguageHelper);
+		} */
+
+		/*for (Unit unit : units) {
+			coffeeeShopUnitHelper = new CoffeeeShopUnitHelper();
+			coffeeeShopUnitHelper.setUnitId(unit.getId());
+			coffeeeShopUnitHelper.setUnitName(unit.getUnitName());
+			coffeeShop.getUnitHelper().add(coffeeeShopUnitHelper);
+		}
+
+		for (Ingredient ingredient : ingredients) {
+			coffeeeShopIngredientHelper = new CoffeeeShopIngredientHelper();
+			coffeeeShopIngredientHelper.setIngredientId(ingredient.getId());
+			coffeeeShopIngredientHelper.setIngredientName(ingredient
+					.getIngredientName());
+			coffeeShop.getIngredientHelper().add(coffeeeShopIngredientHelper);
+		}*/
+		attributes.put("laundryCategory", serviceItemCategory);
+	/*	attributes.put("getAllcoffeeShops", getAllcoffeeShops);*/
+	/*	attributes.put("coffeShop", coffeeShop);*/
+		 attributes.put("languages", languages);
+		 attributes.put("getAllProductWithCategory", getAllProductWithCategory);
+		/*attributes.put("unitHelper", units);*/
+		attributes.put("newLundryCategory", new ServiceItemCategory());
+/*		attributes.put("ingredientHelper", ingredients);*/
+		attributes.put("newProduct", new Product());
+		model.addAllAttributes(attributes);
         return "action/laundry";
 	}
 	
 	
 	
 	@RequestMapping(value = "/addCarRentalItem", method = RequestMethod.POST)
-	public String addCarRentalItem(@ModelAttribute CarRental carRental) {
+	public String addCarRentalItem(@ModelAttribute Product carRental) {
+File serverFile = null;
 		
-		File serverFile = null;
+		
 		if (!carRental.getMultipartFile().isEmpty()) {
 			try {
 				byte[] bytes = carRental.getMultipartFile().getBytes();
@@ -484,10 +527,8 @@ public class ActionController {
 			} catch (Exception e) {
 				
 			}
-		} 
-		
-		
-		
+		}
+		 
 		//Barcode
 		File outputFile =null;
 		try 
@@ -524,25 +565,28 @@ public class ActionController {
 
 		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
 
-		      canvasProvider.finish(); 
-            
+		      canvasProvider.finish();
+ 
 		  } 
-		
-		
+		 
 		  catch(Exception e)
 		  {
 			  
-		  } 
-		actionService.addCarRentalItem(carRental,serverFile,outputFile);
-		return "redirect:/action/showCarRentalAction";
+		  }  
+	/*	actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);*/
+		long categorycode=carRental.getServiceItemCategory().getId();
+		actionService.addNewProduct(carRental, serverFile,outputFile); 
+		return "redirect:/action/showCarRentalAction?categoryCode="+categorycode+"&serviceCateogy=7";
+		 
 	}
 
 	
 
 	@RequestMapping(value = "/addLaundryItem", method = RequestMethod.POST)
-	public String addLaundryItem(@ModelAttribute Laundry laundry) {
+	public String addLaundryItem(@ModelAttribute Product laundry) {
+File serverFile = null;
 		
-		File serverFile = null;
+		
 		if (!laundry.getMultipartFile().isEmpty()) {
 			try {
 				byte[] bytes = laundry.getMultipartFile().getBytes();
@@ -564,57 +608,57 @@ public class ActionController {
 			} catch (Exception e) {
 				
 			}
-		} 
-		
-		
+		}
+		 
 		//Barcode
-				File outputFile =null;
-				try 
-				  {
-				 String barcodeString = laundry.getServiceItemCode();;
-				    Code128Bean barcode128Bean = new Code128Bean();
-				    
-				    
-				    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
-				    final int dpi = 100;
+		File outputFile =null;
+		try 
+		  {
+		 String barcodeString = laundry.getServiceItemCode();;
+		    Code128Bean barcode128Bean = new Code128Bean();
+		    
+		    
+		    barcode128Bean.setCodeset(Code128Constants.CODESET_B);
+		    final int dpi = 100;
 
-				  //Configure the barcode generator
-				    //adjust barcode width here
-				  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
-				  barcode128Bean.doQuietZone(false);
+		  //Configure the barcode generator
+		    //adjust barcode width here
+		  barcode128Bean.setModuleWidth(UnitConv.in2mm(1.0f / dpi)); 
+		  barcode128Bean.doQuietZone(false);
 
-				  //Open output file
-				  String rootPath = System.getProperty("user.home");
-					File dir = new File(rootPath+File.separator+"Laundry");
-					if (!dir.exists())
-						dir.mkdirs();
-					 outputFile = new File(dir.getAbsolutePath()
-							+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
-		 		  
-		 			  /*outputFile = new File(dir+"barcode.png");*/
-					OutputStream  out = 
-							new FileOutputStream(outputFile);
-					 
-				  /*File outputFile = new File(dir+"barcode.png");
-				  OutputStream out = new FileOutputStream(outputFile);*/
-					
-				      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
-				              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+		  //Open output file
+		  String rootPath = System.getProperty("user.home");
+			File dir = new File(rootPath+File.separator+"Laundry");
+			if (!dir.exists())
+				dir.mkdirs();
+			 outputFile = new File(dir.getAbsolutePath()
+					+ File.separator +"barcode"+ new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date())+".png");
+ 		  
+ 			  /*outputFile = new File(dir+"barcode.png");*/
+			OutputStream  out = 
+					new FileOutputStream(outputFile);
+			 
+		  /*File outputFile = new File(dir+"barcode.png");
+		  OutputStream out = new FileOutputStream(outputFile);*/
+			
+		      BitmapCanvasProvider canvasProvider = new BitmapCanvasProvider(
+		              out, "image/x-png", dpi, BufferedImage.TYPE_BYTE_BINARY, false, 0);
 
-				      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
+		      barcode128Bean.generateBarcode(canvasProvider,barcodeString);
 
-				      canvasProvider.finish(); 
-		            
-				  } 
-				 
-				  catch(Exception e)
-				  {
-					  
-				  } 
-		
-		
-		actionService.addLaundryItem(laundry,serverFile,outputFile);
-		return "redirect:/action/showLaundryAction";
+		      canvasProvider.finish();
+ 
+		  } 
+		 
+		  catch(Exception e)
+		  {
+			  
+		  }  
+	/*	actionService.addCoffeeShop(coffeeShop, serverFile,outputFile);*/
+		long categorycode=laundry.getServiceItemCategory().getId();
+		actionService.addNewProduct(laundry, serverFile,outputFile); 
+		return "redirect:/action/showLaundryAction?categoryCode="+categorycode+"&serviceCateogy=5";
+		  
 	}
    
 	@RequestMapping(value = "/showReception", method = RequestMethod.GET)
@@ -636,26 +680,26 @@ public class ActionController {
 	} 
 	
 	@RequestMapping(value="/addCoffeeShopCategory", method=RequestMethod.POST)
-	public String addCoffeeShopCategory(@ModelAttribute CoffeeShopCategory coffeeShopCategory) {
-		 actionService.addCoffeeShopCategory(coffeeShopCategory);
-		return "redirect:/action/showCoffeeShop";
+	public String addCoffeeShopCategory(@ModelAttribute ServiceItemCategory serviceItemCategory) {
+		 actionService.addServiceItemCategory(serviceItemCategory); 
+		return "redirect:/action/showCoffeeShop?categoryCode=&serviceCateogy=1";
 	}
 
 	@RequestMapping(value="/addRestaurantCategory", method=RequestMethod.POST)
-	public String addRestaurantCategory(@ModelAttribute RestaurantCategory restaurantCategory) {
-		 actionService.addRestaurantCategory(restaurantCategory);
-		return "redirect:/action/showRestaurant";
+	public String addRestaurantCategory(@ModelAttribute ServiceItemCategory serviceItemCategory) {
+		 actionService.addServiceItemCategory(serviceItemCategory);
+		return "redirect:/action/showRestaurant?categoryCode=&serviceCateogy=6";
 	}
 	
 	@RequestMapping(value="/addLaundryCategory", method=RequestMethod.POST)
-	public String addLaundryCategory(@ModelAttribute LaundryCategory laundryCategory) {
-		 actionService.addLaundryCategory(laundryCategory);
-		return "redirect:/action/showLaundryAction";
+	public String addLaundryCategory(@ModelAttribute ServiceItemCategory serviceItemCategory) {
+		 actionService.addServiceItemCategory(serviceItemCategory);
+			return "redirect:/action/showLaundryAction?categoryCode=&serviceCateogy=5";
 	}
 	
 	@RequestMapping(value="/addCarRentalCategory", method=RequestMethod.POST)
-	public String addCarRentalCategory(@ModelAttribute CarRentalCategory carRentalCategory) {
-		 actionService.addCarRentalCategory(carRentalCategory);
-		return "redirect:/action/showCarRentalAction";
+	public String addCarRentalCategory(@ModelAttribute ServiceItemCategory serviceItemCategory) {
+		 actionService.addServiceItemCategory(serviceItemCategory);
+			return "redirect:/action/showCarRentalAction?categoryCode=&serviceCateogy=7";
 	}
 }

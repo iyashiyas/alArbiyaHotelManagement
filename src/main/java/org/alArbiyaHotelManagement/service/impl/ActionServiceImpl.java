@@ -9,10 +9,11 @@ import org.alArbiyaHotelManagement.dto.Laundry;
 import org.alArbiyaHotelManagement.dto.Restaurant;
 import org.alArbiyaHotelManagement.model.Action; 
 import org.alArbiyaHotelManagement.model.CarRentalCategory;
-import org.alArbiyaHotelManagement.model.CoffeeShopCategory;
+import org.alArbiyaHotelManagement.model.ServiceItemCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesCategory;
 import org.alArbiyaHotelManagement.model.HotelServicesItem; 
 import org.alArbiyaHotelManagement.model.LaundryCategory;
+import org.alArbiyaHotelManagement.model.Product;
 import org.alArbiyaHotelManagement.model.RestaurantCategory;
 import org.alArbiyaHotelManagement.repository.ActionRepository;
 import org.alArbiyaHotelManagement.service.ActionService;
@@ -30,9 +31,9 @@ public class ActionServiceImpl implements ActionService {
 	}
 	@Override
 	public Action addCoffeeShop(CoffeeShop coffeeShop, File file,File outputFile) {
-		HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(coffeeShop.getHotelServiceCategoryId()));
+	 HotelServicesCategory hotelServicesCategory = actionRepository.getHotelServicesCategory(Long.parseLong(coffeeShop.getHotelServiceCategoryId()));
 		HotelServicesItem hotelServices = AlArbiyaHotelMgmtUtils.toHotelService(coffeeShop, hotelServicesCategory);
-		hotelServices.setImageUrlName(file.getName()); 
+	 	hotelServices.setImageUrlName(file.getName()); 
 		hotelServices.setBarCodeImageUrlName(outputFile.getName()); 
 		
 		actionRepository.hotelService(hotelServices);
@@ -120,37 +121,39 @@ public class ActionServiceImpl implements ActionService {
 		actionRepository.UpdateReceptionServiceStatus(hotelServicesCategory); 
 	}
 	@Override
-	public void addCoffeeShopCategory(CoffeeShopCategory coffeeShopCategory) {
+	public void addServiceItemCategory(ServiceItemCategory coffeeShopCategory) {
 		// TODO Auto-generated method stub
-		if(coffeeShopCategory.getCoffeeShopCategoryStatus()==null) {
-			coffeeShopCategory.setCoffeeShopCategoryStatus("DISABLED");
+		if(coffeeShopCategory.getServiceItemCategoryStatus()==null) {
+			coffeeShopCategory.setServiceItemCategoryStatus("DISABLED");
 		}
-		actionRepository.addCoffeeShopCategory(coffeeShopCategory);
+		actionRepository.addServiceItemCategory(coffeeShopCategory);
 	}
-	@Override
-	public void addRestaurantCategory(RestaurantCategory restaurantCategory) {
+	
+	/*@Override
+	public void addRestaurantCategory(ServiceItemCategory restaurantCategory) {
 		// TODO Auto-generated method stub
-		if(restaurantCategory.getRestaurantCategoryStatus()==null) {
-			restaurantCategory.setRestaurantCategoryStatus("DISABLED");
+		if(restaurantCategory.getServiceItemCategoryStatus()==null) {
+			restaurantCategory.setServiceItemCategoryStatus("DISABLED");
 		}
 		actionRepository.addRestaurantCategory(restaurantCategory);
 	}
 	@Override
-	public void addLaundryCategory(LaundryCategory laundryCategory) {
+	public void addLaundryCategory(ServiceItemCategory laundryCategory) {
 		// TODO Auto-generated method stub
-		if(laundryCategory.getLaundryCategoryStatus()==null) {
-			laundryCategory.setLaundryCategoryStatus("DISABLED");
+		if(laundryCategory.getServiceItemCategoryStatus()==null) {
+			laundryCategory.setServiceItemCategoryStatus("DISABLED");
 		}
 		actionRepository.addLaundryCategory(laundryCategory);
 	}
 	@Override
-	public void addCarRentalCategory(CarRentalCategory carRentalCategory) {
+	public void addCarRentalCategory(ServiceItemCategory carRentalCategory) {
 		// TODO Auto-generated method stub
-		if(carRentalCategory.getCarRenatalCategoryName()==null) {
-			carRentalCategory.setCarRenatalCategoryStatus("DISABLED");
+		if(carRentalCategory.getServiceItemCategoryStatus()==null) {
+			carRentalCategory.setServiceItemCategoryStatus("DISABLED");
 		}
 		actionRepository.addCarRentalCategory(carRentalCategory);
-	}
+	}*/
+	
 	@Override
 	public List<LaundryCategory> laundryCategory() {
 		// TODO Auto-generated method stub
@@ -168,9 +171,21 @@ public class ActionServiceImpl implements ActionService {
 		return actionRepository.restaurantCategory();
 	}
 	@Override
-	public List<CoffeeShopCategory> coffeeShopCategory() {
+	public List<ServiceItemCategory> serviceItemCategory(long serviceCateogy) {
 		// TODO Auto-generated method stub
-		return actionRepository.coffeeShopCategory();
+		return actionRepository.serviceItemCategory(serviceCateogy);
+	}
+	@Override
+	public void addNewProduct(Product coffeeShop, File serverFile,
+			File outputFile) {
+		coffeeShop.setImageUrlName(serverFile.getName());
+		coffeeShop.setBarCodeImageUrlName(outputFile.getName());
+		actionRepository.addNewProduct(coffeeShop);
+	}
+	@Override
+	public List<Product> getAllProductWithCategory(String categoryCode) {
+		// TODO Auto-generated method stub
+		return actionRepository.getAllProductWithCategory(categoryCode);
 	}
 	 
 }

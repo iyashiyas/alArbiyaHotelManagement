@@ -8,8 +8,11 @@ import java.util.Date;
 import java.util.List;
  
 
+
+
 import org.alArbiyaHotelManagement.model.HouseKeeping;
  
+import org.alArbiyaHotelManagement.model.NotificationDeliveryBoy;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
@@ -248,6 +251,18 @@ public class OrderServiceImpl implements OrderService {
 		  readyForDelivery.setStatus("ACCEPTREQUEST");
 		return orderRepository.deliveryBoyAccept(readyForDelivery,orderId);
 		 
+	}
+
+	@Override
+	public List<NotificationDeliveryBoy> getNotificationDeliveryBoy(String name) {
+		// TODO Auto-generated method stub
+		return orderRepository.getNotificationDeliveryBoy(name);
+	}
+
+	@Override
+	public void updateNotificationsDeliveryBoy(String name) {
+		orderRepository.updateNotificationsDeliveryBoy(name);
+		
 	}
 
 	 

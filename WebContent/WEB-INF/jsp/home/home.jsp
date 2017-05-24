@@ -43,8 +43,7 @@
 			
 			<div class="raw animated fadeInRight"> 
 				<!-- Chart 000-->
-				<sec:authorize
-					access="hasAnyRole('ROLE_PLAYEROVERVIEW','ROLE_ADMIN')">
+				<sec:authorize access="hasAnyRole('ROLE_PLAYEROVERVIEW','ROLE_ADMIN')">
 					<div class="col-lg-4">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">

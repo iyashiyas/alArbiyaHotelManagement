@@ -13,8 +13,6 @@
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <link   href="<c:url value="/resources/css/select/select2.css"/>"
 	rel="stylesheet">
- 
-
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
 	rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
@@ -31,50 +29,57 @@
 		rel="stylesheet">
 	<link href="<c:url value="/resources/css/rtl/style-rtl.css"/>"
 		rel="stylesheet">
-<link id=""
+ </c:if> --%><link id=""
 	href="<c:url value="/resources/css/dataTables/datatables.min.css"/>"
 	rel="stylesheet"> 
-	</c:if> --%>
+	
+	<style>
+	 .fade {
+   opacity: 0;
+   -webkit-transition: opacity 0.05s linear;
+      -moz-transition: opacity 0.05s linear;
+       -ms-transition: opacity 0.05s linear;
+        -o-transition: opacity 0.05s linear;
+           transition: opacity 0.05s linear;
+ }
+	</style>
+	
 <title>SHMS-CoffeeShop-Order</title>
 </head>
 <body>
 	<!-- Include Page Header-->
 	<div id="wrapper">
+	<%-- 	<jsp:include page="../header/header.jsp"></jsp:include> --%>
 		<div id="page-wrapper" class="gray-bg">
 			<!-- Page Contents -->
 			<!-- Page Heading -->
 			<div class="row wrapper border-bottom white-bg page-heading">
-				<%-- <div class="col-lg-9">
+				<div class="col-lg-9">
 					<h2>
-						<spring:message code="label.Order" />
+						<spring:message code="label.coffeeShopScreeen" />
 					</h2>
 					<ol class="breadcrumb">
-						<li><a href="${pageContext.request.contextPath}/"><spring:message
-									code="label.Home" /></a></li>
-						<li class="active"><strong><spring:message
-									code="label.Order" /></strong></li>
+						<li><a href="${pageContext.request.contextPath}/"><spring:message code="label.Home" /></a></li>
+						<li class="active"><strong><spring:message code="label.coffeeShopScreeen" /></strong></li>
 					</ol>
-				</div> --%>
+				</div>
 			</div>
-			<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="wrapper wrapper-content ">
+			 
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
-							<div class="ibox-title">
+						 <div class="ibox-title">
 								<h3 class="text-center ">
-									<label class="label label-primary"> Coffee Shop Screen
-									</label>
-								</h3>
-								<form
-									action="${pageContext.request.contextPath}/<c:url value="j_spring_security_logout" />"
-									method="post">
-									<button type="submit" class="btn btn-primary">
+									<label class="label label-primary"><spring:message code="label.coffeeShopScreeen" /> </label>
+								</h3> 
+									<a href="${pageContext.request.contextPath}/SHMS" class="btn btn-primary">
 										<i class="fa fa-sign-out"></i>
-										<spring:message code="label.Logout" />
-									</button>
+										<spring:message code="label.Back" />
+									</a>
 									<input type="hidden" name="${_csrf.parameterName}"
 										value="${_csrf.token}" />
-								</form>
+								 
 							</div>
 							<div class="ibox-content">
 								<div class="table-responsive">
@@ -82,14 +87,10 @@
 									<table
 										class="table table-striped table-bordered table-hover dataTables-example"
 										id="orderTable">
-										<thead>
+									<thead>
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th>
-												<th><spring:message code="label.ItemName" /></th>
-												<th><spring:message code="label.Unit" /></th>
-												<th><spring:message code="label.Ingredient" /></th>
-												<th><spring:message code="label.Quantity" /></th>
 												<th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
 												<th><spring:message code="label.ReadyForDelivery" /></th>
@@ -100,25 +101,18 @@
 											<!-- Fetching Language Table-->
 											<c:forEach items="${orders}" var="orders">
 												<tr class="gradeX" id="${orders.id}">
-													<td class="center">${orders.id}</td>
+
+													<td class="center"><a class="btn btn-primary" href="#orderItems${orders.id}"
+														data-toggle="modal">${orders.id}</a>
+                                                    </td>
 													<td class="center">${orders.room.roomCode}</td>
-													<td class="center">${orders.hotelServicesItem.serviceItemName}</td>
-													<td class="center"><c:forEach items="${orders.unit}"
-															var="units">
-													${units.unitName}
-													</c:forEach></td>
-													<td><c:forEach items="${orders.ingredients}"
-															var="ingredients">
-													${ingredients.ingredientName}
-													</c:forEach></td>
-													<td class="center">${orders.quantity}</td>
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"><sec:authorize
 															access="hasAnyRole('ROLE_COFFEESHOP_ACCEPTORDER','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.acceptTime == null}">
 																	<a
-																		href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}"
+																		href="${pageContext.request.contextPath}/order/coffeeShopacceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=OrderCoffeeShop"
 																		class="btn btn-success"><spring:message
 																			code="label.AcceptRequest" /></a>
 																</c:when>
@@ -132,7 +126,10 @@
 															access="hasAnyRole('ROLE_COFFEESHOP_READYFORDELIVERY','ROLE_ADMIN')">
 															<c:choose>
 																<c:when test="${orders.readyForDeliveryTime == null}">
-																	<a href="#" id="readyForDeliverys" data-toggle="modal"  data-target="#assignToDelivery" data-href="coffeeShopreadyForDelivery?id= ${orders.id}&roomName=${orders.room.roomCode}&roomId=${orders.room.id}" class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message
+																	<a href="#" id="readyForDeliverys" data-toggle="modal"
+																		data-target="#assignToDelivery"
+																		data-href="coffeeShopreadyForDelivery?id= ${orders.id}&roomName=${orders.room.roomCode}&roomId=${orders.room.id}"
+																		class="btn ${orders.acceptTime==null ? 'disabled' : 'btn-success' } "><spring:message
 																			code="label.ReadyForDelivery" /></a>
 																</c:when>
 																<c:otherwise>
@@ -207,73 +204,117 @@
 					</div>
 				</div>
 			</div>
-			 <div class="modal fade" id="assignToDelivery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"> 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel"><spring:message code="label.ConfirmSubmit" /></h4>
-                </div> 
-                <div class="modal-body"> 
-								<div class="form-group">
-									<label class="col-sm-4 control-label"> <spring:message
-											code="label.SelectDeliveryBoy" /></label>
-									<div class="col-sm-8">
-										<select id="e1" name="parkingId">
-											<option value="0">SELECT DELIVERY BOY</option>
-											<c:forEach items="${deliveryBoy}" var="deliveryBoy">
-												<option value="${deliveryBoy.username}">${deliveryBoy.username}
-												</option>
-											</c:forEach>
-											</select>
-											</div>
-									 </div>			
-			 </div>
-    
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
-                    <a class="btn btn-danger btn-oks"><spring:message code="label.ConfirmSubmit" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
+			<div class="modal fade" id="assignToDelivery" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">
+								<spring:message code="label.ConfirmSubmit" />
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-4 control-label"> <spring:message
+										code="label.SelectDeliveryBoy" /></label>
+								<div class="col-sm-8">
+									<select id="e1" name="parkingId">
+										<option value="0">SELECT DELIVERY BOY</option>
+										<c:forEach items="${deliveryBoy}" var="deliveryBoy">
+											<option value="${deliveryBoy.username}">${deliveryBoy.username}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+						</div>
 
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">
+								<spring:message code="label.Cancel" />
+							</button>
+							<a class="btn btn-danger btn-oks"><spring:message
+									code="label.ConfirmSubmit" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<div class="details">
+<c:forEach items="${orders}" var="orders">
+
+  <div class="modal fade" id="orderItems${orders.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<form class="form-horizontal" action="" method="post">
+																		<div class="modal-header">
+																			<spring:message code="label.order.orderDetails" />
+																		</div>
+																		<div class="modal-body">
+																			<table id="datatable"
+																				class="table table-striped table-bordered table-hover dataTables-example">
+																				<thead>
+																					<tr>
+																						<th><spring:message code="label.OrderID" /></th>
+																						<th><spring:message code="label.OrderItems" /></th>
+																						<th><spring:message code="label.Quantity" /></th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<!-- Fetching Language Table-->
+																					<c:forEach items="${orders.newOrderDetails}"
+																						var="newOrderDetails" varStatus="loop">
+																						<tr class="gradeX">
+
+																							<td class="center">${newOrderDetails.id}</td>
+																							<td class="center">
+																								${newOrderDetails.product.serviceItemName}</td>
+																							<td class="center">${newOrderDetails.quantity}
+																							</td>
+																						</tr>
+																					</c:forEach>
+
+																					<!-- Demo -->
+																					<!--End Action -->
+																			</table>
+
+
+																		</div>
+																		<div class="modal-footer">
+																			<button type="button" class="btn btn-default"
+																				data-dismiss="modal">
+																				<spring:message code="label.Close" />
+																			</button>
+
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+														
+														</c:forEach></div>
+ 
 		</div>
 	</div>
-
-	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
-	<%-- <script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script> --%>
-
-	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
-	<script src="<c:url value="/resources/js/navbar.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
-	<!-- Custom and plugin javascript -->
-	<script src="<c:url value="/resources/js/inspinia.js" />"></script>
-	<script src="<c:url value="/resources/js/plugins/pace/pace.min.js"/>"></script>
-	<!-- iCheck -->
-	<script
-		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
-	<!-- Date Time Picker -->
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
+ 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
+ <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 	<script src="<c:url value="/resources/js/header/header.js"/>"></script>
-	<script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js"/>"></script>
+	<script
+		src="<c:url value="/resources/js/plugins/dataTables/jquery.dataTables.min.js"/>"></script>
 
- 
-	<script src="<c:url value="/resources/js/datatablecustom.js" />"
+
+	  <script src="<c:url value="/resources/js/plugins/dataTables/datatables.min.js" />"
 		type="text/javascript">  
-	</script>
- 
-	<script src="<c:url value="/resources/js/order/coffeeShopOrder.js" />"></script>
-	
-		<script src="<c:url value="/resources/js/plugins/select/select2.js"/>"></script> 
-	
+	</script>  
+
+	<script src="<c:url value="/resources/js/order/orderCoffeeShopNew.js" />"></script>
+
+	<script src="<c:url value="/resources/js/plugins/select/select2.js"/>"></script>
+
 	<script type="text/javascript">
 	 
 function refresh()
@@ -281,7 +322,8 @@ function refresh()
 	window.location.reload();
 }
 </script>
-
  
+ 
+
 </body>
 </html>

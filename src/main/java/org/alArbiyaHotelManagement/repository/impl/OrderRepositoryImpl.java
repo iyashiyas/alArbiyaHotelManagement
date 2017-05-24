@@ -3,13 +3,19 @@ package org.alArbiyaHotelManagement.repository.impl;
  
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
   
  
+
+
+
+
 import org.alArbiyaHotelManagement.model.HouseKeeping;
 import org.alArbiyaHotelManagement.model.Notification;
+import org.alArbiyaHotelManagement.model.NotificationDeliveryBoy;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
@@ -79,6 +85,13 @@ public class OrderRepositoryImpl implements OrderRepository{
 		readyForDelivery.setDeliveryBoyName(deliveryBoyName);
 		readyForDelivery.setStatus("READYFORDELIVERY");
 		this.entityManager.persist(readyForDelivery);
+		
+		NotificationDeliveryBoy notification = new NotificationDeliveryBoy();
+		notification.setOrderId(order.getId());
+		notification.setRoomId(roomId); 
+		notification.setReadStatus(ReadStatus.UNREAD.name());
+		notification.setDeliveryBoyName(deliveryBoyName);
+		this.entityManager.persist(notification);
 		 
 	}
 	@Override
@@ -115,8 +128,8 @@ public class OrderRepositoryImpl implements OrderRepository{
 	@Override
 	public List<Orders> coffeeShopScreen(String minushour) {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1'  order by id desc", Orders.class);
-	 /*query.setParameter("minuts", minushour); */
+		Query query = entityManager.createQuery("SELECT order from Orders order where order.hotelServiceCategories='1' and order.deliveredTime = null or order.deliveredTime >= :minuts      order by id desc", Orders.class);
+	 query.setParameter("minuts", minushour);  
 		return query.getResultList();
 	}
 	@SuppressWarnings("unchecked")
@@ -306,7 +319,25 @@ public class OrderRepositoryImpl implements OrderRepository{
 		query.setParameter("status",ReadStatus.UNREAD.name());
 		query.executeUpdate();
 		
+		Query query1 = entityManager.createQuery("Update NotificationDeliveryBoy set readStatus='RED' where orderId=:orderId");
+		query1.setParameter("orderId", orderId);
+		query1.executeUpdate(); 
 		return readyForDelivery;
+		
+	}
+	@Override
+	public List<NotificationDeliveryBoy> getNotificationDeliveryBoy(String name) {
+		// TODO Auto-generated method stub
+		Query query = entityManager.createQuery("SELECT NotificationDeliveryBoy from NotificationDeliveryBoy NotificationDeliveryBoy where readStatus='UNREAD' and deliveryBoyName=:name", NotificationDeliveryBoy.class);
+		query.setParameter("name", name);
+		return query.getResultList();
+	}
+	
+	@Override
+	public void updateNotificationsDeliveryBoy(String name) {
+		Query query = entityManager.createQuery("Update NotificationDeliveryBoy set readStatus='RED' where name=:name");
+		query.setParameter("name", name);
+		query.executeUpdate();
 	}
 	 
 }

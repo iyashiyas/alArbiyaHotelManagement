@@ -3,6 +3,7 @@ package org.alArbiyaHotelManagement.repository;
 import java.util.List;
 
 import org.alArbiyaHotelManagement.model.HouseKeeping;
+import org.alArbiyaHotelManagement.model.NotificationDeliveryBoy;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
@@ -46,6 +47,8 @@ public interface OrderRepository {
 	public void accpethouseKeepingRequest(long id, long roomId,
 			String serviceItemName, String roomName, String deliveryBoyName,
 			HouseKeeping houseKeeping);
+	public List<NotificationDeliveryBoy> getNotificationDeliveryBoy(String name);
+	public void updateNotificationsDeliveryBoy(String name);
  
 	
 }

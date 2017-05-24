@@ -17,8 +17,7 @@ $(document)
 																data,
 																function(i,
 																		Orders) {
-																	$(
-																			'#orderTable > tbody')
+																	$('#orderTable > tbody')
 																			.append(
 																					'<tr><td>'
 																							+ Orders.id

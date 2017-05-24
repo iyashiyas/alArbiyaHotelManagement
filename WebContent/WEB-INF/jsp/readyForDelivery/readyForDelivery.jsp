@@ -57,6 +57,13 @@
 			</ul>
 
 		</nav>
+		  <div class="row" id="notifications" style="margin:auto;padding-top:145px;">
+    <div class="col-md-4 col-md-offset-5">
+     <div class="well well-lg">
+  <div id="message" ></div>
+  </div> 
+    </div>
+</div>
     <div class="table-responsive">
 
 									<table
@@ -93,7 +100,7 @@
 														 	<label class="label label-default"><spring:message code="label.Delivered" /> </label>
 														</c:if>  
 												</td>
-												<td> <input type="button" value="Click Me" onClick="print(${orders.orderId},${orders.roomName})" />
+												<td> <input type="button" value="Print" onClick="print(${orders.orderId},${orders.roomName})" />
 												</td>
 												</tr> 
 												</c:forEach>
@@ -141,6 +148,9 @@
             </div>
         </div>
     </div>
+ <!-- Notification Start Here -->
+ 
+ 
  
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js"/>"></script>
 	<%-- <script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script> --%>
@@ -195,5 +205,71 @@ JSInterface.changeActivity();
      Android.print(orderId,roomNumber);
     }
 </script>
+
+	  <script type="text/javascript">
+		 
+		  var audio = document.getElementById('denied');
+	$(document).ready(function() {
+		/*  var audioElement = document.createElement('audio');
+		    audioElement.setAttribute('src', '/alArbiyaHotelManagement/images/notify.MP3'); 
+		    audioElement.load();
+		    $.get();  */
+		 $("#notifications").hide();
+		setInterval(function() {
+			var message = "";
+			$.ajax({
+		        type:'GET',
+		        contentType: "application/json",
+		        url:'/alArbiyaHotelManagement/order/getNotificationDeliveryBoy',
+		        dataType: "json",
+		        success: function(data){ 
+		        	if(data.length==0) { 
+		        		 $("#notifications").hide(); 
+		        		$("#message").html("")
+		        	} else {
+		        	/* 	 audioElement.play(); */
+		         /*   audio.play();   */ 
+		         
+		                 Android.alertNotify();    
+		         /* 
+		        		 $("#notifications").show(); 
+		        		message = "Your order for name "
+		    	        	$.each(data, function (i, notification) {
+		    	        		message += notification.serviceItemName+" ,";
+		    	        	});
+		    	        	message += " was accepted will delivered quickly <br>"
+		    	        	message += "<input id='updateNotification' class='btn btn-success btn-lg col-md-offset-5' type='button' value='Ok'>";
+		    	        	$("#message").html("")
+		    	        	
+		    	        	$("#message").html(message); */
+		        	}
+		        	
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		}, 5000)
+		
+		$('body').on('click', "#updateNotification", function() {
+			 $("#notifications").hide();
+			$.ajax({
+		        type:'POST',
+		        contentType: "application/json",
+		        url:'/alArbiyaHotelManagement/order/updateNotificationsDeliveryBoy',
+		        dataType: "json",
+		        success: function(data){  
+		        	$("#message").html("")
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		})
+	})
+	
+	</script>
 </body>
 </html>

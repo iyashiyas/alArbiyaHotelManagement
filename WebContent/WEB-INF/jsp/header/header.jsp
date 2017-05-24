@@ -1,4 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+r<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%> 
  <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -126,16 +126,16 @@
 							href="${pageContext.request.contextPath}/action/showHouseKeepingAction"><spring:message
 									code="label.HouseKeeping" /></a></li></sec:authorize>
 					 <sec:authorize access="hasAnyRole('ROLE_SHOWLAUNDRYACTION','ROLE_ADMIN')">	<li><a
-							href="${pageContext.request.contextPath}/action/showLaundryAction"><spring:message
+							href="${pageContext.request.contextPath}/action/showLaundryAction?categoryCode=&serviceCateogy=5"><spring:message
 									code="label.Laundry" /></a></li></sec:authorize>
 						 <sec:authorize access="hasAnyRole('ROLE_SHOWCOFFEESHOP','ROLE_ADMIN')"><li><a
-							href="${pageContext.request.contextPath}/action/showCoffeeShop"><spring:message
+							href="${pageContext.request.contextPath}/action/showCoffeeShop?categoryCode=&serviceCateogy=1"><spring:message
 									code="label.CoffeeShop" /></a></li></sec:authorize>
 					 <sec:authorize access="hasAnyRole('ROLE_SHOWRESTAURANT','ROLE_ADMIN')">	<li><a
-							href="${pageContext.request.contextPath}/action/showRestaurant"><spring:message
+							href="${pageContext.request.contextPath}/action/showRestaurant?categoryCode=&serviceCateogy=6"><spring:message
 									code="label.Restaurant" /></a></li></sec:authorize>
 						 <sec:authorize access="hasAnyRole('ROLE_SHOWCARRENTAL','ROLE_ADMIN')"><li><a
-							href="${pageContext.request.contextPath}/action/showCarRentalAction"><spring:message
+							href="${pageContext.request.contextPath}/action/showCarRentalAction?categoryCode=&serviceCateogy=7"><spring:message
 									code="label.CarRental" /></a></li></sec:authorize>
 						 <sec:authorize access="hasAnyRole('ROLE_SHOWRECEPTION','ROLE_ADMIN')"><li><a
 							href="${pageContext.request.contextPath}/action/showReception"><spring:message
@@ -256,12 +256,9 @@
 		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
 
 	<!-- Date Time Picker -->
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
-		<script
-		src="<c:url value="/resources/js/header/header.js"/>"></script>
+	<script src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js"/>"></script>
+	 <script src="<c:url value="/resources/js/header/header.js"/>"></script>
 	<!-- Full Screen Mode js -->
 	<!-- Jvectormap -->
 	<%-- <script
@@ -278,6 +275,29 @@
 				src="<c:url value="/resources/js/plugins/flot/jquery.flot.resize.js" />"></script>
 			--%>
 			
- 
+   <script type="text/javascript"> 
+		  var audio = document.getElementById('denied');
+	$(document).ready(function() { 
+		setInterval(function() {
+			var message = "";
+			$.ajax({
+		        type:'GET',
+		        contentType: "application/json",
+		        url:'/alArbiyaHotelManagement/order/getNotificationDeliveryBoy',
+		        dataType: "json",
+		        success: function(data){ 
+		        	if(data.length==0) {  
+		        	} else {
+		         Android.alertNotify();    
+		          } 
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		}, 5000); });
+	</script>
+	
 </body>
 </html>

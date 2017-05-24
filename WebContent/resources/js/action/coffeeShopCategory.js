@@ -9,8 +9,8 @@ $(function() {
 						currentEntry.clone()).appendTo(controlForm);
 
 				newEntry.find('input').val('');
-				newEntry.find('input').attr('name',"coffeeShopCategoryLanguages[" + unitLangugaeCount+ "].coffeeShopCategoryLanguageName")
-				newEntry.find('select').attr('name',"coffeeShopCategoryLanguages[" + unitLangugaeCount + "].language.id")
+				newEntry.find('input').attr('name',"serviceItemCategoryLanguage[" + unitLangugaeCount+ "].serviceItemCategoryLanguageName")
+				newEntry.find('select').attr('name',"serviceItemCategoryLanguage[" + unitLangugaeCount + "].language.id")
 				controlForm.find('.entry:not(:last) .btn-add')
 					.removeClass('btn-add')
 					.addClass('btn-remove')

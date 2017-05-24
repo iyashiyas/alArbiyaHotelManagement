@@ -14,17 +14,18 @@
 </head>
 <body> 
 	<form:form class="form-horizontal" action="${pageContext.request.contextPath}/action/addRestaurantItems?${_csrf.parameterName}=${_csrf.token}"
-		modelAttribute="restaurant" method="post" 	enctype="multipart/form-data">
+		modelAttribute="newProduct" method="post" 	enctype="multipart/form-data">
 		<p><spring:message code="label.AddRestaurantItemsHere" /></p>
-		<input type="hidden" name="hotelServiceCategoryId" value="6" />
+	 
+			<input type="hidden" name="hotelServicesCategory.hotelServicesCategoryId" value="6"/> 
 		<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.Categories" /></label>
 
 					<div class="col-sm-10">
-						<form:select class="form-control m-b" name="category"
-							path="category">
+						<form:select class="form-control m-b" name="serviceItemCategory.id"
+							path="serviceItemCategory.id">
 							  <c:forEach items="${restaurantCategory}" var="restaurantCategory">
-							<form:option value="${restaurantCategory.restaurantCategoryName}">${restaurantCategory.restaurantCategoryName}</form:option>
+							<form:option value="${restaurantCategory.id}">${restaurantCategory.serviceItemCategoryName}</form:option>
 						    </c:forEach>
 						</form:select>
 					</div>
@@ -38,44 +39,43 @@
 							name="serviceItemCode" path="serviceItemCode" class="form-control" />
 					</div>
 				</div> 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><spring:message code="label.ItemName" /></label>
-             
-			<div class="col-sm-10">
-				<form:input type="text" required="required" path="itemName" placeholder="ItemName"
-					name="itemName" class="form-control" />
-			</div>
-		</div>
-
-		
+				
+				
 				<div class="form-group">
-					<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
-					<div class="col-sm-10">
-						<div class="controls-coffeeLanguage">
+					<label class="col-sm-2 control-label"><spring:message code="label.ItemName" /></label>
 
-                     	<div class="entry-coffeeLanguage input-group ">
-								
-								<form:select class="form-control m-b select" id="drp"
-									path="languageHelper[0].languageId" name="languageHelper[0].languageId" style="width:30%;">
-								 
-									<form:options items="${languageHelper}" itemValue="id"
-										itemLabel="languageName"></form:options>
-								</form:select>
-								
-								<form:input class="form-control" type="text"
-									name="languageName[0]" path="languageName[0]"
-									placeholder="Enter Name" style="width: 40%; margin-left: 10px;" />
-								<span class="input-group-btn">
-									<button class="btn btn-primary coffeShopLanguage-btn-add"
-										type="button">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</span>
-							</div>
-						</div>
+					<div class="col-sm-10">
+						<form:input type="text" required="required" placeholder="ItemName" name="serviceItemName"
+							path="serviceItemName" class="form-control" />
 					</div>
-				</div>
-						 <div class="form-group">
+				</div> 
+					<div class="form-group">
+										<label class="col-sm-2 control-label"><spring:message code="label.OtherLanguages" /></label>
+										<div class="col-sm-10">
+											<div class="controls">
+												<div class="entry input-group ">
+													<form:select class="form-control m-b select" id="drp"
+														path="serviceLanguages[0].language.id" name="serviceLanguages[0].language.id" style="width:30%;">
+													 
+														<form:options items="${languages}" itemValue="id"
+															itemLabel="languageName"></form:options>
+													</form:select>
+													<form:input class="form-control" type="text"
+														name="serviceLanguages[0].hotelServiceLanguageName"
+														path="serviceLanguages[0].hotelServiceLanguageName"
+														placeholder="Enter Name"
+														style="width:40%;margin-left: 10px;" />
+													<span class="input-group-btn">
+														<button class="btn btn-primary btn-add" type="button">
+															<span class="glyphicon glyphicon-plus"></span>
+														</button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+  
+ <%--  <div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectIngredientAndPrice" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeIngredients">
@@ -101,8 +101,7 @@
 						</div>
 					</div>
 				</div> 
-					 
-						<div class="form-group">
+				<div class="form-group">
 					<label class="col-sm-2 control-label"><spring:message code="label.SelectUnitAndPrice" /></label>
 					<div class="col-sm-10">
 						<div class="controls-coffeeShopUnits">
@@ -110,7 +109,8 @@
 								  <form:select class="form-control" style="width: 30%;" name="unitHelper[0].unitId" path="unitHelper[0].unitId">
 								<form:options items="${unitHelper}" itemValue="id"
 										itemLabel="unitName"></form:options>
-								</form:select> 
+								</form:select>
+								 
 								<form:input class="form-control" type="number"
 									placeholder="Enter Price"
 									style="width: 40%; margin-left: 10px;" name="unitPrice[0]"
@@ -124,34 +124,48 @@
 							</div>
 						</div>
 					</div>
+				</div>   --%>
+				
+    <div class="form-group">
+					<label class="col-sm-2 control-label">Price</label> 
+					<div class="col-sm-10">
+						<form:input type="text" placeholder="Price"
+							name="amount" path="amount" class="form-control" />
+					</div>
 				</div> 
-						 
-					<div class="form-group">
-			<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
+				
+				   <div class="form-group">
+					<label class="col-sm-2 control-label">Discount</label> 
+					<div class="col-sm-10">
+						<form:input type="text" placeholder="Price"
+							name="discount" path="discount" class="form-control" />
+					</div>
+				</div> 
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> <spring:message code="label.Description" /></label>
 
-			<div class="col-sm-10">
-				<form:input type="text" path="description" placeholder="Description"
-					name="description" class="form-control" />
-			</div>
-		</div>
+					<div class="col-sm-10">
+						<form:input type="text" placeholder="Description"
+							name="serviceItemDescription" path="serviceItemDescription" class="form-control" />
+					</div>
+				</div> 
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> <spring:message code="label.Image" /></label>
 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"> <spring:message code="label.Image" /></label>
- 
 					<div class="col-sm-10">
 						<input type="file" placeholder="Image"
 							name="multipartFile" class="form-control">
 					</div>
-		</div>
+				</div>  
+				<div class="form-group">
+					<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><spring:message code="label.Status" /> </label>
-
-			<div class="col-sm-10">
-				<form:checkbox id="checkbox1" value="ENABLED" checked="checked"  name="status" path="status" />
-				<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
-			</div>
-		</div>
+					<div class="col-sm-10">
+					 <form:checkbox id="checkbox1"  value="ENABLED" checked="checked"  name="serviceItemStatus" path="serviceItemStatus" />  
+						<label for="checkbox1"> <spring:message code="label.Enable" /> </label>
+					</div>
+				</div>
 
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-8">

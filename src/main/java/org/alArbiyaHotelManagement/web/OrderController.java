@@ -3,9 +3,11 @@ package org.alArbiyaHotelManagement.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-  
+   
+
 import org.alArbiyaHotelManagement.model.Booking;
 import org.alArbiyaHotelManagement.model.HouseKeeping;
+import org.alArbiyaHotelManagement.model.NotificationDeliveryBoy;
 import org.alArbiyaHotelManagement.model.Orders;
 import org.alArbiyaHotelManagement.model.Parking;
 import org.alArbiyaHotelManagement.model.ParkingOrder;
@@ -16,9 +18,9 @@ import org.alArbiyaHotelManagement.service.BookingService;
 import org.alArbiyaHotelManagement.service.OrderService;
 import org.alArbiyaHotelManagement.service.ParkingService;
 import org.alArbiyaHotelManagement.service.UserManagementService;
- 
- 
+  
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -122,8 +124,9 @@ public class OrderController {
 	 //end Restaurant Order
 		 
 		// Coffee Shop
-		@RequestMapping(value="/coffeeShopScreenOrder", method=RequestMethod.GET)
-		public @ResponseBody List<Orders> coffeeShopScreenOrder() { 
+		@RequestMapping(value="/coffeeShopScreenOrder", method=RequestMethod.GET,produces = "application/json")
+		@ResponseBody
+		public List<Orders> coffeeShopScreenOrder() { 
 			return orderService.coffeeShopScreen();
 		}
 		
@@ -380,4 +383,20 @@ public class OrderController {
 					  orderService.delivered(order,id);
                       return "redirect:/order/houseKeepingdeliveryScreen";
 					}  
+				   
+					@RequestMapping(value="getNotificationDeliveryBoy",method=RequestMethod.GET)
+					public @ResponseBody List<NotificationDeliveryBoy> getNotificationDeliveryBoy() {
+						  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); 
+						List<NotificationDeliveryBoy> notifications = orderService.getNotificationDeliveryBoy(name);
+						return notifications;
+					}
+					
+					@RequestMapping(value="updateNotificationsDeliveryBoy", method=RequestMethod.POST)
+					public @ResponseBody String updateNotificationsDeliveryBoy() { 
+						 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					      String name = auth.getName(); 
+						orderService.updateNotificationsDeliveryBoy(name);
+						return "Ok";
+					}
 }

@@ -15,14 +15,18 @@
 			<div class="ibox-title">
 				<h5><spring:message code="label.Categories" /> <sec:authorize access="hasAnyRole('ROLE_CARRENTAL_NEWCATEGORY','ROLE_ADMIN')"> -  <a href="#addcarRentalCategory-Modal" data-toggle="modal" ><spring:message code="label.NewCategory" /></a></sec:authorize></h5>
 			 </div> 
-			<div class="ibox-content ">
+		  
+                        	 <div class="ibox-content ">
                             <ul class="folder-list m-b-md nav metismenu" style="padding: 0">
                               <c:forEach items="${carRentaltCategory}" var="carRentaltCategory">
-                                <li ><a>${carRentaltCategory.carRenatalCategoryName}</a></li> 
+                                <li ><a href="${pageContext.request.contextPath}/action/showCarRentalAction?categoryCode=${carRentaltCategory.id}&serviceCateogy=7" >${carRentaltCategory.serviceItemCategoryName}</a></li> 
                            </c:forEach>
                                  </ul>
                              <div class="clearfix"></div>
                         </div>
+                        
+                        
+                        
                     </div>
                 </div>
         

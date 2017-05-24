@@ -61,7 +61,7 @@ public class AlArbiyaHotelMgmtUtils {
 	}
 	
 	public static HotelServicesItem toHotelService(CoffeeShop coffeeShop, HotelServicesCategory hotelServicesCategory) {
-		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		/*HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(coffeeShop.getItemName());
 		hotelServicesItem.setServiceItemDescription(coffeeShop.getDescription());
 		hotelServicesItem.setServiceItemCode(coffeeShop.getServiceItemCode());
@@ -118,7 +118,7 @@ public class AlArbiyaHotelMgmtUtils {
 			serviceLanguage.setHotelServicesItem(hotelServicesItem); 
 			serviceLanguage.setHotelServiceLanguageName(languageHelper.getLangageName());
 			   
-			/*serviceLanguage.setLanguage(languageHelper.getLanguageId().get(i));*/
+			serviceLanguage.setLanguage(languageHelper.getLanguageId().get(i));
 			serviceLanguages.add(serviceLanguage);
 			i++;
 		}
@@ -127,12 +127,13 @@ public class AlArbiyaHotelMgmtUtils {
 		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
 		hotelServiceParentGroups.add(parentServicesGroup);
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
-		return hotelServicesItem;
+		return hotelServicesItem;*/
+		return null;
 	}
 
 	 
 	public static HotelServicesItem toHotelServiceRestaurant(Restaurant restaurant, HotelServicesCategory hotelServicesCategory) {
-		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		/*HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(restaurant.getItemName());
 		hotelServicesItem.setServiceItemCode(restaurant.getServiceItemCode());
 		hotelServicesItem.setServiceItemDescription(restaurant.getDescription());
@@ -202,11 +203,12 @@ public class AlArbiyaHotelMgmtUtils {
 		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
 		hotelServiceParentGroups.add(parentServicesGroup);
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
-		return hotelServicesItem;
+		return hotelServicesItem;*/
+		return null;
 	}
 	  
 	public static HotelServicesItem toHotelServiceCareRental(CarRental carRental, HotelServicesCategory hotelServicesCategory) {
-		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		/*HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(carRental.getItemName());
 		hotelServicesItem.setServiceItemCode(carRental.getServiceItemCode());
 		hotelServicesItem.setServiceItemDescription(carRental.getDescription());
@@ -261,12 +263,13 @@ public class AlArbiyaHotelMgmtUtils {
 		List<HotelServicesGroup> hotelServiceParentGroups = new ArrayList<HotelServicesGroup>();
 		hotelServiceParentGroups.add(parentServicesGroup);
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
-		return hotelServicesItem;
+		return hotelServicesItem;*/
+		return null;
 	}
  
 	
 	public static HotelServicesItem toHotelServiceLaundry(Laundry laundry, HotelServicesCategory hotelServicesCategory) {
-		HotelServicesItem hotelServicesItem = new HotelServicesItem();
+		/*HotelServicesItem hotelServicesItem = new HotelServicesItem();
 		hotelServicesItem.setServiceItemName(laundry.getItemName());
 		hotelServicesItem.setServiceItemDescription(laundry.getDescription());
 		hotelServicesItem.setServiceItemCode(laundry.getServiceItemCode());
@@ -284,7 +287,7 @@ public class AlArbiyaHotelMgmtUtils {
 		
 		HotelServicesGroup childServicesGroup = new HotelServicesGroup();
 		childServicesGroup.setServiceGroupName(HotelServicesChildCategory.GENERAL.name());
-		/*childServicesGroup.setHotelServicesItem(hotelServicesItem);*/
+		childServicesGroup.setHotelServicesItem(hotelServicesItem);
 		
 		List<HotelServicesValue> hotelServicesValues = new ArrayList<HotelServicesValue>();
 		int i=0;
@@ -323,7 +326,9 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServiceParentGroups.add(parentServicesGroup);
 		hotelServicesItem.setHotelServiceParentGroups(hotelServiceParentGroups);
 		return hotelServicesItem;
-	}
+	}*/
 	// Image Upload
+		return null;
 	 
+}
 }

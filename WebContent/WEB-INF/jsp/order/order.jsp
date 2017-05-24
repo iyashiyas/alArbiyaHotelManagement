@@ -57,12 +57,8 @@
 										class="table table-striped table-bordered table-hover dataTables-example">
 										<thead>
 											<tr>
-												<%-- <th><spring:message code="label.OrderID" /></th> --%>
-												<th><spring:message code="label.OrderRoom" /></th>
-											    <th><spring:message code="label.ItemName" /></th>
-												<th><spring:message code="label.Unit" /></th>
-												<th><spring:message code="label.Ingredient" /></th>
-												<th><spring:message code="label.Quantity" /></th>
+											<th><spring:message code="label.OrderID" /></th> 
+												<th><spring:message code="label.OrderRoom" /></th> 
 												<th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
 												<th><spring:message code="label.ReadyForDelivery" /></th>
@@ -74,32 +70,73 @@
 
 											<c:forEach items="${orders}" var="orders">
 											
-												<tr class="gradeX">
+												<tr class="gradeX hotelServiceItem">
 												
-												<%-- 	<td class="center">${orders.id}</td> --%>
+												 	<td class="center showOrderForm" ><a href="#orderItems${orders.id}" data-toggle="modal">${orders.id}</a>
+												 	
+												 	
+												 	
+												 									 	
+				  <div class="modal fade .orderItemss" id="orderItems${orders.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<form class="form-horizontal" action="" method="post">
+								<div class="modal-header">
+									<spring:message code="label.order.orderDetails" />
+								</div>
+								<div class="modal-body"> 
+										<table id="datatab"
+											class="table table-striped table-bordered table-hover dataTables-example">
+											<thead>
+												<tr>
+													<th><spring:message code="label.OrderID" /></th>
+													<th><spring:message code="label.OrderItems" /></th>
+													<th><spring:message code="label.Quantity" /></th> 
+												</tr>
+											</thead>
+											<tbody> 
+												<!-- Fetching Language Table-->
+                                               <c:forEach items="${orders.newOrderDetails}" var="newOrderDetails" varStatus="loop">
+												<tr class="gradeX">
+
+													<td class="center">${newOrderDetails.id}</td>
+													<td class="center"> ${newOrderDetails.product.serviceItemName}</td>
+													<td class="center">${newOrderDetails.quantity} </td>  
+												</tr>
+												</c:forEach>
+
+												<!-- Demo -->
+												<!--End Action -->
+										</table>
+									 
+ 
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">
+										<spring:message code="label.Close" />
+									</button>
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div> 
+												 	
+												 	</td>  
+												 	 
+												 	<!-- Order Details -->
+												 	 
+												 	<!-- Order Details Finished -->
+												 	 
 													<td class="center">${orders.room.roomCode}</td>
-													<td class="center">${orders.hotelServicesItem.serviceItemName}</td>
-													<td class="center">
-													 
-													<c:forEach items="${orders.unit}" var="units">
-													${units.unitName}
-													</c:forEach> 
-													</td>
-													
-													<td>
-													<c:forEach items="${orders.ingredients}" var="ingredients">
-													${ingredients.ingredientName}
-													</c:forEach>
-													
-													</td> 
-													<td class="center">${orders.quantity}</td>
-													
+													   
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"> 
 													
 													<sec:authorize access="hasAnyRole('ROLE_ACCEPTORDER','ROLE_ADMIN')"><c:choose>
 													<c:when test="${orders.acceptTime == null}">
-					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=${orders.hotelServicesItem.serviceItemName}" class="btn btn-success">Accept Request</a>
+					                                  <a href="${pageContext.request.contextPath}/order/acceptOrder?id=${orders.id}&roomId=${orders.room.id}&serviceItemName=COffeeOrder" class="btn btn-success">Accept Request</a>
 													 </c:when>
 													 <c:otherwise>
 													 <label class="label label-primary">
@@ -170,60 +207,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="modal fade" id="assign_to_room" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<form class="form-horizontal" action="" method="post">
-								<div class="modal-header">
-									<spring:message code="label.order.orderDetails" />
-								</div>
-								<div class="modal-body">
-
-									<div class="table-responsive">
-										<table id="datatab"
-											class="table table-striped table-bordered table-hover dataTables-example">
-											<thead>
-												<tr>
-													<th><spring:message code="label.OrderID" /></th>
-													<th><spring:message code="label.OrderItems" /></th>
-													<th><spring:message code="label.Ingredients" /></th>
-													<th><spring:message code="label.Quantity" /></th>
-													<th><spring:message code="label.Price" /></th>
-
-												</tr>
-											</thead>
-											<tbody> 
-												<!-- Fetching Language Table-->
-
-												<tr class="gradeX">
-
-													<td class="center">1</td>
-													<td class="center">Item Name</td>
-													<td class="center">Sub Items</td>
-													<td class="center">1</td>
-													<td class="center">100sar/-</td>
- 
-												</tr>
-
-												<!-- Demo -->
-												<!--End Action -->
-										</table>
-									</div>
- 
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">
-										<spring:message code="label.Close" />
-									</button>
-
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
+				 
 			</div>
 		</div>
 	</div> 
@@ -235,12 +219,25 @@
 		type="text/javascript"> 
 	</script>
 	<script type='text/javascript'
-		src="<c:url value="/resources/js/modal_language.js" />"> 
-	</script>
-$(document).ready(function() {
- $('.dataTables-example').dataTable( {
-    "order": [[0, 'desc' ]
-    });
+		src="<c:url value="/resources/js/modal_language.js" />"> </script>
+		
+		<!-- <script type="text/javascript">
+		$('.showOrderForm').click(function() {
+
+			/* var $parent = $(this).parents('.hotelServiceItem')
+ */
+			$('.orderItems').modal({
+				backdrop : 'static',
+				keyboard : true,
+				show : true
+			});
+		});
+	</script> -->
+		
+		
+		
+
 
 </body>
+
 </html>

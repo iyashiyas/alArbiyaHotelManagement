@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="HOTEL_SERVICES_GROUP")
+/*@Entity
+@Table(name="HOTEL_SERVICES_GROUP")*/
 public class HotelServicesGroup {
 	
 	@Id @GeneratedValue 
@@ -55,7 +55,7 @@ public class HotelServicesGroup {
 		return hotelServicesItem;
 	}
 
-	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
+/*	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
 		this.hotelServicesItem = hotelServicesItem;
 		if(hotelServicesItem.getHotelServiceParentGroups()!=null && !hotelServicesItem.getHotelServiceParentGroups().contains(this)) {
 			hotelServicesItem.getHotelServiceParentGroups().add(this);
@@ -64,12 +64,12 @@ public class HotelServicesGroup {
 
 	public List<HotelServicesValue> getHotelServicesValues() {
 		return hotelServicesValues;
-	}
+	}*/
 
 	public void addHotelServicesValues(HotelServicesValue hotelServicesValue) {
 		this.hotelServicesValues.add(hotelServicesValue);
 		if(hotelServicesValue.getHotelServicesGroup() != this) {
-			hotelServicesValue.setHotelServicesGroup(this);
+			/*hotelServicesValue.setHotelServicesGroup(this);*/
 		}
 	}
 	

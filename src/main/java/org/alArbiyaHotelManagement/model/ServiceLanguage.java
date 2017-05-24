@@ -25,7 +25,8 @@ public class ServiceLanguage {
 	private Language language;
 	
 	@ManyToOne
-	private HotelServicesItem hotelServicesItem;
+	@JoinColumn(name="SERVICE_ITEM_ID", nullable=true)
+	private Product hotelServicesItem;
 
 	public long getId() {
 		return id;
@@ -51,11 +52,11 @@ public class ServiceLanguage {
 		this.language = language;
 	}
 
-	public HotelServicesItem getHotelServicesItem() {
+	public Product getHotelServicesItem() {
 		return hotelServicesItem;
 	}
 
-	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
+	public void setHotelServicesItem(Product hotelServicesItem) {
 		this.hotelServicesItem = hotelServicesItem;
 		if (hotelServicesItem.getServiceLanguages()!=null && !hotelServicesItem.getServiceLanguages().contains(this)) {
 			hotelServicesItem.getServiceLanguages().add(this);

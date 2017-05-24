@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
  
 
-@Entity
-@Table(name="HOTEL_SERVICES_CATEGORY")
+ @Entity
+@Table(name="HOTEL_SERVICES_CATEGORY") 
 public class HotelServicesCategory {
 
 	@Id @GeneratedValue 
@@ -34,8 +34,8 @@ public class HotelServicesCategory {
 	@Column(name="SERVICE_CATEGORY_ICON_NAME")
 	private String serviceCategoryIconName;
 	
-	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
-	private List<HotelServicesItem> hotelServicesItems;
+/*	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+	private List<HotelServicesItem> hotelServicesItems;*/
 	 
  
 	public long getHotelServicesCategoryId() {
@@ -78,7 +78,7 @@ public class HotelServicesCategory {
 		this.serviceCategoryIconName = serviceCategoryIconName;
 	}
 
-	public List<HotelServicesItem> getHotelServicesItems() {
+/*	public List<HotelServicesItem> getHotelServicesItems() {
 		return hotelServicesItems;
 	}
 
@@ -91,6 +91,6 @@ public class HotelServicesCategory {
 	
 	public void setHotelServicesItems(List<HotelServicesItem> hotelServicesItems) {
 		this.hotelServicesItems = hotelServicesItems;
-	}
+	}*/
 	
 }

@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="HOTEL_SERVICES_VALUES")
+/*@Entity
+@Table(name="HOTEL_SERVICES_VALUES")*/
 public class HotelServicesValue {
 	
 	@Id @GeneratedValue 
@@ -76,11 +76,11 @@ public class HotelServicesValue {
 		return hotelServicesGroup;
 	}
 
-	public void setHotelServicesGroup(HotelServicesGroup hotelServicesGroup) {
+	/*public void setHotelServicesGroup(HotelServicesGroup hotelServicesGroup) {
 		this.hotelServicesGroup = hotelServicesGroup;
 		if(hotelServicesGroup.getHotelServicesValues() != null && !hotelServicesGroup.getHotelServicesValues().contains(this)) {
 			hotelServicesGroup.getHotelServicesValues().add(this);
 		}
-	}
+	}*/
 	
 }

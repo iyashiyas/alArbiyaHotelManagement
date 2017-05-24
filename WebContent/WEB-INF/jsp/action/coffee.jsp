@@ -67,7 +67,7 @@
 									</thead>
 
 									<tbody>
-									<c:forEach items="${getAllcoffeeShops}" var="coffeeShop">
+								 <c:forEach items="${getAllProductWithCategory}" var="coffeeShop">
 										<tr class=" ">
 											<td>${coffeeShop.id}</td>
 											<td><c:out value="${coffeeShop.serviceItemName}" /></td>
@@ -76,7 +76,7 @@
 											<td> <sec:authorize access="hasAnyRole('ROLE_COFFEESHOP_EDIT','ROLE_ADMIN')"><i class="fa fa-pencil"><a>Edit</a></i></sec:authorize></td>
 
 										</tr>
-										</c:forEach>
+										</c:forEach>  
 									</tbody>
 								</table>
 							</div>

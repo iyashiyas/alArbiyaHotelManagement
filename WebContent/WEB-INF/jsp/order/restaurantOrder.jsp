@@ -11,10 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
-	rel="stylesheet">
-	<link   href="<c:url value="/resources/css/select/select2.css"/>"
-	rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+<link  href="<c:url value="/resources/css/select/select2.css"/>" rel="stylesheet">
 <link id="loadBefore" href="<c:url value="/resources/css/common.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.css" />"
@@ -83,11 +81,7 @@
 											<tr>
 												<th><spring:message code="label.OrderID" /></th>
 												<th><spring:message code="label.OrderRoom" /></th>
-												<th><spring:message code="label.ItemName" /></th>
-												<th><spring:message code="label.Unit" /></th>
-												<th><spring:message code="label.Ingredient" /></th>
-												<th><spring:message code="label.Quantity" /></th>
-												<th><spring:message code="label.RequestTime" /></th>
+											 	<th><spring:message code="label.RequestTime" /></th>
 												<th><spring:message code="label.AcceptRequest" /></th>
 												<th><spring:message code="label.ReadyForDelivery" /></th>
 												<th><spring:message code="label.Delivered" /></th>
@@ -98,18 +92,59 @@
 											<!-- Fetching Language Table-->
 											<c:forEach items="${orders}" var="orders">
 												<tr class="gradeX" id="${orders.id}">
-													<td class="center">${orders.id}</td>
+													<td class="center"><a href="#orderItems${orders.id}" data-toggle="modal">${orders.id}</a>
+													 	 	
+				  <div class="modal fade .orderItemss" id="orderItems${orders.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<form class="form-horizontal" action="" method="post">
+								<div class="modal-header">
+									<spring:message code="label.order.orderDetails" />
+								</div>
+								<div class="modal-body"> 
+										<table id="datatab"
+											class="table table-striped table-bordered table-hover dataTables-example">
+											<thead>
+												<tr>
+													<th><spring:message code="label.OrderID" /></th>
+													<th><spring:message code="label.OrderItems" /></th>
+													<th><spring:message code="label.Quantity" /></th> 
+												</tr>
+											</thead>
+											<tbody> 
+												<!-- Fetching Language Table-->
+                                               <c:forEach items="${orders.newOrderDetails}" var="newOrderDetails" varStatus="loop">
+												<tr class="gradeX">
+
+													<td class="center">${newOrderDetails.id}</td>
+													<td class="center"> ${newOrderDetails.product.serviceItemName}</td>
+													<td class="center">${newOrderDetails.quantity} </td>  
+												</tr>
+												</c:forEach>
+
+												<!-- Demo -->
+												<!--End Action -->
+										</table>
+									 
+ 
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">
+										<spring:message code="label.Close" />
+									</button>
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div> 
+													
+													
+													
+													</td>
 													<td class="center">${orders.room.roomCode}</td>
-													<td class="center">${orders.hotelServicesItem.serviceItemName}</td>
-													<td class="center"><c:forEach items="${orders.unit}"
-															var="units">
-													${units.unitName}
-													</c:forEach></td>
-													<td><c:forEach items="${orders.ingredients}"
-															var="ingredients">
-													${ingredients.ingredientName}
-													</c:forEach></td>
-													<td class="center">${orders.quantity}</td>
+													  
 													<td class="center">${orders.requestedTime}</td>
 													<td class="center"><sec:authorize
 															access="hasAnyRole('ROLE_RESTAURANT_ACCEPTORDER','ROLE_ADMIN')">
